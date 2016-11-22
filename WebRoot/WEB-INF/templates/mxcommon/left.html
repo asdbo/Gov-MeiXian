@@ -1,0 +1,68 @@
+<!-- 梅县左边部分 -->
+<div class="mx-left">
+			<div class="mx-title"><a href="" style="color: white;">走进梅县</a></div>
+			<ul>
+				<li>
+					<div >
+						<span>&nbsp;&nbsp;梅县概况</span> <div class="mx-more" style="margin-top: -10px;border: none;"><a href="javascript:void" >-</a></div>
+					</div>
+					<ul class="mx-ul">
+						<li><a href="">梅县概况</a></li>
+						<li><a href="">行政区域</a></li>
+						<li><a href="">自然地理</a></li>
+						<li><a href="">美图美景</a></li>
+					</ul>
+				</li>
+				<li>
+					<div >
+						<span>&nbsp;&nbsp;梅县概况</span> <div class="mx-more" style="margin-top: -10px;border: none;"><a href="javascript:void" >-</a></div>
+					</div>
+					<ul class="mx-ul">
+						<li><a href="">梅县概况</a></li>
+						<li><a href="">行政区域</a></li>
+						<li><a href="">自然地理</a></li>
+						<li><a href="">美图美景</a></li>
+					</ul>
+				</li>
+				<li>
+					<div >
+						<span>&nbsp;&nbsp;梅县概况</span> <div class="mx-more" style="margin-top: -10px;border: none;"><a href="javascript:void" >-</a></div>
+					</div>
+					<ul class="mx-ul">
+						<li><a href="">梅县概况</a></li>
+						<li><a href="">行政区域</a></li>
+						<li><a href="">自然地理</a></li>
+						<li><a href="">美图美景</a></li>
+					</ul>
+				</li>
+				<li>
+					<div >
+						<span>&nbsp;&nbsp;梅县概况</span> <div class="mx-more" style="margin-top: -10px;border: none;"><a href="javascript:void" >-</a></div>
+					</div>
+					<ul class="mx-ul">
+						<li><a href="">梅县概况</a></li>
+						<li><a href="">行政区域</a></li>
+						<li><a href="">自然地理</a></li>
+						<li><a href="">美图美景</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			
+/*梅县导航收缩*/
+
+$(".mx-more a").click(function(){
+    var val= $(this).html();
+    if(val=="-"){
+        $(this).html("+");
+        $(this).parent().parent().next(".mx-ul").hide("slow");
+    }else if(val=="+"){
+        $(this).html("-");
+        $(this).parent().parent().next(".mx-ul").show("slow");
+    }
+    return false;
+});
+
+
+		</script>

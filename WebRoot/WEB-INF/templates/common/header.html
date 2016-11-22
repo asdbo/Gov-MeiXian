@@ -1,0 +1,85 @@
+<!DOCTYPE html >
+<html><head><meta charset="UTF-8">
+    <title>广东省网上办事大厅-梅州分厅</title>
+  <script>
+	function _searchItem(url, obj) {
+		document.all.pageNumber.value = '1';
+		obj.action = url;
+		obj.submit();
+	}
+
+	function _createWorkflow(businessCode, subCode, subname, flowid,hot) {
+			var timestamp = Date.parse(new Date());
+	
+		/*window.location.href = '/portal/onlineservice/online-service!prompt.action?businesscode='
+			+ businessCode
+			+ '&subcode='
+			+ subCode
+			+ '&subname='
+			+ subname
+			+ '&flowid=' + flowid;*/
+		window.open('/portal/approve/create-workflow.action?businesscode='+businessCode+'&subcode='+subCode+'&flowid='+flowid+'&hot='+hot+'&timestamp='+timestamp);
+	
+	}
+	
+	function linkByTypeId(sxlx,areacode){
+		var url = '/portal/onlineservice/online-service!findByAppItemId.action?id=7408&code=000033&areacode='+areacode;
+		if(sxlx!=undefined && sxlx!=''){
+			url += '&sxlx='+sxlx;
+		}
+		window.location.href = url; 
+	}
+</script></head>
+	
+
+	<body>
+		<form id='mainForm' name='mainForm' action='http://mjwsbs.meizhou.gov.cn/portal/onlineservice/online-service.action' method='post'>
+			<input type='hidden' name='id' id='id' value='7408'>
+			<input type='hidden' name='code' id='code' value='000033'>
+			<input type='hidden' name='sxlx' id='sxlx' value=''>
+			<input type='hidden' name='globalSearch' id='globalSearch'>  <!-- 标记是否全局搜索 -->
+			<div class='wrap'>
+				<!--header开始-->
+<link type='text/css' rel='stylesheet' href='${public}/css/base.css'>
+<link type='text/css' rel='stylesheet' href='${public}/css/css.css'>
+<link type='text/css' rel='stylesheet' href='${public}/css/wsbs.css'>
+
+<script type='text/javascript'>
+<!--
+function loginout(){
+	var url = '/portal/index/o-auth-client!exitlogin.action';//'/portal/login/login!exitlogin.action';
+	if(confirm('您确定要注销吗?')){
+		window.location.href=url;
+	}
+}
+//-->
+
+// 发起请求
+function forwardAuth(){
+    //若重定向地址含有多个参数，使用英文逗号','将参数隔开；示例如下：
+	var redirectUrl = 'http://wsbs.meizhou.gov.cn/portal/index/o-auth-client.action';
+	//对url进行编码，否则如果使用反向代理则会无法重定向
+	redirectUrl = escape(redirectUrl);
+	window.location.href= 'http://tyrz.gdbs.gov.cn/am/oauth2/authorize?service=initService&response_type=code&client_id=gdbsmeizhou&scope=all&client_secret=mz151106&redirect_uri='+redirectUrl;
+}
+// 返回省厅
+function shengting(){
+var amUrl = 'http://tyrz.gdbs.gov.cn/am';
+var tokenid=$('input[name=tokenid]').val();
+var accessToken=$('input[name=accessToken]').val();
+var params ={'tokenId':tokenid,'amUrl':amUrl};
+$.ajax({
+       type:'post',//请求方式  
+       url:'/portal/index!randomSvt.action',//发送请求地址   
+       data:params,  
+       //请求成功后的回调函数有两个参数  
+       success:function(random){     
+       window.open('http://www.gdbs.gov.cn/portal/home.seam?gdbsTokenId='+tokenid+'&gdbsAccessToken='+accessToken+'&gdbsRandom='+random,'_blank');
+       void(0);
+   	},
+   	error:function(){
+   		alert('产生随机数数失败');
+   	}  
+});		
+}
+</script>

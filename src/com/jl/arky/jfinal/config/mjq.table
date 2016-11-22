@@ -1,0 +1,166 @@
+//channel  标题
+CREATE TABLE `channel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` char(180) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `type` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+insert  into `channel`(`id`,`title`,`pid`,`type`) values (1,'首页',0,0),(2,'走进梅江',0,0),(3,'梅江动态',0,0),(4,'民生事实',2,0),(6,'事件发生',0,0);
+
+
+//news  新闻 
+create table news(
+	id int primary key auto_increment not null,
+	cid int not null comment "栏目id",
+	title char(240) not null comment "新闻标题",
+	content mediumtext not null comment "内容",
+	time  INT UNSIGNED not null comment "时间(秒)",
+	attach char(240) not null comment "附件下载链接",
+	aid int not null comment "发布人id",
+	looks int not null comment "浏览次数",
+	video char(240) not null comment "视频播放链接"
+);
+
+//news  将time unsignint 改为bigint
+CREATE TABLE news(
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	cid INT NOT NULL COMMENT "栏目id",
+	title CHAR(240) NOT NULL COMMENT "新闻标题",
+	content MEDIUMTEXT NOT NULL COMMENT "内容",
+	TIME BIGINT NOT NULL ,
+	attach CHAR(240) NOT NULL COMMENT "附件下载链接",
+	aid INT NOT NULL COMMENT "发布人id",
+	looks INT NOT NULL COMMENT "浏览次数",
+	video CHAR(240) NOT NULL COMMENT "视频播放链接"
+);
+
+
+
+//carousel  轮播
+create table carousel(
+	id int primary key auto_increment not null,
+	link char(240) not null comment "图片链接",
+	sortid int not null comment "排序id",
+	title char(240) not null comment "标题"
+)
+)
+
+
+
+//admin 管理员
+CREATE TABLE `admin` (
+  `id` INT(11)  NOT NULL AUTO_INCREMENT,
+  `regtime` BIGINT  NOT NULL DEFAULT 0,
+  `logintime` BIGINT  NOT NULL DEFAULT 0,
+  `username` CHAR(240) NOT NULL,
+  `password` CHAR(240) NOT NULL,
+  `name` CHAR(240) NOT NULL,
+  `type` TINYINT UNSIGNED NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`)
+) CHARSET=utf8;
+
+INSERT INTO admin( id, regtime,logintime, username, password, name, type )VALUES( 1,0,0,'admin','21232f297a57a5a743894a0e4a801fc3','admin',0 );
+
+
+
+//letter  信件
+CREATE TABLE `letter` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `people_name` char(100) DEFAULT NULL,
+  `phone` char(50) DEFAULT NULL,
+  `email` char(100) DEFAULT NULL,
+  `address` char(100) DEFAULT NULL,
+  `postalcode` char(100) DEFAULT NULL,
+  `lettle_type` char(100) DEFAULT NULL,
+  `letter_dept` char(100) DEFAULT NULL,
+  `theme` char(100) DEFAULT NULL,
+  `content` varchar(1000) DEFAULT NULL,
+  `state` char(10) DEFAULT NULL,
+  `receive_time` char(50) DEFAULT NULL,
+  `reply_time` char(50) DEFAULT NULL,
+  `reply_content` varchar(500) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+insert  into `letter`(`id`,`people_name`,`phone`,`email`,`address`,`postalcode`,`lettle_type`,`letter_dept`,`theme`,`content`,`state`,`receive_time`,`reply_time`,`reply_content`,`score`) values (15,'小时','12356','123456','123456','123456','投诉','梅江区农业局','123456','123456','已回复','2016-09-28','2016-09-28','ass分',1),(16,'小弟','123456','123456','123456','123456','投诉','梅江区统计局','123456','123456','已回复','2016-09-28','2016-09-28','的个省高法但是',2),(17,'消防','123456','123456','123456','123456','投诉','梅江区物价局','123456','123456','已接收','2016-09-28','2016-03-28','sdaf',1),(18,'小事','123456','123456','123456','123456','表扬','梅江区统计局','123456','123456','已接收','2016-09-23','2016-05-28','asdf',1),(20,'撒旦','123456','123456','123456','123456','建议','梅江区物价局','123456','123456','已回复','2016-09-28','2016-09-28',NULL,1),(21,'倒萨','123456','123456','123456','123456','投诉','梅江区西阳镇','123456','123456','已回复','2016-09-28','2016-09-28','的萨芬撒撒旦法阿萨德gas梵蒂冈as分公司大',2),(23,'小哈','32432','342333','324323','243222','建议','梅江区妇联','243222','243222','已回复','2016-09-28','2016-09-28','dfsfhsdfh',NULL),(24,'wq','123456','123456','123456','123456','咨询','梅江区纪检监察','123456','123456','已接收','2016-09-28',NULL,NULL,NULL);
+
+
+//letter_dept  信件部门---梅江区纪检监察，教育局，政府。。。。
+CREATE TABLE `letter_dept` (
+  `id` int(11) NOT NULL,
+  `depts` char(80) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert  into `letter_dept`(`id`,`depts`) values (1,'梅江区纪检监察'),(2,'梅江区农业局'),(3,'梅江区妇联'),(4,'梅江区统计局'),(5,'梅江区城北镇'),(6,'梅江区西阳镇'),(7,'梅江区物价局'),(8,'梅江区民政局');
+
+
+//letter_type  信件类型---投诉，建议，表扬。。。
+CREATE TABLE `letter_type` (
+  `id` int(11) NOT NULL,
+  `types` char(80) NOT NULL,
+  PRIMARY KEY (`id`)
+) ;
+
+insert  into `letter_type`(`id`,`types`) values (1,'咨询'),(2,'投诉'),(3,'建议'),(4,'表扬'),(5,'区长信箱'),(6,'书记信箱');
+
+
+//admin_log
+CREATE TABLE `admin_log` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `adminid` BIGINT(11) NOT NULL COMMENT '用户ID',
+  `logintime` BIGINT(11) NOT NULL COMMENT '登录时间',
+  `username` CHAR(240) NOT NULL COMMENT '用户名',
+  `operationtype` CHAR(240) NOT NULL COMMENT '操作类型',
+  `operationresult` CHAR(240) NOT NULL COMMENT '操作结果',
+  `ip` CHAR(240) NOT NULL COMMENT '登录ip',
+admin  PRIMARY KEY (`id`)
+)  CHARSET=utf8;
+
+//email  存储用户订阅的邮件信息
+CREATE TABLE `email` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` char(100) DEFAULT NULL,
+  `meijiang` tinyint(4) DEFAULT NULL,
+  `xiangzhen` tinyint(4) DEFAULT NULL,
+  `tongzhi` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) CHARSET=utf8;
+
+
+
+//navigation  网站导航
+CREATE TABLE `navigation` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` char(180) NOT NULL,
+  `link` char(180) NOT NULL,
+  `pid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) CHARSET=utf8;
+
+//Rss数据库表
+CREATE TABLE `rss_items` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `title` CHAR(240) NOT NULL COMMENT '标题',
+  `link` CHAR(240) NOT NULL COMMENT '链接',
+  `description` CHAR(240) NOT NULL COMMENT '描述',
+  `language` CHAR(240) NOT NULL COMMENT '语言',
+   `author` CHAR(240) NOT NULL COMMENT '作者',
+   `pubdate` CHAR(120) NOT NULL COMMENT '发布时间',
+   `tid` TINYINT  NOT NULL COMMENT '主题id',
+   `category` CHAR(120) NOT NULL COMMENT '分类',
+ PRIMARY KEY (`id`)
+)  CHARSET=utf8;
+
+
+//Rss_Channel数据库表
+CREATE TABLE `rss_channel` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `theme` CHAR(120) NOT NULL COMMENT '主题',
+  `url` CHAR(240) NOT NULL COMMENT '可加入RSS閱讀軟件的網址',
+ PRIMARY KEY (`id`)
+)  CHARSET=utf8;
+

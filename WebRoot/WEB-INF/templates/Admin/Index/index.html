@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>后台管理系统</title>
+<!-- Bootstrap Styles-->
+<link href="${public}/css/bootstrap.css" rel="stylesheet" />
+<!-- FontAwesome Styles-->
+<link href="${public}/css/font-awesome.css" rel="stylesheet" />
+<!-- Morris Chart Styles-->
+<link href="${public}/css/morris-0.4.3.min.css" rel="stylesheet" />
+<!-- Custom Styles-->
+<link href="${public}/css/custom-styles.css" rel="stylesheet" />
+<!-- Google Fonts-->
+
+</head>
+
+<body>
+	<div id="wrapper">
+		<nav class="navbar navbar-default top-navbar" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".sidebar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">后台管理系统</a>
+			</div>
+
+			<ul class="nav navbar-top-links navbar-right">
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#" aria-expanded="false"> <i
+						class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+				</a>
+					<ul class="dropdown-menu dropdown-alerts">
+						<li><a href="#">
+								<div>
+									<i class="fa fa-comment fa-fw"></i> 新的评论 <span
+										class="pull-right text-muted small">4 分钟前</span>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#">
+								<div>
+									<i class="fa fa-twitter fa-fw"></i> 3 New 访问者 <span
+										class="pull-right text-muted small">12 min</span>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#">
+								<div>
+									<i class="fa fa-envelope fa-fw"></i> 消息发送 <span
+										class="pull-right text-muted small">4分钟前</span>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li><a href="#">
+								<div>
+									<i class="fa fa-tasks fa-fw"></i> 新的任务 <span
+										class="pull-right text-muted small">4 分钟前</span>
+								</div>
+						</a></li>
+						<li class="divider"></li>
+						<li><a class="text-center" href="#"> <strong>查看所有通知</strong>
+								<i class="fa fa-angle-right"></i>
+						</a></li>
+					</ul> <!-- /.dropdown-alerts --></li>
+				<!-- /.dropdown -->
+				<li class="dropdown"><a class="dropdown-toggle"
+					data-toggle="dropdown" href="#" aria-expanded="false"> <i
+						class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+				</a>
+					<ul class="dropdown-menu dropdown-user">
+						<li><a href=""><i class="fa fa-user fa-fw"></i> 用户概况</a></li>
+						<li><a href=""><i class="fa fa-gear fa-fw"></i> 环境</a></li>
+						<li class="divider"></li>
+						<li><a href="/Admin/Admin/exit"><i class="fa fa-sign-out fa-fw"></i>
+								登出</a></li>
+					</ul> <!-- /.dropdown-user --></li>
+				<!-- /.dropdown -->
+			</ul>
+		</nav>
+		<!--/. NAV TOP  -->
+		<nav class="navbar-default navbar-side" role="navigation">
+			<div class="sidebar-collapse">
+				<ul class="nav" id="main-menu">
+					<li><a class="active-menu" href=""><i
+							class="fa fa-dashboard"></i> 首页</a></li>
+					<li><a href=""><i class="glyphicon glyphicon-list-alt"></i>
+							新闻管理<span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="/Admin/News/toAdd" target="iframe">新闻添加</a></li>
+							<li><a href="/Admin/News/list" target="iframe">新闻列表</a></li>
+						</ul></li>
+					<li><a href=""><i
+							class="glyphicon glyphicon-align-justify"></i> 栏目管理<span
+							class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="/Admin/Channel/list" target="iframe">栏目显示</a></li>
+							<li><a href="/Admin/Channel/toAdd" target="iframe">栏目添加</a></li>
+						</ul></li>
+					<li>
+					<li><a href=""><i
+							class="glyphicon glyphicon-align-justify"></i> 信件管理<span
+							class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="/Admin/Letter" target="iframe">信件管理</a></li>
+							<li><a href="/Admin/Letter/showComplain" target="iframe">投诉信件管理</a>
+							</li>
+							<li><a href="/Admin/Letter/showSuggest" target="iframe">建议信件管理</a>
+							</li>
+							<li><a href="/Admin/Letter/showConsult" target="iframe">咨询信件管理</a>
+							</li>
+							<li><a href="/Admin/Letter/showAdmire" target="iframe">表扬信件管理</a>
+							</li>
+							<li><a href="/Admin/Letter/showQuZhang" target="iframe">区长信件管理</a>
+							</li>
+							<li><a href="/Admin/Letter/showShuJi" target="iframe">书记信件管理</a></li>
+
+						</ul></li>
+					<li><a href=""><i class="glyphicon glyphicon-picture"></i>轮播管理<span
+							class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="/Admin/Carousel/list" target="iframe">轮播显示</a></li>
+							<li><a href="/Admin/Carousel/add" target="iframe">轮播添加</a></li>
+						</ul></li>
+
+					<li><a href="" target="iframe"><i
+							class="glyphicon glyphicon-user"></i> 用户管理<span class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+
+							<li><a href="/Admin/Admin/" target="iframe">管理用户</a></li>
+							<li><a href="/Admin/Admin/addViewChange" target="iframe">添加用户</a>
+							</li>
+							<li><a href="/Admin/Admin/queryAdminLogInfo" target="iframe">用户日志</a>
+							</li>
+
+						</ul></li>
+					<li><a href="" target="iframe"><i
+							class="glyphicon glyphicon-align-justify"></i> 数据库管理<span
+							class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="/Admin/Database/add" target="iframe">备份数据库</a></li>
+							<li><a href="/Admin/Database/list" target="iframe">备份数据库文件列表</a></li>
+
+						</ul></li>
+						
+						   
+							<li><a href="" target="iframe"><i
+							class="glyphicon glyphicon-align-justify"></i> 邮件管理<span
+							class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="/Admin/Mail" target="iframe">邮件发送</a></li>
+						</ul>
+						</li>
+						
+
+
+						<li><a href=""><i
+							class="glyphicon glyphicon-align-justify"></i> Rss订阅管理<span
+							class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="/Admin/Rss/addViewChange" target="iframe">Rss订阅添加</a></li>
+							<li><a href="/Admin/Rss" target="iframe">Rss订阅查询</a></li>
+						   <li class=""><a href="/Admin/Rss/toaAddRssChannel" target="iframe">Rss订阅频道添加</a></li>
+						</ul></li>
+						<li><a href=""><i
+							class="glyphicon glyphicon-align-justify"></i> 导航管理<span
+							class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="/Admin/Navigation/list" target="iframe">导航显示</a></li>
+							<li><a href="/Admin/Navigation/toAdd" target="iframe">导航添加</a></li>
+                           
+						</ul></li>
+						
+						<li><a href=""><i
+							class="glyphicon glyphicon-align-justify"></i> 办事进度管理<span
+							class="fa arrow"></span></a>
+						<ul class="nav nav-second-level">
+							<li><a href="/Admin/Business/showList" target="iframe">办事进度显示</a></li>
+							<li><a href="/Admin/Business/toAdd" target="iframe">办事添加</a></li>
+                           
+						</ul></li>
+						
+						
+					<li><a href="http://tongji.baidu.com/web/22367857/overview/sole?siteId=9940832"><i class="glyphicon glyphicon-asterisk"></i> 百度统计</a>
+					</li>
+					&nbsp;<span style="color: white;">  页面切换：</span> <span id="what" style="color: white;" title="mx">梅县</span> <button type="button" class="btn btn-primary">切换</button>
+				</ul>
+			</div>
+		</nav>
+		<!-- /. NAV SIDE  -->
+		<div id="page-wrapper">
+			<iframe name="iframe" id="iframe" src="/Admin/Index/home" width="100%"
+				scrolling="auto" frameborder="0" height="1200px"></iframe>
+			<!--  onload="this.height=iframe.document.body.scrollHeight" -->
+		</div>
+	</div>
+	<!-- /. WRAPPER  -->
+	<!-- JS Scripts-->
+	<!-- jQuery Js -->
+	<script src="${public}/js/jquery-1.10.2.js"></script>
+	<!-- Bootstrap Js -->
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<!-- Metis Menu Js -->
+	<script src="${public}/js/jquery.metisMenu.js"></script>
+	<!-- Morris Chart Js -->
+	<script src="${public}/js/raphael-2.1.0.min.js"></script>
+	<script src="${public}/js/morris.js"></script>
+	<!-- Custom Js -->
+	<script src="${public}/js/custom-scripts.js"></script>
+	<script type="text/javascript">
+	
+	$.post("/Admin/Index/whatFile",function(data){
+		if(data=="梅县"){
+			$("#what").attr("title","mx").html(data);
+		}else{
+			$("#what").attr("title","mj").html(data);
+		}
+		
+	});
+	
+		
+		$(".btn").click(function(){
+			var $span=$(this).prev();
+			var val=$span.attr("title");
+			if(val=="mx"){
+				$span.html("梅江");
+				$span.attr("title","mj");
+			}else if(val=="mj"){
+				$span.html("梅县");
+				$span.attr("title","mx");
+			}
+			$.post("/Admin/Index/changeFile",{"who":val},function(){
+			});
+		});
+	</script>
+</body>
+</html>

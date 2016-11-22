@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+
+
+body{ font-family:"微软雅黑"; font-size:14px; padding:0; margin:0}
+
+dl,dt,dd,ul,li{padding:0; margin:0; list-style:none;}
+
+/* Contain floats: h5bp.com/q */
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+
+.clearfix:after { clear: both; }
+
+.clearfix { *zoom: 1; }
+
+
+
+a{text-decoration:none;}
+
+
+
+.titlebox{background:#f2f2f2; border-top:1px solid #FFF; border-bottom:1px solid #FFF; line-height:29px; color:#900}
+
+.titlebox2{background:#f2f2f2; border-top:1px solid #FFF; border-bottom:1px solid #FFF; line-height:38px; color:#bc1010; font-weight:bold;}
+
+.title{width:65%; display:block; float:left;}
+
+.depart{width:34%;  display:block; float:left; text-align:center; white-space:nowrap; text-overflow:ellipsis;}
+
+.titlebox .title, .titlebox2 .title{border-right:1px solid #FFF; text-align:center;}
+
+
+
+
+
+.table_content {
+	padding:0;
+}
+
+.table_content dl {
+
+}
+
+.table_content dt {
+	padding-left:4%;
+	line-height: 40px;
+	color: #3d3d3d;
+	border-bottom:1px solid #f2f2f2;
+	background:url(../images2/2016sy_bs_ic01.png) 1% -32px no-repeat;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+}
+
+.table_content dl.on dt {
+	color:#333; font-weight:bold;
+	padding-bottom: 2px;
+	background:url(../images2/2016sy_bs_ic01.png) 1% 17px no-repeat;
+}
+
+
+
+.table_content dt:hover {
+	color:#930;
+}
+
+.table_content dt span {
+	display: block;
+	float: left;
+}
+
+.table_content dt .title {
+	height:40px;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+.table_content dd {
+	padding: 16px 0 6px 0;
+	display: none;
+	border-bottom:1px solid #f2f2f2;
+	background:#f2f2f2;
+}
+
+.table_content dl.on dd {
+	display: block;
+}
+
+.table_content ul {
+	display: inline-block; width:100%;
+}
+
+.table_content li {
+	display: inline-block;
+	line-height: 20px;
+	width:11%;
+	text-align:center;
+	min-width:50px;
+	margin-bottom:10px;
+}
+
+.table_content li a {
+	background: #d73c3c;
+	text-align: center;
+	display: inline-block;
+	color: #fff;
+	padding:0 10px;
+	border-radius:18px;
+}
+
+.table_content li a.hs {
+	color: #7a7a7a;
+	background:#d9d9d9;
+	cursor:text;
+}

@@ -1,0 +1,105 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid leader">
+	<div class="mt10 ftl border1">
+		<div class="title9 font-size18">
+			<img class="ftl mt5 pl50"
+				src="${public}/images/icon15.png"><a href="/Home/Index/leader" style="color: white;">领导之窗</a>
+		</div>
+		<div class="clear"></div>
+		<ul class="ldzc">
+			<#list cms1 as cm>
+			<li class="active font-size16 quwei"><a href="/Home/Index/leader?id=${cm.id}">${cm.title}</a></li>
+			</#list>
+		</ul>
+	</div>
+	<!--left_list-->
+
+	<div class="right_list mt10 ftr ">
+	<table width="716" border="0" align="center" cellpadding="0" cellspacing="0">
+              <tbody><tr>
+                <td width="36" height="28" align="center"><img src="http://www.gdmx.gov.cn/statics/images/mx_img/5568.gif" width="16" height="13"></td>
+                <td width="680"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tbody><tr>
+    <td height="3"></td>
+  </tr>
+  <tr>
+    <td style="font-size:14px; font-weight:bold;">${leader.title}</td>
+  </tr>
+</tbody></table></td>
+              </tr>
+              <tr>
+                <td height="2" colspan="2" bgcolor="#DADADA"></td>
+              </tr>
+            </tbody></table>
+            <#list cms as cm>
+		<table width="98%" border="0" cellspacing="1" cellpadding="3"
+			align="center" style="margin-top: 10px">
+			<thead>
+				<tr>
+					<td width="20%" bgcolor="#eddbab" height="24"
+						style="color: #FF0000">&nbsp;&nbsp;<b>${cm.title}</b></td>
+					<td bgcolor="#f6eedb"></td>
+				</tr>
+			</thead>
+			<tbody>
+				<#list cm.scs as sc>
+				<tr>
+					<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>${sc.title}</strong></td>
+					<td width="80%" bgcolor="#f6eedb">
+						<table width="450" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<#assign n=sc.news.size()>
+								<#assign size=(n/4)?ceiling >
+								<#list 1..size as s>
+								<tr>
+									<#list sc.news as sn>
+									<#if (sn_index<(4*s)&&(sn_index>=(4*(s-1))))>
+									<td width="150" bgcolor="#f6eedb">&nbsp;&nbsp; <a
+										href="/Home/Index/leaderDetail?id=${sn.id}"
+										title="${sn.title}">${sn.title}</a>
+									</td>
+									</#if>
+									</#list>
+								</tr>
+								</#list>
+							</tbody>
+							</table>
+							<table width="450" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td width="150" bgcolor="#f6eedb">&nbsp;&nbsp; <a href="/Home/Index/leaderDetail?id=38" title=" 钟光灵"> 钟光灵</a>
+									</td>
+									<td width="150" bgcolor="#f6eedb">&nbsp;&nbsp; <a href="/Home/Index/leaderDetail?id=39" title="钟秀堂">钟秀堂</a>
+									</td>
+								</tr>
+							</tbody>
+							</table>
+					</td>
+					
+				</tr>
+				</#list>
+			</tbody>
+		</table>
+		</#list>
+	</div>
+	<!--right_list-->
+
+	<div class="clear"></div>
+	<div class="blank10"></div>
+</div>
+<script type="text/javascript">
+	hide('.quwei', '.t-quwei');
+	hide('.qrd', '.t-qrd');
+	hide('.qzf', '.t-qzf');
+	hide('.qzx', '.t-qzx');
+	hide('.qjw', '.t-qjw');
+	function hide(name, item) {
+		$(name).click(function() {
+			$('.ldzc li').removeClass('active');
+			$(this).addClass('active');
+			$('.tables').addClass('hide');
+			$(item).removeClass('hide');
+		});
+	}
+</script>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

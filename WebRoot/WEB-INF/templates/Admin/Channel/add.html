@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+  <script type="text/javascript">
+    	function setChannelType(val){
+    		var ele = $("#channel_pid");
+    		ele.val() = val;
+    	}
+  </script>
+
+</head>
+<body>
+	<div class="col-sm-12  col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">栏目管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+					<li><a href="/Admin/Channel/list">显示栏目</a></li>
+					<li class="active"><a href="/Admin/Channel/toAdd">添加栏目</a></li>
+				</ul>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="/Admin/Channel/save" method="post"">
+
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">栏目名称</label>
+								<div class="col-sm-6">
+									<input type="text" name="channelModel.title"
+										class="form-control" placeholder="请输入栏目名称" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">上级栏目</label>
+								<div class="col-sm-6">
+								<!-- 	<select class="form-control" name="channelModel.pid">
+										<option value="0">一级栏目</option>
+										<option value="1">二级栏目</option>
+										<option value="2">三级栏目</option>
+									</select>  -->
+									
+									<select class="form-control" name="channelModel.pid"
+										onchange="setChannelType(this.options[this.selectedIndex].text);">
+										<option value="0">一级栏目</option>
+										 <#list channelModel as o>
+										<option value="${o.id}">${o.title}</option> 
+										</#list>
+									</select> <input type="hidden" id="channel_pid"
+										name="channelModel.id" />
+										
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">类型</label>
+								<div class="col-sm-6">
+									<select class="form-control" name="channelModel.type">
+										<option value="0">新闻</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary  col-sm-offset-2"
+									value="保存">
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<!--/.main-->
+
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

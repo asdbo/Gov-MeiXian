@@ -1,0 +1,197 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="conts">
+    	<!-- right -->
+
+
+<script language="javascript">
+function _checkform(form)
+{
+	if(form.data_Title.value == '' || form.data_Content.value == '')
+	{
+		alert('请填写标题和信件内容。');
+		return false;
+	}
+	if(form.data_Author.value == '')
+	{
+		alert('请填写您的姓名。');
+		return false;
+	}
+	if(form.targetNodeID.value == '')
+	{
+		alert('请选择信件类型。');
+		return false;
+	}
+	if(form.data_Department.value=='' || form.department.value=='')
+	{
+		alert('请选择受理部门。');
+		return false;
+	}
+	return true;
+}
+</script>
+    	<div class="subnav">
+    		<div class="mod fixfloat">
+    		    			<div class="hd"><h2>在线咨询</h2></div>
+    			<ul class="dotlist">
+    			    			    							<li><a href="http://www.meijiang.gov.cn/mjms/zxzx/zx/index.html">咨询</a></li>
+				    							<li><a href="http://www.meijiang.gov.cn/mjms/zxzx/ts/index.html">投诉</a></li>
+				    							<li><a href="http://www.meijiang.gov.cn/mjms/zxzx/jy/index.html">建议</a></li>
+				    							<li><a href="http://www.meijiang.gov.cn/mjms/zxzx/by/index.html">表扬</a></li>
+				    			</ul>
+    		</div>
+    	</div>
+    	<!-- right end -->
+    	<!--  list -->
+    	<div class="main-content">
+    		<div class="path">当前位置：
+    		    					<a href="http://www.meijiang.gov.cn/index.html">首页</a>						 &gt; <a href="http://www.meijiang.gov.cn/mjms/index.html">梅江民声</a>						 &gt; <a href="http://www.meijiang.gov.cn/mjms/zxzx/index.html">在线咨询</a>						<span style="float:right">
+			<a href="" id="tongbao" style="color:red;display:none">处理通报</a>
+			&nbsp;|&nbsp;
+									<a href="http://www.meijiang.gov.cn/mjms/zxzx/form.html">我要提问</a>
+			</span>
+    		</div>
+<style type="text/css">
+#formbox td{padding:5px;font-size:14px}	
+#formbox td input.txt{width:75%;
+    border: 1px solid #ccc;}
+#formbox td textarea{width:90%}
+#formbox .submit{
+	    padding: 5px 10px;
+    border-radius: 3px;
+    background-color: #7eb5fd;
+    color: #fff;
+    cursor: pointer;
+}
+#formbox .reset{
+	  padding: 4px 10px;
+    border-radius: 3px;
+    background-color: #999;
+    color: #fff;
+    cursor: pointer;
+}
+</style>
+    		<div id="formbox" style="padding:10px">
+    			<div style="font-size:14px;padding-bottom:15px">请填写以下信息：</div>
+    			<form enctype="application/x-www-form-urlencoded" method="post" id="form1" action="/ucms/publish/public.php?act=guestbook&amp;o=submit">
+		  	<table cellpadding="3" cellspacing="0" border="0">
+				<tbody><tr class="WebContainer600_fomeitem">
+					<td>您的姓名:</td>
+					<td><input name="data_Author" class="txt" type="text" id="sender" size="20">
+		<span style="color:#7eb5fd"> *</span></td>
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td>联系电话:</td>
+					<td><input name="data_Tel" type="text" class="txt" id="phone" size="20"></td>
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td>Email地址:</td>
+					<td><input name="data_Email" type="text" class="txt" id="email" size="20"></td>
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td>联系地址:</td>
+					<td><input name="data_Addr" type="text" class="txt" id="address" size="20"></td>
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td>邮政编码:</td>
+					<td><input name="data_ZipCode" type="text" class="txt" id="zipcode" size="20"></td>
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td>信件类型:</td>
+					<td>
+					<select name="targetNodeID" id="targetNodeID" onchange="javascript:if(this.value!='') document.getElementById('type').value=this.options[this.selectedIndex].text;">
+					<option selected="selected" value="">--请选择信件类型--</option>
+					<option value="28">咨询</option>
+					<option value="29">投诉</option>
+					<option value="30">建议</option>
+					<option value="32">表扬</option>
+					<option value="4229">区长信箱</option>
+					<option value="4230">书记信箱</option>
+					</select><span style="color:#7eb5fd"> *</span>
+					<input type="hidden" name="data_Type" id="type" value="">
+					</td>
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td>收信部门:</td>
+					<td><select name="department" id="department" onchange="javascript:document.getElementById('data_Department').value=this.options[this.selectedIndex].text;">
+			          <option selected="selected" value="">--请选择收信部门--</option>
+						<option value="182">梅江区纪检监察</option>
+<option value="196">梅江区农业局</option>
+<option value="290">梅江区妇联</option>
+<option value="304">梅江区统计局</option>
+<option value="328">梅江区城北镇</option>
+<option value="329">梅江区西阳镇</option>
+<option value="353">梅江区物价局</option>
+<option value="384">梅江区民政局</option>
+<!--<option value="428">梅江区人口和计划生育局</option>
+--><option value="443">梅江区招商引资</option>
+<option value="454">梅江区卫生和计划生育局</option>
+<option value="491">梅江区经济和信息化局</option>
+<option value="502">梅江区政法委</option>
+<option value="509">梅江区委宣传部</option>
+<option value="535">梅江区外经贸局</option>
+<option value="543">梅江区司法局</option>
+<option value="554">梅江区金山街道办事处</option>
+<option value="564">梅江区档案局</option>
+<option value="572">梅江区直属机关工委</option>
+<option value="582">梅江区林业局</option>
+<option value="591">梅江区交通运输局</option>
+<option value="603">梅江区检察院</option>
+<option value="610">梅江区三角镇</option>
+<option value="644">梅江区发展改革和科学技术局</option>
+<option value="676">梅江区人力资源和社会保障局</option>
+<option value="686">梅江区长沙镇</option>
+<option value="711">梅江区旅游局</option>
+<option value="725">梅江区财政局</option>
+<option value="848">梅江区水务局</option>
+<option value="855">梅江区环保局</option>
+<option value="858">梅江区住房和城乡规划建设局</option>
+<option value="864">梅江区外事侨务局</option>
+<option value="925">梅江区总工会</option>
+<option value="961">梅江区委组织部</option>
+<option value="962">梅江区教育局</option>
+<option value="985">梅江区打私办</option>
+<option value="1079">梅江区水产局</option>
+<option value="1111">梅江区人民法院</option>
+<option value="1120">梅江区统战部</option>
+<option value="1125">梅江区安全生产监督管理局</option>
+<option value="1157">梅江区团委</option>
+<option value="1200">梅江区统战部</option>
+<option value="1317">梅江区西郊街道办事处</option>
+<option value="1344">梅江区江南街道办事处</option>
+<option value="1391">梅江区房地产管理局</option>
+<option value="1518">梅江区残疾人联合会</option>
+<option value="1557">梅江区畜牧兽医局</option>
+<option value="1580">梅江区住房资金管理中心</option>
+<option value="1916">梅江区党校</option>
+<option value="1693">梅江区审计局</option>
+<option value="1925">创卫专栏</option>
+<option value="2222">梅江区文化广电新闻出版局</option>
+<option value="2254">梅州市环境卫生管理局</option>
+<option value="2255">梅江区食品药品监督管理局</option>
+	    				</select><span style="color:#7eb5fd"> *</span></td>
+	    				<input type="hidden" name="data_Department" id="data_Department" value="">
+	    				<input type="hidden" name="data_State" id="data_State" value="2">
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td style="text-align:center" colspan="2"><span style="color:#7eb5fd">注意:为了方便工作人员处理信件,"信件主题"必须是咨询内容的简单概括</span></td>
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td>信件主题:</td>
+					<td><input name="data_Title" type="text" class="txt" id="data_Title" size="40"><span style="color:#7eb5fd"> *</span></td>
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td>信件内容:</td>
+					<td><textarea name="data_Content" cols="38" rows="6" id="data_Content"></textarea><span style="color:#7eb5fd"> *</span></td>
+				</tr>
+				<tr class="WebContainer600_fomeitem">
+					<td colspan="2" style="text-align:center"><input type="submit" class="submit" value="提交" onclick="javascript:return _checkform(this.form);">&nbsp;&nbsp;<input class="reset" type="reset" value="重填"></td>
+				</tr>
+			</tbody></table>
+			</form>
+
+    		</div>
+    	</div>
+    	<!--  list end -->
+
+    </div>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

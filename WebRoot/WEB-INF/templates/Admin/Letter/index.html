@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/bootstrap-table.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+	<div class=" col-sm-12 col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">信件管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+			<!-- 		<li><a href="/Letter/add">添加信件</a></li> -->
+					<li class="active"><a href="/Admin/Letter">管理信件</a></li>
+				</ul>
+				<div class="panel panel-default">
+
+					<div class="panel-body">
+						<table data-toggle="table" data-url="index"
+							data-show-refresh="true" data-show-toggle="true"
+							data-show-columns="true" data-search="true"
+							data-select-item-name="toolbar1" data-pagination="true"
+							data-sort-name="name" data-sort-order="desc">
+							<thead>
+								<tr>
+								<th data-field="state" data-checkbox="true">栏目 ID</th>
+									<th data-sortable="true" data-align="center">写信人</th>
+									<th data-sortable="true" data-align="center">主题</th>
+									<th data-sortable="true" data-align="center">内容</th>
+									<th data-sortable="true" data-align="center">负责部门</th>
+									<th data-sortable="true" data-align="center">来信时间</th>
+									<th data-sortable="true" data-align="center">类别</th>
+									<th data-sortable="true" data-align="center">状态</th>
+									<th data-sortable="true" data-align="center">回复</th>
+						          <th data-sortable="true" data-align="center">删除</th>
+								</tr>
+							</thead>
+							<#list letterModel as c>
+
+							
+							<tr>
+								<td style="text-align: center;" data-field="id"></td>
+								<td style="text-align: center;">${(c.people_name)!}
+								</td>
+								<td style="text-align: center;"><a href="/Admin/Letter/showDetail/${c.id}">${(c.theme)!}</a></td>
+								<td style="text-align: center;">${(c.content)!}
+								</td>
+								<td style="text-align: center;">${(c.letter_dept)!}
+								</td>
+								<td style="text-align: center;">${(c.receive_time)!}
+								</td>
+								<td style="text-align: center;">${(c.lettle_type)!}
+								</td>
+								<td style="text-align: center;">
+								<#if c.state == "已接收">
+								<font color="red">未回复</font>
+								<#else>
+								<font color="green">已回复</font>
+								 </#if>
+								
+
+								
+								</td>
+								<td style="text-align: center;">
+								
+								<a href="/Admin/Letter/reply?id=${c.id}"><button type="button" class="btn btn-primary">回复</button></a>
+								
+									</td>
+								<td style="text-align: center;">
+									<button class="btn btn-danger delete" data-toggle="modal" data-target="#deleteModal" id="${c.id}" onClick="deletedata(${c.id})">删除	</button></td>
+								
+
+							</tr>
+	
+							</#list>
+
+						</table>
+		
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<!--/.main-->
+	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel"><font color="red">提醒</font></h4>
+				</div>
+				<div class="modal-body"><font color="blue" size="5px">删除不可恢复，是否确认删除？</font></div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary del">删除</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script src="${public}/js/bootstrap-table.js"></script>
+	<script>
+		!function($) {
+			$(document)
+					.on(
+							"click",
+							"ul.nav li.parent > a > span.icon",
+							function() {
+								$(this).find('em:first').toggleClass(
+										"glyphicon-minus");
+							});
+			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function() {
+			if ($(window).width() > 768)
+				$('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function() {
+			if ($(window).width() <= 767)
+				$('#sidebar-collapse').collapse('hide')
+		})
+	
+			function deletedata(id) {
+				//alert($id);
+				$('.del').attr("data-id", id);
+			}
+			$('.del').click(function() {
+				$id = $(this).data("id");
+				//alert($id);
+				window.location.href = "/Admin/Letter/delete?id=" + $id;
+			})
+		
+	</script>
+</body>
+
+</html>

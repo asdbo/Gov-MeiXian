@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/bootstrap-table.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+	<div class=" col-sm-12 col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">用户管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="/Admin/list">管理用户</a></li>
+					<li class=""><a href="/Admin/addViewChange">添加用户</a></li>
+					<li class=""><a href="/Admin/queryAdminLogInfo">用户日志</a></li>
+				</ul>
+				<div>
+					<br>
+					<form id="commentForm" class="form-horizontal" role="form"
+						action="/Admin/updateAdminInfo" method="post">
+
+						<input class="form-control" name="adminModel.id" type="hidden"
+							value="${id!}"> <input class="form-control"
+							name="adminModel.regtime" type="hidden" value=""> <input
+							class="form-control" name="admin.logintime" type="hidden"
+							value=""> <input class="form-control"
+							name="adminModel.type" type="hidden" value="">
+
+
+						<div class="form-group">
+							<label class="col-sm-2 control-label">密码</label>
+							<div class="col-sm-10 col-lg-2">
+								<input class="input-group-sm form-control"
+									name="adminModel.password" id="password"
+									style="height: 30px; width: 200px;" type="text" minlength="6"
+									value="${password!}" required><label id="passwordmsg">${passwordmsg!}</label>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">姓名</label>
+							<div class="col-sm-10 col-lg-2">
+								<input class="input-group-sm form-control"
+									name="adminModel.name" id="name"
+									style="height: 30px; width: 200px;" type="text" minlength="2"
+									value="${name!}" required><label id="namemsg">${namemsg!}</label>
+							</div>
+						</div>
+						<div class="col-sm-10 col-lg-2" style="margin: 20px 150px;">
+							<input value="修改" type="submit"
+								class="btn btn-info input-group-sm">
+						</div>
+					</form>
+
+
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">你确认删除该管理员吗？</h4>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary del">删除</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+
+		<script src="${public}/js/jquery-1.11.1.min.js"></script>
+		<script src="${public}/js/bootstrap.min.js"></script>
+		<script src="${public}/js/bootstrap-table.js"></script>
+		<script src="${public}/js/jquery.validate.min.js"></script>
+		<script src="${public}/js/messages_zh.js"></script>
+		<script>
+			$(document).ready(
+
+			function() {
+				$("#username").change(function() {
+					$("#usernamemsg").hide(3000);
+				});
+				$("#password").change(function() {
+					$("#passwordmsg").hide(3000);
+				});
+				$("#name").change(function() {
+					$("#namemsg").hide(3000);
+				});
+				$("#username").blur(function() {
+					$.ajax({
+						type : "GET",
+						url : "/Admin/doGet",
+						data : {
+							username : $("#username").val()
+						},
+						dataType : "json",
+						success : function(data) {
+							if (data == 0) {
+
+							} else {
+								alert("用户已经注册");
+							}
+						},
+						error : function(textStatus) {
+							alert("error");
+							console.info(msg);
+						}
+					});
+				});
+				$.validator.setDefaults({
+					submitHandler : function() {
+						form.submit();
+					}
+				});
+				$().ready(function() {
+					$("#commentForm").validate();
+				});
+			});
+			!function($) {
+				$(document).on(
+						"click",
+						"ul.nav li.parent > a > span.icon",
+						function() {
+							$(this).find('em:first').toggleClass(
+									"glyphicon-minus");
+						});
+				$(".sidebar span.icon").find('em:first').addClass(
+						"glyphicon-plus");
+			}(window.jQuery);
+
+			$(window).on('resize', function() {
+				if ($(window).width() > 768)
+					$('#sidebar-collapse').collapse('show')
+			})
+			$(window).on('resize', function() {
+				if ($(window).width() <= 767)
+					$('#sidebar-collapse').collapse('hide')
+			})
+			$(function() {
+				$('.delete').click(function() {
+					$id = $(this).data("id");
+					$('.del').attr("data-id", $id);
+				})
+				$('.del').click(function() {
+					$id = $(this).data("id");
+					window.location.href = "" + $id;
+				})
+			})
+		</script>
+</body>
+
+</html>

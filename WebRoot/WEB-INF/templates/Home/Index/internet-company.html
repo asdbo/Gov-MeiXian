@@ -1,0 +1,115 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid">
+	<img src="${public}/images/banner_qykb.jpg" width="1022" height="100">
+
+	<div class="list-topBox mb20"><span class="fl"><a href="/Home/Index">网站首页</a> 
+
+		&gt;&gt;<a href="/Home/Index/internet">办事服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=214">公共服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=243">企业服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=244">企业开办专题</a> 
+	</span></div>
+
+	<div class="ftl border_min pr10 pl10" style="width:475px; height: 265px; position:relative;">
+
+		<div class="title10 border_b01 pl10 pr10"><h3 class="ftl">服务新闻 </h3></div>
+
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=245">更多+</a></p>
+		<div class="content_min">
+			<ul>
+				<#list fwhnews as fwn>
+				<li><span class="date">(${fwn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${fwn.id}" target="_blank" title="${fwn.title}">${fwn.title}</a></li>
+				</#list>
+			</ul>
+		</div>
+	</div>
+
+	<div class="ftr border_min pr10 pl10" style="width:475px; height: 265px; position:relative;">
+
+		<div class="title10 border_b01 pl10 pr10"><h3 class="ftl">服务公告 </h3></div>
+
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=246">更多+</a></p>
+		<div class="content_min">
+			<ul>
+				<#list ggnews as gg>
+				<li><span class="date">(${gg.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${gg.id}" target="_blank">${gg.title}</a></li>
+				</#list>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="ftl border_min pr10 pl10 mt15 qykblc" style="width:1000px; position:relative;">
+		<div class="title10 border_b01 pl10 pr10 kblc">
+			<h3 class="ftl mr20">企业开办流程</h3>
+			<div class="hd ftr">
+				<ul>
+					<li class="ftl mr20 on">内资企业 </li>
+					<li class="ftl mr20">外资企业 </li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="kjcy p30 bd">
+			<div class="lineheight32">
+
+				<a href="/Home/NewContent?newid=17" target="_blank">
+					1.申请人到工商局进行名称预核准&nbsp;——
+					2.工商局确定前置部门后提交联审窗&nbsp;——
+					3.联审窗口告知申请人所需材料&nbsp;——
+					4.联审窗口收件并后分发前置部门审核&nbsp;——
+					5.前置部门办理完成提交到联审窗口&nbsp;——
+					6.工商局出具营业执照提交到联审窗口&nbsp;——
+					7.申请人到联审窗口取件&nbsp;——
+					8.申请人到其他窗口办理相关业务
+					【详细流程】
+				</a>
+
+			</div>
+
+			<div class="lineheight32 " style="display: none;">
+
+				<a href="/Home/NewContent?newid=17">
+					申 请（携带相关纸质材料，到窗口进行申请）→受 理（窗口人员对材料进行受理）→办结通知（审批完成后窗口通知申办人办理结果）<br>
+					1、 申报企业在规定的时间内登录"全国外商投资企业年度投资经营信息网上联合报告及共享系统"（http://www.lhnb.gov.cn/），填报及提交上一年《外商投资企业年度经营状况联合申报书》，无需报送纸质材料及盖章。年度投资经营信息报告，相关信息在商务、财政、税务、统计部门间实现共享
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="ftl border_min pr10 pl10 mt15" style="width:475px; height: 232px; position:relative;">
+		<div class="title10 border_b01  pl10 pr10"><h3 class="ftl">便民查询 </h3></div>
+		<div class="kjcy_btn">
+			<ul>
+				<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsbs.meizhou.gov.cn/portal/onlineservice/online-service!moreDataInput.action?areacode=441400" target="_blank"><div class="back_color17 ml10 border3"><img src="${public}/images/icon82.png"></div>
+					<p class="lineheight24">企业业务<br>办理状态查询</p>
+				</a></li>
+				<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsnj.gdgs.gov.cn/aicnet/refer/index.jsp" target="_blank"><div class="back_color17 ml10 border3"><img src="${public}/images/icon83.png"></div>
+					<p class="lineheight24">网上登记<br>注册大厅</p>
+				</a></li>
+				<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://ss.meizhou.gov.cn/commercialSubject/toIndex" target="_blank"><div class="back_color17 ml10 border3"><img src="${public}/images/icon84.png"></div>
+					<p class="lineheight24">企业公示<br>信息填录登录</p>
+				</a></li>
+				<div class="clear"></div>
+			</ul>
+		</div>
+	</div>
+
+	<div class="ftr border_min pr10 pl10 mt15" style="width:475px; height: 232px; position:relative;">
+
+		<div class="title10 border_b01 pl10 pr10"><h3 class="ftl">政策法规 </h3></div>
+
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=17">更多+</a></p>
+		<div class="content_min">
+			<ul>
+				<#list zcnews as zcn>
+				<li><span class="date">(${zcn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zcn.id}" target="_blank">${zcn.title}</a></li>
+				</#list>
+			</ul>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+</div>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

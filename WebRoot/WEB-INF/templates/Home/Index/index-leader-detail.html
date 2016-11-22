@@ -1,0 +1,39 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+   	<!-- headline部分 -->
+   	<div class="wid leader">
+		<div class="mt10 ftl border1">
+            <div class="title9 font-size18"><img class="ftl mt5 pl50" src="https://www.meizhou.gov.cn/styles/default/imageset/icon15.png"><a href="/Home/Index/leader" style="color: white;">领导之窗</a></div>
+            <div class="clear"></div>
+			<ul class="ldzc">
+                                    <li class="font-color font-weight font-size16">${cm.title}</li>
+                                    <#list cnews as cn>
+                                    		<#if cn.id=lnew.id>
+                                            <li class="active"><a href="/Home/Index/leaderDetail?id=${cn.id}" target="_self" class="font-size16">${cn.title}</a></li>
+                                    		<#else>
+                                    		<li ><a href="/Home/Index/leaderDetail?id=${cn.id}" target="_self" class="font-size16">${cn.title}</a></li>
+                                    		</#if>
+                                    </#list>
+			</ul>
+        </div><!--left_list-->
+
+        <div class="right_list mt10 ftr ">
+            <div class="border3 p20 back_color_img2">
+				<div class="ftl" style=" width:138px;">
+					<div class="ldzc_img">
+						<img src="${lnew.newpic}" alt="${lnew.title}">
+					</div>
+					<h3 class="font-color tac">${cm.title}:${lnew.title}</h3>
+                    <h3 class="font-color tac"></h3>
+				</div>
+                
+				<div class="ftr" style=" width:520px;background-color:white; ">
+					${lnew.content}
+				</div>
+				<div class="clear"></div>
+			</div>
+        </div><!--right_list-->
+
+        <div class="clear"></div>
+        <div class="blank10"></div>
+    </div>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

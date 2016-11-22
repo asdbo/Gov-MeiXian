@@ -1,0 +1,81 @@
+<div class="leftarea list-left">
+	<div id="xxgk" class="mod fixfloat">
+		<div class="hd">
+			<h2>信息公开</h2>
+		</div>
+		<div class="bd fixfloat" style="padding: 5px 0;">
+			<ul class="btlist">
+				<li class="icon1"><a target="_blank" href="http://zwgk.meijiang.gov.cn/zfxxgkzn/441402">政府信息公开指南</a></li>
+							<li class="icon2"><a target="_blank" href="http://zwgk.meijiang.gov.cn/index/index?areacode=441402">政府信息公开目录</a></li>
+							<li class="icon3"><a target="_blank" href="http://zwgk.meijiang.gov.cn/zfgzbg/441402">政府工作年度报告</a></li>
+							<li class="icon4"><a target="_blank" href="http://ysq.meijiang.gov.cn/home/index?areacode=441402">依申请公开</a></li>
+							<li class="icon5"><a target="_blank" href="http://yjx.meijiang.gov.cn/complaint/index?areacode=441402">政府信息公开意见箱</a></li>
+			</ul>
+		</div>
+		<div class="bd fixfloat" style="padding: 5px 10px;">
+			<ul class="shortlist" style="width: 180px;">
+				<li><a target="_blank"
+								href="/Home/ChannelContent/leader">领导之窗</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=32">人事工作</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=101">办事服务</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=60">常务会议</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=3">梅江动态</a></li>
+							<li><a target="_blank"
+								href="http://www.meijiang.gov.cn/sonweb/mjyj/">应急管理</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent/bodies">组织机构</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=15">法规公文</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=107">财政信息</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=48">结果公开</a></li>
+							<li><a target="_blank"
+								href="http://wsbs.meizhou.gov.cn/portal/department/department!findDept.action?hot=3&sonareacode=441402">行政许可</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=19">通知公告</a></li>
+							<li><a target="_blank" href="http://meizhou.gdgpo.com/">采购招标</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=28">统计数据</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=108">计划规划</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=106">监督信息</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=16">梅江情况</a></li>
+							<li><a target="_blank"
+								href="/Home/ChannelContent?cid=105">政府公报</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="mod fixfloat">
+		<div class="hd">
+			<h2>通知公告</h2>
+		</div>
+		<div class="bd fixfloat">
+			<ul class="dotlist">
+				<#if tznews??>
+					<#list tznews as new>
+				<li><span>${new.TIME}</span><a href="/Home/NewContent?newid=${new.id}" target="_blank"
+					title="${new.title}">
+					<div style="  overflow:hidden; text-overflow:ellipsis;  white-space:nowrap;">${new.title}</div></a></li>
+					</#list>
+				</#if>	
+			</ul>
+		</div>
+	</div>
+	<div class="mod fixfloat">
+		<ul class="dotlist">
+			<li style="padding: 2px 1px;"><a
+				href="http://mjwsbs.meizhou.gov.cn/portal/index/index.action?areacode=441402"
+				target="_blank"><img src="${public}/images/szsp.jpg"></a></li>
+			<li style="padding: 2px 1px;"><a
+				href="http://www.meijiang.gov.cn/wsbs/bjsswsb/index.html"><img
+					src="${public}/images/bjss.jpg"></a></li>
+		</ul>
+	</div>
+</div>

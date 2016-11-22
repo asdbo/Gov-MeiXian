@@ -1,0 +1,33 @@
+   $('.weather').leoweather({
+    city:'梅州',
+    format:'<img src="images/rl.png">今天是：{年}年{月}月{日}日 星期{周} {城市} {昼夜}天气 <img src="images/ac.png">{天气}  {夜间气温}℃ ~ {白天气温}℃'
+});   
+
+
+	<div class="weather"> </div>
+   		<div class="sevice">搜索服务<input type="text"></div>
+   		<div class="search"><span>全部搜索</span>高级搜索</div>
+
+
+.remarks .weather{
+	    width: 45%;
+    height: 100%;
+    font-size: 12px;
+    line-height: 25px;
+    float: left;
+    text-align: center;
+}   
+.remarks .weather img{
+	 width: 4%;
+    position: relative;
+    top: 4px;
+    margin-right: 1%;
+}
+.remarks .sevice{
+	    float: left;
+    font-size: 12px;
+    width: 19%;
+    line-height: 25px;
+    margin-left: 10%;
+}
+

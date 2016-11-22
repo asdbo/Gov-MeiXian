@@ -1,0 +1,193 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid">
+	<img src="${public}/images/banner_zsyz.jpg" width="1022" height="100">
+
+	<div class="list-topBox mb20"><span class="fl"><a href="/Home/Index">网站首页</a>
+
+		&gt;&gt;<a href="/Home/Index/internet">办事服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=214">公共服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=213">企业服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=256">招商引资专题</a> 
+	</span></div>
+
+	<div class="news_img ftl focusBox mr12" style="margin-right: 8px;">
+		<a class="prev" href="javascript:void(0)"></a>
+		<a class="next" href="javascript:void(0)"></a>
+		<ul class="pic" style="position: relative; width: 504px; height: 345px;">
+
+			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/img201610091156330.jpg"></a></li>
+			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display: list-item;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/de0fec0e5740e86e5785da25eee6a24f.jpg"></a></li>
+			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/d0a831a9ea40a00da170734cf16942be.jpg"></a></li>
+			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/d0a831a9ea40a00da170734cf16942be (1).jpg"></a></li>
+		</ul>
+		<div class="txt-bg"></div>
+		<div class="txt">
+			<ul>
+				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="穗梅对口帮扶 推进产业共建 ">穗梅对口帮扶 推进产业共建 </a></li>
+				<li style="bottom: 0px;"><a href="/Home/NewContent?newid=17" target="_blank" title="嘉应新区9个项目落地生根">嘉应新区9个项目落地生根</a></li>
+				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="梅州重实体兴实业创新发展">梅州重实体兴实业创新发展</a></li>
+				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="梅蓄电站项目完成投资逾6亿">梅蓄电站项目完成投资逾6亿</a></li>
+			</ul>
+		</div>
+
+		<ul class="num">
+			<li class=""><a></a><span></span></li>
+			<li class="on"><a></a><span></span></li>
+			<li class=""><a></a><span></span></li>
+			<li class=""><a></a><span></span></li>
+		</ul>
+	</div>
+
+    <style>
+    	.news_img {
+    		width: 380px;
+    		height: 260px;
+    	}
+
+    	.news_img .pic img {
+    		width: 380px;
+    		height: 260px;
+    		display: block;
+    	}
+
+    	.focusBox .prev, .focusBox .next {
+    		top: 80px;
+    	}
+    </style>
+    <div class="ftl border_min pr10 pl10" style="width:280px;  height: 260px; position:relative;">
+
+    	<div class="title11 border_b04 pl10 pr10"><h3 class="ftl">招商新闻 </h3></div>
+    	<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=257">更多+</a></p>
+    	<div class="content_min">
+    		<ul>
+				<#list zsnews as zsn>
+    			<li><span class="date">[${zsn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${zsn.id}" target="_blank" title="　 ${zsn.title}"> ${zsn.title}</a></li>
+    			</#list>
+    		</ul>
+    	</div>
+    </div>
+
+    <div class="ftr border_min pr10 pl10" style="width:280px;  height: 260px; position:relative;">
+
+    	<div class="title11 border_b04 pl10 pr10"><h3 class="ftl">招商公告 </h3></div>
+    	<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=258">更多+</a></p>
+    	<div class="content_min">
+    		<ul>
+				<#list ggnews as gg>
+    			<li><span class="date">[${gg.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${gg.id}" target="_blank" title="${gg.title}">${gg.title}</a></li>
+    			</#list>
+    		</ul>
+    	</div>
+    </div>
+
+    <div class="ftl border_min pr10 pl10 mt15 mr12" style="width:464px; height: 235px; position:relative;">
+    	<div class="title11 border_b04 pl10 pr10 mb10"><h3 class="ftl">投资指南 </h3></div>
+
+    	<ul class="tzzn">
+
+    		<li class="back_color18 border4"><a href="/Home/ChannelContent?cid=264" target="_blank"><img src="${public}/images/icon85.png">
+    			<p>投资环境</p></a></li>
+
+    			<li class="back_color18 border4"><a href="/Home/ChannelContent?cid=265" target="_blank"><img src="${public}/images/icon86.png">
+    				<p>园区风采</p></a></li>
+
+
+    				<li class="back_color18 border4"><a href="/Home/ChannelContent?cid=266" target="_blank"><img src="${public}/images/icon87.png">
+    					<p>服务机构</p></a></li>
+    					<div class="clear"></div>
+    				</ul>
+    			</div>
+
+    			<div class="ftr border_min pr10 pl10 mt15 cjwt" style="width:480px; height: 235px; position:relative; height:235px;">
+
+    				<div class="title11 border_b04 pl10 pr10"><h3 class="ftl">重大发展战略</h3></div>
+    				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=260">更多+</a></p>
+    				<div class="content_min">
+    					<h2 class="mt15"><a href="" target="_blank"><img src="https://www.meizhou.gov.cn/styles/default/imageset/tz_01.jpg" height="147" width="152"></a></h2>
+    					<ul style="width:310px;" class="ftr">
+							<#list zdnews as zd>	
+    						<li><span class="date">(${zd.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zd.id}" target="_blank" title=" ${zd.title}"> ${zd.title}</a></li>
+    						</#list>
+    					</ul>
+    				</div>
+    			</div>
+
+    			<div class="ftl border_min pr10 pl10 mtb15" style="width:322px; height: 230px; position:relative;">
+
+    				<div class="title11 border_b04 pl10 pr10"><h3 class="ftl">优惠政策 </h3></div>
+    				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=261">更多+</a></p>
+    				<div class="content_min">
+    					<ul>
+							<#list yhnews as yh>
+    						<li><span class="date">(${yh.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${yh.id}" target="_blank" title="${yh.title}">${yh.title}</a></li>
+    						</#list>
+    					</ul>
+    				</div>
+    			</div>
+
+    			<div class="ftr border_min pr10 pl10 mtb15" style="width:626px; height: 230px; position:relative;">
+    				<div class="zsxm">
+
+    					<div class="title11 border_b04 pl10 pr10"><h3 class="ftl">招商项目  </h3>
+    						<div class="hd">
+    							<ul>
+									<#list cms as c>
+										<#if c_index=0>
+    								<li class="on"><a href="/Home/ChannelContent?cid=${c.id}" target="_blank">${c.title}</a></li>
+    									<#else>
+    									<li ><a href="/Home/ChannelContent?cid=${c.id}" target="_blank">${c.title}</a></li>
+    									</#if>
+    								</#list>
+    							</ul>
+    						</div>
+    					</div>
+    					<h2 class="mt15 ftl"><a href="" target="_blank"><img src="https://www.meizhou.gov.cn/styles/default/imageset/tz_01.jpg" height="147" width="152"></a></h2>
+    					<div class="bd content_min ftr" style=" width:465px;">
+							<#list newss as news>
+								<#if news_index=0>
+    						<ul>
+    						<#else>
+    						<ul style="display: none;">
+    						</#if>
+								<#list news as n>			
+    							<li><span class="date">(${n.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${n.id}" target="_blank">${n.title}</a></li>
+    							</#list>
+    						</ul>
+    						</#list>
+    					</div>
+    				</div>
+
+    			</div>
+
+    			<div class="clear"></div>
+
+
+    			<div class="border_min qyfc">
+
+    				<div class="title1"><h2 class="ftl" style="text-align:center; color:#FFF;">企业风采</h2></div>
+    				<div class="threeScroll2 ftl qyfc_con">
+    					<a class="prev" href="javascript:void(0)"></a>
+    					<div class="scrollWrap">
+    						<div class="tempWrap" style="overflow:hidden; position:relative; width:920px"><div class="dlList" style="width: 2300px; position: relative; overflow: hidden; padding: 0px; margin: 0px; left: -1150px;">
+    						
+    						<#list qynews as qyn>
+    						<dl class="clone" style="float: left; width: 230px;">
+    							<dt>
+    								<a href="/Home/NewContent?newid=${qyn.id}" target="_blank" title="${qyn.title}">
+    									<img src="${qyn.newpic}" class="mb5">
+    									<p>${qyn.title}</p>
+    								</a>
+    							</dt>
+    						</dl>
+							</#list>
+    						</div></div>
+    		</div>
+
+    		<a class="next" href="javascript:void(0)"></a>
+    		<div class="clear"></div>
+    		</div>
+    </div>
+
+</div>
+
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+	<div class="col-sm-12  col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">办事进度管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+					<li><a href="/Admin/Business/showList">显示办事进度</a></li>
+					<li class="active"><a href="/Admin/Business/toAdd">添加办事</a></li>
+				</ul>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="/Admin/Business/add" method="post"">
+
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">编号名称</label>
+								<div class="col-sm-6">
+									<input type="text" name="identifier"
+										class="form-control" placeholder="请输入编号名称" required="required"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">受理单位</label>
+								<div class="col-sm-6">
+									<input type="text" name="company"
+										class="form-control" placeholder="受理单位" required="required"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">业务名称</label>
+								<div class="col-sm-6">
+									<input type="text" name="title"
+										class="form-control" placeholder="业务名称" required="required"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary  col-sm-offset-2"
+									value="添加">
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<!--/.main-->
+
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

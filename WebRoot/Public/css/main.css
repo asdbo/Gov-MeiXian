@@ -1,0 +1,312 @@
+body{
+	margin-left:0px;
+	margin-right:0px;
+	margin-top:0px;
+	margin-bottom:0px;
+	color:#000000;
+	font-size:12px;
+	font-family:Arial, Helvetica, sans-serif;
+	line-height:150%;
+	background-image:url();
+	background-color: #f2efe4;
+}
+
+table,td,div,span,a {
+	font-size:12px;
+	color:#000000;
+	line-height:20px;
+	text-decoration:none;
+}
+div{height:20px;}
+a{
+	font-size:12px;
+	color:#000000;
+	line-height:150%;
+	text-decoration:none;
+}
+a:hover{font-size:12px;color:#ff0000; text-decoration:underline;}
+input,select{
+	height:20px;
+	line-height:18px;
+	color:#000000;
+	background:#FFFFFF;
+	
+}
+/*==============================以上是全局设置==============================*/
+.input1{border:1px solid #98b4d9;}
+.input2{border:1px solid #999999;}
+.adBox{border-bottom:1px solid #FFFFFF;border-top:1px solid #ffffff; background:#E8E8E8;}
+.adBox td,.adBox div,.adBox a{color:#666666;font-size:16px; font-weight:bold;}
+.line1{height:1px;background-image:url(../images/line1.gif);line-height:1px;background-repeat:repeat-x;}
+/*首页图片新闻*/
+.imgnews img{border:1px solid #bbbbbb;margin:3px;}
+.imgnews div{margin:3px; text-align:justify;text-justify:inter-ideograph;height:110px;overflow:hidden; text-indent:20px;}
+.imgnews .title{font-size:16px; font-weight:bold;}
+.imgnews a{
+	font-size:12px;
+	color:#999999;
+	line-height:150%;
+	text-decoration:none;
+}/*首页图片新闻(完)*/
+
+/*NEWS.ASP样式
+1.图片新闻(上部)*/
+.news_newsImg{border:1px solid #ACB4C1;padding:2px;text-align:center;}
+/*.news_newsImg div{float:left;}*/
+.news_newsImg img{border:1px solid #000000;margin-left:5px;margin-right:5px; margin-top:5px;}
+.news_newsImg a,.news_newsImg a:hover{color:#0075EA; text-decoration:none; font-weight:bold;}
+
+/*NEWS.ASP样式
+2.图片新闻(下部)*/
+.news_newsImg1{border:1px solid #ACB4C1;padding:2px;text-align:center;}
+.news_newsImg1 div{float:left;margin-left:5px;margin-right:5px;}
+.news_newsImg1 img{border:1px solid #000000;margin-left:5px;margin-right:5px; margin-top:5px;}
+.news_newsImg1 a,.news_newsImg1 a:hover{color:#999999; text-decoration:none;}
+
+/*NEWS.ASP样式
+3.头条新闻*/
+.news_newsFirst{ border:1px solid #FF9933; vertical-align:top;}
+.news_newsFirst .newsTitle{height:25px; color:#FF9933;font-size:16px; font-family:"黑体"; line-height:25px; overflow:hidden; text-align:center; background:#DDF0FB;padding-left:5px;}
+.news_newsFirst .newsCbs { text-indent:20px; color:#666666;line-height:16px;padding:5px;}
+.news_newsFirst .newsCbs a{ color:#FF0000;margin-left:10px;line-height:16px;}
+
+/*specs.asp当前专题样式*/
+.ActiveSpecTitle{color:red;font-weight:bold;}
+
+.shopIndexImg img{border:1px solid #666;}
+
+.indexDiv div, .indexDiv td{height:20px;overflow:hidden;}
+.indexDiv, .indexDiv div, .indexDiv a, .indexDiv td {color:#555555;}
+.indexDiv a:hover{color:#ff0000; text-decoration:underline;}
+.indexDiv a{line-height:25px;}
+
+.TabAll td, .TabAll a{height:20px;overflow:hidden;color:#555555;}
+.TabAll a:hover{color:#ff0000; text-decoration:underline;}
+
+#scrollBox div{height:20px;width:65px;overflow:hidden;float:left;margin-left:5px;}
+#popwin{display:none;}
+
+.left1{ background:#FFF0F2; padding:5px;}
+.Left_NavTitle{ font-weight:bold;color:#666666;}
+.Left_NavMenu a{color:#999999; font-family:"宋体";}
+.Left_NavMenu {padding-left:10px;}
+.listA_cntA{ float:left;padding-left:5px;color:#666666;}
+.lisB_cntB{color:#666666;}
+.mid_title{
+	padding-left:25px;
+	padding-top:3px;
+	color:#59493f;
+	font-weight:bold;
+	background-image: url(../images/Tit.jpg);
+	background-repeat: no-repeat;
+}
+.mid_more{
+	text-align:right;
+	vertical-align: top;
+}
+.listA_title{color:#FF0000;padding-left:10px;padding-right:10px;width:49%;height:20px;line-height:20px;overflow:hidden;float:left;}
+.listA_title a{color:#333333;}
+.listA_author {float:right; color:#bbbbbb;}
+.listA_Time {float:right; color:#bbbbbb;}
+.listA_msg{padding:5px;color:#999999;}
+
+
+.listB_title{ padding-left:15px;border-bottom:1px solid #EEEEEE;color:#333333;font-size:14px;height:20px;line-height:20px;overflow:hidden;}
+.listB_Time{color:#bbbbbb;font-size:12px;text-align:left;width:70px;float:right;}
+.listB_author{color:#bbbbbb;float:right;width:60px;}
+.cutPage{font-size:12px;border:1px solid #cccccc;line-height:20px; height:20px;width:100%;padding-left:15px;}
+.listB_cntA{width:60px;float:left;height:20px;line-height:20px;}
+.listB_cntB{height:20px;line-height:20px;}
+
+
+.re_quote{border:1px dotted #FF9900; background:#FFFFE6;width:90%;}
+.re_title{height:20px;font-size:14px;vertical-align:middle;padding-left:10px;background:#F6F6F6}
+.re_text{height:50px;padding-left:20px;}
+.re_more{border:1px solid #CCCCCC; text-align:right; background:#FFF7FB;}
+.re_link1{color:#000000;font-size:12px;}
+.re_link2{color:#FF0000;font-size:12px;}
+
+
+.newsTitle,.newsTitle span{ font-size:24px; text-align:center; font-weight:bold; font-family:"黑体";line-height:150%;}
+.newsInfo { color:#999999;text-align:right; padding-left:5px;}
+.newsBody {line-height:150%;font-size:14px; color:#000000;}
+.newsNext {font-size:14px; color:#CC0000; background:#FFF8F7;}
+.newsKeyArt{border:1px dotted #CCCCCC;}
+.borderBottom{border-bottom:1px dotted #CCCCCC;}
+
+.unitTitle{font-weight:bold;}
+.unitCont{font-size:12px;}
+.unitImg{border:1px solid #DDDDDD;font-size:12px;}
+
+.copyright{background:#FFFFFF;line-height:25px;}
+
+/*以下是index2.asp文件使用的样式*/
+.p2_imgNews{border:1px solid #BFBEC7;padding:10px;height:180px;overflow:hidden;text-align:center}
+.p2_imgNews a{color:#0068b7;font-weight:bold;}
+
+.p2_eliNews{border:1px solid #FFCC66;height:180px;}
+.p2_eliNews .title{ background:#DFEFFF;height:30px; font-size:16px; font-family:"黑体"; text-align:center; color:#FF9900;line-height:30px; overflow:hidden;}
+.p2_eliNews .text{ background:#FFFFFF;font-size:12px; text-indent:20px; color:#555555;line-height:20px;padding:5px;}
+.p2_eliNews .text a{font-family:"宋体"; color:#FF0000; font-size:12px;margin-left:10px;}
+/*挂接表首页更新图片标题*/
+.tabimgTitle{ height:20px; overflow:hidden;}
+
+.searL1{background-image:url(../images/search_07.gif);height:18px;line-height:18px;width:6px;}
+.searL2{background-image:url(../images/search_11.gif);height:18px;line-height:18px;width:6px;}
+
+.searM1{background-image:url(../images/search_09.gif);height:18px;line-height:18px;text-align:center;color:#FFFFFF;font-weight:bold;padding-left:10px;padding-right:10px;cursor:hand;}
+.searM2{background-image:url(../images/search_13.gif);height:18px;line-height:18px;text-align:center;color:#FFFFFF;font-weight:bold;padding-left:10px;padding-right:10px;cursor:hand;}
+
+.searR1{background-image:url(../images/search_10.gif);height:18px;line-height:18px;width:4px;}
+.searR2{background-image:url(../images/search_14.gif);height:18px;line-height:18px;width:4px;}
+
+/*白色字体*/
+.white{color:#FFFFFF;}
+.white a{color:#FFFFFF;}
+.white a:hover{color:#FFFFFF; text-decoration:underline;}
+
+/*白色字体(粗)*/
+.whiteB{color:#FFFFFF;font-weight:bold;}
+.whiteB a{color:#FFFFFF;font-weight:bold;}
+.whiteB a:hover{color:#FFFFFF; text-decoration:underline;font-weight:bold;}
+
+/*灰色字体*/
+.gray{color:#606060}
+.gray a{color:#606060}
+.gray a:hover{color:#606060;text-decoration:underline;}
+
+/*灰色字体(粗)*/
+.grayB{color:#606060;font-weight:bold;}
+.grayB a{color:#606060;font-weight:bold;}
+.grayB a:hover{color:#606060;text-decoration:underline;font-weight:bold;}
+
+/*淡灰色字体*/
+.gray1{color:#999999;}
+.gray1 a{color:#999999;}
+.gray1 a:hover {color:#999999;text-decoration:underline;}
+
+/*淡灰色字体(粗)*/
+.gray1B{color:#999999;font-weight:bold;}
+.gray1B a{color:#999999;font-weight:bold;}
+.gray1B a:hover {color:#999999;text-decoration:underline;font-weight:bold;}
+
+/*青色字体*/
+.cyan{color:#0068b7;}
+.cyan a{color:#0068b7;}
+.cyan a:hover{color:#0068b7;text-decoration:underline;}
+
+/*青色字体(粗)*/
+.cyanB{color:#0068b7;font-weight:bold;}
+.cyanB a{color:#0068b7;font-weight:bold;}
+.cyanB a:hover{color:#0068b7;text-decoration:underline;font-weight:bold;}
+
+/*橙色字体*/
+.orange{color:#eb6100;}
+.orange a{color:#eb6100;}
+.orange a:hover{color:#eb6100;text-decoration:underline;}
+
+/*橙色字体(粗)*/
+.orangeB{color:#eb6100;font-weight:bold;}
+.orangeB a{color:#eb6100;font-weight:bold;}
+.orangeB a:hover{color:#eb6100;text-decoration:underline;font-weight:bold;}
+
+/*红色字体*/
+.red{color:#ff0000;}
+.red a{color:#ff0000;}
+.red a:hover{color:#ff0000;text-decoration:underline;}
+
+/*红色字体(粗)*/
+.redB{color:#ff0000;font-weight:bold;}
+.redB a{color:#ff0000;font-weight:bold;}
+.redB a:hover{color:#ff0000;text-decoration:underline;font-weight:bold;}
+
+/*蓝色字体*/
+.blue{color:#0000ff;}
+.blue a{color:#0000ff;}
+.blue a:hover{color:#0000ff;text-decoration:underline;}
+
+/*蓝色字体(粗)*/
+.blueB{color:#0099FF;font-weight:bold;}
+.blueB a{color:#0099FF;font-weight:bold;}
+.blueB a:hover{color:#0099FF;text-decoration:underline;font-weight:bold;}
+
+/*绿色字体*/
+.green{color:#009900;}
+.green a{color:#009900;}
+.green a:hover{color:#009900;text-decoration:underline;}
+
+/*绿色字体(粗)*/
+.greenB{color:#009900;font-weight:bold;}
+.greenB a{color:#009900;font-weight:bold;}
+.greenB a:hover{color:#009900;text-decoration:underline;font-weight:bold;}
+
+/*表格边框*/
+.TableBorder{
+	border-top:1px #A40000 solid;
+	border-bottom:1px #A40000 solid;
+	border-left:1px #A40000 solid;
+	border-right:1px #A40000 solid;
+}
+
+/*表头边距*/
+.TableBarMargin{
+	margin:1px 1px 1px 1px;
+}
+
+.TableBottomBorder{
+	border-bottom:1px #9F9F9F solid;
+}
+
+/*用户注册文本框*/
+.RegisterInput{
+	border-top:1px #9F9F9F solid;
+	border-bottom:1px #9F9F9F solid;
+	border-left:1px #9F9F9F solid;
+	border-right:1px #9F9F9F solid;
+}
+
+.DisabledInput{
+	background-color:#eeeeee;
+	border-top:1px #9F9F9F solid;
+	border-bottom:1px #9F9F9F solid;
+	border-left:1px #9F9F9F solid;
+	border-right:1px #9F9F9F solid;
+}
+
+/*隐藏列表菜单*/
+.Hidden{
+	width:0px;
+	height:0px;
+}
+
+.TableBottomBorder{
+	border-bottom:1px #9F9F9F solid;
+}
+
+.RightBorder{
+	border-right:1px #9F9F9F solid;
+}
+
+.TableBox{
+	border-top:1px #9F9F9F solid;
+	border-left:1px #9F9F9F solid;
+}
+
+.TableVLine{
+	border-bottom:1px #9F9F9F solid;
+}
+
+.TableRightAndBottomBorder{
+	border-bottom:1px #9F9F9F solid;
+	border-right:1px #9F9F9F solid;
+}
+
+.tr1{background:#F7F7F7;border-bottom:1px solid #b2b2b2}
+.tr2{background:#ffffff;border-bottom:1px solid #b2b2b2}
+
+/*图片链接---图片样式*/
+.LinkImgForLinkList{
+	height:31px;
+	width:88px;
+	border:0px;
+}

@@ -1,0 +1,30 @@
+﻿<rss version="2.0">
+  <channel>
+    <title>梅州市梅江区人民政府 RSS</title>
+    <link>http://www.meijiang.gov.cn
+    <description>调用当前节点前10条记录</description>
+    <copyright>Copyright(C) 中国梅江</copyright>
+    <generator>Powered By 中国梅江</generator>
+    <lastbuilddate>Thu, 13 Oct 2016 07:12:23 +0000</lastbuilddate>
+    <ttl>10</ttl>
+    <img>
+      <url>http://www.meijiang.gov.cn/images/rss.gif</url>
+      <title>梅州市梅江区人民政府</title>
+      <link>http://www.meijiang.gov.cn/
+    
+
+ <#list rsslist as item >
+ 
+    <item>
+      <title>${item.title}</title>
+      <link>${item.link}</link>
+      <description>${item.description}</description>
+      <category>${item.category}</category>
+      <author>${item.author}</author>
+      <pubdate>${item.pubdate}</pubdate>
+    </item>
+ 	</#list>
+
+  </channel>
+</rss>
+	

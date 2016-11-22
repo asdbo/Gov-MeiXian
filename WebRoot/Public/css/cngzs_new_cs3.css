@@ -1,0 +1,278 @@
+@charset "utf-8";
+/* CSS Document */
+
+#gzgov_top {BACKGROUND: url(../images/index_gzgov_02.jpg) repeat-x;}
+.gzgov_top_con {BACKGROUND: url(../images/nav_bgs_red.jpg) left bottom no-repeat;}
+
+.gzgov_top_logo {BACKGROUND: url(../images/red_logo.jpg) no-repeat; }
+.gzgov_top_fla{ background:url(../images/verbg_top_r5_c1.jpg) repeat-x;}
+
+#main_1p{position:relative;}
+.main_1_left{float:left; width:778px;}
+.main_l_1p{ padding:10px; border:1px solid #CCC; -webkit-box-shadow:3px 3px 3px rgba(206, 206, 206, .8);  -moz-box-shadow:3px 3px 3px rgba(0, 206, 206, .8);  box-shadow:3px 3px 3px rgba(206, 206, 206, .8); min-height:600px; _height:600px; clear:both;}
+.main_1_right{float:right; width:210px;}
+
+.main_1_left_l{float:left; width:364px;}
+.main_1_left_r{float:right; width:380px; border:1px solid #CCC; border-top:2px solid #900;}
+#main_2p{position:relative; height:899px; background:url(../images/gzgov_index_1212.jpg) left top no-repeat;}
+.main_1p_xwdh {
+	font-size: 12px;
+	width:28px;
+	height: 235px;
+	float:left;
+	background:url(../images/gzgov_index_c_03.jpg) left top no-repeat;
+}
+.main_1p_xwdhcon,.tpxwindex{text-align:center; width:20px;  padding:20px 0;}
+.main_1p_xwdhcon  a{COLOR: #000000; TEXT-DECORATION: none; display:block;}
+.main_1p_xwdhcon  a:hover {COLOR: #ff0000; }
+.tpxwindex a {COLOR: #CF2528; TEXT-DECORATION: none; display:block;}
+.tpxwindex a:hover{COLOR: #ff0000;}
+
+.main_1p_pic { float:right; width:330px; height:254px;  }
+
+.jrgz{padding:10px 0; line-height:1.75; font-size:14px; height:150px;}
+.jrgz .bold{color:#C00; line-height:1.9; font-weight:bold;}
+.jrgz .bold a{color:#C00; }
+.jrtitle{display:block; clear:both; height:25px; padding-left:15px; border-bottom:1px #CCCCCC solid; margin:0 3px; margin-bottom:5px;}
+.jrtitle span{border-left:3px solid #C00; padding-left:15px; line-height:20px; float:none;}
+
+.main_1p_nav11 { border-bottom:1px solid #CCC; height:28px; line-height:28px; padding-left:10px;}
+.main_1p_nav11 li {cursor: hand; width:85px; height:28px; text-align: center; font-size:14px; font-weight:bold; background:url(../images/gzgov_index_06_05.jpg) no-repeat center;  color:#303030; float:left; margin-right:4px; cursor:pointer;}
+.main_1p_nav11 li.hover {color: #BD1111; background:url(../images/gzgov_index_06_03.jpg) no-repeat center #FFF; height:29px;}
+.main_1p_nav11 li.active {color: #BD1111; background:url(../images/gzgov_index_06_03.jpg) no-repeat center;}
+.main_1p_nav11 li.active a{color: #BD1111;}
+
+.main_1p_nav15 { position:absolute; left:392px; top:17px; width:375px; height:28px; line-height:28px;}
+.main_1p_nav15 li {cursor: hand; width:74px; height:28px; text-align: center; font-size:14px; font-weight:bold; background:url(../images/gzgov_index_06_08.jpg) no-repeat center;  color:#303030; float:left; margin-right:1px; cursor:pointer;}
+.main_1p_nav15 li.active {color: #BD1111; background:url(../images/gzgov_index_06_07.jpg) no-repeat center;}
+
+.main_1p_nav12 {
+	width: 383px;
+	height: 235px;
+	line-height:24px;
+	FONT-SIZE:16px;
+}
+.main_1p_nav12  a{FONT-SIZE:16px;}
+.main_1p_nav12  a:hover {COLOR: #CC3300; FONT-SIZE:16px;}
+.t1{height:32px; padding:0 15px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; text-align:center; padding-top:8px; font:15px/25px "宋体"; font-weight:bold; color: #CE0205;}
+.t1 a{color: #CE0205;}
+.t1 a:hover{color:#F30;}
+.indexlistbox{line-height:24px; padding-top:8px;}
+.indexmore1{position:absolute; right:1px; bottom:2px; background:#FFF; padding:4px 5px; padding-bottom:0;}
+.indexmore1 a{color:#CE0205; font-size:12px;}
+.indexmore1 a:hover{color:#F30; font-size:12px; text-decoration:none;}
+
+.iframelist{margin:0 5px; height:130px; margin-top:4px;}
+.img0627{height:86px; margin-top:10px; float:right; width:382px; }
+
+
+.main_tab {   	padding-top:10px; 	padding-left:10px;	}
+
+.main_1p_nav21 { position:absolute; left:400px; top:285px; width:370px; height:29px; line-height:29px; text-align:left; z-index:20; }
+.main_1p_nav21 li {cursor: hand; width:111px; height:29px;	text-align: center; font-size:14px; font-weight:bold; background:url(../images/gzgov_index_06_0902.jpg) no-repeat center;  color:#303030; float:left; margin-right:4px; cursor:pointer;}
+.main_1p_nav21 li.hover {color: #BD1111; background:url(../images/gzgov_index_06_09.jpg) no-repeat center;}
+
+.main_1p_nav25 {height:30px; padding-left:10px; border-bottom:1px solid #CCC;}
+.main_1p_nav25 li {cursor: hand; line-height:29px; height:29px;	text-align: center; font-size:14px; font-weight:bold; background:url(../images/jrgz_link.jpg) top repeat-x;  color:#303030; float:left; margin-right:4px; padding:0px 8px; cursor:pointer; border:1px #ccc solid; border-bottom:none; text-align:center;}
+.main_1p_nav25 li.hover {color: #BD1111; background:url(../images/jrgz_hover.jpg) top repeat-x #FFF; border:2px #ccc solid; border-bottom:0;}
+.main_1p_nav25 li.hover a{color: #BD1111;}
+
+.main_1p_nav22 {
+	height: 120px;
+	line-height: 23px;
+	padding-top:8px;
+	clear:both;
+	font-size:14px;
+}
+.main_1p_xxgk{margin-top:10px; background:url(../images/gzgov_index_c_11.jpg) right top no-repeat;}
+.main_1p_xxgkti {
+	height:48px;
+	width:230px;
+	line-height: 32px;
+	FONT-SIZE: 14px;
+	padding-left: 10px;
+	background:url(../images/gzgov_index_c_11.jpg) left top no-repeat;
+}
+.main_1p_xxgkti a{color:#C30;}
+.main_1p_xxgkti a:hover{color:#F00;}
+.main_1p_xxgkdh {
+	height: 70px;
+	padding:0 10px;
+	font-size: 13px;
+	line-height:23px;
+	background:url(../images/gzgov_index_c_15.jpg) bottom repeat-x;
+	border:1px solid #CCC;
+	border-top:0;
+}
+.main_1p_xxgkdh a{float:left; width:150px; background:url(../images/cngz_index_r14_c21.jpg) left center no-repeat; padding-left:20px; color:#000;}
+.main_1p_xxgkml_con{height:76px; font-size:13px; line-height:24px; padding-left:13px; padding-top:6px; background:url(../images/gzgov_index_c_15.jpg) bottom repeat-x;
+	border:1px solid #CCC;
+	border-top:0;
+	}
+.main_1p_xxgkml_con a{ display:block; float:left; width:65px; text-align:center; line-height:24px; color:#000;}
+.zdlyxxgk{ background:url(../images/gzgov_index_c_15.jpg) bottom repeat-x; border:1px solid #CCC; border-top:0;}
+.cxx1_title{background:url(../images/gzgov_index_c_16.jpg) repeat-x center bottom #f7f7f7; height:34px; font-size:14px; font-weight:bold; line-height:34px; text-align:center; border-bottom:1px solid #CCC;}
+.cxx1{background:url(../images/gzgov_index_c_18.jpg) center top no-repeat; padding:8px;}
+
+.cxbox{
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:350px;
+	height:60px;
+	text-align:left;
+	padding-left:2px;
+	padding-top:10px;
+	background:#fff;
+	display:none;
+	margin-bottom:-5px;
+}
+.cxbox a{ display:block; float:left; padding:2px; text-align:center; line-height:20px; color:#000;}
+.cxbox a:hover{color:#f00}
+.tab .bd{height:140px; overflow:hidden; font-size:14px;}
+
+.main_1p_bjcx {
+	margin-top:10px;
+	background: url(../images/gzgov_index_09_bak.jpg) top left  no-repeat;
+}
+.bjcxtt{height:27px;}
+.ibjcx{height:90px;  text-align:center; padding-top:5px;}
+.cjsfwdhtt{height:28px; text-align:right; padding-right:10px;}
+.cjsfwdhtt img{padding:8px;}
+.icjsfwdh{text-align:center; padding-top:12px; padding-left:5px;}
+
+.main_1p_bjgs {	position:absolute;	left:0px;	top:637px;	width:784px;	height:118px;	text-align:left;}
+
+.main_1p_smbjgs {position:absolute; left:60px; top:25px; width:720px; height:95px;  text-align:left; font-size:12px;   }
+
+.main_1p_wsbs100 {
+	margin-top:8px;
+	width: 200px;
+}
+.main_1p_wsbs100 img{ margin-bottom:2px;}
+.smifr{background:#ffffed; border:1px solid #CCC; height:160px;}
+
+.main_1p_xxgspt {
+	width: 203px;
+	height: 81px;
+}
+.main_1p_wsbs {
+	margin-top:10px;
+	width: 196px;
+}
+.wsbsdtbox{padding:10px 6px;}
+
+.ztfw{
+	width:921px;
+	height:74px;
+	top:543px;
+	position:absolute;
+	left:58px;
+}
+.ztfw a{text-decoration:none; float:left;}
+#main_yxdl{height:28px; line-height:28px; overflow:hidden; background:#FEEDE6; margin-top:10px; clear:both;}
+.main_1p_banner {
+	left: 0px;
+	top: 800px;
+	width: 788px;
+	height: 91px;
+	text-align: left;
+}
+.main_1p_banner img{margin-right:3px;}
+
+#main_2p{ position:relative; height:280px; background:url(../images/index_hd621_bg.jpg) left top no-repeat; padding:10px 19px 0 10px; margin-top:8px;}
+.main_2p_left { position: absolute; left:0px; top:0px; width:210px; height:319px; overflow:hidden; }
+
+.main_2p_zwzt {float:left; width:190px; height:256px;}
+.main_2p_zwzt img{display:block; margin-bottom:8px;}
+.main_2p_bxrx{float:left; margin-left:13px; width:556px;}
+.main_2p_hdtitle {height:29px; padding-left:120px; line-height:29px; }
+.main_2p_hdtitle span{float:left;}
+.main_2p_hdtitle  a{ FONT-SIZE: 13px; COLOR: #F43D02; TEXT-DECORATION: none;  }
+.main_2p_hdtitle  a:hover{COLOR: #A80301;}
+
+.main_2p_hdlist {height:218px; border:1px solid #cccccc; border-top:0;  }
+
+.main_2p_right { float:right; width:202px; padding-top:2px;}
+.main_2p_myzj11 {height:25px; line-height:24px;  COLOR:#AA0000;  font-weight:bold; padding-left:15px;}
+.main_2p_myzj11 a{color:#AA0000;}
+.main_2p_myzj11 a:hover{color:#F00;}
+.main_2p_myzj12 {width:202px; height:187px; overflow:hidden; padding-top:7px; }
+
+.main_2p_myzjt2 {position: absolute; left:796px; top:207px; width:110px; height:22px; COLOR: #AA0100;  text-align:left; font-weight:bold;}
+.main_2p_myzjlist { position: absolute; left:787px; top:233px; width:220px; height:17px; COLOR: #AA0100; padding-bottom:10px; vertical-align:text-top;  text-align:left; font-weight:bold;}
+.main_2p_myzjlist a {FONT-SIZE: 12px; font-weight:normal;   }
+.main_2p_myzjlist a:hover {FONT-SIZE: 12px; font-weight:normal;}
+
+.main_2p_wsdclist{line-height:25px; height:26px; overflow:hidden; text-overflow:ellipsis;}
+
+.main_2p_hdlj { position: absolute; left:225px; top:260px; width:542px; height:30px; }
+
+#main_3p  { position:relative; width:1000px; margin:0 auto;}
+.main_3p_left { float:left; width:737px;}
+.main_3p_right { float:right; width:254px; height:205px; background:url(../images/gzgov_index_38.jpg) top left no-repeat;}
+.main_3p_wzdh{margin-top:5px; height:30px;  line-height:28px; }
+.main_3p_wzdh span{display:block; float:left; color:#BD1111;  font-size:14px; line-height:28px; font-weight:bold;}
+.main_3p_wzdh div{ float:right; width:640px;}
+
+.yqlj_title{background:url(../images/gzgov_index_34.jpg) bottom repeat-x; height:26px; line-height:26px; padding-left:15px;}
+.yqlj_title li{background:url(../images/gzgov_index_33.jpg) no-repeat; width:131px; text-align:center; float:left; margin-right:3px; cursor:pointer;}
+.yqlj_title li.hover{background:url(../images/gzgov_index_32.jpg) no-repeat; color:#BD1111; font-weight:bold;}
+.yqljbg{background:url(../images/gzgov_index_35.jpg) left bottom no-repeat; padding:10px 2px 2px 10px;}
+.yqlj_list_508{height:128px; position:relative; overflow-y:auto; overflow-x:hidden; 
+	scrollbar-face-color:#EFEEEA;
+　　scrollbar-highlight-color:#FFFFFF;
+　　scrollbar-shadow-color:#D0D0D0;
+　　scrollbar-arrow-color:#A1A1A1;
+　　scrollbar-track-color:#EFEEEA;
+　　scrollbar-3dlight-color:#EDEEE8;　
+　　scrollbar-darkshadow-color:#727272;
+　  scrollbar-base-color:#ff0000;
+}
+.main_3p_nav1{line-height:26px; height:26px;}
+.main_3p_nav1 li{height:26px; float:left; width:127px; text-align:center;}
+.main_3p_nav1 li.hover{background:url(../images/gzgov_index_38_02.gif) top center no-repeat; color:#900; font-weight:bold;}
+
+.phbox{height:135px; text-align:center; padding-top:1px; width:250px; margin:auto; overflow:hidden;}
+
+.indextopbj02_blue {background:url(../images/blue_verbg.jpg) repeat-x top; padding-top:20px;}
+
+.indexbottombj02_blue {background:url(../images/blue_verlogo.jpg) right 10px no-repeat; width:28%; height:70px; float:left;}
+
+.indexbottombj03{text-align:left; height:70px; float:left; padding-left:15px; width:65%}
+
+.indexbottombj03 font{font-size:12px;}
+
+.indextopbj02_blue {background:url(../images/blue_verbg.jpg) repeat-x top; padding-top:20px;}
+
+.indextopbj02_orange {background:url(../images/orange_verbg.jpg) repeat-x top; padding-top:20px;}
+
+.indexbottombj02_blue {background:url(../images/blue_verlogo.jpg) right 10px no-repeat; width:28%; height:70px; float:left;}
+
+.indexbottombj02_orange {background:url(../images/orange_verlogo.jpg) right 10px no-repeat; width:28%; height:70px; float:left;}
+
+
+
+.indexbottombj03{text-align:left; height:70px; float:left; padding-left:15px; width:65%}
+
+.indexbottombj03 font{font-size:12px;}
+
+.bottom_menu{line-height:23px;}
+
+.bottom_menu td{line-height:23px;}
+
+.bottxx{line-height:23px; font-size:12px; padding:4px 0;}
+
+.ssztxx{height:72px; margin-top:10px; width: 200px; background:url(../images/ssztxx_r1_c1_s1.jpg) left top no-repeat;}
+
+.r{width:110px; position:fixed; top:123px; right:10px; z-index:999; _POSITION: absolute;  
+ _TOP: expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight);}
+.r img{ border:none;}
+.div2{top:10px;z-index:888;position:fixed;_position:absolute;}
+.l{width:110px; position:fixed; top:123px; left:10px; z-index:999; _POSITION: absolute;  
+ _TOP: expression(offsetParent.scrollTop+document.documentElement.clientHeight-this.offsetHeight); display:none;}
+.l img{ border:none;}
+
+.ad1{width: 422px; height: 300px; position: fixed; top: 123px; left: 50%; margin-left: -200px; z-index: 999; background:url(images/notice-bg.jpg) no-repeat; background-size:cover;}
+.notice-content {text-indent: 2em; font-size: 14px; font-family: Microsoft YaHei; width: 336px; margin: 19px auto 0 auto; line-height: 27px; color: black;}
+.notice-btn {margin: 34px 0 0 139px;}

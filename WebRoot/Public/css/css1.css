@@ -1,0 +1,110 @@
+@charset "utf-8";
+/* CSS Document */
+body{padding:0; margin:0; font:12px/100% "SimSun"; COLOR:#333;}
+img{border:0;}
+.clear {CLEAR: both}
+.clearfloat:after { content:''; display:block; clear:both;}
+a{COLOR:#343434; TEXT-DECORATION: none}
+a:hover {COLOR:#C00; TEXT-DECORATION: underline}
+
+ul,li{list-style:none; padding:0; margin:0;}
+td{font-size:12px;}
+.mar10{margin-right:10px;}
+.pd5{padding:5px;}
+
+/** 原body背景gzgov_618bg.gif **/
+body.all{background: url(../images/gzgov_618bg.gif) center top repeat-y; background-color:#fff;}
+#warp{background:url(../images/2016_gqbg.jpg) top center no-repeat; padding-top:128px;}
+#index_all{width:1002px; margin:0 auto; }
+.main{overflow:hidden; }
+#main_index{ position:relative; width:1000px; margin:0 auto;}
+.banner{display:none;}
+
+#top {MARGIN: 0px auto; WIDTH: 1002px; HEIGHT: 155px}
+#gzgov_top {TEXT-ALIGN: center; MARGIN: 0px auto; WIDTH: 100%; BACKGROUND: url(../images/index_gzgov_02.jpg) repeat-x; HEIGHT: 151px}
+
+.gzgov_top_con {POSITION: relative; BACKGROUND: url(../images/nav_bgs_red.jpg) left bottom no-repeat; HEIGHT: 150px}
+.gzgov_top_link {POSITION: relative; HEIGHT: 30px; TOP: 0px; line-height:30px;}
+.gzgov_top_link td a{font-size:13px; text-decoration:none;}
+.gzgov_top_link td a:hover{font-size:13px; color:#999;}
+.gzgov_top_link td a.wdmhred{color:#C30}
+.gzgov_top_link td a.wdmhred:hover{text-decoration:underline; color:#C30}
+.gzgov_top_logo {POSITION: absolute; WIDTH: 200px; BACKGROUND: url(../images/top_logo.jpg) no-repeat; HEIGHT: 80px; TOP: 37px; LEFT: 10px}
+
+#slidewindow{POSITION:absolute; WIDTH:720px; HEIGHT:73px; RIGHT: 3px; TOP: 37px; background:url(../images/verbg_top_r5_c1.jpg) repeat-x; overflow:hidden;}
+#box1{width:434px; height:73px; position:absolute; left:0; top:0; z-index:1; BACKGROUND: url(../images/verbg_top_r5_c1.jpg) repeat-x;}
+#box2{width:434px; height:73px; position:absolute; left:432px; top:0; z-index:2; BACKGROUND: url(../images/verbg_top_r5_c1.jpg) repeat-x;}
+#box3{width:434px; height:73px; position:absolute; left:576px; top:0; z-index:3; BACKGROUND: url(../images/verbg_top_r5_c1.jpg) repeat-x;}
+
+
+.zffw h2{position:absolute; width:144px; height:73px; text-align:center; padding:0; margin:0; left:0; background:url(../images/top_r1.jpg) left top no-repeat; border-left:0; }
+.zffw h2.glidetagon {BACKGROUND-POSITION: left -74px; border-left:1px solid #CCC;}
+
+.zjgz h2{position:absolute; width:144px; height:73px; text-align:center; padding:0; margin:0; left:0; background:url(../images/top_r1.jpg) -144px top no-repeat; border-left:0; }
+.zjgz h2.glidetagon {BACKGROUND-POSITION: -144px -74px; border-left:1px solid #CCC;}
+
+
+.ggfw h2{POSITION:absolute; left:0; width:144px; height:73px; text-align:center; padding:0; margin:0; background:url(../images/top_r1.jpg) -288px top no-repeat;}
+.ggfw h2.glidetagon {BACKGROUND-POSITION: -288px -74px;}
+
+
+.yzgz h2{POSITION:absolute; left:0; width:144px; height:73px; text-align:center; padding:0; margin:0;  background:url(../images/top_r1.jpg) -432px top no-repeat;}
+.yzgz h2.glidetagon {BACKGROUND-POSITION: -432px -74px;}
+
+#slidewindow h2 a{display:block; height:73px; text-decoration:none;}
+
+.top_img{float:left; width:144px; text-align:center;}
+.top_menu{padding:15px 14px; float:left; width:260px; float:right;}
+.top_menu a{width:120px; float:left; height:24px; line-height:24px;	text-align:center;}
+.top_menu a:hover{color:#F00; text-decoration:none;}
+.top_menu2{padding:15px 14px; float:left; width:260px; float:right;}
+.top_menu2 a{width:80px; float:left; height:24px; line-height:24px;	text-align:center;}
+.top_menu2 a:hover{color:#F00; text-decoration:none;}
+
+.gzgov_top_nav {POSITION: absolute; TEXT-ALIGN: left; WIDTH: 600px; BOTTOM: 3px; HEIGHT: 22px; COLOR: #ffffff; FONT-WEIGHT: bold; LEFT: 133px; LINE-HEIGHT: 22px;  FONT-SIZE: 14px; }
+.gzgov_top_nav A { COLOR: #ffffff; TEXT-DECORATION: none}
+.gzgov_top_nav A:hover {COLOR: #fff5cf;}
+.gzgov_top_nav_left {POSITION: absolute; TEXT-ALIGN: left; WIDTH: 90px; BOTTOM: 6px; HEIGHT: 30px; LEFT: 15px}
+.gzgov_top_nav_left a{display:block; height:30px; text-decoration:none;}
+
+.gzgov_top_znss {
+	POSITION: absolute; WIDTH: 270px; HEIGHT: 22px; RIGHT: 3px; TOP: 123px
+}
+
+.redtitle{ font-weight:bold; color: #CC3300; float:left;}
+.redtitle a{ color: #CC3300;}
+#bottom{background:url(../images/red_verbg.jpg) top repeat-x; padding-top:20px; height:95px;}
+#bottom_green{background:url(../images/verbg_green.jpg) top repeat-x; padding-top:20px; height:80px;}
+
+.indexbottombj{background:url(../images/red_verlogo.jpg) 150px center no-repeat; height:60px; width:900px; margin:auto; position:relative;}
+.btdh{ line-height:25px; text-align:left;}
+.bottxx{line-height:28px; text-align:left; font-size:12px;}
+
+.listh{line-height:25px;}
+.more2{float:right; padding-right:10px;}
+.more03 {
+	height: 30px; text-align: right; color: rgb(255, 0, 0); line-height: 30px; padding-right: 15px; font-weight: bold;
+}
+.more03 a {
+	color: rgb(255, 0, 0); line-height: 30px;
+}
+.mb5{margin-bottom:5px;}
+
+.tplist{ float:left; width:290px; border:1px #cccccc solid; margin:10px; padding:6px; text-align:center;}
+.tplistpic img{ width:290px; height:200px; margin-bottom:3px;}
+.tplistwz{display:block; font-size:12px; height:25px; text-align:center; width:180; line-height:25px; background:#EEE; overflow:hidden;}
+
+
+.pagediv{padding:12px; height:30px; line-height:20px; font-size:12px;}
+.pagediv input{width:30px; padding:0 3px;}
+.pagediv .arrow{background: none repeat scroll 0 0 #F2F4F9; border: 1px solid #D2DFEB; display:inline-block; height: 20px; margin-right: 2px; padding: 0 8px; text-align: center;}
+.pagediv .index_num{background:#FF9; border:#F90 1px solid;}
+.pagediv .pagination_index_last{ display:inline; margin-left:50px; text-align:right;}
+
+.zqsxxx{border:1px #ccc solid;}
+.zqsxxx td{border:1px #ccc solid; border-collapse:collapse; padding:10px;}
+.zqsxxx_bt{ font-weight:bold; font-size:14px; line-height:20px;}
+.zqsxxx_con{line-height:20px;}
+
+.wzzc{width:114px; height:50px; position:absolute; float:left; margin-left:30px; margin-top:10px;}
+.bqxx{width:689px; float:right;}

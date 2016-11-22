@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+<script src="${public}/js/jquery-1.11.1.min.js"></script>
+<script src="${public}/js/bootstrap.min.js"></script>
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="text/javascript">
+$(function(){ 
+	 
+	 $("#lanmu").each(function(){
+         $(this).find("option").each(function(){
+                 if($(this).val() == ${(navigationModel.pid)!}){
+                     $(this).attr("selected","selected");
+                 }
+         });
+});
+	 $("#leixing").each(function(){
+         $(this).find("option").each(function(){
+                 if($(this).val() == ${(navigationModel.pid)!}){
+                     $(this).attr("selected","selected");
+                 }
+         });
+});
+	
+
+ } 	);
+</script>
+
+</head>
+<body>
+	<div class="col-sm-12  col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">导航管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+					<li><a href="/Admin/Navigation/toAdd">导航添加</a></li>
+					<li><a href="/Admin/Navigation/list">导航显示</a></li>
+					<li class="active"><a href="/Admin/Navigation/toAdd">导航修改</a></li>
+				</ul>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="/Admin/Navigation/update"
+							method="post">
+							<input type="hidden" name="navigationModel.id"
+								value="${(navigationModel.id)!}" />
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">导航名称</label>
+								<div class="col-sm-6">
+									<input type="text" name="navigationModel.title"
+										class="form-control" value="${(navigationModel.title)!}"
+										placeholder="请输入导航名称" />
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">导航链接</label>
+								<div class="col-sm-6">
+									<input type="text" name="navigationModel.link"
+										class="form-control" value="${(navigationModel.link)!}"
+										placeholder="请输入导航链接"/>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">上级导航</label>
+								<div class="col-sm-6">
+									<select class="form-control" id="lanmu"
+										name="navigationModel.pid">
+										<option value="0">一级导航</option> <#list navigationModel1 as o>
+										<option value="${o.id}">${o.title}</option> </#list>
+
+
+
+									</select>
+
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary  col-sm-offset-2"
+									value="保存">
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<!--/.main-->
+
+
+</body>
+
+</html>

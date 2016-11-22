@@ -1,0 +1,116 @@
+<#include '/WEB-INF/templates/common/common.html'>
+
+<div class="main fixfloat">
+    <div class="mj-path"><span>当前位置：
+          <a href="http://www.meijiang.gov.cn/index.html">首页</a>    </span></div>
+     <div id="zwdt" class="mod fixfloat">
+        <div class="hd">
+            <h2>邮件订阅</h2>
+        </div>
+        <div class="bd">
+          <table width="778" height="508" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="margin:0 auto;">
+              <tbody><tr>
+                <td valign="top">
+                <table width="778" border="0" align="center" cellpadding="0" cellspacing="0">
+                  <tbody><tr>
+                    <td height="66" background="images/bj.gif">
+                    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tbody><tr>
+                            <td><img src="${public}/images/xxdy_01.gif" width="230" height="45"></td>
+                          </tr>
+                          <tr>
+                            <td><img src="${public}/images/pic_02.gif" width="135" height="21"></td>
+                          </tr>
+                        </tbody></table>
+                        </td>
+                  </tr>
+                </tbody></table>
+                  <table valign="top" width="778" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody><tr valign="top">
+                      <td height="402">
+                       <table width="96%" border="0" align="center" cellpadding="0" cellspacing="2">
+                          <tbody><tr>
+                            <td>&nbsp;</td>
+                          </tr>
+                        </tbody></table>
+                        <table width="96%" border="0" align="center" cellpadding="0" cellspacing="2">
+                          <tbody><tr>
+                            <td>选中下面列出来的栏目，选完后点保存订阅按钮完成订阅。订阅信息将会发送到你注册时提供的电子邮箱中</td>
+                          </tr>
+                        </tbody></table>
+                        <table width="96%" border="0" align="center" cellpadding="1" cellspacing="0" bgcolor="#CCCCCC">
+                          <tbody><tr>
+            
+                            <td bgcolor="#FFFFFF"><table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tbody><tr>
+                                  <td>&nbsp;</td>
+                                </tr>
+                              </tbody></table>
+                              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tbody><tr>
+                                  <td height="21" bgcolor="7D99D5"><span class="style1"> &nbsp;<strong></strong></span></td>
+                                </tr>
+                              </tbody></table>
+                              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tbody><tr>
+                                  <td height="10"></td>
+                                </tr>
+                              </tbody></table>
+                              <form name="frm" action="/ucms/publish/mail.php?o=add" method="POST">
+                              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                   
+                                                                    <td>
+                                      <input type="checkbox" name="groupids[]" value="4">梅江要闻                                  </td>
+                                                                                                      <td>
+                                      <input type="checkbox" name="groupids[]" value="2">乡镇部门动态                                  </td>
+                                                                                                      <td>
+                                      <input type="checkbox" name="groupids[]" value="3">通知公告                                  </td>
+                                                                    </tr><tr>
+                                                                                                                                        </tr>
+                                  <tr>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                      <td>Email:</td>
+                                      <td><input name="email" maxlength="30" size="16"></td>
+                                      <td><a href="javaScript:checkSubmit()"><img src="${public}/images/bnt_bcdy.gif" width="70" height="21" border="0"></a></td>
+                                  </tr>
+                                  <tr>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                      <td>&nbsp;</td>
+                                  </tr>
+                                  <tr>
+                                      <td><font color="red">邮件退订</font></td>
+                                      <td><input name="_email" maxlength="30" size="16"></td>
+                                      <td><a href="javaScript:_checkSubmit()"><img src="${public}/images/_bnt_bcdy.gif" width="70" height="21" border="0"></a></td>
+                                  </tr>
+                              </tbody></table>
+                              </form>
+                              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                                <tbody><tr>
+                                  <td>&nbsp;</td>
+                                </tr>
+                              </tbody></table>
+            
+                        </td></tr></tbody></table>
+                       </td>
+                    </tr>
+                  </tbody></table>
+                  <table width="778" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                      <td height="40" align="center" background="images/bj02.gif">
+                          <a href="javaScript:window.close();"><img src="${public}/images/bnt_gbck.gif" width="70" height="21" border="0"></a></td>
+                    </tr>
+                </tbody></table></td>
+              </tr>
+            </tbody></table>
+        </div>        
+     </div>
+</div>     
+<script language="javascript" src="/data/html.js.php?id=weather&amp;inner=weatherinfo"></script>
+
+<#include '/WEB-INF/templates/common/footer.html'>

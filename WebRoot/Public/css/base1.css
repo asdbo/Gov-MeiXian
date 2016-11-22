@@ -1,0 +1,122 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: "宋体", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #212121;
+}
+a {
+	color: #000;
+	text-decoration: none;
+}
+.wid {
+	width: 1002px;
+	margin: 0 auto;
+}
+ul, ol, li, dl, dt, dd, form, h1, h2, h3, h4, h5, h6 {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+img {
+	border: none;
+}
+em {
+	font-style: normal;
+}
+body {
+	background: #faf7ce repeat-x;
+}
+/*float*/
+.ftl {
+	float: left;
+}
+.ftr {
+	float: right;
+}
+.clear {
+	clear: both;
+}
+.none {
+	display: none;
+}
+.wohle {
+	width: 1002px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0 10px;
+	background: #fff;
+}
+/*color*/
+.blue {
+	color: #006ec5;
+}
+/*head*/
+.head {
+	width: 1002px;
+	margin: 0 auto;
+}
+.top_pic {
+	width: 1002px;
+	height: 170px;
+}
+/*nav*/
+.nav {
+	height: 70px;
+	background: url(../images/nav_b2.jpg) repeat-x;
+	color: #fff;
+	padding-left:8px;
+
+}
+.nav a {
+	color: #fff;
+	font-size: 14px;
+	padding:0 7px;
+	line-height:34px;
+}
+
+
+/*content*/
+.content {overflow: hidden; margin-top: 10px;}
+.content_left { float: left;}
+.zdly {width: 494px;  border: 1px solid #ccc; margin-bottom: 10px;}
+.title { background:  url(../images/title_01.jpg) no-repeat; height: 27px; line-height: 27px;  padding:0 10px 0 46px;}
+.title p { font-size: 14px; color: #fff; font-weight: bold;}
+.zdly ul li{ line-height: 24px;background:  url(../images/list_sj.jpg) 0 10px no-repeat; text-indent: 10px;}
+.zdly ul { padding:10px 10px 10px 140px; height:144px; }
+
+.gd {float: right;color: #848484; font-weight: normal; font-size:12px;}
+.content_right {float: right;}
+
+.title_cz {background:  url(../images/title_02.jpg) no-repeat; height: 27px; line-height: 27px;  padding:0 10px 0 42px;}
+.title_cz p { font-size: 14px; color: #fff; font-weight: bold;}
+
+/*不一样的样式*/
+.ysjs_tp3 ul{height: 144px; padding: 10px 20px 10px 10px;}
+.ysjs_tp3 ul li{ float:left; width:136px; height:144px; background:none; text-indent:0px;  padding-left:16px;}
+
+/*footer*/
+.footer {
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 10px;
+	width: 1004px;
+}
+.footer .menu {
+	background: url(../images/footer.jpg) repeat-x;
+	color: #312f43;
+	line-height: 40px;
+}
+.footer p {
+	line-height: 14px;
+	color: #666666;
+	margin-top: 10px;
+}
+.menu_dt {
+	border-bottom: dashed #000000 1px;
+	width: 1004px;
+	height: 1px;
+}

@@ -1,0 +1,17 @@
+table {	font-size: 9pt}
+a.l1:link {	text-decoration: none;	font-family: "宋体";	font-size: 14px;	font-weight: bold;	color: #FF9900;}
+a.l1:visited {	text-decoration: none;	color: #FF9900;	font-family: "宋体";	font-size: 14px;
+	font-weight: bold;}
+a.l1:hover {	text-decoration: underline;	color: #FFCC00;	font-family: "宋体";	font-size: 14px;	font-weight: bold;}
+a.l1:active {	text-decoration: none;	color: #FFCC00;	font-family: "宋体";	font-size: 14px;
+	font-weight: bold;}
+a.l2:link {	text-decoration: none;	font-family: "宋体";	font-size: 12px;	font-weight: normal;	color: #000000;}
+a.l2:visited {	text-decoration: none;	color: #000000;	font-family: "宋体";	font-size: 12px;
+	font-weight: normal;}
+a.l2:hover {	text-decoration: underline;	color: #FF9900;	font-family: "宋体";	font-size: 12px;	font-weight: normal;}
+a.l2:active {	text-decoration: none;	color: #FF9900;	font-family: "宋体";	font-size: 12px;
+	font-weight: normal;}
+.four-spilit{ border:1px solid #8CCFF9; float:left; width:24.5%; margin-right:3px;}
+.four-spilit .hd{ background:url(../images/main_bg.png) 0 -67px repeat-x;}
+.four-spilit .hd h2{ color:#FF9900}
+.four-spilit table td.hall_td {background:#F5F5F5;}

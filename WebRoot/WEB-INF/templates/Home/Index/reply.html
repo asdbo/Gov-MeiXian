@@ -1,0 +1,120 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid pt10">
+	<div class="xwfb ftl back_color1 p10 border1 border_radius5">
+		<div class="title1">
+			<a href="/Home/Index/detail" target="_self">
+			<h3 class="ftl">新闻发布会</h3>
+			</a>
+		</div>
+		<div class="clear">
+		</div>
+		<div class="xwfb_img ftl mt10">
+			<div class="pic">
+				<img src="${public}/images/pic3.jpg">
+			</div>
+			<div class="txt-bg">
+			</div>
+			<div class="txt" style="text-align:center">
+			 ${(new1.title)!} 
+			</div>
+		</div>
+		<p class="ftr ti20 p10 newfbh" style="line-height:28px; width:300px; height:180px; ">
+			${(new1.summary)!} 
+		</p>
+		<p class="more2">
+			<a target="_blank" href="/Home/ChannelContent?cid=40">更多+</a>
+		</p>
+		<p>
+		</p>
+		<div class="clear">
+		</div>
+	</div>
+	<div class="huiying ftr tong back_color1 p10 border1 border_radius5" style=" height:267px; height:266px\9;">
+		<div class="title1">
+			<a href="/Home/ChannelContent?cid=41">
+			<h3 class="ftl">热点问题回应</h3>
+			</a>
+		</div>
+		<div class="clear">
+		</div>
+		<ul class="mt10" style=" height:210px;">
+			<#list rdnews as rd>
+			<li><a href="/Home/NewContent?newid=${rd.id}" target="_blank">${rd.title}</a></li>
+			</#list>
+		</ul>
+	</div>
+	<div class="clear">
+	</div>
+	<div class="border1 p10 mt15">
+		<div class="tufa ftl" style="width:480px">
+			<div class="hd" style=" border-bottom: 1px solid #cdcdcd;">
+				<ul>
+					<div class="font-size16 font-red2 mb10 ftl mr20 title3">
+						<a href="/Home/ChannelContent?cid=42" target="_self">
+						<h3>政策解读</h3>
+						</a>
+					</div>
+					<li class="on">国家政策</li>
+					<li>广东省政策</li>
+				</ul>
+			</div>
+			<div class="bd tong">
+				<#list zccms as zcc>
+				<#if zcc_index=0>
+				<ul>
+				<#else>
+				<ul style="display: none;">
+				</#if>
+					<p class="more1" style="right:16px;">
+						<a target="_blank" href="/Home/ChannelContent?cid=${zcc.id}">更多+</a>
+					</p>
+					<div style=" width:480px; padding:10px 0;">
+						<#list zcnewss.get(zcc_index) as zcn>
+						<li><span class="date">（${zcn.TIME}）</span><a href="/Home/NewContent?newid=${zcn.id}" target="_blank">${zcn.title}</a></li>
+						</#list>
+					</div>
+				</ul>
+				</#list>
+			</div>
+		</div>
+		<div class="tufa ftr" style="width:480px;">
+			<div class="hd" style=" border-bottom: 1px solid #cdcdcd;">
+				<ul>
+					<div class="font-size16 font-red2 mb10 ftl mr20 title3">
+						<a href="/Home/ChannelContent?cid=43" target="_self">
+						<h3>突发事件</h3>
+						</a>
+					</div>
+					<li class="on">国家突发事件</li>
+					<li>省内突发事件</li>
+				</ul>
+			</div>
+			<div class="bd tong">
+				<#list tfcms as tfc>
+				<#if tfc_index=0>
+				<ul>
+				<#else>
+				<ul style="display: none;">
+				</#if>
+					<p class="more1" style="right:16px;">
+						<a target="_blank" href="/Home/ChannelContent?cid=${tfc.id}">更多+</a>
+					</p>
+					<div style=" width:480px; padding:10px 0;">
+						<#list tfnewss.get(tfc_index) as tfn>
+						<li><span class="date">（${tfn.TIME}）</span><a href="/Home/NewContent?newid=${tfn.id}" target="_blank">${tfn.title}</a></li>
+						</#list>
+					</div>
+				</ul>
+				</#list>
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+	</div>
+	
+</div>
+<script type="text/javascript">
+  	 $('.nav li').removeClass('on');
+    $('.reply').addClass('on');
+  </script>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

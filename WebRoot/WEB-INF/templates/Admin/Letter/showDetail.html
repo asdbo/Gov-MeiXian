@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/bootstrap-table.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+	<div class=" col-sm-12 col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">信件管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+				<!-- 	<li><a href="/Letter/add">添加信件</a></li> -->
+					<li><a href="/Admin/Letter">管理信件</a></li>
+					<li class="active"><a href="/Admin/Letter/list">信件详情</a></li>
+				</ul>
+				<div class="panel panel-default">
+
+					<div class="panel-body">
+					
+					
+					
+					
+					<table  class="table">
+				<tbody>
+					<input type="hidden" name="letterModel.id"
+						value="${(letterModel.id)!}" />
+					<tr>
+						<td height="35" colspan="4"><font size="5px" color="blue">来信内容</font></td>
+					</tr>
+					<tr>
+						<th>来信标题</th>
+						<td >${(letterModel.theme)!}</td>
+						<th>邮编</th>
+						<td>${(letterModel.postalcode)!}</td>
+					</tr>
+					<tr>
+						<th>来信人</th>
+						<td>${(letterModel.people_name)!}</td>
+						<th>联系电话</th>
+						<td>${(letterModel.phone)!}</td>
+					</tr>
+					<tr>
+						<th>Email地址</th>
+						<td>${(letterModel.email)!}</td>
+						<th>详细地址</th>
+						<td>${(letterModel.address)!}</td>
+					</tr>
+					
+					<tr>
+						<th>来信类型</th>
+						<td>${(letterModel.lettle_type)!}</td>
+						<th>来信时间</th>
+						<td>${(letterModel.receive_time)!}</td>
+						
+					</tr>
+					<tr>
+						<th>来信内容</th>
+						<td colspan="3"><pre>${(letterModel.content)!}</pre></td>
+					</tr>
+					<tr>
+						<td height="35" colspan="4"><font size="5px" color="blue">回复内容</font></td>
+						
+					</tr>
+					<tr>
+						<th>处理部门</th>
+						<td>${(letterModel.letter_dept)!}</td>
+						<th>处理时间</th>
+						<td>${(letterModel.reply_time)!}</td>
+					</tr>
+					<tr>
+						<th>答复内容</th>
+						<td colspan="3"><pre>${(letterModel.reply_content)!}</pre></td>
+					</tr>
+					<tr>
+						<td colspan="4">&nbsp;</td>
+					</tr>
+					<tr>
+						<td colspan="4" height="35" class="title"><font size="5px" color="blue">打分情况</font>&nbsp;&nbsp;<font color="purple">（很好2分，满意1分，一般0分，不满意-1分，非常不满意-2分）</font></td>
+					</tr>
+
+					<tr>
+						<th>群众评分</th>
+						<td colspan="4" ><font size="4px" color="red">${(letterModel.score)!}</font></td>
+					</tr>
+				
+				<!-- 	<tr>
+						<th>请您打分</th>
+						<td colspan="3" id="checkbox">&nbsp; <input type="radio"
+							name="scoreradio" value="2">很好(+2) &nbsp; <input
+							type="radio" name="scoreradio" value="1" checked="">满意(+1)
+							&nbsp;<input type="radio" name="scoreradio" value="0">一般(0)
+							&nbsp;<input type="radio" name="scoreradio" value="-1">不满意(-1)
+							&nbsp;<input type="radio" name="scoreradio" value="-2">很差(-2)
+						</td>
+					</tr> 
+					<tr>
+						<td colspan="2" style="text-align: center"><input
+							type="submit" value="提交">&nbsp;&nbsp;<input
+							type="reset" value="重填"></td>
+					</tr>
+				-->
+				</tbody>
+			</table>
+			
+			
+					
+					
+				
+				
+				
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+	</div>
+
+
+
+
+
+	<!--/.main-->
+	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">提醒</h4>
+				</div>
+				<div class="modal-body">删除不可恢复，是否确认删除？</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary del">删除</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script src="${public}/js/bootstrap-table.js"></script>
+	<script>
+		!function($) {
+			$(document)
+					.on(
+							"click",
+							"ul.nav li.parent > a > span.icon",
+							function() {
+								$(this).find('em:first').toggleClass(
+										"glyphicon-minus");
+							});
+			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function() {
+			if ($(window).width() > 768)
+				$('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function() {
+			if ($(window).width() <= 767)
+				$('#sidebar-collapse').collapse('hide')
+		})
+		$(function() {
+			$('.delete').click(function() {
+				$id = $(this).data("id");
+				$('.del').attr("data-id", $id);
+			})
+			$('.del').click(function() {
+				$id = $(this).data("id");
+				window.location.href = "" + $id;
+			})
+		})
+	</script>
+</body>
+
+</html>

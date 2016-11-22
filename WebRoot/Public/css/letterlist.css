@@ -1,0 +1,43 @@
+/* CSS Document */
+
+#Frame_Letterlist_Search{
+float:left; margin-top:10px; margin-left:5px;
+width:250px; height:auto;
+}
+
+#Frame_Letterlist_Search_title{
+width:250px; height:33px;
+background-image:url(../images/Letterlist_searchtitle.gif);
+background-repeat:no-repeat;
+}
+
+#Frame_Letterlist_Search_content{
+width:238px; height:auto; padding:5px;
+border:1px solid #d0d0d0;
+}
+
+#Frame_Letterlist{
+float:right; margin-top:10px; margin-right:10px;
+width:500px; height:auto;
+border:1px solid #468BC3;
+}
+
+#Letterlist_title{
+width:490px; height:41px; 
+padding-right:10px; padding-top:15px;
+background-image:url(../images/Letterlist_title.gif);
+background-repeat:no-repeat;
+text-align:right;
+}
+
+#Letterlist_Content{
+width:480px; height:auto; margin:10px;
+}
+
+#Waitinglist_title{
+width:490px; height:41px; 
+padding-right:10px; padding-top:15px;
+background-image:url(../images/Waitinglist_title.gif);
+background-repeat:no-repeat;
+text-align:right;
+}

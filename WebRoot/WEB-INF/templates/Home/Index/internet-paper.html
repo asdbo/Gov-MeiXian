@@ -1,0 +1,139 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid">
+	<img src="${public}/images/banner_zjbl.jpg" width="1022" height="100">
+	
+	<div class="list-topBox mb15"><span class="fl"><a href="/Home/Index">网站首页</a> 
+		
+		&gt;&gt;<a href="/Home/Index/internet">办事服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=214">公共服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=215">个人服务</a> 
+		&gt;&gt;<a href="/Home/Index/paper">证件办理专题</a> 
+	</span></div>
+	
+	<div class="ftl border_min pr10 pl10" style="width:475px; position:relative;">
+		
+		<div class="title11 border_b02 pl10 pr10"><h3 class="ftl">新闻资讯 </h3></div>
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=226">更多+</a></p>
+		<div class="content_min">
+			<ul>
+				<#list zxnews as zxn>
+				<li><span class="date">[${zxn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${zxn.id}" target="_blank" title="${zxn.title}　">${zxn.title}</a></li>
+				</#list>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="ftr border_min pr10 pl10" style="width:475px; position:relative;">
+		
+		<div class="title11 border_b02 pl10 pr10"><h3 class="ftl">政策法规 </h3></div>
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=227">更多+</a></p>
+		<div class="content_min">
+			<ul>
+				<#list zcnews as zcn>
+				<li><span class="date">[${zcn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${zcn.id}" target="_blank" title="${zcn.title}">${zcn.title}</a></li>
+				</#list>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="ftl border_min pr10 pl10 mt15" style="width:1000px; position:relative;">
+		<div class="title11 border_b02 pl10 pr10 mb10"><h3 class="ftl">办事服务 </h3></div>
+		<div class="content">
+			<ul style="width:350px;" class="ftl zjbl_bsfw_btn">
+				<li class="mr10 mb10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsbs.meizhou.gov.cn/portal/onlineservice/online-service!findByAppItemId.action?id=7422&amp;code=000033&amp;areacode=441400" target="_blank"><img class="pt10" src="${public}/images/icon88.png"><p>从业资格类</p></a></li>
+				<li class="mr10 mb10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsbs.meizhou.gov.cn/portal/onlineservice/online-service!findByAppItemId.action?id=7404&amp;code=000033&amp;areacode=441400" target="_blank"><img class="pt10" src="${public}/images/icon89.png"><p>计划生育类</p></a></li>
+				<li class="mr10 mb10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsbs.meizhou.gov.cn/portal/onlineservice/online-service!findByAppItemId.action?id=7429&amp;code=000033&amp;areacode=441400" target="_blank"><img class="pt10" src="${public}/images/icon90.png"><p>民政业务类</p></a></li>
+				<li class="mr10 mb10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsbs.meizhou.gov.cn/portal/department/department!detail.action?hot=4&amp;orgId=210082&amp;areacode=441400" target="_blank"><img class="pt10" src="${public}/images/icon91.png"><p>驾驶证办理</p></a></li>
+			</ul>
+			
+			<div class="ftl pr10" style="width:314px; position:relative;">
+				<div class="title11 border_b03 pl10 pr10"><h3 class="ftl">办事指南 </h3></div>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=228">更多+</a></p>
+				<div class="content_min">
+					<ul>
+						<#list bsnews as bsn>
+						<li><span class="date">[${bsn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${bsn.id}" target="_blank" title="${bsn.title}">${bsn.title}</a></li>
+						</#list>	
+					</ul>
+				</div>
+			</div>
+			
+			<div class="ftr pr10" style="width:316px; position:relative;">
+				<div class="title11 border_b03 pl10 pr10"><h3 class="ftl">表格下载 </h3></div>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=229">更多+</a></p>
+				<div class="content_min">
+					<ul>
+						<#list bgnews as bgn>
+						<li><span class="date">[${bgn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${bgn.id}" target="_blank" title="${bgn.title}">${bgn.title}</a></li>
+						</#list>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+
+	<div class="ftl border_min pr10 pl10 mt15 mr12" style="width:474px; height: 235px; position:relative;padding-left:5px;">
+		<div class="title11 border_b02 pl10 pr10 mb10"><h3 class="ftl">户籍身份证件办理 </h3></div>
+		
+		<ul class="tzzn2">
+			<li class="back_color3"><a href="https://www.meizhou.gov.cn/jump.html?url=http://meizhou.gov.cn/portal/onlineservice/online-service!findById.action?sid=232362" target="_blank"><img src="${public}/images/icon92.png">
+				<p>身份证办理</p></a></li>
+				<li class="back_color3"><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsbs.meizhou.gov.cn/portal/onlineservice/online-service!findByAppItemId.action?id=7409&amp;code=000033&amp;areacode=441400" target="_blank"><img src="${public}/images/icon93.png">
+					<p>户籍办理</p></a></li>
+					
+					<li class="back_color3"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/zjblzt/cjrj/t20161020_112256.htm" target="_blank"><img src="${public}/images/icon92.png">
+						<p>居住证办理</p></a></li>
+						
+						<div class="clear"></div>
+					</ul>
+
+				</div>
+				
+				<div class="ftl border_min pr10 pl10 mt15 mb20" style="width:474px; height: 235px; position:relative;padding-left:5px;">
+					<div class="title11 border_b02 pl10 pr10 mb10"><h3 class="ftl">出入境证件办理 </h3></div>
+					
+					<ul class="tzzn2">
+						<li class="back_color4"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.gdcrj.com/wsysl/sz_wsyyindex.jsp?cityCode=441400000000#" target="_blank"><img src="${public}/images/icon94.png">
+							<p>护照办理	</p></a></li>
+							<li class="back_color4"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.gdcrj.com/wsysl/sz_wsyyindex.jsp?cityCode=441400000000#" target="_blank"><img src="${public}/images/icon95.png">
+								<p>港澳通行证</p></a></li>
+								<li class="back_color4"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.gdcrj.com/wsysl/sz_wsyyindex.jsp?cityCode=441400000000#" target="_blank"><img src="${public}/images/icon96.png">
+									<p>台湾通</p></a></li>
+									<div class="clear"></div>
+								</ul>
+							</div>
+							
+							<div class="clear"></div>
+							
+							<div class="ftl border_min pr10 pl10 " style="width:474px; height: 235px; position:relative;padding-left:5px;">
+								<div class="title11 border_b02 pl10 pr10 mb10"><h3 class="ftl">婚姻登记类 </h3></div>
+								
+								<ul class="tzzn2">
+									<li class="back_color11"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzmzj.gov.cn/news_info.asp?newsid=875" target="_blank"><img src="${public}/images/icon97.png">
+										<p>结婚证	</p></a></li>
+										<li class="back_color11"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzmzj.gov.cn/news_info.asp?newsid=2273" target="_blank"><img src="${public}/images/icon98.png">
+											<p>离婚证</p></a></li>
+											<li class="back_color11"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzmzj.gov.cn/news_info.asp?newsid=2273" target="_blank"><img src="${public}/images/icon99.png">
+												<p>无婚姻证明</p></a></li>
+												<div class="clear"></div>
+											</ul>
+										</div>
+										
+										
+										<div class="ftr border_min pr10 pl10" style="width:474px; height: 235px; position:relative;padding-left:5px; height:235px;">
+											<div class="title11 border_b02 pl10 pr10"><h3 class="ftl">常见问题 </h3></div>
+											<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=230">更多+</a></p>
+											<div class="content_min">
+												<ul>
+													<#list wtnews as wtn>
+													<li><span class="date">[${wtn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${wtn.id}" target="_blank" title="${wtn.title}">${wtn.title}</a></li>
+													</#list>
+												</ul>
+											</div>
+										</div>
+										
+										<div class="clear"></div>  
+									</div>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

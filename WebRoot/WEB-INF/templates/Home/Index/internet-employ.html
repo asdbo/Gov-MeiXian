@@ -1,0 +1,122 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid">
+	<img src="${public}/images/banner_job.jpg" width="1022" height="100">      
+	<div class="news_img3 news_img ftl focusBox mt20 mr20">
+		<a class="prev" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+		<a class="next" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+		<ul class="pic pics1" style="position: relative; width: 380px; height: 250px;">
+
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/749a4caac44895974a034b173bac445d.jpg"></a></li>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/a800c66988b5108bfb84f1528b28ad8a.jpg"></a></li>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/5105f2096d87464d19887f8cf5ddc497.jpg"></a></li>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/749a4caac44895974a034b173bac445d (1).jpg"></a></li>
+		</ul>
+		<div class="txt-bg"></div>
+		<div class="txt">
+			<ul>
+				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="赢在客都·梅州市首届创新创业大赛正式启动，请带上洪荒之力来参加！">赢在客都·梅州市首届创新...</a></li>
+				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="梅江区“企业服务月”首场活动拉开了帷幕">梅江区“企业服务月”首场...</a></li>
+				<li style="bottom: 0px;"><a href="/Home/NewContent?newid=17" target="_blank" title="大埔县民营经济发展服务局正式挂牌成立">大埔县民营经济发展服务局...</a></li>
+				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="兴宁市召开《省级小微企业创业创新基地城市示范工作方案》征求意见座谈会">兴宁市召开《省级小微企业...</a></li>
+			</ul>
+		</div>
+
+		<ul class="num">
+			<li class=""><a></a><span></span></li>
+			<li class=""><a></a><span></span></li>
+			<li class="on"><a></a><span></span></li>
+			<li class=""><a></a><span></span></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		jQuery(".focusBox").hover(function () {
+			jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 1)
+		}, function () {
+			jQuery(this).find(".prev,.next").fadeOut()
+		});
+
+		jQuery(".news_img").slide({
+			titCell: ".num li",
+			mainCell: ".pic",
+			effect: "fold",
+			autoPlay: true,
+			trigger: "click",
+				//下面startFun代码用于控制文字上下切换
+				startFun: function (i) {
+					jQuery(".news_img .txt li").eq(i).animate({ "bottom": 0 }).siblings().animate({ "bottom": -36 });
+				}
+			});
+		</script>
+		<div class="ftl mt20" style="width:600px; position:relative;">
+			
+			<div class="title1"><h3 class="ftl">招聘会新闻</h3></div>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=232">更多+</a></p>
+			<div class="clear"></div>
+			<div class="t-tong1 tong mt10" style="height:180px;">
+				<ul>
+					<#list zphnews as zph>
+					<li><span class="date">(${zph.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zph.id}" target="_blank" title="　${zph.title}　">${zph.title}</a></li>
+					</#list>		
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="mt20">
+			<div class="shebao_other ftl" style="width:495px; position:relative;">
+				
+				<div class="title1"><h3 class="ftl">自主创业 </h3></div>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=233">更多+</a></p>
+				<div class=" tong mt10" style="height:180px;">
+					<ul>
+						<#list zznews as zzn>
+						<li><span class="date">(${zzn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zzn.id}" target="_blank" title="${zzn.title}">${zzn.title}</a></li>
+						</#list>
+					</ul>
+				</div>
+			</div>
+			<div class="shebao_other ftl ml10" style="width:495px; position:relative;margin-left: 5px;">
+				
+				<div class="title1"><h3 class="ftl">就业新闻 </h3></div>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=234">更多+</a></p>
+				<div class=" tong mt10" style="height:180px;">
+					<ul>
+						<#list jynews as jyn>
+						<li><span class="date">(${jyn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${jyn.id}" target="_blank" title="${jyn.title}">${jyn.title}</a></li>
+						</#list>
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="shebao_other ftl mt10" style="width:495px; position:relative;">
+				
+				<div class="title1"><h3 class="ftl">政策法规 </h3></div>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=235">更多+</a></p>
+				<div class=" tong mt10" style="height:180px;">
+					<ul>
+						<#list zcnews as zcn>
+						<li><span class="date">(${zcn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zcn.id}" target="_blank" title="${zcn.title}">${zcn.title}</a></li>
+						</#list>
+					</ul>
+				</div>
+			</div>
+			<div class="shebao_other ftl ml10 mt10" style="width:495px; position:relative;margin-left: 5px;">
+				
+				<div class="title1"><h3 class="ftl">公务员招考 </h3></div>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=236">更多+</a></p>
+				<div class=" tong mt10" style="height:180px;">
+					<ul>
+						<#list gwynews as gwy>
+						<li><span class="date">(${gwy.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${gwy.id}" target="_blank" title="${gwy.title}">${gwy.title}</a></li>
+						</#list>
+					</ul>
+				</div>
+			</div>
+
+
+		</div>
+		
+	</div>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

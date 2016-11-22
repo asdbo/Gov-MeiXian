@@ -1,0 +1,94 @@
+package com.jl.arky.jfinal.utils;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.Date;
+import java.util.Properties;
+
+import javax.mail.BodyPart;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+
+public class ThreadMail implements Runnable {
+	private String fromMail;
+	private String user;
+	private String password;
+	private String toMail;
+	private String mailTitle;
+	private String mailContent;
+	
+	public ThreadMail(String fromMail, String user, String password, String toMail, String mailTitle, String mailContent) {
+		super();
+		this.fromMail = fromMail;
+		this.user = user;
+		this.password = password;
+		this.toMail = toMail;
+		this.mailTitle = mailTitle;
+		this.mailContent = mailContent;
+	}
+
+	public static void sendMail(String fromMail, String user, String password, String toMail, String mailTitle,
+			String mailContent) throws Exception {
+		Properties props = new Properties(); // 可以加载一个配置文件
+		// 使用smtp：简单邮件传输协议
+		props.put("mail.smtp.host", "smtp.163.com");// 存储发送邮件服务器的信息
+		props.put("mail.smtp.auth", "true");// 同时通过验证
+
+		Session session = Session.getInstance(props);// 根据属性新建一个邮件会话
+		// session.setDebug(true); // 有他会打印一些调试信息。
+
+		MimeMessage message = new MimeMessage(session);// 由邮件会话新建一个消息对象
+		message.setFrom(new InternetAddress(fromMail));// 设置发件人的地址
+		message.setRecipient(Message.RecipientType.TO, new InternetAddress(toMail));// 设置收件人,并设置其接收类型为TO
+		message.setSubject(mailTitle);// 设置标题
+		// 设置信件内容
+		// message.setText(mailContent); //发送 纯文本 邮件 todo
+		message.setContent(mailContent, "text/html;charset=utf-8"); // 发送HTML邮件，内容样式比较丰富
+		message.setSentDate(new Date());// 设置发信时间
+		message.saveChanges();// 存储邮件信息
+
+		// 发送邮件
+		Transport transport = session.getTransport("smtp");
+		// Transport transport = session.getTransport();
+		transport.connect(user, password);
+		transport.sendMessage(message, message.getAllRecipients());// 发送邮件,其中第二个参数是所有已设好的收件人地址
+		transport.close();
+	}
+
+	public void send()  {
+		try {
+			sendMail(fromMail,user, password, toMail, mailTitle,
+					mailContent);
+			System.out.println("sent success!");
+		} catch (MessagingException mex) {  
+            System.out.println(new Date() + " send failed, exception: " + mex);  
+        } catch (Exception e) {
+			e.printStackTrace();
+		}  
+	}
+	
+
+	@Override
+	public void run() {
+		send();
+	}
+	
+
+	
+	public static void main(String[] args) {
+		TheadPool tp=new TheadPool(5);
+		tp.execute(new ThreadMail("13750528354@163.com", "13750528354@163.com", "313548323",  
+		        "791777315@qq.com",  
+		        "hahaha",  
+		        "<a>dsfsfadsf</a>：<b>asdf</b>"));
+	}
+	
+
+}

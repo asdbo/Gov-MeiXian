@@ -1,0 +1,130 @@
+<#include '/WEB-INF/templates/mxcommon2/header.html'>
+<link rel="stylesheet" type="text/css" href="${public}/css2/base.css">
+<link rel="stylesheet" type="text/css" href="${public}/css2/min.css">
+<div class="index_content">
+	<div class="wid">
+	<img src="${public}/images2/banner_edu.jpg" width="1022" height="100">
+
+	<div class="mt20">
+		<div class="ftl" style="width:625px; position:relative;background: #fff;padding-bottom: 61px;">
+			<div class="title6"><h3 class="ftl">教育新闻 </h3></div>
+			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/list/206">更多+</a></p>
+			<div class="clear"></div>
+			<div class="news_img ftl focusBox mt20" style="width: 270px">
+				<a class="prev" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+				<a class="next" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+				<ul class="pic" style="position: relative; width: 270px; height: 195px;">
+
+					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161108_130432.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/7203/view/1"></a></li>
+					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161008_103420.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/3540/view/1"></a></li>
+					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: list-item;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20160926_103421.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/3534/view/1"></a></li>
+					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20160924_75240.htm" target="_blank"><img src="https://www.meizhou.gov.cn/zwgk/zwdt/zwyw/h000/h65/img201609241511000.jpg"></a></li>
+				</ul>
+				<div class="txt-bg"></div>
+				<div class="txt">
+					<ul>
+						<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161108_130432.htm" target="_blank" title="市青少年科技创新大赛启动">市青少年科技创新大赛启动</a></li>
+						<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161008_103420.htm" target="_blank" title="梅州市中小学语文版新修订教材培训会在东山学校举行">梅州市中小学语文版新修订教材培训会在东山...</a></li>
+						<li style="bottom: 0px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20160926_103421.htm" target="_blank" title="班主任同台竞技 切磋专业能力">班主任同台竞技 切磋专业能力</a></li>
+						<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20160924_75240.htm" target="_blank" title="努力让“育分”回归“育人”">努力让“育分”回归“育人”</a></li>
+					</ul>
+				</div>
+
+				<ul class="num">
+					<li class=""><a></a><span></span></li>
+					<li class=""><a></a><span></span></li>
+					<li class="on"><a></a><span></span></li>
+					<li class=""><a></a><span></span></li>
+				</ul>
+			</div>
+
+			<script type="text/javascript">
+				jQuery(".focusBox").hover(function () {
+					jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 1)
+				}, function () {
+					jQuery(this).find(".prev,.next").fadeOut()
+				});
+
+				jQuery(".news_img").slide({
+					titCell: ".num li",
+					mainCell: ".pic",
+					effect: "fold",
+					autoPlay: true,
+					trigger: "click",
+						//下面startFun代码用于控制文字上下切换
+						startFun: function (i) {
+							jQuery(".news_img .txt li").eq(i).animate({ "bottom": 0 }).siblings().animate({ "bottom": -36 });
+						}
+					});
+				</script>	
+				<div class="ftl tong mt10 ml10 tong5" style="width:340px; height:210px;">
+					<ul class="c-tong5">
+						
+						<li><span class="date">[2016-11-18]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161118_130995.htm" target="_blank" title="创客文化进校园活动启动">创客文化进校园活动启动</a></li>
+						<li><span class="date">[2016-11-17]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161117_130893.htm" target="_blank" title="我市两学校获赠足球鞋">我市两学校获赠足球鞋</a></li>
+						<li><span class="date">[2016-11-14]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161114_130687.htm" target="_blank" title="地震突发 疏散有方">地震突发 疏散有方</a></li>
+						<li><span class="date">[2016-11-14]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161114_130680.htm" target="_blank" title="高中学业水平考试今起报名">高中学业水平考试今起报名</a></li>
+						<li><span class="date">[2016-11-08]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161108_130433.htm" target="_blank" title="雁洋镇小获季军">雁洋镇小获季军</a></li>
+						<li><span class="date">[2016-11-08]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161108_130432.htm" target="_blank" title="市青少年科技创新大赛启动">市青少年科技创新大赛启动</a></li>
+						<li><span class="date">[2016-11-04]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161104_130082.htm" target="_blank" title="大埔首个“免费午餐”项目启动">大埔首个“免费午餐”项目启动</a></li>
+						<li><span class="date">[2016-11-08]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161108_130432.htm" target="_blank" title="市青少年科技创新大赛启动">市青少年科技创新大赛启动</a></li>
+						<li><span class="date">[2016-11-04]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/jszp/t20161104_130082.htm" target="_blank" title="大埔首个“免费午餐”项目启动">大埔首个“免费午餐”项目启动</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="ftl ml15" style="width: 360px;background: #fff;">
+				<div class="title6"><h3 class="ftl">便捷服务 </h3></div>
+				<div class="clear"></div>
+				<ul class="p10 jy_bianjie">
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://gd.cltt.org/Web/SignUpOnLine/OnlineSign.aspx" target="_blank">普通话水平测试报名 </a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://yun.mzedu.gov.cn/" target="_blank">教育资源公告服务平台</a></li>
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/zk/0706index.html" target="_blank">中考平台</a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://article.isay365.com/psc/chafen/1222F62009.html" target="_blank">普通话水平测试成绩查询 </a></li>
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/cjfw/jcjyk.html" target="_blank">我要转学</a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/cjfw/rk.html" target="_blank">中小学教师资格认定</a></li>
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/cjfw/gzzk.html" target="_blank">民办高中学校设立</a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://61.143.203.147/" target="_blank">成绩查询</a></li>
+					<li><a href="" target="_blank">学校查找</a></li>
+					<div class="clear"></div>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		
+		<div class="ftl ml20 mt20" style="width:480px; position:relative;">
+
+			<div class="title_2"><span>招生政策</span></div>
+			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/list/216">更多+</a></p>
+			<div class=" tong tongs" style="height:160px;background: #fff;">
+				<ul>
+					
+					<li><span class="date">[2016-08-13]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20160813_74926.htm" target="_blank" title="三B院校征集志愿补录">三B院校征集志愿补录</a></li>
+					<li><span class="date">[2016-04-30]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20160430_73976.htm" target="_blank" title="第七期清大高级研修班招生 ">第七期清大高级研修班招生 </a></li>
+					<li><span class="date">[2015-11-09]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20151109_102921.htm" target="_blank" title="国家中长期教育改革和发展规划纲要（2010-2020年）">国家中长期教育改革和发展规划纲要（2010-2020...</a></li>
+					<li><span class="date">[2015-10-30]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20151030_103057.htm" target="_blank" title="广东省教育厅、广东省财政厅关于印发《广东省高等教育“创新强校工程”考核办法（试行）》的通知">广东省教育厅、广东省财政厅关于印发《广东省高等教育“...</a></li>
+					<li><span class="date">[2013-02-16]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20130216_103373.htm" target="_blank" title="国务院关于修改《计算机软件保护条例》的决定（国务院令第632号）">国务院关于修改《计算机软件保护条例》的决定（国务院令...</a></li>
+				</ul>
+			</div>
+		</div><div class="ftl ml20 mt20" style="width:480px; position:relative;">
+
+			<div class="title_2"><span>教育公告</span></div>
+			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/list/216">更多+</a></p>
+			<div class=" tong tongs" style="height:160px;background: #fff;">
+				<ul>
+					
+					<li><span class="date">[2016-11-02]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20160813_74926.htm" target="_blank" title="三B院校征集志愿补录">关于举行中学英语优秀教学论文、教学案例（课例录像）与...</a></li>
+					<li><span class="date">[2016-04-30]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20160430_73976.htm" target="_blank" title="第七期清大高级研修班招生 ">关于对申报“广东省依法治校示范校” 核查认定学校的公示 </a></li>
+					<li><span class="date">[2015-11-09]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20151109_102921.htm" target="_blank" title="国家中长期教育改革和发展规划纲要（2010-2020年）">广东省人力资源和社会保障厅 广东省教育厅关于做好2016年度中小学正高级教师职称评审工作的通知》的通知</a></li>
+					<li><span class="date">[2015-10-30]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20151030_103057.htm" target="_blank" title="广东省教育厅、广东省财政厅关于印发《广东省高等教育“创新强校工程”考核办法（试行）》的通知">关于举办第32届梅州市青少年科技创新大赛暨梅州市第2届中小学创客创作大赛的通知</a></li>
+					<li><span class="date">[2013-02-16]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt/zszc/t20130216_103373.htm" target="_blank" title="国务院关于修改《计算机软件保护条例》的决定（国务院令第632号）">关于2016年下半年普通话水平测试报名的通知</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div>
+		</div>
+</div>
+</div>
+
+<#include '/WEB-INF/templates/mxcommon2/footer.html'>

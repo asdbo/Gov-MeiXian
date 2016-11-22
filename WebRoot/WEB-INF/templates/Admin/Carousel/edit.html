@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+	<div class="col-sm-12  col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">轮播管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="/Admin/Carousel/update"
+							method="post" enctype="multipart/form-data">
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">图片标题</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control"
+										name="carouselModel.title" value="${(carouselModel.title)!}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">排序值</label>
+								<div class="col-sm-6">
+									<input type="number" class="form-control"
+										name="carouselModel.sortid" value="${(carouselModel.sortid)!}">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">图片上传</label>
+								<div class="col-sm-6">
+									<input type="file" class="form-control" name="filename"
+										accept="image/*">
+								</div>
+							</div>
+								<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">链接</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control"
+										name="carouselModel.tolink" value="${(carouselModel.tolink)!}">
+								</div>
+							</div>
+							
+							<div class="form-group">
+								<input type="hidden" name="carouselModel.id"
+									value="${(carouselModel.id)!}"> <input type="submit"
+									class="btn btn-primary  col-sm-offset-2" value="确定">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+	</div>
+	<!--/.main-->
+
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+

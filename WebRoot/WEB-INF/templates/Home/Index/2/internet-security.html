@@ -1,0 +1,162 @@
+<#include '/WEB-INF/templates/mxcommon2/header.html'>
+<link rel="stylesheet" type="text/css" href="${public}/css2/base.css">
+<link rel="stylesheet" type="text/css" href="${public}/css2/min.css">
+<div class="index_content">
+	<div class="wid">
+	<img src="${public}/images2/banner_shebao.jpg" width="1022" height="100">      
+	<div class="news_img news_imgs ftl focusBox mt20">
+		<a class="prev" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+		<a class="next" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+		<ul class="pic pics" style="position: relative; width: 380px; height: 250px;">
+
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160930_95450.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/2824/view/1"></a></li>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160826_95447.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/2825/view/1"></a></li>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160729_95401.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/2829/view/1"></a></li>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160707_95247.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/2831/view/1"></a></li>
+		</ul>
+		<div class="txt-bg"></div>
+		<div class="txt">
+			<ul>
+				<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160930_95450.htm" target="_blank" title="省社保局业务档案达标验收“回头看”督查组到我市开展督查">省社保局业务档案达标验收...</a></li>
+				<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160826_95447.htm" target="_blank" title="发展社保事业 夯实民生之基">发展社保事业 夯实民生之...</a></li>
+				<li style="bottom: 0px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160729_95401.htm" target="_blank" title="我市开展2016年度基本医疗保险定点医疗机构服务协议签订工作">我市开展2016年度基本...</a></li>
+				<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160707_95247.htm" target="_blank" title="市社保局到大埔县大东镇白土村开展“七一”走访慰问活动">市社保局到大埔县大东镇白...</a></li>
+			</ul>
+		</div>
+
+		<ul class="num">
+			<li class=""><a></a><span></span></li>
+			<li class=""><a></a><span></span></li>
+			<li class="on"><a></a><span></span></li>
+			<li class=""><a></a><span></span></li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		jQuery(".focusBox").hover(function () {
+			jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 1)
+		}, function () {
+			jQuery(this).find(".prev,.next").fadeOut()
+		});
+
+		jQuery(".news_img").slide({
+			titCell: ".num li",
+			mainCell: ".pic",
+			effect: "fold",
+			autoPlay: true,
+			trigger: "click",
+				//下面startFun代码用于控制文字上下切换
+				startFun: function (i) {
+					jQuery(".news_img .txt li").eq(i).animate({ "bottom": 0 }).siblings().animate({ "bottom": -36 });
+				}
+			});
+		</script>
+		<div class="ftl ml20 mt20" style="width:600px; position:relative;background: #fff">
+
+			<div class="title_1"><span>社保资讯</span></div>
+			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/list/217">更多+</a></p>
+			<div class="t-tong tong mt10" style="height:180px;padding-bottom: 15px;">
+				<ul>
+
+					<li><span class="date">[2016-11-15]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20161115_130840.htm" target="_blank" title="　六个从严做好人社工作 　">六个从严做好人社工作</a></li>
+					<li><span class="date">[2016-11-09]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20161109_130512.htm" target="_blank" title="　明年城乡医保参保 缴费时间到11月底　">明年城乡医保参保 缴费时间到11月底</a></li>
+					<li><span class="date">[2016-10-14]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20161014_111739.htm" target="_blank" title="——粤人社规〔2016〕4号文宣传资料　关于完善灵活就业人员参加企业职工基本养老保险有关规定的政策知识问答　">——粤人社规〔2016〕4号文宣传资料　关于完善灵活就业人员参加企业职工基本...</a></li>
+					<li><span class="date">[2016-09-30]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160930_95450.htm" target="_blank" title="　省社保局业务档案达标验收“回头看”督查组到我市开展督查　">省社保局业务档案达标验收“回头看”督查组到我市开展督查</a></li>
+					<li><span class="date">[2016-09-20]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160920_95449.htm" target="_blank" title="　梅州市城乡居民养老保险业务顺利纳入省大集中系统管理　">梅州市城乡居民养老保险业务顺利纳入省大集中系统管理</a></li>
+					<li><span class="date">[2016-09-09]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/xwdt/t20160909_95448.htm" target="_blank" title="　关于调整城乡居民养老保险待遇发放时间的通告　">关于调整城乡居民养老保险待遇发放时间的通告</a></li>
+
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="mt20 ftl">
+			<ul class="shebao_btn ftl">
+				<li class="back_color10 "><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzsi.gov.cn/siweb/login.do?method=begin&amp;login=1" target="_blank"><img src="${public}/images2/icon43.png">
+					<p>社保查询</p></a></li>
+					<li class="back_color10 "><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzsi.gov.cn/siweb/login.do?method=begin&amp;login=2" target="_blank"><img src="${public}/images2/icon44.png">
+						<p>在线办理</p></a></li>
+						<li class="back_color10 "><a href="https://www.meizhou.gov.cn/jump.html?url=http://hrss.meizhou.gov.cn/" target="_blank"><img src="${public}/images2/icon45.png">
+							<p>社保卡进度</p></a></li>
+
+							<li class="back_color10 "><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/zxfwrx/t20161007_102006.htm" target="_blank"><img src="${public}/images2/icon46.png">
+								<p>咨询服务热线</p></a></li>
+
+
+
+								<li class="back_color10 "><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/sbjfjs/t20161009_102936.htm" target="_blank"><img src="${public}/images2/icon73.png">
+									<p>社保缴费基数</p></a></li>
+
+
+									<li class="back_color10 "><a href="https://www.meizhou.gov.cn/list/515" target="_blank"><img src="${public}/images2/icon74.png">
+										<p>社保缴费待遇</p></a></li>
+									</ul>
+								</div>
+								<div class="clear"></div>
+
+								<div class="mt20">
+									<div class="ftl w332" style=" position:relative;">
+
+										<div class="title1"><h3 class="ftl">政策法规 </h3></div>
+										<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/list/219">更多+</a></p>
+										<div class=" tong mt10" style="height:180px;">
+											<ul>
+
+												<li><span class="date">[08-16]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/bmfw/t20160816_129252.htm" target="_blank" title="转发省人力资源和社会保障厅办公室关于征集2016年度广东省创业项目的通知">转发省人力资源和社会保障厅办公室...</a></li>
+												<li><span class="date">[08-15]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/bmfw/t20160815_101934.htm" target="_blank" title="关于职工生育保险取消新生儿疾病筛查补助的通知">关于职工生育保险取消新生儿疾病筛...</a></li>
+												<li><span class="date">[08-08]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/bmfw/t20160808_129256.htm" target="_blank" title="梅州市人力资源和社会保障局公共服务事项目录">梅州市人力资源和社会保障局公共服...</a></li>
+												<li><span class="date">[08-08]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/bmfw/t20160808_129257.htm" target="_blank" title="梅州市人力资源和社会保障局行政许可事项目录">梅州市人力资源和社会保障局行政许...</a></li>
+												<li><span class="date">[08-08]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/bmfw/t20160808_129253.htm" target="_blank" title="梅州市社会保险基金管理局公共服务事项目录">梅州市社会保险基金管理局公共服务...</a></li>
+												<li><span class="date">[04-28]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/bmfw/t20160428_129953.htm" target="_blank" title="关于做好我市灵活就业人员参加企业职工基本养老保险有关工作的通知 梅市人社〔2016〕40号">关于做好我市灵活就业人员参加企业...</a></li>
+
+											</ul>
+										</div>
+									</div>
+									<div class="ftl ml10 w332" style=" position:relative;">
+
+										<div class="title1"><h3 class="ftl">社保公告 </h3></div>
+										<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/list/218">更多+</a></p>
+										<div class=" tong mt10" style="height:180px;">
+											<ul>
+
+												<li><span class="date">[11-10]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/zxgg/t20161110_130564.htm" target="_blank" title="2016年11月市属企业职工拟提前退休公示">2016年11月市属企业职工拟提...</a></li>
+												<li><span class="date">[11-08]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/zxgg/t20161108_130482.htm" target="_blank" title="2016年上半年梅州市市直事业单位公开招聘拟聘用人员公示（第九批）">2016年上半年梅州市市直事业单...</a></li>
+												<li><span class="date">[11-03]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/zxgg/t20161103_130136.htm" target="_blank" title="广东省2016年集中时间组织事业单位公开招聘（梅州考区）面试公告">广东省2016年集中时间组织事业...</a></li>
+												<li><span class="date">[11-01]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/zxgg/t20161101_130137.htm" target="_blank" title="转发《广东省人力资源和社会保障厅 广东省教育厅关于做好2016年度中小学正高级教师职称评审工作的通知》的通知">转发《广东省人力资源和社会保障厅...</a></li>
+												<li><span class="date">[10-29]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/zxgg/t20161029_130138.htm" target="_blank" title="2016年遴选公务员总成绩（市社会保险基金管理局、市就业服务管理局）">2016年遴选公务员总成绩（市社...</a></li>
+												<li><span class="date">[10-28]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/zxgg/t20161028_114034.htm" target="_blank" title="关于市直培训机构申报技能晋升培训补贴资金及名单公示（2016年10月）">关于市直培训机构申报技能晋升培训...</a></li>
+
+											</ul>
+										</div>
+									</div>
+									<div class="ftl ml10 w332" style=" position:relative;">
+
+										<div class="title1"><h3 class="ftl">社保知识 </h3></div>
+										<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/list/222">更多+</a></p>
+										<div class=" tong mt10" style="height:180px;">
+											<ul>
+
+												<li><span class="date">[11-07]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/ylbx/t20161107_130515.htm" target="_blank" title="浅谈2016年养老保险改革等十大政策">浅谈2016年养老保险改革等十大...</a></li>
+												<li><span class="date">[10-24]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/ylbx/t20161024_129992.htm" target="_blank" title="图解《国务院关于机关事业单位工作人员养老保险制度改革的决定》">图解《国务院关于机关事业单位工作...</a></li>
+												<li><span class="date">[08-18]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/ylbx/t20160818_102500.htm" target="_blank" title="按现行标准缴费至达到60周岁领取养老待遇测算表（单位：元）">按现行标准缴费至达到60周岁领取...</a></li>
+												<li><span class="date">[04-28]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/ylbx/t20160428_102499.htm" target="_blank" title="关于完善灵活就业人员参加企业职工基本养老保险有关规定的政策知识问答">关于完善灵活就业人员参加企业职工...</a></li>
+												<li><span class="date">[08-18]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/ylbx/t20150818_101932.htm" target="_blank" title="职工医疗保险知识">职工医疗保险知识</a></li>
+												<li><span class="date">[08-18]</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/sbzt/ylbx/t20150818_101930.htm" target="_blank" title="城乡居民医疗保险知识">城乡居民医疗保险知识</a></li>
+
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="clear"></div>
+								<div class="title1"><h3 class="ftl">联系方式 </h3></div>
+								<div class="clear"></div>
+								<div class="lineheight28 mt20">
+									<span class="font-red4 ">办公时间：</span>上午：08:30-12:00&nbsp;&nbsp;下午：14:30-18:00&nbsp;&nbsp;&nbsp;&nbsp;
+									<span class="font-red4 ">详细地址：</span>梅州市新中路82号&nbsp;&nbsp;&nbsp;&nbsp;
+									<span class="font-red4 ">联系电话：</span>0753-2269605
+								</div>
+
+							</div>
+</div>
+
+		<#include '/WEB-INF/templates/mxcommon2/footer.html'>

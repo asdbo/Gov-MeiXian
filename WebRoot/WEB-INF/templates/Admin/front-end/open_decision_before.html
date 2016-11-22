@@ -1,0 +1,50 @@
+<#include '/WEB-INF/templates/common/header1.html'>
+ 	<div class="WebContainer800_bk">
+		<div class="WebContainer800_left">
+			<div id="Frame_ChildNav">
+				<div id="ChildNav_title"></div>
+				<div id="ChildNav_content">
+			  									</div>
+			</div>
+			<link href="${public}/css/mainframe.css" rel="stylesheet" type="text/css">
+			<div id="Frame_Login200">
+			<script language="javascript" src="${public}/js/member.js"></script> 
+<div id="Login200_form">
+<table>
+<form id="LoginForm" name="LoginForm" method="post" action="/bbs/logging.php?action=login&amp;loginsubmit=yes"></form>
+<input type="hidden" name="referer" value="http://www.meijiang.gov.cn/zwgk/zxgk/zxgcgk/index.html">
+<input type="hidden" name="loginfield" value="username">
+<input type="hidden" name="cookietime" id="cookietime" value="0">
+<tbody><tr><td>用户：<input name="username" type="text" id="username" autocomplete="off" size="15"></td></tr>
+<tr><td>密码：<input name="password" type="password" id="password" size="15"></td></tr>
+<tr>
+<td>
+<div id="Login200_LookforPassword"><a href="/lostpw.html">找回<br>密码</a></div>	
+<input name="image2" type="image" src="${public}/images/Button_Login_s.gif">
+<a href="/register.html"><img src="${public}/images/Button_Register_s.gif"></a>
+</td>
+</tr>
+
+</tbody></table>
+</div>
+			</div>
+			<div id="Frame_ChildNav">
+				<div id="ChildRange_title"></div>
+				 
+				<div id="ChildNav_content">
+								</div>
+			</div>
+		</div>
+		<div class="WebContainer800_right">
+			<div class="WebContainer800_right_content">
+																							</div>
+		</div>
+		</div>
+	
+
+
+ 
+<#include '/WEB-INF/templates/common/footer2.html'>
+
+
+</body></html>

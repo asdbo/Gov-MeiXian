@@ -1,0 +1,126 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid pt10">
+	<div class="list-topBox" style="border-bottom:none;">
+		<span class="fl">位置：
+				<a href="">网站首页</a>&gt;&gt;
+			<a href="/Home/Index/internet">办事服务</a> &gt;&gt;
+			<a href="/Home/Index/unit">单位事项</a>
+		</span>
+	</div>
+
+	<div class="left_list mt10 ftl border1" id="left_bmlist">
+		<div class="title"><img class="ftl mt5 pl50" src="${public}/images/icon15.png">部门服务</div>
+		<div class="clear"></div>
+		<ul>
+		<#assign url="">
+			<#list pcms as cm>
+				<#if cm.id=clickId>
+				<#assign url="/Home/Index/unit?id=${cm.id}">
+				<li class="on"><a href="/Home/Index/unit?id=${cm.id}">${cm.title}</a></li>
+				<#else>
+			<li><a href="/Home/Index/unit?id=${cm.id}">${cm.title}</a></li>
+			</#if>
+			</#list>
+			
+			<div class="clear"></div>
+		</ul>
+
+	</div>
+	<script>
+		function goToSerach(form) {
+			$("#myform").submit();
+		}
+	</script>
+
+	<div class="right_list mt10 ftr">
+		<form method="post" action="https://www.meizhou.gov.cn/search/index" id="myform">
+			<div class="bsfw_search ftl">
+				<div class="querybox">
+					<input name="keyword" placeholder="输入您要查询的服务" id="searchInput" class="input_key" onfocus="glb_searchTextOnfocus(this);" onblur="glb_searchTextOnBlur(this);">
+					<input name="classify" value="bsfw" type="hidden">
+					<a href="javascript:;" class="img_but" onclick="return goToSerach(this.form);"></a>
+				</div>
+			</div>
+			<p class="hot ftl ml10">热词：
+				
+				<a class="hot" href="#" onclick="javascript:openSearch('https://www.meizhou.gov.cn/', '环保', 'bsfw')">环保</a>
+				<a class="hot" href="#" onclick="javascript:openSearch('https://www.meizhou.gov.cn/', '计划生育', 'bsfw')">计划生育</a>
+			</p>
+		</form>
+		<div class="clear"></div>
+		<div class="mt10 border1">
+			<div class="listbox">
+				<ul>
+					<script type="text/javascript">
+						$(document).ready(function () {
+							$(".ckxsx_butbox").toggle(function () {
+								$(this).removeClass("ckxsx_butbox1").addClass("ckxsx_butbox2");
+								$(this).parent().parent().find('ul').attr("style", "display:block");
+							}, function () {
+								$(this).removeClass("ckxsx_butbox2").addClass("ckxsx_butbox1");
+								$(this).parent().parent().find('ul').attr("style", "display:none");
+							}
+							);
+						});
+					</script>
+					<#list news as n>
+					<li>
+						<p>
+							<a href="/Home/NewContent?newid=${n.id}" target="_blank" title="${n.title}" urllink="" class="linkkey">${n.title}</a>
+						</p>
+					</li>
+					</#list>
+				</ul>
+			</div>
+				<div class="tac">
+				<ul class="pagination pagination-sm">
+		    <li class=""><a href="${url}">首页</a></li>
+		    			<#if (pageCount <5)>
+		    					<#list 1..pageCount as a>
+		    					<#if a=nowPage>
+								<li class="ng-scope active"><a class="ng-binding" href="javascript::">${a}</a></li>
+								<#else>
+								<li class="ng-scope"><a class="ng-binding" href="${url}&page=${a}">${a}</a></li>
+								</#if>
+								</#list>
+							<#else>
+								<#assign dd=(nowPage/6)?floor>
+								<#assign start=1>
+								<#assign end=2>
+								<!-- 判断开始页数 -->
+								<#if ((dd*5+1)>pageCount)>
+										<#assign start=(pageCount-5)>
+									<#else>
+									<#assign start=(dd*5+1)>
+								</#if>
+								<!-- 判断末页数 -->
+								<#if (pageCount>(start+4))>
+									<#assign end=(start+4)>
+									<#else>
+									<#assign end=pageCount>
+								</#if>
+								<!-- 上5页 -->
+								<#if (start>1)>
+									<li><a href="${url}&page=${start-1}">«</a></li>
+								</#if>
+								<#list start..end as a>
+								<#if a=nowPage>
+								<li class="ng-scope active"><a class="ng-binding" href="javascript::">${a}</a></li>
+								<#else>
+								<li class="ng-scope"><a class="ng-binding" href="${url}&page=${a}">${a}</a></li>
+								</#if>
+								</#list>
+								<!-- 下5页 -->
+								<#if (end <pageCount)>
+								<li><a href="${url}&page=${end+1}">»</a></li>
+								</#if>
+		    				</#if>
+		    		
+						
+			    <li class=""><a href="${url}&page=${pageCount}">末页</a></li>
+		</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

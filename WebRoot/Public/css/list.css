@@ -1,0 +1,28 @@
+.main-bg{background:url(../images/red_conts-bg.jpg)}
+div.subnav{float:left;width:200px;display:inline;font-size:12px; margin-right:6px;}
+div.subnav .mod{border:#DEAC6F 1px solid;background:#FFF}
+div.subnav .mod .hd{background:url(../images/red_main_bg.png) repeat-x 0 -67px;}
+div.subnav .mod .dotlist{ padding:15px 0;}
+div.subnav .mod .dotlist li{ background:url(../images/list_sub.jpg) no-repeat 50% 50%;margin-top:1px;padding-left:26px; height:27px; line-height:28px; margin-bottom:6px;}
+div.subnav .mod .dotlist li a{ color:#CC3300; font-weight:bold;}
+div.main-content{width:528px; float:left;}
+div.main-content .path{padding:7px;background:#FFF6EF;border-bottom:#DEAC6F 1px solid;margin-bottom:5px}
+div.main-content ul{padding:15px}
+div.main-content li{list-style:none;background:url(../images/ancor.gif) no-repeat;padding:0 0 15px 15px}
+div.main-content li dl{padding:0;margin:0;list-style:none}
+div.main-content li dl .c1{width:40%}
+div.main-content li dl .c2{width:15%}
+div.main-content li dl .c3{width:15%}
+div.main-content li dl .c4{width:15%}
+div.main-content li dl .c5{width:15%}
+div.main-content li dl .c6{width:20%}
+div.main-content li dt{float:left;display:block;font-weight:700}
+div.main-content li dd{float:left;display:block;}
+div.main-content li a:hover{text-decoration:underline}
+div.main-content li span{font-size:12px;color:#258D23;margin-left:15px;}
+div.main-content .pagelist{text-align:center}
+div.main-content .pagelist a{margin:3px;}
+div.main-content .pagelist a.cur{font-size:14px;font-weight:700}
+
+.table-list{ width:100%;}
+.table-list td,.table-list th{ padding:3px 5px;}

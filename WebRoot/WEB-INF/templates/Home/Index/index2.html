@@ -1,0 +1,1520 @@
+<#include '/WEB-INF/templates/mxcommon/header2.html'>
+    <!--index content-->
+    <div class="index_content">
+      <div class="ind_content_wrap">
+        <div class="contentwrap section00" style="display: none; left: 1300px;">
+          <div class="clearfix">
+            <div class="conLeft00">
+              <div class="tpxw">
+                <div class="slideBox">
+                  <div class="hd">
+                    <ul><li class="">1</li><li class="">2</li><li class="">3</li><li class="on">4</li><li class="">5</li></ul>
+                  </div>
+                  <div class="bd">
+                    <div class="tempWrap" style="overflow:hidden; position:relative; width:567px">
+                      <ul style="width: 3969px; position: relative; overflow: hidden; padding: 0px; margin: 0px; left: -2268px;">
+                      
+                      <!-- 轮播新闻 -->
+                      <li class="clone" style="float: left; width: 567px;"><a href="">
+                      <img src="${public}/images2/banner01.jpg"></a><b></b><span>
+                        <a href="/Home/NewContent?newid=17">	加快补齐短板提供更优服务	</a>
+                      </span></li>
+                      <li class="clone" style="float: left; width: 567px;"><a href="">
+                      <img src="${public}/images2/banner02.jpg"></a><b></b><span>
+                        <a href="/Home/NewContent?newid=17"> 破难攻坚加快新城建设 活化民居传承历史...  </a>
+                      </span></li>
+                      <li class="clone" style="float: left; width: 567px;"><a href="">
+                      <img src="${public}/images2/banner03.jpg"></a><b></b><span>
+                        <a href="/Home/NewContent?newid=17"> 温国辉主持召开市政府常务会议贯彻全会精神  </a>
+                      </span></li>
+                      <li class="clone" style="float: left; width: 567px;"><a href="">
+                      <img src="${public}/images2/banner04.jpg"></a><b></b><span>
+                        <a href="/Home/NewContent?newid=17"> 深化山海协作 共谋发展共赢  </a>
+                      </span></li>
+                      </ul>
+                          </div>
+                  </div>
+                  <a class="prev" href="javascript:void(0)"></a> <a class="next" href="javascript:void(0)"></a> </div>
+              </div>
+              <!-- <div class="tab-img"><img src="${public}/images2/14.png"></div> -->
+              <div class="tabSwitch_list" style="display: block; left: 0px;">
+               
+                <div class="tit_h2">
+                  <h2>
+                  <#list newcms as cn>
+                  <#if cn_index=0>
+                    <a href="/Home/ChannelContent?cid=${cn.id}"  class="active" tag="temp01" >${cn.title}</a>
+                  <#else>
+                   <a href="/Home/ChannelContent?cid=${cn.id}"  >${cn.title}</a>
+                  </#if>
+                  
+				</#list>
+</h2>
+                </div>
+                <div class="tabs_boxlist" style="height: 161px;">
+                 <#list news as ns>
+                 <#if ns_index=0>
+                  <div class="tab_box " style="display: block; ">
+                   <#else>
+                    <div class="tab_box " style="position: absolute; display: none;">
+                   </#if>
+                   <ul class="news_list">
+                       
+					<#list ns as n>
+                        <li>
+                          <a class="newtitle" href="/Home/NewContent?newid=${n.id}"> ${n.title} </a>
+                          <span>
+                          ${n.TIME}
+                          </span></li>
+						</#list>
+							
+                    </ul>
+                  </div>
+                  </#list>
+                  <!--  
+          <div class="tab_box temp07 active" style="position: absolute; display: block; left: 0px;">
+            <ul class="news_list" id="zscd">
+              <li><a href="">胡春华会见美国密歇根州州长斯奈德 推动合作结出硕果</a><span>  2016-11-18 </span></li>
+              <li><a href="">南方财经全媒体集团揭牌成立 胡春华朱小丹作出指示批示</a><span>  2016-11-18 </span></li>
+              <li><a href="">朱小丹主持召开省政府常务会议（2016年11月17日）</a><span>  2016-11-18 </span></li>
+              <li><a href="">第三届海峡两岸中山论坛在中山开幕</a><span>  2016-11-18 </span></li>
+              <li><a href="">徐少华主持召开全面创新改革试验推进协调会</a><span>  2016-11-18 </span></li></ul>
+           </div>
+
+          <div class="tab_box temp08 active" style="position: absolute; display: block; left: 0px;">
+                    <ul class="news_list" id="zscd">
+                      <li><a href="">胡春华会见美国密歇根州州长斯奈德 推动合作结出硕果</a><span>  2016-11-18 </span></li>
+                      <li><a href="">南方财经全媒体集团揭牌成立 胡春华朱小丹作出指示批示</a><span>  2016-11-18 </span></li>
+                      <li><a href="">朱小丹主持召开省政府常务会议（2016年11月17日）</a><span>  2016-11-18 </span></li>
+                      <li><a href="">第三届海峡两岸中山论坛在中山开幕</a><span>  2016-11-18 </span></li>
+                      <li><a href="">徐少华主持召开全面创新改革试验推进协调会</a><span>  2016-11-18 </span></li>
+                    </ul>
+                  </div>
+                  <div class="tab_box active" id="qxdt" style="position: absolute; display: none; left: 567px;"><ul class="news_list">
+<div class="indexlistbox">
+    
+     <li><a href="">花都区：区领导带队调研推进铜鼓坑河整治</a><span>2016-11-18</span></li>
+     
+     <li><a href="">增城区：增城区实施首个微改造项目</a><span>2016-11-18</span></li>
+     
+     <li><a href="">天河区：市委常委、组织部部长王世彤一行参观考察天河人才港</a><span>2016-11-18</span></li>
+     
+     <li><a href="">南沙区：澳门青年企业家代表团南沙觅商机</a><span>2016-11-18</span></li>
+     
+     <li><a href="">海珠区：区委常委、政法委书记马红安到官洲街调研</a><span>2016-11-18</span></li>
+     
+                    </div></ul></div>
+<div class="tab_box" id="bmdt" style="position: absolute; display: none; left: -567px;"><ul class="news_list">
+<div class="indexlistbox">
+    
+     <li><a href="">市科技创新委员会：梅县开发区8家企业集体挂牌新三板</a><span>2016-11-18</span></li>
+     
+     <li><a href="">市住房和城乡建设委员会：蔡朝林调研市住房城乡建设委工作</a><span>2016-11-18</span></li>
+     
+     <li><a href="">市教育局：2016梅县市DI创新思维竞赛成功举办</a><span>2016-11-18</span></li>
+     
+     <li><a href="">市交通委员会：市交通部门组织完成政策性文件清理工作</a><span>2016-11-18</span></li>
+     
+     <li><a href="">市农业局：市植保总站举办2016年梅县市农作物种子生产经营许可管理培训班</a><span>2016-11-18</span></li>
+     
+                    </div></ul></div>-->
+                  
+                </div>
+              </div>
+            </div>
+            <div class="conRight00">
+              <div class="indexlmlj clearfix">
+                <div class="lmljLF">
+                  <div class="lmljLeft">
+                    <div class="lmljH01"> 
+                      <i><img src="${public}/images2/4.png" alt=""></i>
+                      <br><br>
+                      <a href="" >	市民个人<br>网页入口	</a></span>
+                    </div>
+                    <div class="lmljH02"> 
+                      <i><img src="${public}/images2/3.png" alt=""></i>
+                      <br><br>
+                      <a href="" > 企业信用<br>信息查询 </a></span>
+                    </div>
+                    <div class="lmljH03"> 
+                      <i><img src="${public}/images2/5.png" alt=""></i>
+                      <br><br>
+                      <a href="" > 社会组织<br> 信用信息查询 </a></span>
+                    </div>
+                  </div>
+                  <div class="lmljCenter">
+                    <div class="lmljH01"> 
+                      <i><img src="${public}/images2/3.png" alt=""></i>
+                      <br><br>
+                      <a href="" >企业专属<br>网页入口	</a></span>
+                    </div>
+                    <div class="lmljH02"> 
+                      <i><img src="${public}/images2/6.png" alt=""></i>
+                      <br><br>
+                      <a href="" > 事业单位<br>信用信息查询  </a></span>
+                    </div>
+                    <div class="lmljH03"> 
+                      <i><img src="${public}/images2/7.png" alt=""></i>
+                      <br><br>
+                      <a href="" > 重点人群<br> 信用信息查询  </a></span>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+              <!-- <div class="tab-img"><img src="${public}/images2/15.png" height="100px"></div> -->
+              <div class="tabSwitch_list ywxw">
+                <div class="tit_h2">
+                  <h2>
+                  <#list newcms2 as nc2>
+                  <#if nc2_index=0>
+                   <a href="/Home/ChannelContent?cid=${nc2.id}" class="active" tag="temp01" >${nc2.title}</a>
+                  <#else>
+                 <a href="/Home/ChannelContent?cid=${nc2.id}" >${nc2.title}</a>
+                  </#if>
+				</#list>
+</h2>
+                </div>
+                <div class="tabs_boxlist" style="height: 161px;">
+                 <#list news2 as ns>
+                 <#if ns_index=0>
+                  <div class="tab_box" style="display: block;" >
+                    
+                   <#else>
+                    <div class="tab_box " style="display: none;">
+                   </#if>
+                  <ul class="news_list">
+                       
+					<#list ns as n>
+                        <li>
+                          <a class="newtitle" href="/Home/NewContent?newid=${n.id}"> ${n.title} </a>
+                          <span>
+                          ${n.TIME}
+                          </span></li>
+						</#list>
+							
+                    </ul>
+                  </div>
+                  </#list>
+                  <!--  
+				  <div class="tab_box temp07" style="position: absolute; display: none;">
+                    <ul class="news_list" id="zscd">
+                    <li><a href="">胡春华会见美国密歇根州州长斯奈德 推动合作结出硕果</a><span>  2016-11-18 </span></li>
+                    <li><a href="">南方财经全媒体集团揭牌成立 胡春华朱小丹作出指示批示</a><span>  2016-11-18 </span></li>
+                    <li><a href="">朱小丹主持召开省政府常务会议（2016年11月17日）</a><span>  2016-11-18 </span></li>
+                    <li><a href="">第三届海峡两岸中山论坛在中山开幕</a><span>  2016-11-18 </span></li>
+                    <li><a href="">徐少华主持召开全面创新改革试验推进协调会</a><span>  2016-11-18 </span></li>
+                    </ul>
+                  </div> <div class="tab_box temp02" style="position: absolute; display: none;">
+                    <ul class="news_list" id="zscd">
+                    <li><a href="">胡春华会见美国密歇根州州长斯奈德 推动合作结出硕果</a><span>  2016-11-18 </span></li>
+                    <li><a href="">南方财经全媒体集团揭牌成立 胡春华朱小丹作出指示批示</a><span>  2016-11-18 </span></li>
+                    <li><a href="">朱小丹主持召开省政府常务会议（2016年11月17日）</a><span>  2016-11-18 </span></li>
+                    <li><a href="">第三届海峡两岸中山论坛在中山开幕</a><span>  2016-11-18 </span></li>
+                    <li><a href="">徐少华主持召开全面创新改革试验推进协调会</a><span>  2016-11-18 </span></li>
+                    </ul>
+                  </div>
+                  <div class="tab_box active" id="qxdt" style="position: absolute; display: block; left: 0px;"><ul class="news_list">
+<div class="indexlistbox">
+		
+     <li><a href="http://www.gz.gov.cn/gzgov/s5813/201611/21fb1a96334943c19da422196a49a605.shtml"  title="区领导带队调研推进铜鼓坑河整治">花都区：区领导带队调研推进铜鼓坑河整治</a><span>2016-11-18</span></li>
+     
+     <li><a href="http://www.gz.gov.cn/gzgov/s5814/201611/5ef6a14167d24a65aee3471dac5c435c.shtml"  title="增城区实施首个微改造项目">增城区：增城区实施首个微改造项目</a><span>2016-11-18</span></li>
+     
+     <li><a href="http://www.gz.gov.cn/gzgov/s5809/201611/fb65ecbec6504074ba7ee98820b4fc6f.shtml"  title="市委常委、组织部部长王世彤一行参观考察天河人才港">天河区：市委常委、组织部部长王世彤一行参观考察天河人才港</a><span>2016-11-18</span></li>
+     
+     <li><a href="http://www.gz.gov.cn/gzgov/s5816/201611/89340e7183bf43dcb760b5a304db0dec.shtml"  title="澳门青年企业家代表团南沙觅商机">南沙区：澳门青年企业家代表团南沙觅商机</a><span>2016-11-18</span></li>
+     
+     <li><a href="http://www.gz.gov.cn/gzgov/s5808/201611/db5045afb203438982f2d09e31620be6.shtml"  title="区委常委、政法委书记马红安到官洲街调研">海珠区：区委常委、政法委书记马红安到官洲街调研</a><span>2016-11-18</span></li>
+     
+                    </div></ul></div>
+                  <div class="tab_box active" id="bmdt" style="position: absolute; display: block; left: -567px;"><ul class="news_list">
+<div class="indexlistbox">
+		
+     <li><a href="http://www.gz.gov.cn/gzgov/s5821/201611/e6e3fa6ce8bd48c5b6b2962f005c06f9.shtml"  title="梅县开发区8家企业集体挂牌新三板">市科技创新委员会：梅县开发区8家企业集体挂牌新三板</a><span>2016-11-18</span></li>
+     
+     <li><a href="http://www.gz.gov.cn/gzgov/s5829/201611/bf5254c636eb422b83e7f655103d9128.shtml"  title="蔡朝林调研市住房城乡建设委工作">市住房和城乡建设委员会：蔡朝林调研市住房城乡建设委工作</a><span>2016-11-18</span></li>
+     
+     <li><a href="http://www.gz.gov.cn/gzgov/s5820/201611/1e160221c8524f19872be0186babb728.shtml"  title="2016梅县市DI创新思维竞赛成功举办">市教育局：2016梅县市DI创新思维竞赛成功举办</a><span>2016-11-18</span></li>
+     
+     <li><a href="http://www.gz.gov.cn/gzgov/s5830/201611/26d69f1ed29b4c45820342e23c613579.shtml"  title="市交通部门组织完成政策性文件清理工作">市交通委员会：市交通部门组织完成政策性文件清理工作</a><span>2016-11-18</span></li>
+     
+     <li><a href="http://www.gz.gov.cn/gzgov/s5832/201611/9d8e824139da4da19dc82bfbe28b1217.shtml"  title="市植保总站举办2016年梅县市农作物种子生产经营许可管理培训班">市农业局：市植保总站举办2016年梅县市农作物种子生产经营许可管理培训班</a><span>2016-11-18</span></li>
+     
+                    </div></ul></div>-->
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contentwrap section01 active" style="display: block; left: 0px;">
+          <div class="conLeft01">
+            <div class="tit_h3">
+              <h2>梅县概况</h2>
+            </div>
+            <div class="gzgk">
+              <div class="gzgkLeft">
+                 
+<img src="${public}/images2/08df2327f03b42278b4b0d048a31baab.png" height="400px">
+
+              </div>
+              <div class="gzgkRight">
+                <div class="gzgkjj">
+                   
+<p style="font-size: 15px;">梅县区是广东省梅州市的市辖区，位于广东省东北部，始建城于秦朝，2013年10月国务院同意梅州市梅县撤县设区，从此，梅县结束了县治，设立梅州市梅县区，与梅江区同属梅州市区并称梅城。
+梅州市梅县区是客家人的重要聚居地之一和客家话的代表地之一，也是“岭南第一才子”宋湘、林风眠、李金发、叶剑英等人的故乡。
+梅州市梅县区素有“文化之乡”、“华侨之乡” 和“足球之乡”之誉。客家山歌在中国优秀民歌林中独树一帜，2006年“千人山歌大对唱”被列入吉尼斯世界纪录。</p>
+
+                </div>
+                <div class="gzgklm">
+                  <ul>
+                    <li><a href="/Home/ChannelContent?cid=36"><i><img src="${public}/images2/65938b6f273144f48a70db5242a3ef54.png"></i> 行政区域
+                          </a></li>
+                    <li><a href="/Home/ChannelContent?cid=35"><i><img src="${public}/images2/b8f4c51a89ef433aa0cf9666e0502898.png"></i> 自然地理
+                          </a></li>
+                      <li><a href="/Home/ChannelContent?cid=78"><i><img src="${public}/images2/62fb93e75cbbbd9b971b4324810c3f19.png"></i>
+                        图书馆
+                        </a></li>
+
+                      <li><a href="/Home/ChannelContent?cid=79"><i><img src="${public}/images2/b04a51041e064eb2b6a8ea197e0b655f.png"></i>
+                        医院
+                        </a></li>
+
+                      <li><a href="/Home/ChannelContent?cid=80"><i><img src="${public}/images2/2db133a751a24f33b63277e92289bce2.png"></i>
+                        学校
+                        </a></li>
+
+                      <li><a href="/Home/ChannelContent?cid=81"><i><img src="${public}/images2/220aad5fbe4f4856ad2aed7b3efe1313.png"></i>
+                        体育馆
+                        </a></li>
+                      <li><a href="/Home/ChannelContent?cid=77"><i><img src="${public}/images2/666.png"></i>
+                        应急避难场所
+                        </a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conRight01">
+          <#list cmss as cms>
+            <div class="tit_h3">
+              <h2>${cms.title}</h2>
+            </div>
+            <div class="index_btn01">
+              <ul class="clearfix">
+				<#list cms.scs as sc>	
+                  <li>
+                    <a href="/Home/ChannelContent?cid=${sc.id}"  title="${sc.title}">${sc.title}</a>
+                  </li>
+				</#list>
+              </ul>
+            </div>
+            </#list>
+          </div>
+        </div>
+        <div class="contentwrap section02" style="display: none; left: -1300px;">
+          <div class="conLeft02">
+            <div class="tit_h3">
+              <h2>政府信息公开</h2>
+            </div>
+            <div class="xxgklm clearfix">
+              <ul>
+                 
+
+                  <li>
+                    <a href="http://zwgk.gdmx.gov.cn/zfxxgkzn/441421">市政府信息公开指南</a>
+                  </li>
+
+                  <li>
+                    <a href="http://zwgk.gdmx.gov.cn/index/index?areacode=441421">市政府信息公开目录</a>
+                  </li>
+
+                  <li>
+                    <a href="http://zwgk.gdmx.gov.cn/zfgzbg/441421">市政府信息公开年报</a>
+                  </li>
+
+                  <li>
+                    <a href="">各区与部门信息公开</a>
+                  </li>
+
+                  <li>
+                    <a href="">信息公开制度与保障</a>
+                  </li>
+
+                  <li>
+                    <a href="http://ysq.gdmx.gov.cn/home/index?areacode=441421">政府信息依申请公开</a>
+                  </li>
+
+              </ul>
+            </div>
+            <div class="xxgkSlm clearfix">
+              <ul>
+                 
+
+                  <li>
+                    <a href="http://www.gz.gov.cn/szzy/index.shtml"  title="领导之窗">领导之窗</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gz.gov.cn/gzgov/s2791/common_tt.shtml"  title="政府机构">政府机构</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gz.gov.cn/gzgov/s2792/gk_fggw_list2.shtml"  title="法规公文">法规公文</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gz.gov.cn/gzgov/s2816/gk_fggw_zcjd.shtml"  title="政策解读">政策解读</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gz.gov.cn/gzgov/s2796/gk_list.shtml"  title="规划计划">规划计划</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gz.gov.cn/gzgov/s2793/gk_list.shtml"  title="总结公报">总结公报</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gz.gov.cn/gzgov/s2794/gk_list.shtml"  title="人事工作">人事工作</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gz.gov.cn/gzgov/s2797/gk_list.shtml"  title="统计信息">统计信息</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gz.gov.cn/gzgov/s2799/gk_list.shtml"  title="重大项目">重大项目</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gzemo.gov.cn/"  title="应急管理">应急管理</a>
+                  </li>
+                  <li>
+                    <a href="http://www.gz.gov.cn/gzgov/s2799/gk_list.shtml"  title="重大项目">重大项目</a>
+                  </li>
+
+                  <li>
+                    <a href="http://www.gzemo.gov.cn/"  title="应急管理">应急管理</a>
+                  </li>
+
+              </ul>
+            </div>
+            <div class="zdlygkzl">
+              <div class="tit_h2_2"> <a>五公开专栏</a> </div>
+              <div class="zdlySlm clearfix tabs_boxlist">
+                <div class="tab_box" style="display:block;">
+                  <ul>
+                      <li>
+                        <a href=""><img class="mt-10" src="${public}/images2/icon52.png"> 审批改革</a>
+                      </li>
+
+                      <li>
+                        <a href=""><img class="mt-10" src="${public}/images2/icon53.png">安全生产</a>
+                      </li>
+
+                      <li>
+                        <a href=""><img class="mt-10" src="${public}/images2/icon54.png">医疗服务</a>
+                      </li>
+
+                      <li>
+                        <a href=""><img class="mt-10" src="${public}/images2/icon55.png">财政资金</a>
+                      </li>
+
+                      <li>
+                        <a href=""><img class="mt-10" src="${public}/images2/icon56.png">征地信息</a>
+                      </li>
+
+                      <li>
+                        <a href=""><img class="mt-10" src="${public}/images2/icon57.png">保障性住房</a>
+                      </li>
+                  </ul>
+                </div>
+                <div class="tab_box" style="display: none;">
+                  <ul>
+                     
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/jcgk/gk_wgk_list.shtml"  title="决策公开">决策公开</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/zxgk/gk_wgk_list.shtml"  title="执行公开">执行公开</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/glgk/gk_wgk_list.shtml"  title="管理公开">管理公开</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/fwgk/gk_wgk_list.shtml"  title="服务公开">服务公开</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/jggk/gk_wgk_list.shtml"  title="结果公开">结果公开</a>
+                      </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="conRight02">
+            <div class="ldzcRow clearfix">
+              <div class="ldzc">
+                <div class="ldzc_title">领导之窗</div>
+                <div class="ldzc_sz">
+                 
+                  <div class="pic"><a href="http://www.gz.gov.cn/szzy/index.shtml" >
+                       <img src="${public}/images2/9e466851312d4392aecf2d7a75465498.jpg"></a></div>
+                  <div class="mc"><b><a href="http://www.gz.gov.cn/szzy/index.shtml" >张文广</a></b><span>市书记</span></div>
+
+                  <div class="xx"><a href="http://www.gz12345.gov.cn/gzxf/szxx.html" >我要给书记写信</a></div>
+                </div>
+                <div class="ldzc_ldlj">
+                  <h2>市政府领导</h2>
+                  <p> 
+<a href="http://www.gz.gov.cn/gzoywm/index.shtml"  title="欧阳卫民">欧阳卫民</a><a href="http://www.gz.gov.cn/zyw/index.shtml"  title="周亚伟">周亚伟</a><a href="http://www.gz.gov.cn/gzzfwd/index.shtml"  title="王　东">王　东</a><a href="http://www.gz.gov.cn/gzyjh/index.shtml"  title="杨江华">杨江华</a><a href="http://www.gz.gov.cn/gzccl/index.shtml"  title="蔡朝林">蔡朝林</a><a href="http://www.gz.gov.cn/gzlm/index.shtml"  title="黎明（女）">黎明（女）</a><a href="http://www.gz.gov.cn/gzhth/index.shtml"  title="唐航浩">唐航浩</a>
+</p>
+                </div>
+              </div>
+              <div class="gbhy">
+                <div class="gbpic"><a href="http://www.gz.gov.cn/gzgov/s6424/gk_zfgb.shtml" ><img src="${public}/images2/1.png" alt=""></a></div>
+                <div class="gbpic"><a href="http://www.gz.gov.cn/2016cwhy/index.shtml" ><img src="${public}/images2/2.png" alt=""></a></div>
+              </div>
+            </div>
+            <div class="tabSwitch_list zcjd" style="display: block; left: 0px;">
+              <div class="tit_h2">
+                <h2><a href="http://www.gz.gov.cn/gzgov/s2816/gk_fggw_zcjd.shtml" class="active" >政务要闻</a> <a href="http://www.gz.gov.cn/gzgov/s8263/gk_fggw_list1.shtml" >法规法文</a><a href="http://www.gz.gov.cn/gzgov/s2811/gk_fggw_list2.shtml" >总结报告</a><a href="http://www.gz.gov.cn/gzgov/s2812/gk_fggw_list2.shtml" >计划规划</a></h2>
+              </div>
+              <div class="tabs_boxlist">
+                <div class="tab_box" style="display:block;">
+                  <ul class="news_list">
+                     
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2816/201611/ff708dc351eb4f39a8d74a54154b8a7f.shtml"  title="图说第227次市政府常务会议">	图说第227次市政府常务会议	</a>
+                        <span>
+                        2016-11-14
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2816/201611/e0d61aa4b2fb440e8c2f4874a9b0e589.shtml"  title="“家庭医生”全省推广落实！明年2月前&quot;打包&quot;定价">	“家庭医生”全省推广落实！明年2月前"打包"定价	</a>
+                        <span>
+                        2016-11-11
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2816/201611/081fc91712724de5bf1817495d9ad11d.shtml"  title="《梅县市公共租赁住房保障办法》问题解答">	《梅县市公共租赁住房保障办法》问题解答	</a>
+                        <span>
+                        2016-11-10
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2816/201611/524bf25a83a645cb8b8a0632734ddb18.shtml"  title="退休后异地结算医疗费这么办？人社部权威解读">	退休后异地结算医疗费这么办？人社部权威解读	</a>
+                        <span>
+                        2016-11-03
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2816/201611/3abc45b81e954893ab97c8fe5f9407c0.shtml"  title="一图读懂社工发展的“梅县模式”">	一图读懂社工发展的“梅县模式”	</a>
+                        <span>
+                        2016-11-03
+                        </span></li>
+
+                  </ul>
+                </div>
+                <div class="tab_box">
+                  <ul class="news_list">
+                     
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s8263/201608/18ecc479dbd341448cfac285b013a77f.shtml"  title="梅县市临近保质期和超过保质期食品管理办法">	梅县市临近保质期和超过保质期食品管理办法	</a><span>2016-10-01</span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s8263/201610/720fec7323724d09853d0c2c4473fecb.shtml"  title="梅县市人民政府关于保留下放取消行政许可备案事项的决定">	梅县市人民政府关于保留下放取消行政许可备案事项的决定	</a><span>2016-09-30</span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s8263/201607/2d802dbc7b3847ff89092b26553feeac.shtml"  title="梅县市人民政府关于废止《梅县市客运口岸管理规定》等4件政府规章的决定">	梅县市人民政府关于废止《梅县市客运口岸管理规定》等4件政府规章的决定	</a><span>2016-07-13</span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s8263/201602/7f298011bef34434b727405731c33c60.shtml"  title="梅县市医疗器械经营和使用监督管理办法">	梅县市医疗器械经营和使用监督管理办法	</a><span>2016-06-01</span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s8263/201602/55730e8059224ef6afdab5266aee3c28.shtml"  title="梅县市居住区配套公共服务设施管理暂行规定">	梅县市居住区配套公共服务设施管理暂行规定	</a><span>2016-03-01</span></li>
+
+                  </ul>
+                </div>
+                <div class="tab_box">
+                  <ul class="news_list">
+                     
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2811/201611/0dd9dbd5ca084beb84c0cbd978f273b1.shtml"  title="梅县市人民政府关于电动自行车和其他安装有动力装置的非机动车不准上道路行驶的通告">	梅县市人民政府关于电动自行车和其他安装有动力装置的非机动车不准上道路行驶的通...	</a>
+                        <span>
+                        2016-11-02
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2811/201611/4930458e7ebe4437b75e930ea62642d0.shtml"  title="梅县市人民政府关于杨江华副市长工作分工的通知">	梅县市人民政府关于杨江华副市长工作分工的通知	</a>
+                        <span>
+                        2016-10-31
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2811/201611/1e68edb2e99d4b15ab8165c9a36dd28d.shtml"  title="梅县市人民政府关于开展珠江和流溪河堆场综合整治行动的通告">	梅县市人民政府关于开展珠江和流溪河堆场综合整治行动的通告	</a>
+                        <span>
+                        2016-10-31
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2811/201611/5b5a72fd09244d22b53dbfbd765f181e.shtml"  title="梅县市人民政府关于全面深化公办养老机构改革的意见">	梅县市人民政府关于全面深化公办养老机构改革的意见	</a>
+                        <span>
+                        2016-10-26
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2811/201610/540802a006b34b8280f02d4af8b48a7f.shtml"  title="梅县市人民政府关于印发梅县市积分制入户管理办法的通知">	梅县市人民政府关于印发梅县市积分制入户管理办法的通知	</a>
+                        <span>
+                        2016-10-26
+                        </span></li>
+
+                  </ul>
+                </div>
+                <div class="tab_box">
+                  <ul class="news_list">
+                     
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2812/201611/56e76fe8ffd54d08ac0cd1445d180462.shtml"  title="梅县市人民政府办公厅关于印发梅县市独生子女父母计划生育奖励办法的通知">	梅县市人民政府办公厅关于印发梅县市独生子女父母计划生育奖励办法的通知	</a>
+                        <span>
+                        2016-11-09
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2812/201611/009b1b731f7c4ac682930ea444840398.shtml"  title="梅县市人民政府办公厅关于印发市属国有企业出清重组“僵尸企业”促进国资结构优化的实施方案的通知">	梅县市人民政府办公厅关于印发市属国有企业出清重组“僵尸企业”促进国资结构优化...	</a>
+                        <span>
+                        2016-11-04
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2812/201611/a1210588060849fda60d828bd6ac9125.shtml"  title="梅县市人民政府办公厅关于印发梅县国际汽车零部件产业基地建设实施方案的通知">	梅县市人民政府办公厅关于印发梅县国际汽车零部件产业基地建设实施方案的通知	</a>
+                        <span>
+                        2016-11-03
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2812/201611/055430a74b204c2f8752db5647506664.shtml"  title="梅县市人民政府办公厅关于印发梅县市推进农村普惠金融发展实施方案的通知">	梅县市人民政府办公厅关于印发梅县市推进农村普惠金融发展实施方案的通知	</a>
+                        <span>
+                        2016-10-28
+                        </span></li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/s2812/201611/64f9d4e421bc4d69b6e8e494ac12ee2c.shtml"  title="梅县市人民政府办公厅关于印发梅县市综合交通发展第十三个五年规划的通知">	梅县市人民政府办公厅关于印发梅县市综合交通发展第十三个五年规划的通知	</a>
+                        <span>
+                        2016-10-26
+                        </span></li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="gk_btn clearfix">
+              <ul>
+                <li><a href="http://www.gz.gov.cn/2015srdzx/index.shtml" >政府采购</a></li>
+                <li><a href="http://sfzb.gzlo.gov.cn/sfzb/index.do" >人事信息</a></li>
+                <li><a href="http://wsbs.gz.gov.cn/gz/zwgk/index.jsp" >统计信息</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentwrap section03" style="display: none; left: 1300px;">
+          <div class="conLeft03">
+            <div class="tit_h3">
+              <h2><a href="http://www.gz.gov.cn/gzgov/bmgg/common_list.shtml" class="active" >便民公告</a></h2>
+            </div>
+            <div class="tabs_boxlist">
+              <div class="tab_box s03H01" style="display:block;">
+                <ul class="news_list">
+                   
+
+                    <li>
+                      <a href="http://www.gz.gov.cn/gzgov/bmgg/201610/0b1eef31354349be828a5f6baea9a33a.shtml"  title="梅县市残疾人乘车优惠证续期年审通知">	梅县市残疾人乘车优惠证续期年审通知	</a>
+                      <span>
+                      2016-10-19
+                      </span></li>
+
+                    <li>
+                      <a href="http://www.gz.gov.cn/gzgov/bmgg/201610/59530d533cba4f11a2c2f377f43f0c61.shtml"  title="梅县市接收社会捐赠工作站关于接收捐款情况的公告（2016年9月）">	梅县市接收社会捐赠工作站关于接收捐款情况的公告（2016年9月）	</a>
+                      <span>
+                      2016-10-18
+                      </span></li>
+
+                    <li>
+                      <a href="http://www.gz.gov.cn/gzgov/bmgg/201610/c9bae3ac33884c69a4e5cbac2de494ae.shtml"  title="梅县市教育局关于做好我市中小学教师资格考试工作的通知">	梅县市教育局关于做好我市中小学教师资格考试工作的通知	</a>
+                      <span>
+                      2016-10-14
+                      </span></li>
+
+                    <li>
+                      <a href="http://www.gz.gov.cn/gzgov/bmgg/201610/191fad15139f4f998814e8ceae149d61.shtml"  title="梅县市中小客车指标调控管理办公室关于2016年10月份梅县市中小客车增量指标配置数量的公告">	梅县市中小客车指标调控管理办公室关于2016年10月份梅县市中小客车增量指标配置数...	</a>
+                      <span>
+                      2016-10-08
+                      </span></li>
+
+                </ul>
+              </div>
+            </div>
+            <div class="tit_h3">
+              <h2><a class="active"  href="http://wsbs.gz.gov.cn/gz/wsbs/indexgr.jsp">热门办事</a></h2>
+            </div>
+            <div class="rmbs_iframe">
+              <iframe src="/Home/Index/bssx_sy" scrolling="no" frameborder="0"></iframe>
+            </div>
+          </div>
+          <div class="conCen03">
+            <div class="tit_h3">
+              <h2><a class="active"  href="http://wsbs.gz.gov.cn/gz/yzbst/yzt.jsp">办事专题</a></h2>
+            </div>
+            <div class="bsztCon s03H01 clearfix">
+              <ul>
+                 
+
+                    <li>
+                    <a href="http://wsbs.gz.gov.cn/gz/gzf/index.jsp"  title="公租房申请">	公租房申请	</a>
+                    </li>
+
+                    <li>
+                    <a href="http://wsbs.gz.gov.cn/gz/wsbs/crjzt.jsp"  title="出入境办理">	出入境办理	</a>
+                    </li>
+
+                    <li>
+                    <a href="http://wsbs.gz.gov.cn/gz/bkzk/edu_index.jsp"  title="梅县招考">	梅县招考	</a>
+                    </li>
+
+                    <li>
+                    <a href="http://wsbs.gz.gov.cn/gz/rhzt/index.jsp"  title="入户梅县">	入户梅县	</a>
+                    </li>
+
+                    <li>
+                    <a href="http://wsbs.gz.gov.cn/gz/gzgc/car_index.jsp"  title="梅县购车">	梅县购车	</a>
+                    </li>
+
+              </ul>
+            </div>
+            <div class="tit_h3">
+              <h2><a class="active" tag="temp01" >主题服务</a></h2>
+            </div>
+            <div class="ztfwLm clearfix">
+              <ul>
+                 
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzsdfwzt/hysy/hysy.shtml"  title="婚育收养">婚育收养</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzsdfwzt/jy/tech_index.shtml"  title="教育培训">教育培训</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzsdfwzt/s16217/ylfw.shtml"  title="医疗卫生">医疗卫生</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzsdfwzt/sb/sb.shtml"  title="社会保障">社会保障</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzsdfwzt/zf/zf.shtml"  title="住房保障">住房保障</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzsdfwzt/jt/jt.shtml"  title="交通出行">交通出行</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzsdfwzt/jiuy/jy_inedx.shtml"  title="劳动就业">劳动就业</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzsdfwzt/zjbl/zjbl_index.shtml"  title="证件办理">证件办理</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzsdfwzt/gysy/gysy.shtml"  title="公用事业">公用事业</a>
+                      </li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="conRight03">
+            <div class="wsbsdt"><a href="http://wsbs.gz.gov.cn/" ><img src="${public}/images2/16wsbsdttp.jpg" alt=""></a></div>
+            <div class="fwSearch">
+              <div class="fw-search">
+              <form action="http://wsbs.gz.gov.cn/gz/wsbs/queryServItemInfo.action"  accept-charset="GB2312" onsubmit="document.charset=&#39;GB2312&#39;">      
+                <input class="SearchTxt" type="text" name="searchBar" id="serviceItem_keyword" onfocus="if(this.value==&#39;服务事项搜索&#39;){this.value=&#39;&#39;;}" onblur="if(this.value==&#39;&#39;){this.value=&#39;服务事项搜索&#39;;document.getElementById(&#39;clearimg&#39;).style.display=&#39;none&#39;;}" onkeydown="document.getElementById(&#39;clearimg&#39;).style.display=&#39;block&#39;;" value="服务事项搜索">
+                <input class="SearchBtn" type="submit" value="搜索">
+                </form>
+              </div>
+            </div>
+            <div class="yyzy clearfix">
+              <ul>
+                <li><a href="http://wsbs.gz.gov.cn/gz/wsbs/yyzx.jsp" ><i><img src="${public}/images2/2016sm_ic01.png" alt=""></i>我要预约</a></li>
+                <li><a href="http://wsbs.gz.gov.cn/zwzy/projb/matter_institution_gz_tit.jsp?host=gz" ><i><img src="${public}/images2/2016sm_ic02.png" alt=""></i>大厅指引</a></li>
+              </ul>
+            </div>
+            <div class="smqylist">
+              <div class="tit_h3">
+                <h2><a href="http://www.gz.gov.cn/gzgov/zxfwu/common_list.shtml" class="active" >最新服务</a></h2>
+                <!--h3><a href="#" class="active" >办事攻略</a></h3--> 
+              </div>
+              <div class="tabs_boxlist">
+                <div class="tab_box" style="display:block;">
+                  <ul class="ty_list">
+                     
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/zxfwu/201611/8b88fd8a21eb4e91966485184bdcb4fc.shtml"  title="社保卡还有个金融账户">	社保卡还有个金融账户	</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/zxfwu/201611/0ddc8b580634420cb037feee475d767d.shtml"  title="洛溪大桥4车道拟变身10车道">	洛溪大桥4车道拟变身10车道	</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/zxfwu/201611/a3bb9fc907e5411daa10c39998283d98.shtml"  title="公积金贴息贷款比例限制放开啦">	公积金贴息贷款比例限制放开啦	</a>
+                      </li>
+
+                      <li>
+                        <a href="http://www.gz.gov.cn/gzgov/zxfwu/201611/cf1ee3e7e98a442e9c43bda9bba04d32.shtml"  title="2017年1月高中学业水平考试14日～19日报名">	2017年1月高中学业水平考试14日～19日报名	</a>
+                      </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="sm_smwy"><a class="bgs02" href="" ><b><img src="${public}/images2/2016yy_smwy.png" alt=""></b>
+              <h3>市民网页</h3>
+              </a></div>
+          </div>
+        </div>
+        <div class="contentwrap section04" style="display: none; left: -1300px;">
+          <div class="conLeft03">
+            <div class="tit_h3_2 titlew04">
+              <h2><a href="" class="active" tag="temp01" >投资动态</a><a href="" >	投资政策	</a><a href="" >	统计数据	</a><a href="" >	最新服务	</a></h2>
+            </div>
+            <div class="tabs_boxlist s03H01">
+              <div class="tab_box" style="display:block;">
+                <ul class="news_list">
+                   
+
+                    <li>
+                      <a href="">	产业结构完整、人才优势显著、政府投入加大等吸引名企落户梅县	</a>
+                      <span>
+                      2016-11-18
+                      </span></li>
+
+                    <li>
+                      <a href="">	龙浩航空公司落户花都	</a>
+                      <span>
+                      2016-11-18
+                      </span></li>
+
+                    <li>
+                      <a href="">	中交租赁:南沙要成“第三极”	</a>
+                      <span>
+                      2016-11-17
+                      </span></li>
+
+                    <li>
+                      <a href="">	重磅！梅县成立375亿规模工业转型升级基金，未来将投向这些新兴领域	</a>
+                      <span>
+                      2016-11-16
+                      </span></li>
+
+                </ul>
+              </div>
+              <div class="tab_box">
+                <ul class="news_list">
+                   
+
+                    <li>
+                      <a href="">	梅县市商务委员会 梅县市工业和信息化委员会 梅县市教育局 梅县市人力资源和社会保...	</a>
+                      <span>
+                      2016-10-21
+                      </span></li>
+
+                    <li>
+                      <a href="">	梅县市人民政府关于印发梅县市服务贸易创新发展试点实施方案的通知	</a>
+                      <span>
+                      2016-10-10
+                      </span></li>
+
+                    <li>
+                      <a href="">	梅县市人民政府关于加快先进制造业创新发展的实施意见	</a>
+                      <span>
+                      2016-08-29
+                      </span></li>
+
+                    <li>
+                      <a href="">	工业和信息化部关于印发《促进中小企业国际化发展五年行动计划（2016－2020年）》...	</a>
+                      <span>
+                      2016-08-10
+                      </span></li>
+
+                </ul>
+              </div>
+              <div class="tab_box">
+                <ul class="news_list">
+                   
+
+                    <li>
+                      <a href="">	2016年1-9月对外经济合作业务统计报表	</a>
+                      <span>
+                      2016-11-16
+                      </span></li>
+
+                    <li>
+                      <a href="">	2016年1-8月对外经济合作业务统计报表	</a>
+                      <span>
+                      2016-11-16
+                      </span></li>
+
+                    <li>
+                      <a href="">	2016年1-8月梅县市利用外资情况	</a>
+                      <span>
+                      2016-10-24
+                      </span></li>
+
+                    <li>
+                      <a href="">	2016年1-7月对外经济合作业务统计报表	</a>
+                      <span>
+                      2016-09-21
+                      </span></li>
+
+                </ul>
+              </div>
+              <div class="tab_box">
+                <ul class="news_list">
+                   
+
+                    <li>
+                      <a href="">	足不出户可办营业执照	</a>
+                      <span>
+                      2016-10-24
+                      </span></li>
+
+                    <li>
+                      <a href="">	9类内资企业可到区里登记	</a>
+                      <span>
+                      2016-10-21
+                      </span></li>
+
+                    <li>
+                      <a href="">	银行网点无偿代办工商注册登记业务(银商通业务)指引	</a>
+                      <span>
+                      2016-10-11
+                      </span></li>
+
+                    <li>
+                      <a href="">	在梅县申请认定著名商标的程序更简化	</a>
+                      <span>
+                      2016-10-10
+                      </span></li>
+
+                </ul>
+              </div>
+            </div>
+            <div class="tit_h3">
+              <h2><a class="active"  href="">热门办事</a></h2>
+            </div>
+            <div class="rmbs_iframe">
+              <iframe src="/Home/Index/bssx_sy1" scrolling="no" frameborder="0"></iframe>
+            </div>
+          </div>
+          <div class="conCen03">
+            <div class="tit_h3">
+              <h2><a href="" class="active" >办事一站通</a></h2>
+            </div>
+            <div class="bsyztCon s03H01 clearfix">
+              <ul>
+                 
+
+                    <li>
+                    <a href="">	公共资源交易	</a>
+                    </li>
+
+                    <li>
+                    <a href="">	外商投资多证联办	</a>
+                    </li>
+
+                    <li>
+                    <a href="">	市级财政专项资金	</a>
+                    </li>
+
+                    <li>
+                    <a href="">	四证联办	</a>
+                    </li>
+
+                    <li>
+                    <a href="">	商事登记	</a>
+                    </li>
+
+                    <li>
+                    <a href="">	通关办理	</a>
+                    </li>
+
+                    <li>
+                    <a href="">	建设工程项目审批	</a>
+                    </li>
+
+              </ul>
+            </div>
+            <div class="tit_h3">
+              <h2><a class="active">主题服务</a></h2>
+            </div>
+            <div class="zsyzlm Qyr02 clearfix">
+              <ul>
+                <li><a href=""><img src="${public}/images2/2016sy_qy_pic_01.jpg" alt=""></a></li>
+                <li><a href=""><img src="${public}/images2/2016sy_qy_pic_02.jpg" alt=""></a></li>
+                <li><a href=""><img src="${public}/images2/2016sy_qy_pic_03.jpg" alt=""></a></li>
+                <li><a href=""><img src="${public}/images2/2016sy_qy_pic_04.jpg" alt=""></a></li>
+              </ul>
+            </div>
+            <div class="tit_h3">
+              <h2><a href="http://www.gz.gov.cn/gzgov/s2767/zsyz.shtml" class="active" tag="temp01" >招商引资</a></h2>
+            </div>
+            <div class="zsyzlm Qyr03 clearfix">
+              <ul>
+                <li><a href="" ><img src="${public}/images2/2016sy_qy_pic_11.jpg" alt="">招商环境</a></li>
+                <li><a href="" ><img src="${public}/images2/2016sy_qy_pic_12.jpg" alt="">优势产业</a></li>
+                <li><a href="" ><img src="${public}/images2/2016sy_qy_pic_13.jpg" alt="">产业园区</a></li>
+                <li><a href="" ><img src="${public}/images2/2016sy_qy_pic_14.jpg" alt="">服务机构</a></li>
+              </ul>
+            </div>
+            <div class="Qyr04">
+              <ul>
+                <li><a href="" >投资环境白皮书</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="conRight03">
+            <div class="wsbsdt"><a href="" ><img src="${public}/images2/16wsbsdttp.jpg" alt=""></a></div>
+            <div class="fwSearch">
+              <div class="fw-search">
+               <form action=""  accept-charset="GB2312" onsubmit="document.charset=&#39;GB2312&#39;">
+                <input class="SearchTxt" type="text" name="searchBar" id="serviceItem_keyword" onfocus="if(this.value==&#39;服务事项搜索&#39;){this.value=&#39;&#39;;}" onblur="if(this.value==&#39;&#39;){this.value=&#39;服务事项搜索&#39;;document.getElementById(&#39;clearimg&#39;).style.display=&#39;none&#39;;}" onkeydown="document.getElementById(&#39;clearimg&#39;).style.display=&#39;block&#39;;" value="服务事项搜索">
+                <input class="SearchBtn" type="submit" value="搜索">
+                </form>
+              </div>
+            </div>
+            <div class="yyzy clearfix">
+              <ul>
+                <li><a href=""><i><img src="${public}/images2/2016sm_ic01.png" alt=""></i>我要预约</a></li>
+                <li><a href=""><i><img src="${public}/images2/2016sm_ic02.png" alt=""></i>大厅指引</a></li>
+              </ul>
+            </div>
+            <div class="smqylist">
+              <div class="tit_h3">
+                <h2><a href="" class="active" >信用查询</a></h2>
+              </div>
+              <div class="tabs_boxlist">
+                <div class="tab_box" style="display:block;">
+                  <ul class="ty_list">
+                     
+
+                    <li>
+                      <a href="" >	关于重新印发《梅县区实行网格化...	</a>
+                    </li>
+
+                    <li>
+                      <a href=""  >	方利旭主持召开市政府常务会议分析前三季度...	</a>
+                    </li>
+
+                    <li>
+                      <a href=""  >	谭君铁主持召开市政府常务会议时强调 紧盯...	</a>
+                    </li>
+
+                    <li>
+                      <a href="" >	省市召开冬春农田水利基本建设电视电话会议.	</a>
+                    </li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="sm_smwy"><a class="bgs02" href="" >
+              <b><img src="${public}/images2/2016yy_qywy.png" alt=""></b>
+                <h3>企业网页</h3>
+              </a></div>
+          </div>
+        </div>
+        <div class="contentwrap section05" style="display: none; left: -1300px;">
+          <div class="conLeft05">
+            <div class="tit_h3">
+              <div class="lytt"><b><img src="${public}/images2/2016sy_lyico01.png" alt=""></b><a href="">	新闻发布会	</a></div>
+            </div>
+            <div class="tab_box" style="display:block;">
+              <ul class="news_list">
+                 
+
+                  <li>
+                    <a href=""> 今晚羊城 光影传爱 </a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+
+                  <li>
+                    <a href="">  2016中国（梅县）国际纪录片节12月12日~15日举行  </a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+
+                  <li>
+                    <a href=""> 2016年梅县国际美食节25日开幕 </a>
+                    <span>
+                    2016-11-16
+                    </span></li>
+
+                  <li>
+                    <a href=""> 第57届羊城菊会本周五开展 </a>
+                    <span>
+                    2016-11-16
+                    </span></li>
+
+                  <li>
+                    <a href=""> 第21届梅县艺博会12月2日开幕 毕加索名画将亮相 </a>
+                    <span>
+                    2016-11-15
+                    </span></li>
+
+                  <li>
+                    <a href=""> 梅县布局以南沙为中心的3.5小时母港邮轮旅游生态圈 </a>
+                    <span>
+                    2016-11-14
+                    </span></li>
+                  <li>
+                    <a href=""> 梅县布局以南沙为中心的3.5小时母港邮轮旅游生态圈 </a>
+                    <span>
+                    2016-11-14
+                    </span></li>
+
+              </ul>
+            </div>
+           
+            <div class="tit_h3">
+              <div class="lytt"><b><img src="${public}/images2/2016sy_lyico03.png" alt=""></b><a href="">	政策解读	</a></div>
+            </div>
+            <div class="tab_box" style="display:block;">
+              <ul class="news_list">
+                 
+
+                  <li>
+                    <a href=""> 梅州市“两学一做”巡回宣讲团走进梅县区...</a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+                  <li>
+                    <a href="">	梅县区直工委举办“两学一做”专题研讨班...	</a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+
+                  <li>
+                    <a href="">	党章知识小专栏（六）...	</a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+
+                  <li>
+                    <a href="">	梅县区领导到挂钩联系点开展“两学一做”专题党课...	</a>
+                    <span>
+                    2016-11-16
+                    </span></li>
+
+                  <li>
+                    <a href=""> 党章知识小专栏（四）...	</a>
+                    <span>
+                    2016-11-16
+                    </span></li>
+
+                  <li>
+                    <a href="">	梅县区政府领导班子召开“三严三实”专题民...	</a>
+                    <span>
+                    2016-11-15
+                    </span></li>
+
+                  <li>
+                    <a href="">	国家统计局服务业调查中心高级统计师赵庆河解读20...</a>
+                    <span>
+                    2016-11-14
+                    </span></li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="conRight05">
+            <div class="tit_h3">
+              <div class="lytt"><b><img src="${public}/images2/2016sy_lyico02.png" alt=""></b>热点问题回应</div>
+            </div>
+              <div class="tab_box" style="display:block;">
+              <ul class="news_list">
+                 
+
+                  <li>
+                    <a href=""> 离婚时发现配偶转移共同财产可要求分割
+ </a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+                  <li>
+                    <a href=""> 气库安全应急演练在梅县区白渡镇举行
+</a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+
+                  <li>
+                    <a href="">  梅县区举办安全生产咨询活动
+  </a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+
+                  <li>
+                    <a href="">梅县区全力整改危险化学品生产储存专区...
+</a>
+                    <span>
+                    2016-11-16
+                    </span></li>
+
+                  <li>
+                    <a href=""> 梅县区领导率队检查生产经营企业安全生产工作
+ </a>
+                    <span>
+                    2016-11-16
+                    </span></li>
+
+                  <li>
+                    <a href=""> 第21届梅县艺博会12月2日开幕 毕加索名画将亮相 </a>
+                    <span>
+                    2016-11-15
+                    </span></li>
+
+                  <li>
+                    <a href=""> 梅县布局以南沙为中心的3.5小时母港邮轮旅游生态圈 </a>
+                    <span>
+                    2016-11-14
+                    </span></li>
+
+              </ul>
+            </div>
+            <div class="tit_h3">
+              <div class="lytt"><b><img src="${public}/images2/2016sy_lyico04.png" alt=""></b><a href="">	突发事件	</a></div>
+            </div>
+             <div class="tab_box" style="display:block;">
+              <ul class="news_list">
+                 
+
+                  <li>
+                    <a href=""> 新疆维吾尔自治区和田地区皮山县发生3.0级地震 </a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+                  <li>
+                    <a href="">厦门市集中开展在建水利工程安全生产大检查
+ </a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+
+                  <li>
+                    <a href="">  阿巴嘎旗气象局发布道路结冰黄色预警[III级/较大]
+  </a>
+                    <span>
+                    2016-11-18
+                    </span></li>
+
+                  <li>
+                    <a href=""> 2016年梅县国际美食节25日开幕 </a>
+                    <span>
+                    2016-11-16
+                    </span></li>
+
+                  <li>
+                    <a href=""> 第57届羊城菊会本周五开展 </a>
+                    <span>
+                    2016-11-16
+                    </span></li>
+
+                  <li>
+                    <a href=""> 冀州区气象局发布大雾橙色预警[II级/重大]
+ </a>
+                    <span>
+                    2016-11-15
+                    </span></li>
+
+                  <li>
+                    <a href=""> 鸡西市气象局发布道路结冰黄色预警[III级/较大]
+ </a>
+                    <span>
+                    2016-11-14
+                    </span></li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="contentwrap section06" style="display: none; left: -1300px;">
+         <div class="conLefts" style="overflow: hidden;">
+          <div class="conLeft06">
+            <div class="tit_h2">
+              <h2><a href="" class="">民意征集</a><a href="" >网上调查</a><a href=""  class="active">接访预告</a></h2>
+            </div>
+            <div class="yjzjbox">
+              <div class="tabs_boxlist" style="height: 242px;">
+                <div class="tab_box temp01" style="display: block; position: absolute; left: 657px;">
+                  <div class="yjzjiframe">
+                    <iframe src="/Home/Index/myzj_index" frameborder="0" scrolling="no"></iframe>
+                  </div>
+                </div>
+                <div class="tab_box" style="position: absolute; display: none;">
+                  <div class="wsdcbox"><ul class="hd_wsdc_list">
+
+  
+ 
+
+  <li><span>(结束时间：2016-12-31)</span><a href=""><em class="green">【调查中】</em>
+  您知道12345政府服务热线有哪些使用渠道？
+
+  </a></li>
+
+
+ 
+
+  <li><span>(结束时间：2016-12-20)</span><a href=""><em class="green">【调查中】</em>
+  积分入户政策调整，您知道哪些？
+
+  </a></li>
+
+
+ 
+
+  <li><span>(结束时间：2016-11-13)</span><a href=""><em class="red">【已完成】</em>
+  《梅县市公共图书馆服务规范》（征求意见稿）公开征求..
+
+  </a></li>
+
+
+ 
+
+  <li><span>(结束时间：2015-06-18)</span><a href=""><em class="red">【已完成】</em>
+  “广东省2014年度依法行政考评社会评议”网络调查..
+
+  </a></li>
+
+
+ 
+
+  <li><span>(结束时间：2014-06-30)</span><a href=""><em class="red">【已完成】</em>
+  市政府门户网站改版需求网上调查问卷
+
+  </a></li>
+
+
+ 
+
+  <li><span>(结束时间：2014-03-31)</span><a href=""><em class="red">【已完成】</em>
+  梅县市政府网上服务公众满意度调查问卷
+
+  </a></li>
+
+
+ 
+
+  <li><span>(结束时间：2013-12-31)</span><a href=""><em class="red">【已完成】</em>
+  梅县市政府网上办事便民服务调查问卷
+
+  </a></li>
+
+
+
+</ul></div>
+                </div>
+        <div class="tab_box active" style="position: absolute; display: block; left: 0px;">
+                    <ul class="news_list">
+                       
+
+                        <li>
+                          <a href=""> 2016年11月23日市发改委领导接访公告 </a>
+                          <span>
+                          2016-11-18
+                          </span></li>
+
+                        <li>
+                          <a href=""> 2016年11月22日市科创委领导接访预告 </a>
+                          <span>
+                          2016-11-18
+                          </span></li>
+
+                        <li>
+                          <a href=""> 2016年11月23日市司法局领导接访预告 </a>
+                          <span>
+                          2016-11-18
+                          </span></li>
+
+                        <li>
+                          <a href=""> 2016年11月23日市农业局领导接访预告 </a>
+                          <span>
+                          2016-11-17
+                          </span></li>
+
+                        <li>
+                          <a href=""> 2016年11月23日市商务委领导接访安排 </a>
+                          <span>
+                          2016-11-17
+                          </span></li>
+
+                        <li>
+                          <a href=""> 2016年11月23日市财政局领导接访公告 </a>
+                          <span>
+                          2016-11-07
+                          </span></li>
+
+                        <li>
+                          <a href=""> 2016年11月23日市工信委领导接访预告 </a>
+                          <span>
+                          2016-11-03
+                          </span></li>
+
+                    </ul>
+                  </div>
+              </div>
+              <div class="hdan">
+                <ul>
+                  <li><a href="" ><img src="${public}/images2/2016sy_hd_icon01.png" alt="">书记信箱</a></li>
+                  <li><a href="" ><img src="${public}/images2/2016sy_hd_icon02.png" alt="">市长信箱</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="conRight06">
+            <div class="r06pic"><a href="" ><img src="${public}/images2/2016sy_hd_03.jpg" alt=""></a></div>
+            <div class="zxkf margint01 clearfix">
+              <ul>
+                <li><a  href=""><i><img src="${public}/images2/2016sy_hd_icon04.png"></i>在线客服<span><b>您可以直接在线咨询、客服实时解答。</b></span></a></li>
+                <li><a  href="http://wsbs.gz.gov.cn/gz/hotline/gotoIndex.action"><i><img src="${public}/images2/2016sy_hd_icon05.png"></i>网上咨询<span><b>您可以在线咨询、投诉、求助、举报和建议。</b></span></a></li>
+                <li><a href="javascript:;"><i><img src="${public}/images2/2016sy_hd_icon06.png" alt=""></i>拨打12345<span><b>市内拨打12345，外地号码请加拨020。</b></span></a></li>
+                <li><a href="javascript:;"><i><img src="${public}/images2/2016sy_hd_icon07.png" alt=""></i>关注公众号<span><b><img src="${public}/images2/2016sy_hd_12345wx.png" alt=""></b></span></a></li>
+              </ul>
+            </div>
+            <div class="tit_h2 margint01">
+              <h2><a href="" class="active" >热门话题</a></h2>
+            </div>
+            <div class="cjwt_list" id="cjwt"><ul class="hd_cjwt_list">
+
+    <li><a target="_blan" href="">梅县市社会医疗保险办法（梅县市人民政府令 第123号）</a></li>
+  
+    <li><a target="_blan" href="">梅县市人民政府办公厅关于印发梅县市职工生育保险实施办法的通知（穗府办〔2015〕41号）</a></li>
+  
+    <li><a target="_blan" href="">养老保险待遇简介</a></li>
+  
+    <li><a target="_blan" href="">梅县市生育保险待遇简介</a></li>
+  
+    <li><a target="_blan" href="">医保关系转出</a></li>
+  
+    <li><a target="_blan" href="">失业保险待遇简介</a></li>
+  
+    <li><a target="_blan" href="">参保人员生育保险就医确认及发放生育保险就医凭证</a></li>
+  
+    <li><a target="_blan" href="">办理市区内户口迁移的须知</a></li>
+  
+
+   
+</ul></div>
+          </div>
+         </div>
+         
+          <div class="ftl tong mtb20" style="width: 100%;background: #fff;">
+        <div class="lineheight32" style="height:25px; border-bottom:1px solid #d5d5d5">
+            <div class="title1 ftl"><h3 class="ftl">梅州民声</h3></div>
+            <div class="ftr">累计：主题&nbsp;&nbsp; <span class="font-red4" id="xjzl">127230</span>&nbsp;&nbsp; | &nbsp;&nbsp; 回复：<span class="font-red4" id="hfzl">126787</span> &nbsp;&nbsp;今日 收件:&nbsp;&nbsp; <span class="font-red4" id="jrlx">4</span> &nbsp;&nbsp; | &nbsp;&nbsp; 回复：<span class="font-red4" id="jrhf">22</span>&nbsp;&nbsp; | <a  href="http://www.meizhou.gov.cn/jump.html?url=http://mzms.meizhou.gov.cn/">更多回复</a></div>
+        </div>
+        <div class="clear"></div>
+    <div id="mingsheng_list"><table width="100%" border="0" cellspacing="1" cellpadding="0" class="lm-center">            <thead>             <tr style="    background-color: #e8e8e8;">               <td width="25%">标题</td>               <td width="15%">类型</td>               <td width="15%">咨询人</td>                <td width="15%">提交时间</td>               <td width="15%">答复部门</td>               <td width="15%">答复时间</td>               </tr>             </thead>            <tbody>                         <tr>                <td height="25">                <a title="桂花苑汽车美容店占道.." style="cursor:pointer;" href="javascript:questionDetail(163598);">                桂花苑汽车美容店占道..</a></td>               <td>申诉</td>               <td>老李</td>               <td>16/11/09</td>               <td>梅县区人民政府</td>                <td>16/11/17</td>                         </tr>                                         <tr>                <td height="25">                <a title="外省女方户口迁入畲江.." style="cursor:pointer;" href="javascript:questionDetail(163588);">                外省女方户口迁入畲江..</a></td>               <td>咨询</td>               <td>杨志辉</td>                <td>16/11/09</td>               <td>梅县区人民政府</td>                <td>16/11/17</td>                         </tr>                                         <tr>                <td height="25">                <a title="  强占村民集体山林地.." style="cursor:pointer;" href="javascript:questionDetail(163548);">                 强占村民集体山林地..</a></td>                <td>求决</td>               <td>阿温</td>               <td>16/11/08</td>               <td>梅县区人民政府</td>                <td>16/11/17</td>                         </tr>                                         <tr>                <td height="25">                <a title="白渡镇汶水村原小学被.." style="cursor:pointer;" href="javascript:questionDetail(163542);">                白渡镇汶水村原小学被..</a></td>               <td>建议</td>               <td>古生</td>               <td>16/11/08</td>               <td>梅县区人民政府</td>                <td>16/11/17</td>                         </tr>                                         <tr>                <td height="25">                <a title=" 呈请政府还我黄土路" style="cursor:pointer;" href="javascript:questionDetail(163407);">                 呈请政府还我黄土路</a></td>               <td>求决</td>               <td>黄土路出入近千村民</td>                <td>16/11/06</td>               <td>蕉岭县人民政府</td>                <td>16/11/17</td>                         </tr>                                         <tr>                <td height="25">                <a title="呈请政府还我黄土路" style="cursor:pointer;" href="javascript:questionDetail(163403);">               呈请政府还我黄土路</a></td>                <td>申诉</td>               <td>黄土路出入近千村民</td>                <td>16/11/06</td>               <td>蕉岭县人民政府</td>                <td>16/11/17</td>                         </tr>     </tbody>     </table></div>
+    </div><!--梅州民声-->
+      
+
+        </div>
+        <div class="contentwrap section07" style="display: none; left: 1300px;">数据网页内容</div>
+        <div class="contentwrap section08" style="display: none; left: 1300px;">专题网页内容</div>
+        <div class="contentwrap section09" style="display: none; left: 1300px;">
+          <div class="tit_h3">
+            <h2><span class="active">应用中心</span></h2>
+          </div>
+          <div class="yyzx">
+            <div class="yyzx clearfix">
+      <div class="yyrow">
+        <div class="col01">
+          <div class="row1">
+            <div class="col_col2"><a class="bgs01" href="" ><b><img src="${public}/images2/2016yy_smwy.png" alt=""></b>
+              <h3>个人事项</h3>
+              </a></div>
+            <div class="col_col2"><a class="bgs02" href="" ><b><img src="${public}/images2/2016yy_qywy.png" alt=""></b>
+              <h3>法人事项</h3>
+              </a></div>
+          </div>
+          <div class="row2">
+            <div class="col_col"><a class="bgs03" href=""><b><img src="${public}/images2/2016yy_jszx.png" alt=""></b>
+              <h3>按单位<br>
+                找事项</h3>
+              </a></div>
+          </div>
+        </div>
+        <div class="col01">
+          <div class="row2">
+            <div class="col_col2"><a class="bgs05" href="" ><b><img src="${public}/images2/2016yy_wb.png" alt=""></b>
+              <h3>教育服务</h3>
+              </a></div>
+            <div class="col_col2"><a class="bgs06" href=""><b><img src="${public}/images2/2016yy_zxkf.png" alt=""></b>
+              <h3>社保服务</h3>
+              </a></div>
+          </div>
+          <div class="row1">
+            <div class="col_col2"><a class="bgs01" href="" ><b><img src="${public}/images2/2016yy_yy.png" alt=""></b>
+              <h3>医疗服务</h3>
+              </a></div>
+            <div class="col_col2"><a class="bgs02"  href=""><b><img src="${public}/images2/2016yy_sjmh.png" alt=""></b>
+              <h3>企业开办</h3>
+              </a></div>
+          </div>
+        </div>
+        <div class="col01">
+          <div class="row2">
+            <div class="col_col2"><a class="bgs05" href="" ><b><img src="${public}/images2/2016yy_wb.png" alt=""></b>
+              <h3>证件办理</h3>
+              </a></div>
+            <div class="col_col2"><a class="bgs06" href=""><b><img src="${public}/images2/2016yy_zxkf.png" alt=""></b>
+              <h3>就业服务</h3>
+              </a></div>
+          </div>
+          <div class="row3">
+            <div class="col_col"><a class="bgs01 wHb" href="" ><b><img src="${public}/images2/2016yy_sjkfpt.png" alt=""></b>
+              <h3>科技创业</h3>
+              </a></div>
+          </div>
+          <div class="row3">
+            <div class="col_col"><a class="bgs02 wHb" href="" ><b><img src="${public}/images2/2016yy_yx.png" alt=""></b>
+              <h3>招商引资</h3>
+              </a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<#include '/WEB-INF/templates/mxcommon/footer2.html'>

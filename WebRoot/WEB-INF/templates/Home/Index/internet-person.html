@@ -1,0 +1,112 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid">
+	<img src="${public}/images/banner_edu.jpg" width="1022" height="100">
+
+	<div class="mt20">
+		<div class="ftl" style="width:625px; position:relative;background: #fff;padding-bottom: 61px;">
+			<div class="title6"><h3 class="ftl">教育新闻 </h3></div>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=217">更多+</a></p>
+			<div class="clear"></div>
+			<div class="news_img ftl focusBox mt20">
+				<a class="prev" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+				<a class="next" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+				<ul class="pic" style="position: relative; width: 270px; height: 195px;">
+
+					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/783eacdc70891f429a808cd979dc8785.jpg"></a></li>
+					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/268698b62584303431de70e8cee3780d.jpg"></a></li>
+					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: list-item;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/e0e579d969c973a76f5566467f0e6e81.jpg"></a></li>
+					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/img201609241511000.jpg"></a></li>
+				</ul>
+				<div class="txt-bg"></div>
+				<div class="txt">
+					<ul>
+						<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="市青少年科技创新大赛启动">市青少年科技创新大赛启动</a></li>
+						<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="梅州市中小学语文版新修订教材培训会在东山学校举行">梅州市中小学语文版新修订教材培训会在东山...</a></li>
+						<li style="bottom: 0px;"><a href="/Home/NewContent?newid=17" target="_blank" title="班主任同台竞技 切磋专业能力">班主任同台竞技 切磋专业能力</a></li>
+						<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="努力让“育分”回归“育人”">努力让“育分”回归“育人”</a></li>
+					</ul>
+				</div>
+
+				<ul class="num">
+					<li class=""><a></a><span></span></li>
+					<li class=""><a></a><span></span></li>
+					<li class="on"><a></a><span></span></li>
+					<li class=""><a></a><span></span></li>
+				</ul>
+			</div>
+
+			<script type="text/javascript">
+				jQuery(".focusBox").hover(function () {
+					jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 1)
+				}, function () {
+					jQuery(this).find(".prev,.next").fadeOut()
+				});
+
+				jQuery(".news_img").slide({
+					titCell: ".num li",
+					mainCell: ".pic",
+					effect: "fold",
+					autoPlay: true,
+					trigger: "click",
+						//下面startFun代码用于控制文字上下切换
+						startFun: function (i) {
+							jQuery(".news_img .txt li").eq(i).animate({ "bottom": 0 }).siblings().animate({ "bottom": -36 });
+						}
+					});
+				</script>	
+				<div class="ftl tong mt10 ml10 tong5" style="width:360px; height:210px;">
+					<ul class="c-tong5">
+						<#list jynews as jyn>	
+						<li><span class="date">[${jyn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${jyn.id}" target="_blank" title="${jyn.title}">${jyn.title}</a></li>
+						</#list>
+					</ul>
+				</div>
+			</div>
+
+			<div class="ftl ml15" style="width: 360px;background: #fff;">
+				<div class="title6"><h3 class="ftl">便捷服务 </h3></div>
+				<div class="clear"></div>
+				<ul class="p10 jy_bianjie">
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://gd.cltt.org/Web/SignUpOnLine/OnlineSign.aspx" target="_blank">普通话水平测试报名 </a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://yun.mzedu.gov.cn/" target="_blank">教育资源公告服务平台</a></li>
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/zk/0706index.html" target="_blank">中考平台</a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://article.isay365.com/psc/chafen/1222F62009.html" target="_blank">普通话水平测试成绩查询 </a></li>
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/cjfw/jcjyk.html" target="_blank">我要转学</a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/cjfw/rk.html" target="_blank">中小学教师资格认定</a></li>
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/cjfw/gzzk.html" target="_blank">民办高中学校设立</a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://61.143.203.147/" target="_blank">成绩查询</a></li>
+					<li><a href="" target="_blank">学校查找</a></li>
+					<div class="clear"></div>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		
+		<div class="ftl ml20 mt20" style="width:480px; position:relative;">
+
+			<div class="title_2"><span>招生政策</span></div>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=218">更多+</a></p>
+			<div class=" tong tongs" style="height:160px;background: #fff;">
+				<ul>
+					<#list zsnews as zsn>
+					<li><span class="date">[${zsn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${zsn.id}" target="_blank" title="${zsn.title}">${zsn.title}</a></li>
+					</#list>
+				</ul>
+			</div>
+		</div><div class="ftl ml20 mt20" style="width:480px; position:relative;">
+
+			<div class="title_2"><span>教育公告</span></div>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=219">更多+</a></p>
+			<div class=" tong tongs" style="height:160px;background: #fff;">
+				<ul>
+					<#list ggnews as ggn>
+					<li><span class="date">[${ggn.TIME}]</span><a  class="newtitle" href="/Home/NewContent?newid=${ggn.id}" target="_blank" title="${ggn.title}">${ggn.title}</a></li>
+					</#list>
+				</ul>
+			</div>
+		</div>
+
+		<div>
+		</div>
+</div>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

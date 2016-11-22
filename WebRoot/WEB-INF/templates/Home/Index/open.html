@@ -1,0 +1,452 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+
+<link rel="stylesheet" type="text/css" href="${public}/css/mxcss/common.css">
+
+<!--页面顶部开始-->
+    <!--NODE:政务公开首页模板-->
+    <div class="wid">
+        <!-- 政务公开 图片轮播+新闻 -->
+        <div class="news_img2 ftl">
+            <div class="hd ">
+                <ul>
+                    <li class="">1</li>
+                    <li class="on">2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul>
+                <#list 1..5 as n>
+                    <li><a href="/Home/NewContent?newid=9"><img src="${public}/images/01.png"></a>
+                    <div class="txt-bg">
+                    </div>
+                    <div class="tac txt">
+                    <a href="/Home/NewContent?newid=9" target="_blank" class="newtitle">省市召开冬春农田水利基本建设电视电话会议 全面加快农田水利工程建设</a>
+                    </div>
+                    </li>
+                    </#list>
+                </ul>
+            </div>
+            <!-- 下面是前/后按钮代码，如果不需要删除即可 -->
+            <a class="prev" href="javascript:void(0)"></a>
+            <a class="next" href="javascript:void(0)"></a>
+        </div>
+        <!-- news -->
+        <div class="news ftl ml10" >
+            <div class="hd gong">
+                <ul style="left:0 !important">
+                    <li class="on"><a href="/Home/ChannelContent?cid=${zwid}">政务要闻</a></li>
+                    <li><a href="/Home/ChannelContent?cid=${gsid}">公示公告</a></li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul style="height:225px;">
+                 <p class="more1">
+                        <a target="_blank" href="/Home/ChannelContent?cid=${zwid}">更多+</a>
+                    </p>
+                    <#list zwnews as zw>
+                    <li><span class="date">(${zw.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zw.id}">${zw.title}</a></li>
+               		</#list>
+                </ul>
+                <ul style="height: 225px; display: none;">
+                     <p class="more1">
+                        <a target="_blank" href="/Home/ChannelContent?cid=${gsid}">更多+</a>
+                    </p>
+                    <#list gsnews as gs>
+                    <li><span class="date">(${gs.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${gs.id}">${gs.title}</a></li>
+                	</#list>
+                </ul>
+            </div>
+        </div>
+        <div class="ml10 ftr border1" style=" width:260px;">
+            <div class="title7 back_color13 font-size16 tac">
+                <span class="font-hui5"> 区委</span>
+            </div>
+            <div class="clear">
+            </div>
+            <div id="ldzc" class="lineheight30 tac p10">
+                <h3 class="font-red1 "> 书记</h3>
+                <p>
+                    <a href="/Home/Index/leaderDetail?id=37">张文广</a>
+                </p>
+                <h3 class="font-red1 "> 副书记</h3>
+                <p>
+                     <a href="/Home/Index/leaderDetail?id=38">钟光灵</a><a href="/Home/Index/leaderDetail?id=39">钟秀堂</a><br>
+                </p>
+            </div>
+        </div>
+        <style>
+        #ldzc h3{ font-size:18px;}
+        #ldzc p a{ font-size:15px;}
+        </style>
+        <div class="clear">
+        </div>
+        <!-- 政府信息公开 -->
+        <div class="open-info border1 ftl mt20">
+            <div class="title1">
+                <img class="ftl" src="${public}/images/icon_danghui.png" style=" padding:4px 0 0 80px;">
+                <h3 class="" style="text-indent:1em; font-size:18px;">政府信息公开 </h3>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="zwgk_xxgk1 pt10 pl10">
+                <ul style="height: 149px;">
+                    <li><a href="http://zwgk.gdmx.gov.cn/zfxxgkzn/441421">政府信息公开指南</a></li>
+                    <li><a href="http://zwgk.gdmx.gov.cn/index/index?areacode=441421">政府信息公开目录</a></li>
+                    <li><a href="http://zwgk.gdmx.gov.cn/zfgzbg/441421">政府信息公开工作年...</a></li>
+                    <li><a href="http://ysq.gdmx.gov.cn/home/index?areacode=441421">政府信息依申请公开</a></li>
+                    <li><a href="http://yjx.gdmx.gov.cn/complaint/index?areacode=441421">政府信息公开意见箱</a></li>
+                    
+                    
+                    <li><a href="http://qzqd.gdmx.gov.cn/">权责清单公开</a></li>
+                    <div class="clear">
+                    </div>
+                </ul>
+            </div>
+            <div class="zwgk_xxgk2 pt10 pl10">
+                <ul>
+                    <li class="mr10"><a href="http://zwgk.gdmx.gov.cn/index/index?areacode=441421">政府机构</a></li>
+                    <li><a href="/Home/ChannelContent?cid=16">工作动态</a></li>
+                    <li class="mr10"><a href="/Home/ChannelContent?cid=99">财政信息 </a></li>
+                    <li><a href="/Home/ChannelContent?cid=18">工作报告</a></li>
+                    <li class="mr10"><a href="/Home/ChannelContent?cid=105">重大项目 </a></li>
+                    <li><a href="/Home/ChannelContent?cid=19">计划规划</a></li>
+                    <li class="mr10"><a href="/Home/ChannelContent?cid=50">应急管理 </a></li>
+                    <li><a href="/Home/ChannelContent?cid=25">数据开放</a></li>
+                    <div class="clear">
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <!-- 政府信息公开 -->
+        <div class="ftl ml10 mt20" style="width:433px;background: #fff;">
+            <!-- 重点领域信息公开 -->
+            <div style="position:relative;">
+                <div class="title1">
+                    <a href="javascript:;">
+                    <h3 class="ftl">重点领域信息公开 </h3>
+                    </a>
+                </div>
+                <p class="more1">
+                    <a href="/Home/ChannelContent?cid=55">更多+</a>
+                </p>
+                <div class="clear">
+                </div>
+                <ul class="zdly pt10">
+        <li class="mr10"><a href="/Home/ChannelContent?cid=99"><img class="ftl mt10 mr5 ml20" src="${public}/images/icon52.png">财政信息</a></li>
+        <li class="mr10"><a href="/Home/ChannelContent?cid=101"><img class="ftl mt10 mr5 ml20" src="${public}/images/icon53.png">公共资源配置</a></li>
+        <li><a href="/Home/ChannelContent?cid=103"><img class="ftl mt10 mr5 ml20" src="${public}/images/icon54.png">重大建设项目</a></li>
+        <li class="mr10"><a href="/Home/ChannelContent?cid=104"><img class="ftl mt10 mr5 ml20" src="${public}/images/icon55.png">环境保护</a></li>
+        <li class="mr10"><a href="/Home/ChannelContent?cid=102"><img class="ftl mt10 mr5 ml20" src="${public}/images/icon56.png">食品药品安全</a></li>
+        <li><a href="/Home/ChannelContent?cid=100"><img class="ftl mt10 mr5 ml20" src="${public}/images/icon57.png">保障性住房</a></li>
+                </ul>
+            </div>
+            <!-- 重点领域信息公开 -->
+            <div class="clear">
+            </div>
+            <div style="position:relative;">
+                <div class="title1">
+                    <a href="/Home/ChannelContent?cid=${chid}">
+                    <h3 class="ftl">常务会议</h3>
+                    </a>
+                </div>
+                <p class="more1">
+                    <a href="/Home/ChannelContent?cid=${chid}">更多+</a>
+                </p>
+                <div class="clear">
+                </div>
+                <ul class="tong p10">
+                <#list chnews as ch>
+                    <li><a class="newtitle" href="/Home/NewContent?newid=${ch.id}">${ch.title}</a></li>
+                </#list>	
+                </ul>
+            </div>
+        </div>
+        <!-- 政务信息五公开 -->
+        <div class="ftr ml10 mt20" style="width:230px;background: #fff;">
+            <div class="title1 mb10">
+                <a href="javascript:;">
+                <h3 class="ftl">政务信息五公开</h3>
+                </a>
+            </div>
+            <div class="clear">
+            </div>
+            <ul class="wgk">
+<li class="mr10 mb10"><a href="/Home/ChannelContent?cid=107"><img src="${public}/images/icon47.png"><p>决策公开</p></a></li>
+<li><a href="/Home/ChannelContent?cid=108"><img src="${public}/images/icon48.png"><p>执行公开</p></a></li>
+<li class="mr10 mb10"><a href="/Home/ChannelContent?cid=109"><img src="${public}/images/icon49.png"><p>管理公开</p></a></li>
+<li><a href="/Home/ChannelContent?cid=110"><img src="${public}/images/icon50.png"><p>服务公开</p></a></li>
+<li style="width:228px;"><a href="/Home/ChannelContent?cid=111 "><img src="${public}/images/icon51.png"><p>结果公开</p></a></li>
+            </ul>
+            <div class="clear">
+            </div>
+            <div class="mt10">
+                <a href="/Home/ChannelContent?cid=24"><img src="${public}/images/banner16.jpg" width="229px"></a>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div style="position:relative;">
+            <div class="title1 mb15 mt10">
+                <a href="javascript:;">
+                <h3 class="ftl">政务专题专栏 </h3>
+                </a>
+            </div>
+            <p class="more1">
+                <a href="/Home/ChannelContent?cid=28">更多+</a>
+            </p>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="threeScroll">
+            <a class="prev" href="javascript:void(0)"></a>
+            <div class="scrollWrap">
+                <div class="tempWrap">
+                    <div class="dlList">
+                        <dl class="clone">
+                            <dt><a href="/Home/NewContent?newid=26" target="_blank"><img alt="“两学一做”学习教育" title="“两学一做”学习教育" src="${public}/images/1(5).png"></a></dt>
+                        </dl>
+                        <dl>
+                            <dt><a href="/Home/NewContent?newid=26" target="_blank"><img alt="" title="" src="${public}/images/1(6).png"></a></dt>
+                        </dl>
+                        <dl>
+                            <dt><a href="/Home/NewContent?newid=26" target="_blank"><img alt="" title="" src="${public}/images/1(7).png"></a></dt>
+                        </dl>
+                        <dl>
+                            <dt><a href="/Home/NewContent?newid=26"><img alt="" title="" src="${public}/images/1(8).png"></a></dt>
+                        </dl>
+                        <dl>
+                            <dt><a href="/Home/NewContent?newid=26"><img alt="" title="" src="${public}/images/1(9).png"></a></dt>
+                        </dl>
+                        <dl>
+                            <dt> <a href="/Home/NewContent?newid=26"><img alt="" title="" src="${public}/images/1(10).png"></a></dt>
+                        </dl>
+                        <dl>
+                            <a href="/Home/NewContent?newid=26"><img src="${public}/images/1(11).png"></a></dt>
+                        </dl>
+                        <dl>
+                            <dt><a href="/Home/NewContent?newid=26"><img  src="${public}/images/1(5).png"></a></dt>
+                        </dl>
+                        <dl class="clone">
+                            <a href="/Home/NewContent?newid=26"><img alt="" title="" src="${public}/images/1(6).png"></a></dt>
+                        </dl>
+                        <dl class="clone">
+                       <a href="/Home/NewContent?newid=26"><img alt="" title="" src="${public}/images/1(7).png"></a></dt>
+                        </dl>
+                        <dl class="clone">
+                            <dt><a href="/Home/NewContent?newid=26"><img alt="" title="" src="${public}/images/1(8).png"></a></dt>
+                        </dl>
+                        <dl class="clone">
+                            <dt><a href="/Home/NewContent?newid=26"><img alt="" title="" src="${public}/images/1(9).png"></a></dt>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <a class="next" href="javascript:void(0)"></a>
+        </div>
+        </style>
+        <div class="clear">
+        </div>
+        <div class="news2 ftl mt15 news-left">
+            <div class="hd gong">
+                <ul>
+                    <li class="on"><a href="/Home/ChannelContent?cid=${fgid}">法规公文</a></li>
+                    <li><a href="/Home/ChannelContent?cid=${zfid}">政府采购</a></li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul>
+                    <p class="more1">
+                        <a target="_blank" href="/Home/ChannelContent?cid=${fgid}">更多+</a>
+                    </p>
+                    <div class="news_vertical1 mt10">
+                        <ol>
+                        	<#list fgcms as fgc>
+                        		<#if fgc_index=0>
+                            <li class="on"><a href="/Home/ChannelContent?cid=${fgc.id}">${fgc.title}</a></li>
+                           		 <#else>
+                            <li><a href="/Home/ChannelContent?cid=${fgc.id}">${fgc.title}</a></li>
+                            	</#if>
+                            </#list>
+                        </ol>
+                        <div>
+                        	<#list fgnewss as fgs>
+                        		<#if fgs_index=0>
+                            <li>
+                            	<#else>
+                            	 <li style="display: none;">
+                            </#if>
+                            	<#list fgs as fg>
+                            <p>
+                                <a href="/Home/NewContent?newid=${fg.id}" class="newtitle">${fg.title}</a>
+                            </p>
+                            	</#list>
+                            </li>
+                            </#list>
+                        </div>
+                    </div>
+                </ul>
+                <ul style="display: none;">
+                    <p class="more1">
+                        <a href ="/Home/ChannelContent?cid=${zfid}">更多+</a>
+                    </p>
+                    <div class="news_vertical2 mt10">
+                        <ol>
+                           <#list zfcms as zfc>
+                        		<#if zfc_index=0>
+                            <li class="on"><a href="/Home/ChannelContent?cid=${zfc.id}">${zfc.title}</a></li>
+                           		 <#else>
+                            <li><a href="/Home/ChannelContent?cid=${zfc.id}">${zfc.title}</a></li>
+                            	</#if>
+                            </#list>
+                        </ol>
+                        <div>
+                        	<#list zfnewss as zfs>
+                        		<#if zfs_index=0>
+                            <li style="">
+                            	<#else>
+                            	 <li style="display: none;">
+                            	</#if>
+                            	<#list zfs as zf>
+                            <p>
+                                <a href="/Home/NewContent?newid=${zf.id}">${zf.title}</a>
+                            </p>
+                            	</#list>
+                          
+                            </li>
+                            
+                            </#list>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="news2 ftl mt15 ml20">
+            <div class="hd gong">
+                <ul>
+                    <li class="on"><a href="/Home/ChannelContent?cid=${rsid}">人事信息</a></li>
+                    <li><a href="/Home/ChannelContent?cid=${tjid}">统计信息</a></li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul>
+                    <p class="more1">
+                        <a href="/Home/ChannelContent?cid=${rsid}">更多+</a>
+                    </p>
+                    <div class="news_vertical1 mt10">
+                        <ol>
+                           <#list rscms as rsc>
+                        		<#if rsc_index=0>
+                            <li class="on"><a href="/Home/ChannelContent?cid=${rsc.id}">${rsc.title}</a></li>
+                           		 <#else>
+                            <li><a href="/Home/ChannelContent?cid=${rsc.id}">${rsc.title}</a></li>
+                            	</#if>
+                            </#list>
+                        </ol>
+                        <div>
+                        <#list rsnewss as rsns>
+                        	<#if rsns_index=0>
+                            <li>
+                            <#else>
+                              <li style="display: none;">
+                            </#if>
+                            <#list rsns as rsn>
+                            <p>
+                                <a href="/Home/NewContent?newid=${rsn.id}">${rsn.title}</a>
+                            </p>
+                            </#list>
+                            </li>
+                            </#list>
+                        </div>
+                    </div>
+                </ul>
+                <ul style="display: none;">
+                    <p class="more1">
+                        <a target="_blank" href="/Home/ChannelContent?cid=${tjid}">更多+</a>
+                    </p>
+                    <div class="news_vertical2 mt10">
+                        <ol>
+                        	<#list tjcms as tjc>
+                        		<#if tjc_index=0>
+                            <li class="on"><a href="/Home/ChannelContent?cid=${tjc.id}">${tjc.title}</a></li>
+                            <#else>
+                              <li><a href="/Home/ChannelContent?cid=${tjc.id}">${tjc.title}</a></li>
+                            </#if>
+                            </#list>
+                        </ol>
+                        <div>
+                        <#list tjnewss as tjns>
+                        	<#if tjns_index=0>
+                            <li>
+                            <#else>
+                                <li style="display: none;">
+                            </#if>
+                            <#list tjns as tjn>
+                            <p>
+                                <a href="/Home/NewContent?newid=${tjn.id}"><span class="date">(${tjn.TIME})</span>${tjn.title}</a>
+                            </p>
+                            </#list>
+                            </li>
+                            </#list>
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="ftl-2 ftl mt10">
+            <div class="title1" style="height:40px; line-height:40px;">
+                <a target="_blank" href="/Home/ChannelContent?cid=${zjid}">
+                <h3 class="ftl">总结报告 </h3>
+                </a>
+            </div>
+            <p class="more1">
+                <a target="_blank" href="/Home/ChannelContent?cid=${zjid}">更多+</a>
+            </p>
+            <div class="clear">
+            </div>
+            <div class=" tong mt10" style="height:180px;">
+                <ul>
+                <#list zjnews as zjn>
+        <li><span class="date">(${zjn.TIME})</span><a href="/Home/NewContent?newid=${zjn.id}">${zjn.title}</a></li>
+              </#list>
+                </ul>
+            </div>
+        </div>
+        <div class="ftl-2 ml20 ftl mt10">
+            <div class="title1" style="height:40px; line-height:40px;">
+                <a target="_blank" href="/Home/ChannelContent?cid=${jhid}">
+                <h3 class="ftl">计划规划 </h3>
+                </a>
+            </div>
+            <p class="more1">
+            <a target="_blank" href="/Home/ChannelContent?cid=${jhid}">更多+</a>
+            </p>
+            <div class="clear">
+            </div>
+            <div class=" tong mt10" style="height:180px;">
+                <ul>
+                <#list jhnews as jhn>
+    <li><span class="date">(${jhn.TIME})</span><a href="/Home/NewContent?newid=${jhn.id}">${jhn.title}</a></li>
+    		</#list>
+                </ul>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <!--页面底部开始-->
+    <div class="clear">
+    </div>
+    <div id="topid">
+        <a class="scrollToTop hand" id="scrollToTop" title="回到顶部" style="display: none;"><img src="${public}/images/top.png"></a>
+    </div>
+    <!--页面底部结束-->
+  <script type="text/javascript">
+  	 $('.nav li').removeClass('on');
+    $('.open').addClass('on');
+  </script>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

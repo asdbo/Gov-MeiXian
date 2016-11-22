@@ -1,0 +1,9 @@
+1.安装tomcat
+
+2.安装mysql数据库
+
+3.修改MainConfig.java文件的数据库账号密码,mysql/bin的路径
+
+4.导入数据库表结构
+
+5.运行系统

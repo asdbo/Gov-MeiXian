@@ -1,0 +1,192 @@
+/*公共样式*/
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #eca474;
+    font-family: "微软雅黑";
+}
+.container{
+    width: 1000px;
+    margin: 0 auto;
+
+}
+
+div#top{
+    width: 1000px;
+    height: 30px;
+    background-color: #fff100
+}
+
+div#top span{
+    line-height: 30px;
+    margin-left: 10px;
+    font-size: 12px;
+}
+
+
+div#logo {
+    vertical-align: top;
+    width: 755px;
+    margin: 0px;
+    padding: 0px auto;
+}
+div#logo h1 a img{
+    width:1000px;
+    height:130px
+}
+
+#nav{
+    width: 1000px;
+    margin: 0 auto;
+
+}
+
+div#nav{
+    vertical-align: top;
+    width: 1000px;
+    margin: 0 auto;
+    padding: 0px;
+    position: relative;
+    background: url(../images/bg1.jpg);
+    height: 49px;
+    margin-bottom: 5px;
+}
+
+div#nav  li{
+    display: inline-block;
+    line-height: 43px;
+    margin: 0 12px;
+    font-size: 10px;
+    width: 90px;
+    float: left;
+    -webkit-transition:background 1s linear;
+    -moz-transition:background 1s linear;
+    -ms-transition:background 1s linear;
+    -o-transition:background 1s linear;
+    transition:background 1s linear;
+}
+
+div#nav  li.on , div#nav  li:hover{
+    display: inline-block;
+    background: url(../images/xuanzhong.jpg) no-repeat;
+    text-align: center;
+}
+
+div#nav  li.on a ,div#nav  li:hover a {
+    color:red;
+    font-weight: bold;
+}
+
+
+div#nav  a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+div#tianqi  {
+    background: url(../images/tbg1.jpg);
+    line-height: 28px;
+    width: 1000px;
+    padding: 0px;
+    margin: 0 auto;
+}
+
+div#tianqi  li{
+    display: inline-block;
+    line-height: 10px;
+    font-size: 10px;
+    width: 1000px;
+    vertical-align: bottom;
+    font-size: 13px;
+    -webkit-transition:background 1s linear;
+    -moz-transition:background 1s linear;
+    -ms-transition:background 1s linear;
+    -o-transition:background 1s linear;
+    transition:background 1s linear;
+}
+
+div#tianqi ul li img{
+    width:23px;
+    height:23px;
+    vertical-align: middle;
+}
+
+div#tianqi ul li span{
+    margin-top: 1px;
+    vertical-align: middle;
+    background: red;
+    font-size: 14px;
+    color: #fff;
+}
+
+div#first_wrapper{
+    margin-top: 6px;
+}
+
+div#first_wrapper article{
+    width: 250px;
+    display: inline-block;
+    height: 25px;
+    vertical-align: top;
+    text-align: center;
+    background: url(../images/sbg.jpg);
+}
+
+div#first_wrapper section#gongshi div.title_bg a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+
+}
+
+div#gs{
+    width: 250px;
+    height: 250px;
+    text-align: left;
+    background: #ffffff;
+}
+
+div#first_wrapper section#gongshi div#gs li{
+    display: inline-block;
+    width: 100%;
+    vertical-align: bottom;
+    overflow: hidden;
+
+    text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+    white-space: nowrap;/*强制不换行*/ ...
+    margin-top: 8px;
+    -webkit-transition:text-shadow 1s linear;
+    -moz-transition:text-shadow 1s linear;
+    -ms-transition:text-shadow 1s linear;
+    -o-transition:text-shadow 1s linear;
+    transition:text-shadow 1s linear;
+}
+
+section#bowen_b a,section#gongshi a{
+    color: #444444;
+    text-decoration: none;
+}
+
+div#first_wrapper section#gongshi div.gs ul li a img{
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

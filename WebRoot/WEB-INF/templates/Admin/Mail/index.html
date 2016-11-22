@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	
+<script type="text/javascript" charset="utf-8" src="${public}/tools/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="${public}/tools/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="${public}/tools/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+
+</head>
+<body>
+<div align="center">
+<#if success??>
+	<font color="blue" size="7px">${(success)!}</font>
+	</#if>
+	</font>
+	</div>
+	<div class="col-sm-12  col-lg-12  main">			
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">邮件发送</li>
+			</ol>
+		</div><!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="/Admin/Mail">邮件发送</a></li>
+				</ul>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="/Admin/Mail/send" method="post" type="text/plain" >
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">收件人地址：</label>
+								<div class="col-sm-6">
+								<textarea name="address" cols="60" rows="3" id="data_Content" placeholder ="请输入邮件地址，一行一个邮件地址"></textarea>
+								</br>
+								<font color="red">注：一行一个邮件地址</font>
+								</div>
+								
+							</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">邮件主题：</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control"
+									name="theme" placeholder ="请输入邮件主题"/>
+								</div>
+							</div>
+
+								<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">文章内容:</label>
+								<div class="col-sm-10">
+									<script id="editor" name="content" type="text/plain" style="width:100%;height:600px;" >
+					              	</script>
+								</div>
+							</div>
+							<div class="form-group">
+							&nbsp;&nbsp;&nbsp;
+								<input type="submit" class="btn btn-primary  col-sm-offset-2" value="确认">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div><!--/.row-->	
+		
+		
+		
+	</div><!--/.main-->
+
+	 <script type="text/javascript">
+		var ue = UE.getEditor('editor');
+		
+	</script>
+
+</body>
+
+</html>

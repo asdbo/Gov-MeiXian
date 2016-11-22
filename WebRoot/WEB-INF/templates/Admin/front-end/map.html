@@ -1,0 +1,57 @@
+<#include '/WEB-INF/templates/common/common.html'>
+<div class="main main-bg fixfloat">
+	<div id="news-main" class="conts">
+		<div class="fixfloat" style="background: #fff;">
+
+			<div class="mainbox">
+				<div class="Zoom">
+
+					<#if pcms??>
+						<# list pcms as pcm>
+					<table class="t1 border-all" style="margin-bottom: 6px;">
+						<tbody>
+
+
+							<tr>
+								<td width="30"
+									style="text-align: center; font-size: 14px; font-weight: bold;"
+									rowspan="22" class="bg-brown"><a
+									href="/Home/ChannelContent?cid=${pcm.id}">${pcm.title}</a></td>
+
+							</tr>
+								<#assgin scms=maps.get(pcm.id)>
+								<#if scms??>
+								<#list scms as scm>
+							<tr>
+								<td width="140"><a
+									href="/Home/ChannelContent?cid=${scm.id}"
+									target="_blank"><strong>${scm.title}</strong></a></td>
+								<#assgin sscms=maps.get(scm.id)>
+								<td>
+									<#if sscms??>
+										<#list sscms as sscm>
+											<a
+									href="/Home/ChannelContent?cid=${sscm.id}">
+										${sscm.title} </a> |
+										</#list>
+									<#else>
+										&nbsp;
+									</#if>
+								</td>
+							</tr>
+								</#list>
+								</#if>
+						</tbody>
+					</table>
+						</#list>
+					</#if>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script language="javascript"
+	src="/data/html.js.php?id=weather&amp;inner=weatherinfo"></script>
+
+<#include '/WEB-INF/templates/common/footer.html'>

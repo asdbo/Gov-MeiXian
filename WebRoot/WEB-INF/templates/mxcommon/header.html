@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<!-- saved from url=(0014)about:internet -->
+	<title>梅县人民政府</title>
+	<link rel="stylesheet" type="text/css" href="${public}/css/mxcss/index.css">
+   <link rel="stylesheet" type="text/css" href="${public}/css/mxcss/common.css">
+   <link rel="stylesheet" type="text/css" href="${public}/css/mxcss/jquery.idcode.css">
+   <script type="text/javascript" src="${public}/js/jquery-1.11.0.min.js"></script>
+   <script type="text/javascript" src="${public}/js/map.js"></script>
+   <script type="text/javascript" src="${public}/js/jquery.leoweather.min.js"></script>
+   <script type="text/javascript">
+   		$(function(){
+   			var $com= $(".newtitle");
+   			for(var i=0;i<$com.length;i++){
+   				var com=$($com[i]).html();
+   				if(com.length>20){
+   					$($com[i]).html(com.substr(0,20)+"...");
+   	   			}
+   			}
+   			
+   			var $content=$(".newsummary");
+   			for(var i=0;i<$content.length;i++){
+   				var content=$($content[i]).html();
+   				if(content.length>70){
+   					$($content[i]).html(content.substr(0,70)+"...");
+   	   			}
+   			}
+   			
+   			var $con=$(".newfbh");
+   			for(var i=0;i<$con.length;i++){
+   				var con=$($con[i]).html();
+   				if(con.length>200){
+   					$($con[i]).html(con.substr(0,200)+"...");
+   	   			}
+   			}
+   			var $gg=$(".newgg");
+   			for(var i=0;i<$gg.length;i++){
+   				var con=$($gg[i]).html();
+   				if(con.length>15){
+   					$($gg[i]).html(con.substr(0,15)+"...");
+   	   			}
+   			}
+   		$(".header-right ul li a").hover(function(){
+   			$(".wechat").css("display","none");
+   			$(this).siblings(".wechat").css("display","block");
+   		});	
+   	 
+   		})
+   </script>
+</head>
+<body>
+   <div class="background" id="content-wap">
+   <a href="/Home/Index/shift"><button>切换</button></a>
+<!-- header部分 -->
+   	<div class="header">
+   		<div class="header-left">
+   			<ul>
+   				<li ng-repeat="item in names"><a id='btn-convert' href="javascript::">繁体中文</a></li>
+   				<li ng-repeat="item in names"><a href="">使用帮助</a></li>
+   				<li ng-repeat="item in names"><a href="">邮件订阅</a></li>
+   				<li ng-repeat="item in names"><a href="">RSS订阅</a></li>
+   			</ul>
+   		</div>
+   		<div class="header-right" >
+   			<ul>
+   				<li>
+   					<a href="" class="r-wechat">微信平台&nbsp;|</a>
+   					<div class="wechat"><img class="w-wechat" src="${public}/images/weixin.png"></div>
+   				</li>
+   				<li>
+   					<a href="" class="r-weibo">人民微博&nbsp;|</a>
+   					<div class="wechat"><img class="w-weibo" src="${public}/images/weibo.jpg"></div>
+   				</li>
+   				<li>
+   					<a href="" class="r-android">app客户端&nbsp;|</a>
+   					<div class="wechat"><img class="w-android" src="${public}/images/app.png"></div>
+   				</li>
+   				<li>
+   					<a href="" class="r-weibo">wap版&nbsp;|</a>
+   				</li>
+   				<li>
+   					<a href="" class="r-weibo">收藏本站&nbsp;</a>
+   				</li>
+   			</ul>
+   		</div>
+   	</div>
+<!-- header -->
+<!-- covers部分 -->
+   	<div class="covers"><img src="${public}/images/1.png"></div>
+<!-- nav部分 -->
+   	<div class="white"></div>
+   	<div class="nav">
+   		<ul>
+   			<li class="index on"><a href="/Home/Index">首页</a></li>
+   			<li class="intro"><a href="/Home/Index/intro">魅力梅县</a></li>
+   			<li class="open"><a href="/Home/Index/open">政务公开</a></li>
+   			<li class="internet"><a href="/Home/Index/internet">办事服务</a></li>
+   			<li class="service"><a href="/Home/Index/service">互动交流</a></li>
+   			
+   			<li class="reply"><a href="/Home/Index/reply">回应关切</a></li>
+   		</ul>
+   	</div>
+   	<div class="white"></div>
+<!-- nav -->
+<!-- remarks部分 -->
+   	<div class="remarks">
+	<div class="weather"> </div>
+   		<div class="sevice">搜索服务<input type="text"></div>
+   		<div class="search"><span><a href="/Home/Index/search" style="color: white;">全部搜索</a></span>高级搜索</div>
+   	</div>
+   	  	<script type="text/javascript">
+   		   $('.weather').leoweather({
+    city:'梅州',
+    format:'<img src="/rl.png">今天是：{年}年{月}月{日}日 星期{周} {城市} {昼夜}天气 <img src="/ac.png">{天气}  {夜间气温}℃ ~ {白天气温}℃'
+});   
+   		</script>
+<!-- remarks -->
+<!-- gover-info部分 -->
+      <div class="gover-info">

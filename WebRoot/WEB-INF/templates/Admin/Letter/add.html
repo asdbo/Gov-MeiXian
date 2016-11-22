@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>用户投诉</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+   
+     <script type="text/javascript">
+    	function setLetterType(val){
+    		var ele = $("#letter_type");
+    		ele.val() = val;
+    	}
+    	function setLetterDept(val){
+    		var ele = $("#letter_dept");
+    		ele.val() = val;
+    	}
+    </script>
+</head>
+<body>
+
+
+
+<div align="center">
+<a href="/Letter/showTable">前端信件显示</a>
+	<h1>请填写以下信息</h1>   
+	<form action="/Admin/Letter/save" method="post">
+		
+		  	<table cellpadding="3" cellspacing="0" border="0">
+				<tbody>
+				<tr>
+					<td>您的姓名:</td>
+					<td><input type="text" name="letterModel.people_name"
+				 size="20">
+					<span style="color:red">*</span></td>
+				</tr>
+				<tr >
+					<td>联系电话:</td>
+					<td><input type="text" name="letterModel.phone"
+				  size="20"></td>
+				</tr>
+				<tr>
+					<td>Email地址:</td>
+					<td><input type="text" name="letterModel.email"
+				 size="20"></td>
+				</tr>
+				<tr>
+					<td>联系地址:</td>
+					<td><input type="text" name="letterModel.address"
+				 size="20"></td>
+				</tr>
+				<tr>
+					<td>邮政编码:</td>
+					<td><input type="text" name="letterModel.postalcode"
+				 size="20"></td>
+				</tr>
+				<tr>
+				<td>信件类型：</td>
+ 				<td>
+		            <select name="letterTypes" onchange="setLetterType(this.options[this.selectedIndex].text);">
+		            	<option >--请选择信件类型--</option>
+		            	<#list letterTypes as o>
+							<option value="${o.types}" >${o.types}</option>
+						</#list>   		
+	            	</select>
+	            	<input type="hidden" id="letter_type" name="letterModel.lettle_type" />
+				</td>
+				</tr>
+				
+				
+				<td>收件部门：</td>
+ 				<td>
+		            <select name="letterDepts" onchange="setLetterDept(this.options[this.selectedIndex].text);">
+		            	<option>--请选择收信部门--</option>
+		            	<#list letterDepts as o>
+							<option value="${o.depts}" >${o.depts}</option>
+						</#list>   		
+	            	</select>
+	            	<input type="hidden" id="letter_dept" name="letterModel.letter_dept"/>
+				</td>
+				</tr>
+				
+
+				<tr>
+					<td>信件主题:</td>
+					<td><input type="text" name="letterModel.theme"
+				 id="phone" size="40"><span style="color:red"> *</span></td>
+				</tr>
+				
+				<tr>
+					<td>信件内容:</td>
+					<td><textarea name="letterModel.content" cols="38" rows="6" id="data_Content"></textarea><span style="color:red"> *</span></td>
+				</tr>
+				<tr>
+					<td colspan="2" style="text-align:center"><input type="submit" value="提交" class="btn btn-primary btn-lg">&nbsp;&nbsp;<input type="reset" value="重填" class="btn btn-primary btn-lg"></td>
+				</tr>
+			</tbody>
+			</table>
+		
+		
+
+	</form>
+	<div>
+	
+	
+	
+	</body>
+</html>

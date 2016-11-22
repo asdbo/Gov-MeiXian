@@ -1,0 +1,37 @@
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	
+<div align="center">
+	<h1>
+		&nbsp;&nbsp;<a href="/Letter">信件管理</a>&nbsp;&nbsp;&nbsp; <a href="/Letter/add">我要提问</a>
+	</h1>
+
+	</br>
+
+
+	<table border="1" cellspacing="0">
+		<tbody>
+			<tr>
+				<th width="20%">标题</th>
+				<th width="8%">写信人</th>
+				<th width="15%">来信时间</th>
+				<th width="15%">回复时间</th>
+				<th width="15%">受理部门</th>
+			</tr>
+
+			<#list letterPage.getList() as l>
+			<tr>
+				<input type="hidden" value="${(l.id)!}" />
+				<td style="text-align: center;"><a
+					href="/Letter/showDetail/${l.id}">[${(l.lettle_type)!}]${(l.theme)!}</a></td>
+				<td style="text-align: center;">${(l.people_name)!}</td>
+				<td style="text-align: center;">${(l.receive_time)!}</td>
+				<td style="text-align: center;">${(l.reply_time)!}</td>
+				<td style="text-align: center;">${(l.letter_dept)!}</td> </#list>
+		</tbody>
+	</table>
+<#include "../common/_paginate.html" /> <@paginate
+	currentPage=letterPage.pageNumber totalPage=letterPage.totalPage
+	actionUrl="/Letter/${(_url)!}/" />
+</div>

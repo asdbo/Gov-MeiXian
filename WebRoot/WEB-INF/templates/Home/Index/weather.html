@@ -1,0 +1,87 @@
+
+<!-- saved from url=(0084)http://i.tianqi.com/index.php?c=code&id=34&icon=1&num=3&color=%23FFFFFF&py=guangzhou -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>梅州天气预报代码调用</title>
+    <!--[if IE 6]>
+    <script type="text/javascript" mce_src="DD_belatedPNG.js" src="http://img.cxmx.com.cn/static/js/DD_belatedPNG.js"></script>
+    <script type="text/javascript">DD_belatedPNG.fix(".pngtqico");</script>
+    <![endif]-->
+    <script type="text/javascript" src="${public}/js2/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript">
+        var color = bgcolor = bdcolor = site = icon = "";
+        var num = 0;
+        $(document).ready(function(){
+            init();
+            if (typeof(bgcolor) != 'undefined' && bgcolor != '') {
+                $("#mobile280").css('background-color', bgcolor);
+            }
+            if (typeof(bdcolor) != 'undefined' && bdcolor != '') {
+                $("#mobile280").css('border', '1px solid ' + bdcolor);
+            }
+            if (typeof(color) != 'undefined' && color != '') {
+                $("#mobile280").css('color', color);
+                $("#mobile280 a").css('color', color);
+                $("#mobile280 .f1").css('color', color);
+                $("#mobile280 .wtpic font").attr("color","");
+            }
+            if (typeof(temp) != 'undefined' && temp == 0) {
+                $("div.wt2").remove();
+            }
+        });
+
+        function init(){
+            if(num==0) num=5;
+            for (var i=5; i > num; i--) {
+                $("#day_"+i).remove();
+            }
+            if (typeof(icon) != 'undefined' && icon != '') {
+                $("img.pngtqico").each(function(i){
+                    this.src = this.src.replace("tianqibig", icon);
+                });
+            }
+        }
+
+    </script>
+    <style type="text/css">
+        body{margin:0;padding:0;font-size:12px; font-family:"微软雅黑"}
+        body, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, li, pre, fieldset, textarea, th, td{ margin: 0;padding: 0;}
+        em{font-size: 12px;font-weight: normal;font-style: normal;}
+        ul{list-style-type:none;margin:0;padding:0;}
+        li{list-style-type:none;margin:0;padding:0;}
+        img{border:0;}
+        a:link,a:visited,a:hover,a:active{color:#333;text-decoration:none;}
+        a:hover{color:#333;text-decoration:none;}
+        .box{ float:left; width:280px; height:25px; line-height:25px; overflow:hidden;}
+        .box strong{float:left; font-size:12px; padding:0 6px 0 0;}
+        .box .wtpic{height:22px;width:22px;float:left; padding:0 6px 0 0;}
+        .box .wtline{float:left; height:25px; line-height:25px;margin-top:0; padding:0;}
+        .box .st{float:left; height:25px; line-height:25px;padding:0 6px;}
+        .box .kqzl{float:left; height:25px; line-height:25px;margin-top:0; padding:0 6px 0 0;}
+        .box .zl_txt{float:left; height:20px; line-height:20px;margin-top:2px; padding:0 6px; background:#9ED15B; color:#fff;}
+        .gk_box .wtpic{line-height:25px;height:20px;float:left;width:100%;}
+        a:link {text-decoration: none;}
+        a:visited {text-decoration: none;}
+        a:hover {text-decoration: none;}
+        a:active {text-decoration: none;}
+    </style>
+</head>
+<body marginwidth="0" marginheight="0" style="background-color:transparent">
+<div id="mobile280" style="float: left; width: 280px; height: 25px; position: relative; color: rgb(255, 255, 255);">
+    <div class="box">
+        <a target="_blank" href="http://guangzhou.tianqi.com/?tq" title="查看未来广州七天天气预报" style="color: rgb(255, 255, 255);">
+            <strong>梅州</strong></a>
+        <a target="_blank" href="http://guangzhou.tianqi.com/?tq" style="color: rgb(255, 255, 255);"><span class="wtpic"><img class="pngtqico" align="absmiddle" src="${public}/images2/b7.png" style="border:0;width:20px;height:20px"></span>
+            <span class="wtline">27℃～23℃</span>
+            <span class="st">|</span><span class="kqzl">空气质量：</span><span class="zl_txt" style="background:#ffbb17">
+                良</span></a></div>
+
+</div>
+<script type="text/javascript">
+    var appCache = window.applicationCache;
+    appCache.update();
+    if (appCache.status == window.applicationCache.UPDATEREADY){
+        appCache.swapCache();  // 得到最新版本缓存列表，并且成功下载资源，更新缓存到最新 
+    }
+</script>
+<script type="text/javascript">num=3;color="#FFFFFF";icon="tqicon1";temp=0;</script></body></html>

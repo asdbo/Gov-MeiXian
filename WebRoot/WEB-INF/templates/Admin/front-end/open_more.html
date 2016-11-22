@@ -1,0 +1,261 @@
+ <#include '/WEB-INF/templates/common/header1.html'>
+<div class="WebContainer800_bk">
+	<div class="WebContainer800_left">
+		<div id="Frame_ChildNav">
+			<div id="ChildNav_title"></div>
+			<div id="ChildNav_content">
+				<div class="Left_NavMenu">
+					&nbsp;&nbsp;<a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/qzqdgk/index.html">权责清单公开&nbsp;&gt;&gt;</a>
+				</div>
+				<div class="Left_NavMenu">
+					&nbsp;&nbsp;<a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/xzzfgk/index.html">行政执法公开&nbsp;&gt;&gt;</a>
+				</div>
+				<div class="Left_NavMenu">
+					&nbsp;&nbsp;<a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/index.html">监督信息公开&nbsp;&gt;&gt;</a>
+				</div>
+			</div>
+		</div>
+		<link href="${public}/css/mainframe.css" rel="stylesheet" type="text/css">
+		<div id="Frame_Login200">
+			<script language="javascript" src="${public}/js/member.js"></script>
+			<div id="Login200_form">
+				<table>
+					<form id="LoginForm" name="LoginForm" method="post"
+						action="/bbs/logging.php?action=login&amp;loginsubmit=yes"></form>
+					<input type="hidden" name="referer"
+						value="http://www.meijiang.gov.cn/zwgk/glgk/index.html">
+					<input type="hidden" name="loginfield" value="username">
+					<input type="hidden" name="cookietime" id="cookietime" value="0">
+					<tbody>
+						<tr>
+							<td>用户：<input name="username" type="text" id="username"
+								autocomplete="off" size="15"></td>
+						</tr>
+						<tr>
+							<td>密码：<input name="password" type="password" id="password"
+								size="15"></td>
+						</tr>
+						<tr>
+							<td>
+								<div id="Login200_LookforPassword">
+									<a href="/lostpw.html">找回<br>密码
+									</a>
+								</div> <input name="image2" type="image"
+								src="${public}/images/Button_Login_s.gif"> <a
+								href="/register.html"><img
+									src="${public}/images/Button_Register_s.gif"></a>
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+			<script language="javascript">
+				function islogin() {
+					var userinfo = _post("http://www.meijiang.gov.cn/bbs/user.php?action=loginfo&inajax=1");
+					if (userinfo == '')
+						return false;
+					eval("var user = " + userinfo + ";");
+					if (user['username']) {
+						var formhash = _post("http://www.meijiang.gov.cn/bbs/user.php?action=getformhash&inajax=1");
+						$("Login200_form").innerHTML = "欢迎您回来，"
+								+ user['username']
+								+ "。<br><br>"
+								+ "<a href=\"http://www.meijiang.gov.cn/bbs/memcp.php\">个人中心</a><br><br>"
+								+ "<a href=\"http://www.meijiang.gov.cn/bbs/logging.php?action=logout&formhash="
+								+ formhash + "\">退出登录</a>";
+					}
+				}
+				islogin();
+			</script>
+		</div>
+		<div id="Frame_ChildNav">
+			<div id="ChildRange_title"></div>
+
+			<div id="ChildNav_content">
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/qzqdgk/2016-09-14/1473855012d273714.html"
+						title="梅区府[2016]10号（关于公布依法承担行政职能的事业单位和镇政府街道办事处权责清单的决定）">梅区府[2016]10号（关于公布依法承担...</a>
+				</div>
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474385254d273961.html"
+						title="区文广新局开展文化市场联合大检查行动">区文广新局开展文化市场联合大检查行...</a>
+				</div>
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474385631d273969.html"
+						title="区住建局开展2016年上半年建筑工程质量安全生产大检查">区住建局开展2016年上半年建筑工程质...</a>
+				</div>
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474385393d273962.html"
+						title="梅江区旅游局曾思敏局长率队开展端午节前旅游安全大检查">梅江区旅游局曾思敏局长率队开展端午...</a>
+				</div>
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474385721d273970.html"
+						title="区住建局召开梅江区工程质量安全管理暨上半年防范较大及以上建筑施工生产安全事故工作会议">区住建局召开梅江区工程质量安全管理...</a>
+				</div>
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474385721d273971.html"
+						title="区住建局开展春节后复工和全国“两会”期间建筑施工安全检查">区住建局开展春节后复工和全国“两会...</a>
+				</div>
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474385395d273963.html"
+						title="区委常委罗红葆率队开展2016年春节 旅游安全和旅游市场综合监管大检查">区委常委罗红葆率队开展2016年春节
+						...</a>
+				</div>
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474385721d273972.html"
+						title="区住建局召开在建工地预防欠薪集中整治行动暨质量安全和冬春火灾防控工作会议">区住建局召开在建工地预防欠薪集中整...</a>
+				</div>
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474385542d273964.html"
+						title="区安监局10月份开展危险化学品和烟花爆竹领域“八打八治”联合执法行动。">区安监局10月份开展危险化学品和烟花...</a>
+				</div>
+				<div class="listB_left_title">
+					<img src="${public}/images/Icon_listitem2.gif" border="0"><a
+						href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474385544d273965.html"
+						title="梅江区委党的群众路线教育实践活动第二督导组到区安监局督查">梅江区委党的群众路线教育实践活动第...</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="WebContainer800_right">
+		<div class="WebContainer800_right_content">
+			<div class="unitTopic">
+				<div class="mid_title">权责清单公开</div>
+				<div class="listA_title">
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+						<tbody>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/qzqdgk/2016-09-14/1473855012d273714.html"
+									title="梅区府[2016]10号（关于公布依法承担行政职能的事业单位和镇政府街道办事处权责清单的决定）">梅区府[2016]10号（关于公布依法承担行政职能的事业单位和镇政府街道...</a></td>
+								<td align="right">2016-07-01</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div
+					style="padding: 0; margin: 0; line-height: 0; height: 0; font-size: 0; clear: both"></div>
+				<div class="mid_more">
+					<a href="http://www.meijiang.gov.cn/zwgk/glgk/qzqdgk/index.html">更多...</a>
+				</div>
+				<div
+					style="padding: 0; margin: 0; line-height: 0; height: 0; font-size: 0; clear: both"></div>
+			</div>
+			<div class="unitTopic">
+				<div class="mid_title">行政执法公开</div>
+				<div class="listA_title">
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+					</table>
+				</div>
+				<div
+					style="padding: 0; margin: 0; line-height: 0; height: 0; font-size: 0; clear: both"></div>
+				<div class="mid_more">
+					<a href="http://www.meijiang.gov.cn/zwgk/glgk/xzzfgk/index.html">更多...</a>
+				</div>
+				<div
+					style="padding: 0; margin: 0; line-height: 0; height: 0; font-size: 0; clear: both"></div>
+			</div>
+			<div class="unitTopic">
+				<div class="mid_title">监督信息公开</div>
+				<div class="listA_title">
+					<table cellpadding="0" cellspacing="0" border="0" width="100%">
+
+						<tbody>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474383858d273949.html"
+									title="区文广李育新局长带队开展节前安全生产检查">区文广李育新局长带队开展节前安全生产检查</a></td>
+								<td align="right">2016-09-14</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474383858d273950.html"
+									title="梅江区畜牧兽医开展节日期间安全生产工作大检查">梅江区畜牧兽医开展节日期间安全生产工作大检查</a></td>
+								<td align="right">2016-09-14</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474384309d273951.html"
+									title="梅江区交通运输局加大力度打击非法运输成品油违规行为">梅江区交通运输局加大力度打击非法运输成品油违规行为</a></td>
+								<td align="right">2016-09-14</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474384554d273952.html"
+									title="市检查组到我区检查节能减排典型示范项目工作">市检查组到我区检查节能减排典型示范项目工作</a></td>
+								<td align="right">2016-09-12</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474384554d273953.html"
+									title="梅江区开展专项整治非法运输经营储存成品油联合行动">梅江区开展专项整治非法运输经营储存成品油联合行动</a></td>
+								<td align="right">2016-09-12</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474384554d273954.html"
+									title="省林业调查规划院专家到梅江区督查古树名木普查建档工作">省林业调查规划院专家到梅江区督查古树名木普查建档工作</a></td>
+								<td align="right">2016-09-12</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474384817d273955.html"
+									title="区交通运输局整治道路沿线违章搭建">区交通运输局整治道路沿线违章搭建</a></td>
+								<td align="right">2016-09-09</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474384817d273956.html"
+									title="区交通运输局开展危货运输安全生产大检查活动">区交通运输局开展危货运输安全生产大检查活动</a></td>
+								<td align="right">2016-09-08</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474384949d273957.html"
+									title="梅江区食药监局开展进口食品专项监督检查及对经营户进行法律法规宣传教育的活动">梅江区食药监局开展进口食品专项监督检查及对经营户进行法律法规宣传...</a></td>
+								<td align="right">2016-09-02</td>
+							</tr>
+							<tr>
+								<td>&gt;&gt;<a
+									href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/2016-09-20/1474384949d273958.html"
+									title="区食药监局联合环保局到长沙镇指导省级卫生镇创建工作">区食药监局联合环保局到长沙镇指导省级卫生镇创建工作</a></td>
+								<td align="right">2016-08-30</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div
+					style="padding: 0; margin: 0; line-height: 0; height: 0; font-size: 0; clear: both"></div>
+				<div class="mid_more">
+					<a href="http://www.meijiang.gov.cn/zwgk/glgk/jdxxgk/index.html">更多...</a>
+				</div>
+				<div
+					style="padding: 0; margin: 0; line-height: 0; height: 0; font-size: 0; clear: both"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<#include '/WEB-INF/templates/common/footer2.html'>
+
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/bootstrap-table.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+
+<script src="js/html5shiv.js"></script>
+
+<script src="js/respond.min.js"></script>
+
+<![endif]-->
+
+</head>
+
+<body>
+	${(success)!}
+	<div class=" col-sm-12 col-lg-12  main">
+
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">导航管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="/Admin/Navigation/list">导航显示</a></li>
+					<li><a href="/Admin/Navigation/toAdd">导航添加</a></li>
+
+				</ul>
+				<div class="panel panel-default">
+
+					<div class="panel-body">
+						<table data-toggle="table" data-url="tables/data1.json"
+							data-show-refresh="true" data-show-toggle="true"
+							data-show-columns="true" data-search="true"
+							data-select-item-name="toolbar1" data-pagination="true"
+							data-sort-name="name" data-sort-order="desc">
+							<thead>
+								<tr>
+									<th data-field="state" data-checkbox="true"></th>
+									<th data-sortable="true" data-align="center">导航 ID</th>
+									<th data-sortable="true" data-align="center">导航标题</th>
+									<th data-sortable="true" data-align="center">导航链接</th>
+									<th data-sortable="true" data-align="center">上级导航</th>
+									<th data-sortable="true" data-align="center">修改</th>
+									<th data-sortable="true" data-align="center">删除</th>
+								</tr>
+							</thead>
+							<#list navigationModel as c>
+
+							<tr>
+								<td></td>
+								<td style="text-align: center;" data-field="id">${c.id}</td>
+								<td style="text-align: center;">${(c.title)!}</td>
+								<td style="text-align: center;">${(c.link)!}</td>
+								<td style="text-align: center;"><#list navigationModel1 as
+									d> <#if c.pid == d.id> ${d.title}<#break> <#elseif c.pid == 0 >
+									一级目录 <#break> </#if> </#list></td>
+
+								<td style="text-align: center;"><a
+									href="/Admin/Navigation/toedit?id=${c.id}"><button
+											type="button" class="btn btn-primary">修改</button></a></td>
+
+								<td>
+									<button class="btn btn-danger delete" data-toggle="modal"
+										data-target="#deleteModal" id="${c.id}" onClick="deletedata(${c.id})">删除</button>
+								</td>
+							</tr>
+
+							</#list>
+
+						</table>
+
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+	</div>
+	<!--/.main-->
+	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">
+						<font color="red">提醒</font>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<font color="blue" size="5px">删除不可恢复，是否确认删除？</font>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+					<button type="button" class="btn btn-primary del">删除</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script src="${public}/js/bootstrap-table.js"></script>
+	<script>
+		!function($) {
+			$(document)
+					.on(
+							"click",
+							"ul.nav li.parent > a > span.icon",
+							function() {
+								$(this).find('em:first').toggleClass(
+										"glyphicon-minus");
+							});
+			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
+
+		$(window).on('resize', function() {
+			if ($(window).width() > 768)
+				$('#sidebar-collapse').collapse('show')
+		})
+		$(window).on('resize', function() {
+			if ($(window).width() <= 767)
+				$('#sidebar-collapse').collapse('hide')
+		})
+		
+			function deletedata(id) {
+				//alert($id);
+				$('.del').attr("data-id", id);
+			}
+			$('.del').click(function() {
+				$id = $(this).data("id");
+				window.location.href = "/Admin/Navigation/delete?id=" + $id;
+			})
+		
+	</script>
+</body>
+
+</html>
+

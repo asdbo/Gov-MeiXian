@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+
+<script type="text/javascript" charset="utf-8" src="${public}/tools/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="${public}/tools/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="${public}/tools/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+</head>
+<body>
+	<div class="col-sm-12  col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">新闻管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="/Admin/News/toAdd">添加新闻</a></li>
+					<li><a href="/Admin/News/list">新闻管理</a></li>
+				</ul>
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" action="/Admin/News/addNew" method="post"
+							enctype="multipart/form-data">
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">新闻标题</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="title"
+										placeholder="请输入名称" required="required" />
+								</div>
+								</div>
+								<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label"  >作者</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="writer" maxlength="9">
+								</div>
+								</div>
+									<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">摘要</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="summary">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">来源</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="origin">
+								</div>
+								</div>
+								
+								<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">新闻封面图片</label>
+								<div class="col-sm-6">
+									<input type="file" class="form-control" name="newpic" id="newpic">
+								</div>
+								</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">栏目类型</label>
+								<div class="col-sm-6" id="select">
+									<select class="form-control control"  >
+										 <option value=-1>请选择...</option>
+										<#list channels as
+										channel>
+										<option value="${channel.id}">${channel.title}</option>
+										</#list>
+									</select>
+									<select class="form-control control1"  style="display: none;">
+									</select>
+									<select class="form-control control2" style="display: none;">
+									</select>
+									<select class="form-control control3" style="display: none;">
+									</select>
+								</div>
+							</div>
+								<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">排序</label>
+								<div class="col-sm-6">
+									<input type="number" class="form-control" name="sort" required="required"/>
+								</div>
+								</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">视频上传</label>
+								<div class="col-sm-6">
+									<input type="file" class="form-control" name="video"
+										accept="video/*" id="fileVideo" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">附件上传</label>
+								<div class="col-sm-6">
+									<input type="file" class="form-control" name="attach"
+										id="fileAttach" /> 附件支持的格式 <img src="${public}/images/doc.PNG"
+										width="25px" /> <img src="${public}/images/pdf.PNG" width="25px" />
+									<img src="${public}/images/ppt.PNG" width="25px" /> <img
+										src="${public}/images/xls.PNG" width="25px" />
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">文章内容</label>
+								<div class="col-sm-10">
+									<script id="editor" name="content" type="text/plain"
+										style="width: 100%; height:300px;" >
+					              	</script>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn btn-primary  col-sm-offset-2"
+									value="添加">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<!--/.main-->
+
+	<script type="text/javascript">
+		var ue = UE.getEditor('editor');
+		
+	</script>
+	<script src="${public}/js/jquery-1.8.3.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#fileVideo").change(function(){
+				var filePath= $(this).val();
+				var fileName=filePath.substr(filePath.indexOf('.'));
+				if(fileName!='.mov'&&fileName!='.mp4'&&fileName!='.avi'&&fileName!='.wmv')
+					{
+						alert("不支持文件格式");
+						$(this).val("");
+					}
+			});
+			$("#fileAttach").change(function(){
+				var filePath= $(this).val();
+				var fileName=filePath.substr(filePath.indexOf('.'));
+				if(fileName!='.docx'&&fileName!='.pdf'&&fileName!='.xlsx'&&fileName!='.pptx'&&
+						fileName!='.doc'&&fileName!='.xls'&&fileName!='.ppt')
+					{
+						alert("不支持文件格式");
+						$(this).val("");
+					}
+			});
+			$("#newpic").change(function(){
+				var fileName=filePath.substr(filePath.indexOf('.'));
+				if(fileName!='.jpg'&&fileName!='.JPG'&&fileName!='.png'&&fileName!='.PNG'&&fileName!='.gif'&&fileName!='.GIF')
+					{
+						alert("不支持文件格式");
+						$(this).val("");
+					}
+			});
+			$(".control").change(function(){
+				$(".control1").hide();
+				$(".control2").hide();
+				var url="/Admin/News/gethtml";
+				var arg={"pid":$(this).val()};
+				$.post(url,arg,function(data){
+					if(data!=""){
+						$(".control1").append(data);
+						$(".control1").show();
+						
+					}else{
+						$(".control").attr("name","cid");
+					}
+				});
+			});
+			$(".control1").change(function(){
+				$(".control2").hide();
+				var url="/Admin/News/gethtml";
+				var arg={"pid":$(this).val()};
+				$.post(url,arg,function(data){
+					if(data!=""){
+						$(".control2").append(data);
+						$(".control2").show();
+						
+					}else{
+						$(".control1").attr("name","cid");
+					}
+				});
+			});
+			$(".control2").change(function(){
+				var url="/Admin/News/gethtml";
+				var arg={"pid":$(this).val()};
+				$.post(url,arg,function(data){
+					if(data!=""){
+						$(".control3").append(data);
+						$(".control3").show();
+						
+					}else{
+						$(".control2").attr("name","cid");
+					}
+				});
+			});
+			$(".control3").change(function(){
+				$(".control3").attr("name","cid");
+			});
+			
+			
+		})
+	</script>
+</body>
+
+</html>

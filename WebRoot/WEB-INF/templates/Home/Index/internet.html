@@ -1,0 +1,138 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid ">
+	<div class="xzsp border1 p10 mt20">
+		<!--行政审批-->
+		<h3 class="ftl font-size24 ml20 mt20" style=" color:#71adfc; height:46px; line-height:46px;">行政审批</h3>
+		 <form method="post" action="" id="myform">
+            <div class="bsfw_search ftl ml20 mt20">
+                <div class="querybox">
+                    <input name="keyword" placeholder="输入您要查询的服务" id="searchInput" class="input_key" onfocus="glb_searchTextOnfocus(this);" onblur="glb_searchTextOnBlur(this);">
+                    <input name="classify" value="bsfw" type="hidden">
+                    <a href="javascript:;" class="img_but" onclick="return goToSerach(this.form);"></a>
+                </div>
+            </div>
+            <p class="hot ftl ml10 mt20">&nbsp;热词： <a class="hot" href="" onclick="">环保</a>
+                                                                <a class="hot" href="">计划生育</a>
+                                                                                                                                            </p>
+        </form>
+		<div class="clear">
+		</div>
+		<div class="xzsp_sx mt20">
+			<div class="hd">
+				<ul>
+					 <li class="grsx on"><a href="" target="_blank" id="grsx_btn">个人事项</a></li>
+                   <li class="frsx"><a href="" target="_blank" id="frsx_btn">法人事项</a></li>
+                   <li class="dwsx"><a href="" target="_blank" id="dwsx_btn">按单位找事项</a></li>
+				</ul>
+			</div>
+			<div class="clear">
+			</div>
+			<div class="bd mt20">
+				<ul>
+					<li><a href="/Home/Index/person1?id=114" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/icon91.png" style="margin-left: 10px;margin-top: 0">生育收养</a></li>
+					<li><a href="/Home/Index/person1?id=115" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min01.png">户籍</a></li>
+					<li><a href="/Home/Index/person1?id=116" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min02.png">教育</a></li>
+					<li><a href="/Home/Index/person1?id=117" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min03.png">兵役</a></li>
+					<li><a href="/Home/Index/person1?id=118" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min04.png">就业</a></li>
+					<li><a href="/Home/Index/person1?id=119" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min05.png">纳税</a></li>
+					<li><a href="/Home/Index/person1?id=120" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min06.png">社保</a></li>
+					<li><a href="/Home/Index/person1?id=121" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min08.png">医疗</a></li>
+					<li><a href="/Home/Index/person1?id=122" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min09.png">出入境</a></li>
+					<li><a href="/Home/Index/person1?id=123" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min10.png">社会救助</a></li>
+					<li><a href="/Home/Index/person1?id=124" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min11.png">住房</a></li>
+					<li><a href="/Home/Index/person1?id=125" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min12.png">司法公证</a></li>
+					<li><a href="/Home/Index/person1?id=126" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min13.png">死亡殡葬</a></li>
+					<li><a href="/Home/Index/person1?id=127" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min14.png">职业资格</a></li>
+					<li><a href="/Home/Index/person1?id=128" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min15.png">消费维权</a></li>
+					<li><a href="/Home/Index/person1?id=129" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min16.png">交通</a></li>
+					<li><a href="/Home/Index/person1?id=130" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min17.png">文化体育</a></li>
+					<li><a href="/Home/Index/person1?id=131" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min19.png">民族宗教</a></li>
+					<li><a href="/Home/Index/person1?id=132" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/min20.png">其他</a></li>
+				</ul>
+				<ul style="display: none;">
+					<li><a href="/Home/Index/person1?pid=133&id=134" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/fr01.png">设立变更</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=135" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/njns.png">年检年审</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=136" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/cwsw.png">财务税务</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=137" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/zyzb.png">准营准办</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=138" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/lxsp.png">立项审批</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=139" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/zzrz.png">资质认证</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=140" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/jrtz.png">金融投资</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=141" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/dwjl.png">对外交流</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=142" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/sfgz.png">司法公证</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=143" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/jsgl.png">建设管理</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=144" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/ldbz.png">劳动保障</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=145" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/rlzy.png">人力资源</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=146" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/zljc.png">质量检查</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=147" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/aqfh.png">安全防护</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=148" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/hblh.png">环保绿化</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=149" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/tdfc.png">土地房产</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=150" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/wwbh.png">文物保护</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=151" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/xwgd.png">新闻广电</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=152" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/jtys.png">交通运输</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=153" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/nlmy.png">农林牧渔</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=154" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/slsw.png">水利水务</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=155" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/ylws.png">医疗卫生</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=156" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/zscq.png">知识产权</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=157" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/pczx.png">破产注销</a></li>
+					<li><a href="/Home/Index/person1?pid=133&id=158" target="_blank"><img class="ftl mt10 pr10 ml20" src="${public}/images/qt.png">其他</a></li>
+				</ul>
+				<ul class="danwei" style="display: none;">
+					<#list cms as cm>
+					<li><a href="/Home/Index/unit?id=${cm.id}" target="_blank" title="">${cm.title}</a></li>
+					</#list>
+				</ul>
+			</div>
+		</div>
+		<div class="clear">
+		</div>
+	</div>
+	<!--行政审批-->
+	<div class="clear">
+	</div>
+	<div class="ggfw mt20">
+		<!--公共服务-->
+		<div class="bsfw_title1">
+			<h3 class="ftl font-size24">公共服务</h3>
+		</div>
+		<div class="clear">
+		</div>
+		<div style="width: 470px;margin-right: 7px;margin-left: 5px;" class="ftl border1 p15 mr10 mtb20">
+			<h3 class="lineheight32 mb10">个人服务</h3>
+			<div class="grfw">
+				<ul>
+					<div class="ftl" style=" width: 292px;">
+						<li class="education mr5"><a href="/Home/Index/edu" target="_blank">教育服务 </a></li>
+						<li class="social_security"><a href="/Home/Index/sec" target="_blank">社保服务 </a></li>
+						<li class="papers mr5 mt5"><a href="/Home/Index/paper" target="_blank">证件办理</a></li>
+						<li class="employment mt5"><a href="/Home/Index/employ" target="_blank">就业服务</a></li>
+					</div>
+					<div class="ftl ml5">
+						<li class="health"><a href="/Home/Index/health" target="_blank">医疗服务 </a></li>
+					</div>
+				</ul>
+			</div>
+		</div>
+		<div style="width:470px;" class="ftl border1 p15 mtb20">
+			<h3 class="lineheight32 mb10">企业服务</h3>
+			<div class="qyfw">
+				<ul>
+					<div class="ftl" style="width:227px;">
+						<li class="enterprise"><a href="/Home/Index/qyfw_company" target="_blank">企业开办 </a></li>
+						<li class="technology mt5"><a href="/Home/Index/qyfw_technology" target="_blank">科技创业 </a></li>
+					</div>
+					<div class="ftl ml5">
+						<li class="investment"><a href="/Home/Index/invest" target="_blank">招商引资</a></li>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--公共服务-->
+	<div class="clear">
+	</div>
+</div>
+<script type="text/javascript">
+  	 $('.nav li').removeClass('on');
+    $('.internet').addClass('on');
+  </script>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

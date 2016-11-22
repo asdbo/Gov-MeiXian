@@ -1,0 +1,40 @@
+<!-- footer部分 -->
+       <div class="footer">
+        <div class="footer-container">
+        	<div class="footer-content">
+       		<p> Copyright 2012 www.gdmx.gov.cn All Rights Reserved ICP备案序号：粤ICP备10000203号</p>
+		<p>主办：梅县区人民政府办公室  承办：梅县区科工商务管理局  管理维护：梅县区信息网络中心</p>
+		<p>建议使用1024×768分辨率 IE6.0以上版本浏览器 联系方式:0753-2589185</p>
+		<p>站长统计 | 今日IP[71] | 今日PV[223] | 昨日IP[479] | 昨日PV[2521] | 当前在线[18]</p>
+       	</div>
+       	<div class="footer-img">
+       		<img src="${public}/images/red.png">
+       		<img src="${public}/images/jiucuo.png">
+       	</div>
+        </div>
+       	
+       </div>
+<!-- footer -->
+ </div>
+ <!-- gover-info -->
+	<script type="text/javascript" src="${public}/js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="${public}/js/jquery.SuperSlide.source.js"></script>
+  <script type="text/javascript" src="${public}/js/jquery.idcode.js"></script>
+	<script type="text/javascript" src="${public}/js/main.js"></script>
+    <script type='text/javascript' src="${public}/js/jquery.s2t.js"></script>
+	<script>
+	  var aa = true;
+	$('#btn-convert').click(function() {
+        if (aa) {
+           $('#content-wap').s2t();
+           aa = false;
+           $(this).text('简体中文');
+        } else {
+           $('#content-wap').t2s();
+           aa = true;
+           $(this).text('繁体中文');
+        }
+     });
+	</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/bootstrap-table.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+	<script src="${public}/js/jquery-2.2.2.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script src="${public}/js/bootstrap-table.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+	<div class=" col-sm-12 col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">新闻管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+					<li><a href="/Admin/News/toAdd">添加新闻</a></li>
+					<li class="active"><a href="/Admin/News/list">管理新闻</a></li>
+				</ul>
+				<div class="panel panel-default">
+					
+					<div class="panel-body">
+					<div class="bs-bars pull-left"><div id="toolbar">
+        <button onClick="deletedatas()" id="remove" data-target="#deleteModal" data-toggle="modal" class="btn btn-danger" disabled>
+            <i class="glyphicon glyphicon-remove"></i> 批量删除
+        </button>
+    </div></div>
+						<table id="tab" data-toggle="table" 
+							data-show-refresh="true" data-show-toggle="true"
+							data-show-columns="true" data-search="true"
+							 data-pagination="true"
+							data-id-field="id"
+							data-sort-name="name" data-sort-order="desc">
+							<thead>
+								<tr>
+									<th data-sortable="true" data-checkbox="true" ></th>
+									<th data-field="id" data-align="center">新闻id</th>
+									<th data-sortable="true" data-align="center">新闻标题</th>
+									<th data-sortable="true" data-align="center">栏目类型</th>
+									<th data-sortable="true" data-align="center">栏目名称</th>
+									<th data-sortable="true" data-align="center">封面图片</th>
+									<th data-sortable="true" data-align="center">发布日期</th>
+									<th data-sortable="true" data-align="center">浏览次数</th>
+									<th data-sortable="true" data-align="center">修改</th>
+									<th data-sortable="true" data-align="center">删除</th>
+								</tr>
+							</thead>
+								<tbody>
+							<#list news as new>
+							<tr data-index="${new.id}">
+								<td></td>
+								<td>${new.id}</td>
+								<td>${new.title}</td>
+								<td><#if new.type=0>
+									新闻
+								</#if></td>
+								<td>${new.ct}</td>
+								<td><img width="60px" height="40px"  src="${new.newpic}"></td>
+								<td>${new.TIME}</td>
+								<td>${new.looks}</td>
+								<td><a href="/Admin/News/toUpdate?id=${new.id}" class="aa">修改</a></td>
+								<td><button class="btn btn-primary delete"
+										  data-target="#deleteModal" data-toggle="modal" onClick="deleteData(${new.id})"
+										  >删除</button></td>
+
+							</tr>
+
+							</#list>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<!--/.main-->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">提醒</h4>
+		      </div>
+		      <div class="modal-body">
+		          删除不可恢复，是否确认删除？
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary del" id="del">删除</button>
+		      </div>
+		    </div>
+		  </div>
+	</div>
+
+	<script>
+	!function ($) {
+		$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
+			$(this).find('em:first').toggleClass("glyphicon-minus");	  
+		}); 
+		$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+	}(window.jQuery);
+
+	$(window).on('resize', function () {
+	  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+	});
+	$(window).on('resize', function () {
+	  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+	});
+	
+	$('#del').click(function(){
+		$id = $(this).data("id");
+		window.location.href="/Admin/News/deleteNew?id="+$id;
+	});
+	var $table = $('#tab'), $remove=$("#remove"), selections = [];
+	$table.on('check.bs.table uncheck.bs.table '
+			+ 'check-all.bs.table uncheck-all.bs.table', function() {
+		$remove.prop('disabled', !$table
+				.bootstrapTable('getSelections').length);
+
+		selections = getIdSelections();
+	});
+	function getIdSelections() {
+		return  $.map($table.bootstrapTable('getSelections'), function(row) {
+			return row.id;
+		});
+	}
+	function deletedatas(){
+		var id=getIdSelections();
+		deleteData(id);
+	}
+	function deleteData(id){
+		$('#del').attr("data-id", id);
+	}
+</script>
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>

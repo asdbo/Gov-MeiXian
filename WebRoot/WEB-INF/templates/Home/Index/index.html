@@ -1,0 +1,305 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+   	<!-- headline部分 -->
+   		<div class="headline">
+   		<div class="head-left">
+   		 <div class="left-left">
+   		 	 <div class="top">
+   		  	<div class="news_img ftl focusBox">
+	            <a class="prev" href="javascript:void(0)"></a>
+	            <a class="next" href="javascript:void(0)"></a>
+                <ul class="pic">
+                <#list cs as c>
+		            <li><a href="/Home/Index/detail" target="_blank"><img src="${c.link}"/></a></li>
+			   		 <li><a href="/Home/Index/detail" target="_blank"><img src="${c.link}"/></a></li>
+			   	</#list>
+			    </ul>
+            <div class="txt-bg"></div>
+            <div class="txt">
+                <ul>
+                	<#list cs as c>
+		            <li><a href="/Home/Index/detail"  class="newtitle" target="_blank">${c.title}</a></li>
+                	 <li><a href="/Home/Index/detail"  class="newtitle" target="_blank">${c.title}</a></li>
+                	</#list>
+                </ul>
+            </div>
+            <ul class="num">
+                <li><a></a><span></span></li>
+                <li><a></a><span></span></li>
+                <li><a></a><span></span></li>
+                <li><a></a><span></span></li>
+            </ul>
+   		  </div>
+   		  </div>
+   		 </div>
+   		 <div class="news ftr w504" style="height:320px; overflow:hidden">
+            <div class="hd">
+                <ul>
+                <#list newcms as nc>
+                    <li class="on"><a href="/Home/ChannelContent?cid=${nc.id}" target="_blank">${nc.title}</a></li>
+                 </#list>
+                </ul>
+            </div>
+            <div class="bd">
+            <#list news as ns>
+            	<#if ns_index=0>
+                <ul style="display: block;">
+                <#else>
+                <ul style="display: none;">
+                </#if>
+                	<#list ns as n>
+                	 
+                		<#if n_index=0>
+                    <div class="hot">
+                        <h3 class="tac"><a class="newtitle" href="/Home/NewContent?newid=${n.id}" target="_blank">${n.title}</a></h3>
+                        <p class="ti20 font-hui3" ><a class="newsummary" href="/Home/NewContent?newid=${n.id}" target="_blank" >${n.summary}</a><span class="detail"><a href="/Home/NewContent?newid=${n.id}" target="_blank">[详细]</a></span>
+                        </p>
+                    </div>
+                  <#else>
+                    <li><span class="date">[${n.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${n.id}" target="_blank">${n.title}</a></li>
+              		 </#if>
+              		</#list>
+                    
+               </ul>
+              </#list> 
+            </div>
+        </div>
+   		</div>
+       </div>	
+      <!-- headline -->
+ <!-- gove-cover部分 -->
+       <div class="gove-cover">
+       	<ul>
+       		<li><a href="http://wsbs.meizhou.gov.cn/portal/index.action"><img src="${public}/images/14.png"></a></li>
+       		<li><a href="http://qzqd.gdmx.gov.cn/"><img src="${public}/images/1116.png" height="88px;"></a></li>
+       	</ul>
+       </div>
+   <!-- gove-open部分 -->
+       <div class="gove-open">
+       	  <div class="w660 border1  mr10 ftl">
+            <div class="title1"><h3 class="ftl">政府信息公开大厅</h3>
+             <div class="fggw_index ftr"> 
+
+             <a href="https://www.meizhou.gov.cn/jump.html?url=http://www.gov.cn/zhengce/wenjian/zhongyang.htm" target="_blank">国务院文件</a>
+             <a href="https://www.meizhou.gov.cn/jump.html?url=http://www.gd.gov.cn/govpub/szfwj/" target="_blank">省政府文件</a>
+             <a href="https://www.meizhou.gov.cn/special/gw/134">市政府文件</a>
+             <a href="https://www.meizhou.gov.cn/special/gw/135">市府办文件</a>
+       
+             </div>
+            </div>
+            <div class="clear"></div>
+            <div class="xxgk ftl">
+                <ul>
+        
+                    <li><a href="http://zwgk.gdmx.gov.cn/zfxxgkzn/441421"><img width="10%" src="${public}/images/16.png">政府信息公开指南</a></li>
+                        <li><a href="http://zwgk.gdmx.gov.cn/index/index?areacode=441421"><img width="10%" src="${public}/images/17.png">政府信息公开目录</a></li>
+                <li><a href="http://ysq.gdmx.gov.cn/home/index?areacode=441421" style="margin-right: 20px"><img width="10%" src="${public}/images/20.png" >依申请公开&nbsp;&nbsp;&nbsp;</a></li>
+                        <li><a href="http://yjx.gdmx.gov.cn/complaint/index?areacode=441421"><img width="10%" src="${public}/images/18.png">政府信息公开意见箱</a></li>
+                        <li><a href="http://zwgk.gdmx.gov.cn/zfgzbg/441421"><img width="10%" src="${public}/images/19.png">信息公开年度报告</a></li>
+                   
+                </ul>
+            </div>
+            <div class="xxgk3 ftr">
+        
+                <h4 class="tac"><a href="/Home/Index/open" target="_blank">政府信息公开</a></h4>
+                <ul>
+          			<#list zfcms as zfc>
+                    <li><a href="/Home/ChannelContent?cid=${zfc.id}">▪ ${zfc.title}</a></li>
+                    </#list>
+                </ul>
+            </div>
+            <div class="xxgk2 ftr" style="margin-top: 10px;padding: 20px 0">
+        
+                <h4 class="tac"><a href="/Home/ChannelContent?cid=${zdid}" target="_blank">重点领域信息公开</a></h4>
+                <ul>
+          		
+          		<#list zdcms as zdc>
+                   <li><a href="/Home/ChannelContent?cid=${zdc.id}">${zdc.title}</a></li>
+                   </#list>
+                </ul>
+            </div>
+
+        </div>
+         <div class="w328 border1 tong  ftl">
+      
+            <div style=" height:35px;"><div class="title2"><a href="/Home/ChannelContent?cid=${gsid}" target="_blank"><h3 class="ftl">公示公告</h3></a></div></div>
+            <div class="clear"></div>
+            <ul style="height:216px;">
+    
+     	
+        	<#list gsnews as gsn>
+    		 <li><span class="date">[${gsn.TIME}]</span><a href="/Home/NewContent?newid=${gsn.id}" target="_blank" class="newgg" title="${gsn.title}">${gsn.title}</a></li>
+               </#list>
+                            </ul>
+        </div>  
+       </div>
+       <!-- gove-open -->
+ <!-- more-cover部分 -->      
+       <div class="more-cover">
+         <div class="threeScroll">
+							<a class="prev" href="javascript:void(0)"></a>
+							<a class="next" href="javascript:void(0)"></a>
+							<div class="scrollWrap">
+								<div class="tempWrap">
+									<div class="dlList">
+										<dl><dt><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/31.png"></a></dt></dl>
+										<dl><dt><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/29.png"></a></dt></dl>
+										<dl><dt><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/30.png"></a></dt></dl>
+										<dl><dt><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/31.png"></a></dt></dl>
+									</div>
+       </div>
+   	</div>
+   </div>
+   </div>
+   <!-- more-cover -->
+  <!-- qualify部分 -->
+       <div class="qualify">
+       	<div class="status">
+       		<div class="status-title">广东省统一身份认证平台</div>
+       		<div class="status-login"><a href="http://tyrz.gdbs.gov.cn/am/portal/login.action?gotoUrl=http%3A//tyrz.gdbs.gov.cn/am/oauth2/authorize%3Fservice%3DinitService%26response_type%3Dcode%26client_id%3Dgdbsmeizhou%26scope%3Dall%26client_secret%3Dmz151106%26redirect_uri%3Dhttp%253A//wsbs.meizhou.gov.cn/portal/index/o-auth-client.action%253Fzdredirect%253Dhttps%253A//www.meizhou.gov.cn/wtauth/getinfo"><img src="${public}/images/32.png" width="10%"> 用户账户登录</a></div>
+       		<div class="status-orally">
+       			<ul>
+       				<li><a href="" onclick="javascript:alert('请先登录');">市民个人网页入口</a></li>
+       				<li class="business"><a href="" onclick="javascript:alert('请先登录');">企业专属网页入口</a></li>
+       			</ul>
+       		</div>
+       	</div>
+      <div class="news3 sfrz_index ftl w318 border1 ml10 pt5">
+        <div class="tac lineheight32 title10"><h4 class="font-normal">信用信息查询</h4></div>
+                <div class="hd">
+                    <ul>
+                        <li class="on">企业</li>
+                        <li class="">事业单位</li>
+                        <li class="">社会组织</li>
+                        <li class="">重点人群</li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul style="height: 155px; display: block;">           
+                        <form action="" method="post" name="loginform" target="_blank" class="xycx">
+              <input name="type" value="A" type="hidden">
+              <ul style="padding:12px 10px 15px 15px;">
+                <li class="g-c-f">
+                <label>查询名称：</label>
+                <input name="queryName" id="loginName" autocomplete="off" type="text" class="txt loginName btn_tong mb10" value="" placeholder="请输入您要查询的企业名称">
+                </li>
+                <li class="g-c-f">
+                <label>&nbsp;&nbsp;验证码：</label>
+                <input name="captcha" id="passwordlog" autocomplete="off" type="text" style="width:70px;" class="txt btn_tong mb10" datatype="*" ajaxurl="https://www.meizhou.gov.cn/letter/checkcode" errormsg=" " nullmsg=" ">
+                <label><img style="width: 76px;height: 29px;position: relative;top: 7px;" src="${public}/images/code.png" onclick="this.src='https://www.meizhou.gov.cn/letter/code"></label>
+                <span class="Validform_checktip"></span></li>
+               <li class="login-sub-btn">
+                   <input name="" class="btn-bg1 btn_tong btn1" type="submit" value="查询" onclick="this.form.action='http://credit.meizhou.gov.cn/xycx/enterpriseList.jspx'">
+                <input name="" class="btn-bg5 btn_tong btn1" type="reset" value="重置">
+                
+               </li>
+              </ul>
+            </form>
+                    </ul>
+                    <ul style="height: 155px; display: none;">
+                        <form action="" method="post" name="loginform" target="_blank" class="xycx">
+              <input name="type" value="B" type="hidden">
+              <ul style="padding:12px 10px 15px 15px;">
+                <li class="g-c-f">
+                <label>查询名称：</label>
+                <input name="queryName" id="loginName" autocomplete="off" type="text" class="txt loginName btn_tong mb10" value="" placeholder="请输入您要查询的事业单位名称">
+                </li>
+                <li class="g-c-f">
+                <label>&nbsp;&nbsp;验证码：</label>
+                <input name="captcha" id="passwordlog" autocomplete="off" type="text" style="width:70px;" class="txt btn_tong mb10" datatype="*" ajaxurl="https://www.meizhou.gov.cn/letter/checkcode" errormsg=" " nullmsg=" ">
+                <label><img style="width: 76px;height: 29px;position: relative;top: 7px;" src="${public}/images/code.png" onclick="this.src='https://www.meizhou.gov.cn/letter/code"></label>
+                <span class="Validform_checktip"></span></li>
+               <li class="login-sub-btn">
+                <input name="" class="btn-bg1 btn_tong btn1" type="submit" value="查询" onclick="this.form.action='http://credit.meizhou.gov.cn/xycx/enterpriseList.jspx'">
+                <input name="" class="btn-bg5 btn_tong btn1" type="reset" value="重置">
+                
+               </li>
+              </ul>
+            </form>
+                    </ul>
+          <ul style="height: 155px; display: none;">
+                        <form method="post" name="loginform" target="_blank" class="xycx">
+              <input name="type" value="C" type="hidden">
+              <ul style="padding:12px 10px 15px 15px;">
+                <li class="g-c-f">
+                <label>查询名称：</label>
+                <input name="queryName" id="loginName" autocomplete="off" type="text" class="txt loginName btn_tong mb10" value="" placeholder="请输入您要查询的社会组织名称">
+                </li>
+                <li class="g-c-f">
+                <label>&nbsp;&nbsp;验证码：</label>
+                <input name="captcha" id="passwordlog" autocomplete="off" type="text" style="width:70px;" class="txt btn_tong mb10" datatype="*" ajaxurl="https://www.meizhou.gov.cn/letter/checkcode" errormsg=" " nullmsg=" ">
+                <label><img style="width: 76px;height: 29px;position: relative;top: 7px;" src="${public}/images/code.png" onclick="this.src='https://www.meizhou.gov.cn/letter/code"></label>
+                <span class="Validform_checktip"></span></li>
+               <li class="login-sub-btn">
+                <input name="" class="btn-bg1 btn_tong btn1" type="submit" value="查询" onclick="this.form.action='http://credit.meizhou.gov.cn/xycx/enterpriseList.jspx'">
+                <input name="" class="btn-bg5 btn_tong btn1" type="reset" value="重置">
+                
+               </li>
+              </ul>
+            </form>
+                    </ul>
+          <ul style="height: 155px; display: none;">
+           <form action="" method="post" name="loginform" target="_blank" class="xycx">
+              
+              <ul style="padding:12px 10px 15px 15px;">
+                  <li class="g-c-f">
+                   <label>&nbsp;重点人群类别: </label>
+                   <select name="type" class="txt1 loginName btn_tong mb5">
+                 <option value="A">特种设备作业人员证</option>
+                 <option value="B">护士注册证</option>
+                 <option value="C">执业医师资格证</option>
+                   </select>
+              </li>
+                <li class="g-c-f" style="padding-left: 20%;">
+                <label style="padding-left: 9px;">姓名：</label>
+                <input name="queryName" id="loginName" autocomplete="off" type="text" class="txt1 loginName btn_tong mb5" value="" style="    position: relative;
+    right: 5px;">
+                </li>
+                <li class="g-c-f" style="    padding-left: 1px;">
+                    <label>职业资格证书号: </label>
+                    <input name="queryLicenseNo" id="loginName" autocomplete="off" type="text" class="txt1 loginName btn_tong mb5" value="">
+                </li>
+              
+               <li class="login-sub-btn">
+                <input name="" class="btn-bg1 btn_tong btn1" type="submit" value="查询" onclick="this.form.action='http://credit.meizhou.gov.cn/xycx/focusGroupsList.jspx'">
+                <input name="" class="btn-bg5 btn_tong btn1" type="reset" value="重置">
+                
+               </li>
+              </ul>
+            </form>
+                    </ul>
+                </div>
+            </div>
+         	<div class="subject">
+       		<div class="subject-title">专题专栏</div>
+       		<div class="subject-img">
+       			<ul>
+       				<li><a href="/Home/ChannelContent?cid=17"><img src="${public}/images/pross1.jpg" width="80%"></a></li>
+       				<li><a href="/Home/ChannelContent?cid=17"><img src="${public}/images/pross2.jpg" width="80%"></a></li>
+       				<li><a href="/Home/ChannelContent?cid=17"><img src="${public}/images/pross3.jpg" width="80%"></a></li>
+       			</ul>
+       		</div>
+       	</div>
+       </div>
+       <!-- website-nav -->       
+       <div class="website-nav">
+        <span class="website-title">网站导航 </span>
+       	<select>
+       		<option>省内地方政府</option>
+       	</select>
+       	<select>
+       		<option>区县政府网站</option>
+       	</select>
+       	<select>
+       		<option>机关单位</option>
+       	</select>
+       	<select>
+       		<option>各镇（办事处、高管会）</option>
+       	</select>
+       	<select>
+       		<option>其他网站</option>
+       	</select>
+       </div>
+       </div>
+       <!-- qualify -->
+
+<#include '/WEB-INF/templates/mxcommon/footer.html'>

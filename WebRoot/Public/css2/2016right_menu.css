@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+/*right_menu*/
+
+.right_menu{width:48px; height:400px; position:absolute; top:258px; right:10px; z-index:1;}
+.right_menu *{ box-sizing:content-box;}
+.right_menu b{background:#062d4f; opacity:.7; filter:alpha(opacity=70); border-radius:5px; display:block; position:absolute; width:100%; height:62%; z-index:1;}
+
+.right_menu ul{top:20px; width:100%; position:absolute; z-index:3;}
+.right_menu li{text-align:center; height:3em; position:relative; overflow:hidden; }
+
+.right_menu .item{position:relative; width:48px; height:48px; margin-top:3px; *margin-top:0; background:url(../images2/2016_rpic.png) no-repeat; cursor:pointer}
+.right_menu .smwy{background-position:center 15px}
+.right_menu .qywy{background-position:center -50px}
+.right_menu .wx{background-position:center -118px}
+.right_menu .wb{background-position:center -190px}
+.right_menu .sjb{background-position:center -258px;}
+.right_menu .wzjy{background-position:center -425px;}
+.right_menu .fxd{background-position:center -388px}
+.right_menu .gotop{background-position:center -435px; display:none;}
+li.gotop:hover{background-color:#062d4f;}
+.right_menu .smyx{background-position:center -254px}
+
+.button-rotate{overflow:hidden;color:#fff;}
+.button-rotate a{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;line-height:48px;font-size:12px;font-weight:700;color:#fff!important;background-color:#18448e;text-decoration:none!important;text-align:center;-webkit-transform-origin:-50% 50%;transform-origin:-50% 50%;-webkit-transform:rotate3d(0,0,1,90deg);transform:rotate3d(0,0,1,90deg);-webkit-transition:-webkit-transform .3s ease-in;transition:transform .3s ease-in;opacity:0\9;filter:alpha(opacity=0)\9}
+.button-rotate:hover a,.button-rotate:hover{-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out}
+.button-rotate:hover a{-webkit-transform:rotate3d(0,0,1,0deg);transform:rotate3d(0,0,1,0deg);text-decoration:none;opacity:1\9;filter:alpha(opacity=100)\9}
+
+.smwy a, .qywy a, .wx a, .wb a, .wzjy a, .smyx a{width:28px;height:28px;padding:10px; line-height:14px;}
+
+.right_menu .wx_con{position:absolute; left:-130px; top:0px; padding:10px;
+    width: 110px;
+    height: 190px;
+	color:#FFF;
+	background:rgba(0,0,0,0.78);
+	border-radius:5px;
+	display:none;
+	text-align:center;
+}
+.right_menu .wx_con span{font-size:18px; font-weight:bold; line-height:1.8; display:block; text-align:center;}
+.right_menu .wx_con p{font-size:14px; font-weight:bold; display:block; padding:0; margin:0; text-align:center; line-height:1.6;}
+
+.right_menu .wb_con{ position:absolute; left:-200px; top:50px; padding:10px;
+    width: 180px;
+    height: 130px;
+    text-align: center;
+    background:rgba(0,0,0,0.78); border-radius:5px;}
+.right_menu .smyx_con{
+	    position: absolute;
+    left: -150px;
+    top: 100px;
+    width: 150px;
+    height: 130px;
+    background: rgba(0,0,0,0.78);
+    border-radius: 5px;
+}
+.right_menu .wb_con dl{margin:0; padding:10px 0 0; overflow:hidden; zoom:1; color:#FFF}
+.right_menu .wb_con dl dd{float:left; width:90px; padding:0; height:120px;}
+.right_menu .wb_con dl dd.child2{width:80px; padding:0 5px;}
+.right_menu .wb_con dl dd .pic img{display:block; width:70px; height:70px; margin:0 auto;}
+.right_menu .wb_con dl dd .txt{ margin-top:6px; line-height:20px; text-align:center; max-height:40px; overflow:hidden;}
+.right_menu .wb_con dl dd .txt a{color:#fff;}
+.right_menu .wb_con dl dd .txt a:hover{color:#CC0; font-weight:bold;}
+.right_menu .fxd_con{position:absolute; left:-140px; top:155px; padding:10px;
+    width: 120px;
+    height: 80px;
+	color:#fff;
+	background:rgba(0,0,0,0.78);
+	border-radius:5px;
+	display:none;
+}
+@media only screen and (min-width: 1480px) {
+.right_menu{right:6%;}
+}
+@media only screen and (max-width: 1100px) {
+.right_menu{display:none;}
+.hide_mobile {
+    display: none;
+}
+}

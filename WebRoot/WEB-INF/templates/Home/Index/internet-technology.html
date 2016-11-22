@@ -1,0 +1,79 @@
+<#include '/WEB-INF/templates/mxcommon/header.html'>
+<div class="wid">
+	<img src="${public}/images/banner_kjcy.jpg" width="1022" height="100">
+	<div class="list-topBox mb20">
+		<span class="fl"><a href="/Home/Index">网站首页</a>
+			
+			&gt;&gt;<a href="/Home/Index/internet">办事服务</a>
+			&gt;&gt;<a href="/Home/ChannelContent?cid=214">公共服务</a>
+			&gt;&gt;<a href="/Home/ChannelContent?cid=243">企业服务</a>
+			&gt;&gt;<a href="/Home/ChannelContent?cid=248">科技创业专题</a>
+		</span>
+	</div>
+	<div class="ftl border_min pr10 pl10" style="width:475px; height: 265px; position:relative;">
+		
+		<div class="title10 pl10 pr10 border_b01 "><h3 class="ftl">科技计划 </h3></div>
+		
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=249">更多+</a></p>
+		<div class="content_min">
+			<ul>
+				<#list kjnews as  kjn>
+				<li><span class="date">(${kjn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${kjn.id}" target="_blank" title="${kjn.title}　">${kjn.title}</a></li>
+				</#list>
+			</ul>
+		</div>
+	</div>
+
+	<div class="ftr border_min pr10 pl10" style="width:475px; height: 265px; position:relative;">
+		
+		<div class="title10 pl10 pr10 border_b01"><h3 class="ftl">高新技术 </h3></div>
+		
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=250">更多+</a></p>
+		<div class="content_min">
+			<ul>
+				<#list gxnews as gxn>
+				<li><span class="date">(${gxn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${gxn.id}" target="_blank">${gxn.title}</a></li>
+				</#list>
+			</ul>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+	<div class="ftl border_min pr10 pl10 mt15" style="width:475px; height: 235px; position:relative;">
+		<div class="title10 pl10 pr10 border_b01"><h3 class="ftl">服务动态 </h3></div>
+		
+		<div class="kjcy_btn">
+			<ul>
+				
+				<li><a href="/Home/ChannelContent?cid=253" target="_blank">
+					<div class="back_color17 ml10 border3"><img src="${public}/images/icon79.png"></div>
+					<p>资金支持</p></a></li>
+					
+					<li><a href="/Home/ChannelContent?cid=254" target="_blank">
+						<div class="back_color17 ml10 border3"><img src="${public}/images/icon80.png"></div>
+						<p>资助企业名单</p></a></li>
+						
+						<li><a href="/Home/ChannelContent?cid=255" target="_blank">
+							<div class="back_color17 ml10 border3"><img src="${public}/images/icon81.png"></div>
+							<p>资料下载</p></a></li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</div>
+
+				<div class="ftr border_min pr10 pl10 mt15" style="width:475px; height: 235px; position:relative;">
+					
+					<div class="title10 pl10 pr10 border_b01"><h3 class="ftl">优惠政策</h3></div>
+					<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=252">更多+</a></p>
+					<div class="content_min">
+						<ul>
+							<#list yhnews as yh>
+							<li><span class="date">(${yh.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${yh.id}" target="_blank">${yh.title}</a></li>
+							</#list>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"></div>
+
+			</div>
+<#include '/WEB-INF/templates/mxcommon/footer.html'>
