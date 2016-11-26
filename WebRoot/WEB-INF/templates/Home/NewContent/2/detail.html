@@ -1,0 +1,70 @@
+<#include '/WEB-INF/templates/mxcommon2/header.html'>
+  <link rel="stylesheet" type="text/css" href="${public}/css2/common.css">
+<div class="wid pt10">
+         <div class="list-topBox">
+        <span class="fl">位置：
+        <a href="">网站首页</a> 
+        <#list cms as cm>	
+        &gt;&gt;  <a href="/Home/ChannelContent?cid=${cm.id}">${cm.title}</a> 
+        </#list>
+         </span>
+    </div>
+    <div class="list-line">
+        
+        <div class="list-contentbox">
+            <div class="list-subtitle" id="content_toplitile">${new.title}</div>
+            <div class="list-newstitle" id="content_atitile"></div>
+            <div class="list-subtitle"></div>
+            <div class="list-newsinfo mb10 clear">
+                <table border="0" align="center" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                    <tbody>
+                    <tr>
+                        <td class="list-leftinfo">
+                        <#if new.writer!="">
+                         <span>作者：${new.writer}</span>&nbsp;&nbsp;
+                         </#if>
+                         <#if new.origin!="">
+                            <span>来源：${new.origin}</span>&nbsp;&nbsp;
+                            </#if>
+                            <span>时间：${new.TIME}</span>&nbsp;&nbsp;
+			    <span>浏览：${new.looks}</span>&nbsp;&nbsp;
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+            </div>
+			<script language="javascript"> 
+				function setFontSize(objID,size){ 
+				  $('#'+objID+' p').css("font-size", size+'px')
+				} 
+			</script>
+            <div class="list-leftinfo clear" id="print">
+                <span class="ftl mr10">【字体：<a onclick="setFontSize('news_content',20)">大</a> <a onclick="setFontSize('news_content',14)">中</a> <a onclick="setFontSize('news_content',12)">小</a>】</span>
+                <span class="hand ftl mr10" onclick="javascript:window.print();"><img src="https://www.meizhou.gov.cn/styles/default/imageset/print.png">&nbsp;打印</span>
+				
+            </div>
+            <div class="list-newscontnet" id="news_content">
+         		${new.content}
+            </div>
+            		<#if new.video!="">
+				<video controls="controls">
+					<source src="${new.video}">
+				</video>
+				</#if> <#if new.attach!=""> <a style="color: blue;"
+					href="/Home/Index/downfile?filename=${new.attach}">${new.title} 附件下载</a> </#if>
+	                <div class="list-tips">
+                <div class="list-tipsr"><a onclick="window.close()" title="关闭窗口" href="javascript:;">【关闭窗口】</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="blank10"></div>
+</div>
+<script>
+	$('.nav li').removeClass('on');
+	var select="${selected}";
+	$(select).addClass('on');
+</script>
+<#include '/WEB-INF/templates/mxcommon2/footer.html'>

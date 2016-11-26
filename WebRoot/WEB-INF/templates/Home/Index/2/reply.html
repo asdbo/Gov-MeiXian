@@ -4,7 +4,7 @@
 	<div class="wid pt10">
 	<div class="xwfb ftl back_color1 p10 border1 border_radius5">
 		<div class="title1">
-			<a href="detail.php" target="_self">
+			<a href="/Home/Index/detail" target="_self">
 			<h3 class="ftl">新闻发布会</h3>
 			</a>
 		</div>
@@ -12,19 +12,19 @@
 		</div>
 		<div class="xwfb_img ftl mt10">
 			<div class="pic">
-				<img src="${public}/images2/pic3.jpg">
+				<img src="${(news1.newpic)!}">
 			</div>
 			<div class="txt-bg">
 			</div>
 			<div class="txt" style="text-align:center">
-				“掌上梅县”客户端上线发布会
+			 ${(news1.title)!} 
 			</div>
 		</div>
-		<p class="ftr ti20 p10" style="line-height:28px; width:300px; height:180px; ">
-			今天上午，梅县日报“掌上梅县”客户端上线发布会在梅城迎宾馆举行。市委常委、统战部部长张丽霞参加了发布会。嘉宾触摸LED屏按键，“掌上梅县”启动上线据了解，“掌上梅县”由全国报业移动传播百强之一的梅县日报打造，是一款“新闻+政务+服务”综合类客户端，是延伸和承载梅县主流传播资讯的新...
+		<p class="ftr ti20 p10 newfbh" style="line-height:28px; width:300px; height:180px; ">
+			${(news1.summary)!} 
 		</p>
 		<p class="more2">
-			<a target="_blank" href="page.php">更多+</a>
+			<a target="_blank" href="/Home/ChannelContent?cid=40">更多+</a>
 		</p>
 		<p>
 		</p>
@@ -33,18 +33,16 @@
 	</div>
 	<div class="huiying ftr tong back_color1 p10 border1 border_radius5" style=" height:267px; height:266px\9;">
 		<div class="title1">
-			<a href="detail.php">
+			<a href="/Home/ChannelContent?cid=41">
 			<h3 class="ftl">热点问题回应</h3>
 			</a>
 		</div>
 		<div class="clear">
 		</div>
 		<ul class="mt10" style=" height:210px;">
-			<li><a href="detail.php" target="_blank">离婚时发现配偶转移共同财产可要求分割</a></li>
-			<li><a href="detail.php" target="_blank">离婚时发现配偶转移共同财产可要求分割</a></li>
-			<li><a href="detail.php" target="_blank">离婚时发现配偶转移共同财产可要求分割</a></li>
-			<li><a href="detail.php" target="_blank">离婚时发现配偶转移共同财产可要求分割</a></li>
-			<li><a href="detail.php" target="_blank">离婚时发现配偶转移共同财产可要求分割</a></li>
+			<#list rdnews as rd>
+			<li><a href="/Home/NewContent?newid=${rd.id}" target="_blank">${rd.title}</a></li>
+			</#list>
 		</ul>
 	</div>
 	<div class="clear">
@@ -54,7 +52,7 @@
 			<div class="hd" style=" border-bottom: 1px solid #cdcdcd;">
 				<ul>
 					<div class="font-size16 font-red2 mb10 ftl mr20 title3">
-						<a href="detail.php" target="_self">
+						<a href="/Home/ChannelContent?cid=42" target="_self">
 						<h3>政策解读</h3>
 						</a>
 					</div>
@@ -63,41 +61,29 @@
 				</ul>
 			</div>
 			<div class="bd tong">
+				<#list zccms as zcc>
+				<#if zcc_index=0>
 				<ul>
-					<p class="more1" style="right:16px;">
-						<a target="_blank" href="page.php">更多+</a>
-					</p>
-					<div style=" width:480px; padding:10px 0;">
-						<li><span class="date">（2016-11-01）</span><a href="detail.php" target="_blank">国家统计局服务业调查中心高级统计师赵庆河解读20...</a></li>
-						<li><span class="date">（2016-11-01）</span><a href="detail.php" target="_blank">国家统计局服务业调查中心高级统计师赵庆河解读20...</a></li>
-						<li><span class="date">（2016-11-01）</span><a href="detail.php" target="_blank">国家统计局服务业调查中心高级统计师赵庆河解读20...</a></li>
-						<li><span class="date">（2016-11-01）</span><a href="detail.php" target="_blank">国家统计局服务业调查中心高级统计师赵庆河解读20...</a></li>
-						<li><span class="date">（2016-11-01）</span><a href="detail.php" target="_blank">国家统计局服务业调查中心高级统计师赵庆河解读20...</a></li>
-						<li><span class="date">（2016-11-01）</span><a href="detail.php" target="_blank">国家统计局服务业调查中心高级统计师赵庆河解读20...</a></li>
-						<li><span class="date">（2016-11-01）</span><a href="detail.php" target="_blank">国家统计局服务业调查中心高级统计师赵庆河解读20...</a></li>
-					</div>
-				</ul>
+				<#else>
 				<ul style="display: none;">
+				</#if>
 					<p class="more1" style="right:16px;">
-						<a target="_blank" href="detail.php">更多+</a>
+						<a target="_blank" href="/Home/ChannelContent?cid=${zcc.id}">更多+</a>
 					</p>
 					<div style=" width:480px; padding:10px 0;">
-						<li><span class="date">（2016-10-27）</span><a href="detail.php" target="_blank">图解：城市管理执法体制改革</a></li>
-						<li><span class="date">（2016-10-27）</span><a href="detail.php" target="_blank">图解：城市管理执法体制改革</a></li>
-						<li><span class="date">（2016-10-27）</span><a href="detail.php" target="_blank">图解：城市管理执法体制改革</a></li>
-						<li><span class="date">（2016-10-27）</span><a href="detail.php" target="_blank">图解：城市管理执法体制改革</a></li>
-						<li><span class="date">（2016-10-27）</span><a href="detail.php" target="_blank">图解：城市管理执法体制改革</a></li>
-						<li><span class="date">（2016-10-27）</span><a href="detail.php" target="_blank">图解：城市管理执法体制改革</a></li>
-						<li><span class="date">（2016-10-27）</span><a href="detail.php" target="_blank">图解：城市管理执法体制改革</a></li>
+						<#list zcnewss.get(zcc_index) as zcn>
+						<li><span class="date">（${zcn.TIME}）</span><a class="newtitle" href="/Home/NewContent?newid=${zcn.id}" target="_blank">${zcn.title}</a></li>
+						</#list>
 					</div>
 				</ul>
+				</#list>
 			</div>
 		</div>
 		<div class="tufa ftr" style="width:480px;">
 			<div class="hd" style=" border-bottom: 1px solid #cdcdcd;">
 				<ul>
 					<div class="font-size16 font-red2 mb10 ftl mr20 title3">
-						<a href="detail.php" target="_self">
+						<a href="/Home/ChannelContent?cid=43" target="_self">
 						<h3>突发事件</h3>
 						</a>
 					</div>
@@ -106,34 +92,22 @@
 				</ul>
 			</div>
 			<div class="bd tong">
+				<#list tfcms as tfc>
+				<#if tfc_index=0>
 				<ul>
-					<p class="more1" style="right:16px;">
-						<a target="_blank" href="page.php">更多+</a>
-					</p>
-					<div style=" width:480px; padding:10px 0;">
-						<li><span class="date">（2016-11-07）</span><a href="detail.php" target="_blank">新疆维吾尔自治区和田地区皮山县发生3.0级地震</a></li>
-						<li><span class="date">（2016-11-07）</span><a href="detail.php" target="_blank">新疆维吾尔自治区和田地区皮山县发生3.0级地震</a></li>
-						<li><span class="date">（2016-11-07）</span><a href="detail.php" target="_blank">新疆维吾尔自治区和田地区皮山县发生3.0级地震</a></li>
-						<li><span class="date">（2016-11-07）</span><a href="detail.php" target="_blank">新疆维吾尔自治区和田地区皮山县发生3.0级地震</a></li>
-						<li><span class="date">（2016-11-07）</span><a href="detail.php" target="_blank">新疆维吾尔自治区和田地区皮山县发生3.0级地震</a></li>
-						<li><span class="date">（2016-11-07）</span><a href="detail.php" target="_blank">新疆维吾尔自治区和田地区皮山县发生3.0级地震</a></li>
-						<li><span class="date">（2016-11-07）</span><a href="detail.php" target="_blank">新疆维吾尔自治区和田地区皮山县发生3.0级地震</a></li>
-					</div>
-				</ul>
+				<#else>
 				<ul style="display: none;">
+				</#if>
 					<p class="more1" style="right:16px;">
-						<a target="_blank" href="https://www.meizhou.gov.cn/list/405">更多+</a>
+						<a target="_blank" href="/Home/ChannelContent?cid=${tfc.id}">更多+</a>
 					</p>
 					<div style=" width:480px; padding:10px 0;">
-						<li><span class="date">（2016-11-02）</span><a href="detail.php" target="_blank" >清远英德市发生一起交通事故造成3人死亡3人受伤</a></li>
-						<li><span class="date">（2016-11-02）</span><a href="detail.php" target="_blank" >清远英德市发生一起交通事故造成3人死亡3人受伤</a></li>
-						<li><span class="date">（2016-11-02）</span><a href="detail.php" target="_blank" >清远英德市发生一起交通事故造成3人死亡3人受伤</a></li>
-						<li><span class="date">（2016-11-02）</span><a href="detail.php" target="_blank" >清远英德市发生一起交通事故造成3人死亡3人受伤</a></li>
-						<li><span class="date">（2016-11-02）</span><a href="detail.php" target="_blank" >清远英德市发生一起交通事故造成3人死亡3人受伤</a></li>
-						<li><span class="date">（2016-11-02）</span><a href="detail.php" target="_blank" >清远英德市发生一起交通事故造成3人死亡3人受伤</a></li>
-						<li><span class="date">（2016-11-02）</span><a href="detail.php" target="_blank" >清远英德市发生一起交通事故造成3人死亡3人受伤</a></li>
+						<#list tfnewss.get(tfc_index) as tfn>
+						<li><span class="date">（${tfn.TIME}）</span><a class="newtitle" href="/Home/NewContent?newid=${tfn.id}" target="_blank">${tfn.title}</a></li>
+						</#list>
 					</div>
 				</ul>
+				</#list>
 			</div>
 		</div>
 		<div class="clear">

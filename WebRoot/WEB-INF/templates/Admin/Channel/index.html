@@ -32,7 +32,10 @@
 			<div class="col-lg-12">
 				<ul class="nav nav-tabs">
 					<li class="active"><a href="/Admin/Channel/list">栏目显示</a></li>
+						<#if session.get("AdminModel").hasPermission("/Admin/Channel/toAdd") = true >
 					<li ><a href="/Admin/Channel/toAdd">添加栏目</a></li>
+					<#else>
+					</#if>
 				
 				</ul>
 				<div class="panel panel-default">
@@ -50,8 +53,14 @@
 									<th data-sortable="true" data-align="center">栏目标题</th>
 									<th data-sortable="true" data-align="center">上级栏目</th>
 									<th data-sortable="true" data-align="center">类型</th>
+									<#if session.get("AdminModel").hasPermission("/Admin/Channel/toedit") = true >
 									<th data-sortable="true" data-align="center">修改</th>
+										<#else>
+									</#if>
+								<#if session.get("AdminModel").hasPermission("/Admin/Channel/delete") = true >
 									<th data-sortable="true" data-align="center">删除</th>
+									<#else>
+									</#if>
 								</tr>
 							</thead>
 							<#list channelModel as c>
@@ -74,14 +83,23 @@
 										 </#list>
 								</td>
 								<td style="text-align: center;"><#if c.type == 0>
-									新闻 </#if>
+									新闻
+									<#elseif c.type=1>
+									信件
+									 </#if>
 								</td>
+								<#if session.get("AdminModel").hasPermission("/Admin/Channel/toedit") = true >
 								<td style="text-align: center;"><a
 									href="/Admin/Channel/toedit?id=${c.id}"><button type="button" class="btn btn-primary">修改</button></a></td>
 								<td>
+								<#else>
+									</#if>
+								<#if session.get("AdminModel").hasPermission("/Admin/Channel/delete") = true >
 								<!-- <a
 									href="/Channel/delete/${c.id}"> --><button class="btn btn-danger delete" onClick="deletedata(${c.id})" data-toggle="modal" data-target="#deleteModal" id="${c.id}">删除	</button><!-- </a> -->
 								</td>
+								<#else>
+									</#if>
 							</tr>
 	
 							</#list>

@@ -30,7 +30,10 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<ul class="nav nav-tabs">
+					<#if session.get("AdminModel").hasPermission("/Admin/News/toUpdate") = true >
 					<li><a href="/Admin/News/toAdd">添加新闻</a></li>
+					<#else>
+					</#if>
 					<li class="active"><a href="/Admin/News/list">管理新闻</a></li>
 				</ul>
 				<div class="panel panel-default">
@@ -57,8 +60,14 @@
 									<th data-sortable="true" data-align="center">封面图片</th>
 									<th data-sortable="true" data-align="center">发布日期</th>
 									<th data-sortable="true" data-align="center">浏览次数</th>
+									<#if session.get("AdminModel").hasPermission("/Admin/News/toUpdate") = true >
 									<th data-sortable="true" data-align="center">修改</th>
+										<#else>
+									</#if>
+										<#if session.get("AdminModel").hasPermission("/Admin/News/deleteNew") = true >
 									<th data-sortable="true" data-align="center">删除</th>
+										<#else>
+									</#if>
 								</tr>
 							</thead>
 								<tbody>
@@ -74,10 +83,19 @@
 								<td><img width="60px" height="40px"  src="${new.newpic}"></td>
 								<td>${new.TIME}</td>
 								<td>${new.looks}</td>
-								<td><a href="/Admin/News/toUpdate?id=${new.id}" class="aa">修改</a></td>
+								<#if session.get("AdminModel").hasPermission("/Admin/News/toUpdate") = true >
+								
+								<td style="text-align: center;"><a
+									href="/Admin/News/toUpdate?id=${new.id}"><button type="button" class="btn btn-primary">修改</button></a></td>
+							
+									<#else>
+									</#if>
+									<#if session.get("AdminModel").hasPermission("/Admin/News/deleteNew") = true >
 								<td><button class="btn btn-primary delete"
 										  data-target="#deleteModal" data-toggle="modal" onClick="deleteData(${new.id})"
 										  >删除</button></td>
+										  <#else>
+									</#if>
 
 							</tr>
 

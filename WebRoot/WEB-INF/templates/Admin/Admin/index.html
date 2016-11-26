@@ -25,9 +25,19 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<ul class="nav nav-tabs">
+				<#if session.get("AdminModel").hasPermission("/Admin/Admin/list") =
+					true >
 					<li class="active"><a href="/Admin/Admin/list">管理用户</a></li>
+					<#else> </#if> <#if
+					session.get("AdminModel").hasPermission("/Admin/Admin/addViewChange")
+					= true >
+					
 					<li class=""><a href="/Admin/Admin/addViewChange">添加用户</a></li>
+					<#else> </#if> <#if
+					session.get("AdminModel").hasPermission("/Admin/Admin/queryAdminLogInfo")
+					= true >
 					<li class=""><a href="/Admin/Admin/queryAdminLogInfo">用户日志</a></li>
+					<#else> </#if>
 				</ul>
 				<div class="panel panel-default">
 
@@ -73,8 +83,14 @@
 											class="btn btn-info btn-delete delete" date-toggle="modal"
 											date-target="#deleteModel">
 									</a>-->
+									 <#if
+										session.get("AdminModel").hasPermission("/Admin/Admin/deleteAdminById")
+										= true >
 										<button class="btn btn-info delete" data-toggle="modal"
 											data-target="#myModal" id=${dizhi.id}  onClick="deletedata(${dizhi.id})">删除</button>
+											<#else>
+
+										</#if>
 									</td>
 
 

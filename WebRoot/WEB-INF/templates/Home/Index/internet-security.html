@@ -5,27 +5,37 @@
 		<a class="prev" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
 		<a class="next" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
 		<ul class="pic pics" style="position: relative; width: 380px; height: 250px;">
+			<#list crm as c>
+				<#if c_index=0>
+				<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+				<#else>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
 
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/d73d995de0c236e130586d028b13b9b8.jpg"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/c671ad421fb53cc8572edb0c80d9cc32.jpg"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/566436c05d523ebdb1c50b9cc12b96cf.jpg"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/d73d995de0c236e130586d028b13b9b8 (1).jpg"></a></li>
+				</#if>
+			</#list>
 		</ul>
 		<div class="txt-bg"></div>
 		<div class="txt">
 			<ul>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="省社保局业务档案达标验收“回头看”督查组到我市开展督查">省社保局业务档案达标验收...</a></li>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="发展社保事业 夯实民生之基">发展社保事业 夯实民生之...</a></li>
-				<li style="bottom: 0px;"><a href="/Home/NewContent?newid=17" target="_blank" title="我市开展2016年度基本医疗保险定点医疗机构服务协议签订工作">我市开展2016年度基本...</a></li>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="市社保局到大埔县大东镇白土村开展“七一”走访慰问活动">市社保局到大埔县大东镇白...</a></li>
+			<#list crm as c>
+				<#if c_index=0>
+				<li style="bottom: 0px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				<#else>
+				<li style="bottom: -36px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				</#if>
+				
+			</#list>
 			</ul>
 		</div>
 
 		<ul class="num">
-			<li class=""><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
+		<#list crm as c>
+				<#if c_index=0>
 			<li class="on"><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
+			<#else>
+				<li class=""><a></a><span></span></li>
+				</#if>
+			</#list>
 		</ul>
 	</div>
 

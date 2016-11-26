@@ -6,27 +6,37 @@
 		<a class="prev" href="javascript:void(0)" style="display: none; opacity: 1;"></a>
 		<a class="next" href="javascript:void(0)" style="display: none; opacity: 1;"></a>
 		<ul class="pic" style="position: relative; width: 380px; height: 250px;">
+		<#list crm as c>
+				<#if c_index=0>
+				<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+				<#else>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
 
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/3551581aa4a03add99648a63847cb113.jpg"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/acad8efa163ab6432d7eee7fb8725159.jpg"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/5fb20c86775fa674932656e4138627ce.jpg"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/adfdca516745c03e82abb4569a0d8c36.jpg"></a></li>
+				</#if>
+			</#list>
 		</ul>
 		<div class="txt-bg"></div>
 		<div class="txt">
 			<ul>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="九年救治先心病患儿124例">九年救治先心病患儿124例</a></li>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="廖万清院士 梅城义诊">廖万清院士 梅城义诊</a></li>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="“两癌”免费检查有序推进">“两癌”免费检查有序推进</a></li>
-				<li style="bottom: 0px;"><a href="/Home/NewContent?newid=17" target="_blank" title="中大专家教授来梅为民义诊">中大专家教授来梅为民义诊</a></li>
+			<#list crm as c>
+				<#if c_index=0>
+				<li style="bottom: 0px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				<#else>
+				<li style="bottom: -36px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				</#if>
+				
+			</#list>
 			</ul>
 		</div>
 
 		<ul class="num">
-			<li class=""><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
+			<#list crm as c>
+			<#if c_index=0>
 			<li class="on"><a></a><span></span></li>
+			<#else>
+			<li class=""><a></a><span></span></li>
+			</#if>
+				</#list>
 		</ul>
 	</div>
 

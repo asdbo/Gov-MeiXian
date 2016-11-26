@@ -11,27 +11,37 @@
 				<a class="prev" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
 				<a class="next" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
 				<ul class="pic" style="position: relative; width: 270px; height: 195px;">
+					<#list crm as c>
+				<#if c_index=0>
+				<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+				<#else>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
 
-					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/783eacdc70891f429a808cd979dc8785.jpg"></a></li>
-					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/268698b62584303431de70e8cee3780d.jpg"></a></li>
-					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: list-item;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/e0e579d969c973a76f5566467f0e6e81.jpg"></a></li>
-					<li style="position: absolute; width: 270px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/img201609241511000.jpg"></a></li>
+				</#if>
+			</#list>
 				</ul>
 				<div class="txt-bg"></div>
 				<div class="txt">
 					<ul>
-						<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="市青少年科技创新大赛启动">市青少年科技创新大赛启动</a></li>
-						<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="梅州市中小学语文版新修订教材培训会在东山学校举行">梅州市中小学语文版新修订教材培训会在东山...</a></li>
-						<li style="bottom: 0px;"><a href="/Home/NewContent?newid=17" target="_blank" title="班主任同台竞技 切磋专业能力">班主任同台竞技 切磋专业能力</a></li>
-						<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="努力让“育分”回归“育人”">努力让“育分”回归“育人”</a></li>
+						<#list crm as c>
+				<#if c_index=0>
+				<li style="bottom: 0px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				<#else>
+				<li style="bottom: -36px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				</#if>
+				
+			</#list>
 					</ul>
 				</div>
 
 				<ul class="num">
-					<li class=""><a></a><span></span></li>
-					<li class=""><a></a><span></span></li>
+				<#list crm as c>
+					<#if c_index=0>
 					<li class="on"><a></a><span></span></li>
-					<li class=""><a></a><span></span></li>
+					<#else>
+					<li ><a></a><span></span></li>
+					</#if>
+					</#list>
 				</ul>
 			</div>
 

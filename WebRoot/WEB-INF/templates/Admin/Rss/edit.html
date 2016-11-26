@@ -25,9 +25,18 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<ul class="nav nav-tabs">
-					<li class=""><a href="/Admin/Rss">Rss订阅查询</a></li>
-					<li class="active"><a href="/Admin/Rss/addViewChange">Rss订阅添加</a></li>
-                    <li class=""><a href="/Admin/Rss/toaAddRssChannel">Rss订阅频道添加</a></li>
+					<#if session.get("AdminModel").hasPermission("/Admin/Rss/list") =
+						true >
+						<li class=""><a href="/Admin/Rss/list">Rss订阅查询</a></li> <#else>
+						</#if> <#if
+						session.get("AdminModel").hasPermission("/Admin/Rss/addViewChange")
+						= true >
+						<li class="active"><a href="/Admin/Rss/addViewChange">Rss订阅添加</a></li>
+						<#else> </#if> <#if
+						session.get("AdminModel").hasPermission("/Admin/Rss/toaAddRssChannel")
+						= true >
+						<li class=""><a href="/Admin/Rss/toaAddRssChannel">Rss订阅频道添加</a></li>
+						<#else> </#if>
 				</ul>				
 				</ul>
 				<div id="content" style="margin: 20px 20px;">

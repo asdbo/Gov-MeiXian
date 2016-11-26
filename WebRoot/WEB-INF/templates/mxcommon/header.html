@@ -17,15 +17,15 @@
    		$(function(){
    			var $com= $(".newtitle");
    			for(var i=0;i<$com.length;i++){
-   				var com=$($com[i]).html();
-   				if(com.length>20){
-   					$($com[i]).html(com.substr(0,20)+"...");
+   				var com=$($com[i]).html().trim();
+   				if(com.length>19){
+   					$($com[i]).html(com.substr(0,19)+"...");
    	   			}
    			}
    			
    			var $content=$(".newsummary");
    			for(var i=0;i<$content.length;i++){
-   				var content=$($content[i]).html();
+   				var content=$($content[i]).html().trim();
    				if(content.length>70){
    					$($content[i]).html(content.substr(0,70)+"...");
    	   			}
@@ -33,14 +33,14 @@
    			
    			var $con=$(".newfbh");
    			for(var i=0;i<$con.length;i++){
-   				var con=$($con[i]).html();
-   				if(con.length>200){
-   					$($con[i]).html(con.substr(0,200)+"...");
+   				var con=$($con[i]).html().trim();
+   				if(con.length>149){
+   					$($con[i]).html(con.substr(0,149)+"...");
    	   			}
    			}
    			var $gg=$(".newgg");
    			for(var i=0;i<$gg.length;i++){
-   				var con=$($gg[i]).html();
+   				var con=$($gg[i]).html().trim();
    				if(con.length>15){
    					$($gg[i]).html(con.substr(0,15)+"...");
    	   			}
@@ -55,15 +55,16 @@
 </head>
 <body>
    <div class="background" id="content-wap">
-   <a href="/Home/Index/shift"><button>切换</button></a>
+   
 <!-- header部分 -->
    	<div class="header">
    		<div class="header-left">
    			<ul>
-   				<li ng-repeat="item in names"><a id='btn-convert' href="javascript::">繁体中文</a></li>
-   				<li ng-repeat="item in names"><a href="">使用帮助</a></li>
-   				<li ng-repeat="item in names"><a href="">邮件订阅</a></li>
-   				<li ng-repeat="item in names"><a href="">RSS订阅</a></li>
+   				<li><a href="/Home/Index/shift">切换页面</a></li>
+   				<li><a id='btn-convert' href="javascript::">繁体中文</a></li>
+   				<li><a href="">使用帮助</a></li>
+   				<li><a href="">邮件订阅</a></li>
+   				<li><a href="">RSS订阅</a></li>
    			</ul>
    		</div>
    		<div class="header-right" >
@@ -96,12 +97,11 @@
    	<div class="white"></div>
    	<div class="nav">
    		<ul>
-   			<li class="index on"><a href="/Home/Index">首页</a></li>
+   			<li class="index"><a href="/Home/Index">首页</a></li>
    			<li class="intro"><a href="/Home/Index/intro">魅力梅县</a></li>
    			<li class="open"><a href="/Home/Index/open">政务公开</a></li>
    			<li class="internet"><a href="/Home/Index/internet">办事服务</a></li>
    			<li class="service"><a href="/Home/Index/service">互动交流</a></li>
-   			
    			<li class="reply"><a href="/Home/Index/reply">回应关切</a></li>
    		</ul>
    	</div>
@@ -110,13 +110,18 @@
 <!-- remarks部分 -->
    	<div class="remarks">
 	<div class="weather"> </div>
-   		<div class="sevice">搜索服务<input type="text"></div>
-   		<div class="search"><span><a href="/Home/Index/search" style="color: white;">全部搜索</a></span>高级搜索</div>
+		<form action="/Home/Index/search" method="post">
+   		<div class="sevice">搜索服务
+   		<input type="text" name="Keywords"></div>
+   		<div class="search">
+   		 <input type="submit" value="全部搜索" style="background-color: #1362b6;color: white;">
+   		高级搜索</div>
+   		</form>
    	</div>
    	  	<script type="text/javascript">
    		   $('.weather').leoweather({
     city:'梅州',
-    format:'<img src="/rl.png">今天是：{年}年{月}月{日}日 星期{周} {城市} {昼夜}天气 <img src="/ac.png">{天气}  {夜间气温}℃ ~ {白天气温}℃'
+    format:'<img src="/rl.png">今天是：{年}年{月}月{日}日 星期{周} {城市} {昼夜}{天气}  {夜间气温}℃ ~ {白天气温}℃'
 });   
    		</script>
 <!-- remarks -->

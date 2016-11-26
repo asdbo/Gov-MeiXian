@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/bootstrap-table.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+<link type="text/css" rel="stylesheet"
+	href="${public}/jquery_treeview/jquery.treeview.css" />
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+
+</script>
+</head>
+
+<body>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<form action="/Admin/Role/updateRole">
+
+				<input value=${upModel.id} type="hidden" name="id" id="updateid">
+				<ul id="tree">
+					<#list session.get("topList") as list >
+					<li><input type="checkbox" class="input" name="privilegeIds"
+						value="${list.id!}"><span class="folder">${list.name!}</span>
+						<ul>
+							<#list list.getChildren1() as item >
+							<li><input type="checkbox" class="c-input"
+								name="privilegeIds" value="${item.id!}"><span
+								class="folder">${item.name!}</span></li> </#list>
+						</ul></li> </#list>
+				</ul>
+				<div >
+					<input class="btn" type="submit" value="提交" /> <input class="btn" type="button" value="全选"
+						id="btnCheckAll" /> <input class="btn" type="button" value="全不选"
+						id="btnCheckNone" /> <input class="btn" type="button" value="取消选择"
+						id="btnCheckReverse" />
+				</div>
+			</form>
+		</div>
+		<script language="javascript" src="${public}/js/jquery-2.2.2.min.js"></script>
+		<script language="javascript"
+			src="${public}/jquery_treeview/jquery.treeview.js"></script>
+		<script language="javascript">
+			$("#tree").treeview();
+			$(".input")
+			$(function() {
+				// 全选
+				$("#btnCheckAll").bind("click", function() {
+					$("[name = privilegeIds]:checkbox").attr("checked", true);
+				});
+
+				// 全不选
+				$("#btnCheckNone").bind("click", function() {
+					$("[name = privilegeIds]:checkbox").attr("checked", false);
+				});
+
+				// 取消选择
+				$("#btnCheckReverse").bind("click", function() {
+					$("[name = privilegeIds]:checkbox").each(function() {
+						$(this).attr("checked", !$(this).attr("checked"));
+					});
+				});
+
+				// 指定事件处理函数
+				$("[name=privilegeIds]").click(
+						function() {
+
+							// 当选中或取消一个权限时，也同时选中或取消所有的下级权限
+							$(this).siblings("ul").find("input").attr(
+									"checked", this.checked);
+
+							// 当选中一个权限时，也要选中所有的直接上级权限
+							if (this.checked == true) {
+								$(this).parents("li").children("input").attr(
+										"checked", true);
+							}
+
+						});
+
+				var aa = $('.lis ul li').text();
+				//var input=$('#tree li input').val();
+				// alert(aa);
+				for (var i = 0; i < aa.length; i++) {
+
+				}
+				$.ajax({
+					type : "GET",
+					url : "/Admin/Role/getPrivilege",
+					data : {
+						id : $("#updateid").val()
+					},
+					dataType : "json",
+					success : function(data) {
+						if (data == 0) {
+
+							alert(data);
+						} else {
+
+							alert(data);
+						}
+					},
+					error : function(textStatus) {
+						alert("error");
+						console.info(msg);
+					}
+				});
+
+			});
+		</script>
+</body>
+
+</html>

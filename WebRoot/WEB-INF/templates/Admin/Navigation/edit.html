@@ -51,9 +51,18 @@ $(function(){
 		<div class="row">
 			<div class="col-lg-12">
 				<ul class="nav nav-tabs">
+					<#if session.get("AdminModel").hasPermission("/Admin/Navigation/toAdd") = true >
 					<li><a href="/Admin/Navigation/toAdd">导航添加</a></li>
+					<#else> 
+					</#if> 
+					<#if session.get("AdminModel").hasPermission("/Admin/Navigation/list") = true >
 					<li><a href="/Admin/Navigation/list">导航显示</a></li>
+					<#else> 
+					</#if> 
+					<#if session.get("AdminModel").hasPermission("/Admin/Navigation/toAdd") = true >
 					<li class="active"><a href="/Admin/Navigation/toAdd">导航修改</a></li>
+					<#else> 
+					</#if> 
 				</ul>
 				<div class="panel panel-default">
 					<div class="panel-body">

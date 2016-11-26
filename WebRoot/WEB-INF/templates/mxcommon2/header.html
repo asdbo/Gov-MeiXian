@@ -25,6 +25,41 @@
 <script src="${public}/js2/share.js"></script>
 <link rel="stylesheet" href="${public}/css2/share_style0_32.css">
 <link rel="stylesheet" href="${public}/css2/weixin_popup.css">
+<script type="text/javascript">
+   		$(function(){
+   			var $com= $(".newtitle");
+   			for(var i=0;i<$com.length;i++){
+   				var com=$($com[i]).html().trim();
+   				if(com.length>19){
+   					$($com[i]).html(com.substr(0,19)+"...");
+   	   			}
+   			}
+   			
+   			var $content=$(".newsummary");
+   			for(var i=0;i<$content.length;i++){
+   				var content=$($content[i]).html().trim();
+   				if(content.length>70){
+   					$($content[i]).html(content.substr(0,70)+"...");
+   	   			}
+   			}
+   			
+   			var $con=$(".newfbh");
+   			for(var i=0;i<$con.length;i++){
+   				var con=$($con[i]).html().trim();
+   				if(con.length>149){
+   					$($con[i]).html(con.substr(0,149)+"...");
+   	   			}
+   			}
+   			var $gg=$(".newgg");
+   			for(var i=0;i<$gg.length;i++){
+   				var con=$($gg[i]).html().trim();
+   				if(con.length>15){
+   					$($gg[i]).html(con.substr(0,15)+"...");
+   	   			}
+   			}
+   	 
+   		})
+   </script>
 </head>
 <body id="bodys">
 	<div class="hidelogo" style="display: none;">
@@ -48,6 +83,7 @@
 								style="cursor: pointer;"  class="ft">繁体</a>
 						</div>
 						<div class="vers">
+						<span><a href="/Home/Index/shift">切换页面</a></span>
 							<span class="cSkin" id="cSkin"><a href="javascript:;">邮件订阅</a></span><span
 								class="phone"><a href="">RSS订阅</a></span><span class="wza"><a
 								href="http://voice.gz.gov.cn/">无障碍版</a></span><span class="zwyx"><a
@@ -78,12 +114,12 @@
 				<div class="nav_list clearfix">
 					<div class="nav_listbox clearfix">
 						<ul class="nav_ul">
-							<li><a href="" tag="section00" class=""><em>首页</em></li>
-							<li><a href="/Home/Index/test2" tag="section01" class=""><em>魅力梅县</em></li>
-							<li><a href="" tag="section02" class=""><em>政务公开</em></li>
-							<li><a href="" tag="section06" class=""><em>互动交流</em></li>
-							<li><a href="" tag="section09" class=""><em>办事服务</em></li>
-							<li><a href="" tag="section05" class=""><em>回应关切</em></li>
+							<li><a href="/Home/Index" tag="section00" class="index"><em>首页</em></li>
+							<li><a href="/Home/Index/intro"  class="intro"><em>魅力梅县</em></li>
+							<li><a href="/Home/Index/open"  class="open"><em>政务公开</em></li>
+							<li><a href="/Home/Index/service"  class="service"><em>互动交流</em></li>
+							<li><a href="/Home/Index/internet"   class="internet"><em>办事服务</em></li>
+							<li><a href="/Home/Index/reply" class="reply"><em>回应关切</em></li>
 						</ul>
 					</div>
 					<div class="dz hide_mobile">

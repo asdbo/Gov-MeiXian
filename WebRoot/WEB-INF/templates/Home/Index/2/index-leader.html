@@ -2,22 +2,22 @@
 <link rel="stylesheet" type="text/css" href="${public}/css2/common.css">
 <div class="index_content">
 	<div class="wid leader">
-		<div class="mt10 ftl border1">
-            <div class="title9 font-size18"><img class="ftl mt5 pl50" src="https://www.meizhou.gov.cn/styles/default/imageset/icon15.png">领导之窗</div>
-            <div class="clear"></div>
-			<ul class="ldzc">
-                                    <li class="active font-size16 quwei"><a href="javasscript:;">区委</a></li>
-                                            <li class="qrd"><a href="javascript:;" target="_self">区人大</a></li>
-                                            <li class="qzf font-size16"><a href="javascript:;">区政府</a></li>
-                                            <li><a href="javascript:;" target="_self" class="qzx font-size16">区政协</a></li>
-                                            <li><a href="javascript:;" target="_self" class="qjw font-size16">区纪委</a></li>
-			</ul>
-        </div><!--left_list-->
+	<div class="mt10 ftl border1">
+		<div class="title9 font-size18">
+			<img class="ftl mt5 pl50"
+				src="${public}/images/icon15.png"><a href="/Home/Index/leader" style="color: white;">领导之窗</a>
+		</div>
+		<div class="clear"></div>
+		<ul class="ldzc">
+			<#list cms1 as cm>
+			<li class="active font-size16 quwei"><a href="/Home/Index/leader?id=${cm.id}">${cm.title}</a></li>
+			</#list>
+		</ul>
+	</div>
+	<!--left_list-->
 
-        <div class="right_list mt10 ftr ">
-           <td valign="top"><table width="730" height="520" border="0" align="center" cellpadding="0" cellspacing="0" class="bk3">
-          <tbody><tr>
-            <td valign="top"><table width="716" border="0" align="center" cellpadding="0" cellspacing="0">
+	<div class="right_list mt10 ftr ">
+	<table width="716" border="0" align="center" cellpadding="0" cellspacing="0">
               <tbody><tr>
                 <td width="36" height="28" align="center"><img src="http://www.gdmx.gov.cn/statics/images/mx_img/5568.gif" width="16" height="13"></td>
                 <td width="680"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -25,393 +25,96 @@
     <td height="3"></td>
   </tr>
   <tr>
-    <td style="font-size:14px; font-weight:bold;color: #333;">领导之窗</td>
+    <td style="font-size:14px; font-weight:bold;">${leader.title}</td>
   </tr>
-</tbody>
-</table style=""></td>
+</tbody></table></td>
               </tr>
               <tr>
                 <td height="2" colspan="2" bgcolor="#DADADA"></td>
               </tr>
             </tbody></table>
-              <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tbody><tr>
-                  <td height="8"></td>
-                </tr>
-              </tbody></table>
-			  <table width="98%" class="tables t-quwei" border="0" cellspacing="1" cellpadding="3" align="center">
+            <#list cms as cm>
+		<table width="98%" border="0" cellspacing="1" cellpadding="3"
+			align="center" style="margin-top: 10px">
 			<thead>
-			<tr>
-				<td width="20%" bgcolor="#eddbab" height="24" style="color:#333">&nbsp;&nbsp;<b>区&nbsp;&nbsp;委</b></td>
-				<td bgcolor="#f6eedb"></td>
-			</tr>
+				<tr>
+					<td width="20%" bgcolor="#eddbab" height="24"
+						style="color: #FF0000">&nbsp;&nbsp;<b>${cm.title}</b></td>
+					<td bgcolor="#f6eedb"></td>
+				</tr>
 			</thead>
-												<tbody><tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>书&nbsp;&nbsp;记</strong></td>
-												<td width="80%" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=1" title="张文广">张文广</a> </td>
-						  			</tr>
-												<tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>副书记</strong></td>
-				
-				<td width="80%" bgcolor="#f6eedb">
-			<table width="450" border="0" cellspacing="0" cellpadding="0">
-  <tbody>
-  <tr>
-   								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=2" title="钟光灵">钟光灵</a>				</td>
-						     								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=5" title="钟秀堂">钟秀堂</a>				</td>
-						  						  
-  </tr>
-</tbody>
-</table>
+			<tbody>
+				<#list cm.scs as sc>
+				<tr>
+					<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>${sc.title}</strong></td>
+					<td width="80%" bgcolor="#f6eedb">
+						<table width="450" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<#assign n=sc.news.size()>
+								<#assign size=(n/4)?ceiling >
+								<#list 1..size as s>
+								<tr>
+									<#list sc.news as sn>
+									<#if (sn_index<(4*s)&&(sn_index>=(4*(s-1))))>
+									<td width="150" bgcolor="#f6eedb">&nbsp;&nbsp; <a
+										href="/Home/Index/leaderDetail?id=${sn.id}"
+										title="${sn.title}">${sn.title}</a>
+									</td>
+									</#if>
+									</#list>
+								</tr>
+								</#list>
+							</tbody>
+							</table>
+							<table width="450" border="0" cellspacing="0" cellpadding="0">
+							<tbody>
+								<tr>
+									<td width="150" bgcolor="#f6eedb">&nbsp;&nbsp; <a href="/Home/Index/leaderDetail?id=38" title=" 钟光灵"> 钟光灵</a>
+									</td>
+									<td width="150" bgcolor="#f6eedb">&nbsp;&nbsp; <a href="/Home/Index/leaderDetail?id=39" title="钟秀堂">钟秀堂</a>
+									</td>
+								</tr>
+							</tbody>
+							</table>
+					</td>
+					
+				</tr>
+				</#list>
+			</tbody>
+		</table>
+		</#list>
+	</div>
+	<!--right_list-->
 
-		  
-				</td>
-				
-			</tr>
-												<tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>常&nbsp;&nbsp;委</strong></td>
-				<td width="80%" bgcolor="#f6eedb"><table width="450" border="0" cellspacing="0" cellpadding="0">
-				 <tbody><tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-                  <tr>
-                    								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=7" title="罗时亮">罗时亮</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=8" title="涂戈峰">涂戈峰</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=40" title="林　硈">林　硈</a>				</td>
-						                    </tr>
-                  <tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-					<tr>
-                    								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=6" title="古　裕">古　裕</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=41" title="张志锋">张志锋</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=43" title="张小兰">张小兰</a>				</td>
-						                    </tr>
-		   <tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-					<tr>
-                    								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=47" title="王杞杨">王杞杨</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=395&amp;id=49" title="曾庆辉">曾庆辉</a>				</td>
-						                      
-				  						  				                 </tr>
-		   <tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-                </tbody>
-                </table>				</td>
-			</tr>
-																																																																																									</t>
-	 <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tbody><tr>
-                  <td height="8"></td>
-                </tr>
-              </tbody></table>																																																																																								
-	<table width="98%" class="tables t-qrd" border="0" cellspacing="1" cellpadding="3" align="center">
-			<thead>
-			<tr>
-				<td width="20%" bgcolor="#eddbab" height="24" style="color:#333">&nbsp;&nbsp;<b>区&nbsp;&nbsp;人&nbsp;&nbsp;大</b></td>
-				<td bgcolor="#f6eedb"></td>
-			</tr>
-			</thead>
-												<tbody><tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>主&nbsp;&nbsp;任</strong></td>
-												<td width="80%" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=396&amp;id=12" title=" 张文广"> 张文广</a> 
-		  
-				</td>
-						  			</tr>
-												<tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>常务副主任</strong></td>
-				
-				<td width="80%" bgcolor="#f6eedb">
-			<table width="300" border="0" cellspacing="0" cellpadding="0">
-  <tbody><tr>
-   								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=396&amp;id=13" title="李义明">李义明</a> <font color="#333"></font>				</td>
-						    
-				<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		 			</td>
-				
-  </tr>
-</tbody></table>
-
-		  
-				</td>
-				
-			</tr>
-															<tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>副主任</strong></td>
-				<td width="80%" bgcolor="#f6eedb"><table width="450" border="0" cellspacing="0" cellpadding="0">
-				 <tbody><tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-                  <tr>
-                    								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=396&amp;id=14" title=" 谢　芳"> 谢　芳</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=396&amp;id=15" title="刘　敏">刘　敏</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=396&amp;id=42" title="王英豪">王英豪</a>				</td>
-						                    </tr>
-                  <!-- <tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-					<tr>
-                    						                      						                     
-				<td width="150"  bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  			</td>
-				                 </tr>
-		   <tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>   -->
-                </tbody></table>				</td>
-			</tr>
-		 <!--   <tr>
-				<td width="20%" align="center"  bgcolor="#eddbab" height="24"><strong>党组副书记</strong></td>
-				
-				<td width="80%"  bgcolor="#f6eedb">
-			<table width="300" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-   						    
-				<td width="150"  bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		 			</td>   
-				
-  </tr>   
-</table>
-
-		  
-				</td>
-				
-			</tr>  -->
-
-																																																																																						</tbody></table>  
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tbody><tr>
-                  <td height="8"></td>
-                </tr>
-              </tbody></table>																																																																																									<table width="98%" class="tables t-qzf" border="0" cellspacing="1" cellpadding="3" align="center">
-			<thead>
-			<tr>
-				<td width="20%" bgcolor="#eddbab" height="24" style="color:#333">&nbsp;&nbsp;<b>区&nbsp;&nbsp;政&nbsp;&nbsp;府</b></td>
-				<td bgcolor="#f6eedb"></td>
-			</tr>
-			</thead>
-												<tbody><tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>区&nbsp;&nbsp;长</strong></td>
-												<td width="80%" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=397&amp;id=19" title="钟光灵">钟光灵</a> 
-		  
-				</td>
-						  			</tr>
-												<tr>
-		<!--		<td width="20%" align="center"  bgcolor="#eddbab" height="24"><strong>常务副区长</strong></td>
-				
-				<td width="80%"  bgcolor="#f6eedb">
-			<table width="300" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-   						     
-				<td width="150"  bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		 			</td>
-				
-  </tr>
-</table>    -->
-
-		  
-				
-				
-			</tr>
-												<tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>副区长</strong></td>
-				<td width="80%" bgcolor="#f6eedb"><table width="450" border="0" cellspacing="0" cellpadding="0">
-				 <tbody><tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-                  <tr>
-                    								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=397&amp;id=48" title="曾志佐">曾志佐</a><font color="#333">(挂职)</font>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=397&amp;id=21" title=" 李丹玲"> 李丹玲</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=397&amp;id=23" title="黄黎明">黄黎明</a>				</td>
-						                    </tr>
-                  <tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-					<tr>
-                    								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=397&amp;id=25" title="黄增国">黄增国</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=397&amp;id=50" title="赖启忠">赖启忠</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=397&amp;id=51" title="管纪城">管纪城</a>				</td>
-						                    </tr>
-		   <tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-                </tbody></table>				</td>
-			</tr>
-																																																																																									</tbody></table>
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tbody><tr>
-                  <td height="8"></td>
-                </tr>
-              </tbody></table>																																																																																									<table width="98%" class="tables t-qzx" border="0" cellspacing="1" cellpadding="3" align="center">
-			<thead>
-			<tr>
-				<td width="20%" bgcolor="#eddbab" height="24" style="color:#333">&nbsp;&nbsp;<b>区&nbsp;&nbsp;政&nbsp;&nbsp;协</b></td>
-				<td bgcolor="#f6eedb"></td>
-			</tr>
-			</thead>
-												<tbody><tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>主&nbsp;&nbsp;席</strong></td>
-												<td width="80%" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=398&amp;id=27" title="曾京铭">曾京铭</a> 
-		  
-				</td>
-						  			</tr>
-												
-												<tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>副主席</strong></td>
-				<td width="80%" bgcolor="#f6eedb"><table width="450" border="0" cellspacing="0" cellpadding="0">
-				 <tbody><tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-                  <tr>
-                    								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=398&amp;id=28" title="余洪昌">余洪昌</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=398&amp;id=29" title="梁俊丰">梁俊丰</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=398&amp;id=32" title="钟梅福">钟梅福</a>				</td>
-						                    </tr>
-                  <tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-					<tr>
-                    								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=398&amp;id=33" title="曾祥伟">曾祥伟</a>				</td>
-						                      								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=398&amp;id=45" title="赖良钊">赖良钊</a>				</td>
-						                      						                    </tr>
-		   <tr>
-                    <td colspan="3" height="8"></td>
-                    </tr>
-		  
-                </tbody></table>				</td>
-			</tr>
-																																																																																									</tbody></table>
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-                <tbody><tr>
-                  <td height="8"></td>
-                </tr>
-              </tbody></table>																																																																																									<table width="98%" class="tables t-qjw" border="0" cellspacing="1" cellpadding="3" align="center">
-			<thead>
-			<tr>
-				<td width="20%" bgcolor="#eddbab" height="24" style="color:#333">&nbsp;&nbsp;<b>区&nbsp;&nbsp;纪&nbsp;&nbsp;委</b></td>
-				<td bgcolor="#f6eedb"></td>
-			</tr>
-			</thead>
-												<tbody><tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>书&nbsp;&nbsp;记</strong></td>
-												<td width="80%" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=399&amp;id=34" title="古　裕">古　裕</a> 
-		  
-				</td>
-						  			</tr>
-												<tr>
-				<td width="20%" align="center" bgcolor="#eddbab" height="24"><strong>副书记</strong></td>
-				
-				<td width="80%" bgcolor="#f6eedb">
-			<table width="300" border="0" cellspacing="0" cellpadding="0">
-  <tbody><tr>
-   								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=399&amp;id=35" title="范文辉">范文辉</a>				</td>
-						     								<td width="150" bgcolor="#f6eedb">
-				&nbsp;&nbsp;
-		  <a href="http://www.gdmx.gov.cn/index.php?m=content&amp;c=index&amp;a=show&amp;catid=399&amp;id=36" title="彭俊华">彭俊华</a>				</td>
-						    </tr>
-</tbody></table>
-
-		  
-				</td>
-				
-</tr>
-<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
-        <tbody><tr>
-                  <td height="8"></td>
-                </tr>
-              </tbody></table>				
-			  </td>
-          </tr>
-        </tbody></table></td>
-        </div><!--right_list-->
-
-        <div class="clear"></div>
-        <div class="blank10"></div>
-    </div>
-    <script type="text/javascript">
-     hide('.quwei','.t-quwei');
-     hide('.qrd','.t-qrd');
-     hide('.qzf','.t-qzf');
-     hide('.qzx','.t-qzx');
-     hide('.qjw','.t-qjw');
-  function hide(name,item){
-		$(name).click(function(){
-		    		$('.ldzc li').removeClass('active');
-		    		$(this).addClass('active');
-		    		$('.tables').addClass('hide');
-		    		$(item).removeClass('hide');
-		});
-    }
-    	
-    </script>
+	<div class="clear"></div>
+	<div class="blank10"></div>
 </div>
+										<script type="text/javascript">
+											hide('.quwei', '.t-quwei');
+											hide('.qrd', '.t-qrd');
+											hide('.qzf', '.t-qzf');
+											hide('.qzx', '.t-qzx');
+											hide('.qjw', '.t-qjw');
+											function hide(name, item) {
+												$(name)
+														.click(
+																function() {
+																	$(
+																			'.ldzc li')
+																			.removeClass(
+																					'active');
+																	$(this)
+																			.addClass(
+																					'active');
+																	$('.tables')
+																			.addClass(
+																					'hide');
+																	$(item)
+																			.removeClass(
+																					'hide');
+																});
+											}
+										</script>
+										</div>
 
-<#include '/WEB-INF/templates/mxcommon2/footer.html'>
+										<#include '/WEB-INF/templates/mxcommon2/footer.html'>

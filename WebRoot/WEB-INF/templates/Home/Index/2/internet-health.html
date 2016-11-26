@@ -3,33 +3,43 @@
 <link rel="stylesheet" type="text/css" href="${public}/css2/min.css">
 <div class="index_content">
 	<div class="wid">
-	<img src="${public}/images2/banner_yiliao.jpg" width="1022" height="100">
+	<img src="${public}/images/banner_yiliao.jpg" width="1022" height="100">
 
 	<div class="news_img news_img4 ftl focusBox mt20">
 		<a class="prev" href="javascript:void(0)" style="display: none; opacity: 1;"></a>
 		<a class="next" href="javascript:void(0)" style="display: none; opacity: 1;"></a>
 		<ul class="pic" style="position: relative; width: 380px; height: 250px;">
+		<#list crm as c>
+				<#if c_index=0>
+				<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+				<#else>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
 
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161116_130768.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/7335/view/1"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161105_130159.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/6972/view/1"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161027_113835.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/6066/view/1"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161026_113761.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/6047/view/1"></a></li>
+				</#if>
+			</#list>
 		</ul>
 		<div class="txt-bg"></div>
 		<div class="txt">
 			<ul>
-				<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161116_130768.htm" target="_blank" title="九年救治先心病患儿124例">九年救治先心病患儿124例</a></li>
-				<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161105_130159.htm" target="_blank" title="廖万清院士 梅城义诊">廖万清院士 梅城义诊</a></li>
-				<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161027_113835.htm" target="_blank" title="“两癌”免费检查有序推进">“两癌”免费检查有序推进</a></li>
-				<li style="bottom: 0px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161026_113761.htm" target="_blank" title="中大专家教授来梅为民义诊">中大专家教授来梅为民义诊</a></li>
+			<#list crm as c>
+				<#if c_index=0>
+				<li style="bottom: 0px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				<#else>
+				<li style="bottom: -36px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				</#if>
+				
+			</#list>
 			</ul>
 		</div>
 
 		<ul class="num">
-			<li class=""><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
+			<#list crm as c>
+			<#if c_index=0>
 			<li class="on"><a></a><span></span></li>
+			<#else>
+			<li class=""><a></a><span></span></li>
+			</#if>
+				</#list>
 		</ul>
 	</div>
 
@@ -55,47 +65,33 @@
 		<div class="ftl ml20 mt20" style="width:600px; position:relative;">
 			
 			<div class="title6"><h3 class="ftl">医疗新闻 </h3></div>
-			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/index.htm">更多+</a></p>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=238">更多+</a></p>
 			<div class=" tong mt10" style="height:180px;">
 				<ul>
-					
-
-					<li><span class="date">(11-18)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161118_130997.htm" target="_blank" title="市人民医院成为全省首家县级医院眼科能力建设区域培训中心　国内外眼科专家将来梅坐诊　">市人民医院成为全省首家县级医院眼科能力建设区域培训中心　国内外眼科专家将来梅...</a></li>
-
-					<li><span class="date">(11-16)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161116_130774.htm" target="_blank" title="　企业女职工接受免费“两癌”检查　">企业女职工接受免费“两癌”检查</a></li>
-
-					<li><span class="date">(11-16)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161116_130768.htm" target="_blank" title="“大爱救心”十周年巡诊义诊活动走进梅州　九年救治先心病患儿124例　">“大爱救心”十周年巡诊义诊活动走进梅州　九年救治先心病患儿124例</a></li>
-
-					<li><span class="date">(11-12)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161112_130590.htm" target="_blank" title="　粤东医院名医门诊开业　中山三院医疗专家将定期来梅坐诊">粤东医院名医门诊开业　中山三院医疗专家将定期来梅坐诊</a></li>
-
-					<li><span class="date">(11-10)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161110_130532.htm" target="_blank" title="我市援非医疗队员黄国强冒险为疑似艾滋病毒携带者做眼科手术——　" 救死扶伤,医者无退路"　"="">我市援非医疗队员黄国强冒险为疑似艾滋病毒携带者做眼科手术——　"救死扶伤,医...</a></li>
-
-					<li><span class="date">(11-09)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161109_130503.htm" target="_blank" title="我市启动创建省级健康促进医院工作　6家医疗机构成首批试点　">我市启动创建省级健康促进医院工作　6家医疗机构成首批试点</a></li>
-
-					<li><span class="date">(11-07)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zxgg1/t20161107_130458.htm" target="_blank" title="　关于做好2014—2015年度医师定期考核工作的通知　">关于做好2014—2015年度医师定期考核工作的通知</a></li>
+					<#list ylnews as yln>
+					<li><span class="date">(${yln.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${yln.id}" target="_blank" title="${yln.title}">${yln.title}</a></li>
+					</#list>
 				</ul>
 			</div>
 		</div>
 		<div class="clear"></div>
 		
-		<div class="mt20"><a href="https://www.meizhou.gov.cn/collectclient/index/mzsyyjbxx" target="_blank" class="mr10 ftl"><img src="${public}/images2/yl_01.jpg" style="width: 495px;"></a>
+		<div class="mt20"><a href="/Home/NewContent?newid=17" target="_blank" class="mr10 ftl"><img src="${public}/images/yl_01.jpg" style="width: 495px;"></a>
 
-			<a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/yqlj/t20161006_95241.htm" class="ftr" target="_blank"><img src="${public}/images2/yl_02.jpg" style="width: 495px;"></a>
+			<a href="/Home/NewContent?newid=17" class="ftr" target="_blank"><img src="${public}/images/yl_02.jpg" style="width: 495px;"></a>
 		</div>
 
 
 		<div class="ftl mr20 mt20" style="width:490px; position:relative;">
 			
 			<div class="title6"><h3 class="ftl">政策文件</h3></div>
-			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zcfg1/index.htm">更多+</a></p>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=239">更多+</a></p>
 			<div class=" tong mt10" style="height:150px;">
 				<ul>
-					
-					<li><span class="date">(09-09)</span><a href="https://www.meizhou.gov.cn/zwgk/fggw/sfbgswj/t20160909_100256.htm" target="_blank" title="梅州市人民政府办公室关于印发梅州市深化医药卫生体制改革2016年工作要点的通知">梅州市人民政府办公室关于印发梅州市深化医药卫生体制改革2...</a></li>
-					<li><span class="date">(07-13)</span><a href="https://www.meizhou.gov.cn/zwgk/fggw/sfbgswj/t20160713_100244.htm" target="_blank" title="梅州市人民政府办公室关于印发梅州市进一步加强乡村医生队伍建设实施方案的通知">梅州市人民政府办公室关于印发梅州市进一步加强乡村医生队伍...</a></li>
-					<li><span class="date">(06-16)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zcfg1/t20160616_95727.htm" target="_blank" title="【政策信息】梅州市人民政府办公室关于印发梅州市深化医药卫生体制改革近期工作要点的通知">【政策信息】梅州市人民政府办公室关于印发梅州市深化医药卫...</a></li>
-					<li><span class="date">(06-16)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/zcfg1/t20160616_95726.htm" target="_blank" title="【政策信息】广东省人民政府办公厅关于印发广东省全面深化县级公立医院综合改革若干意见的通知">【政策信息】广东省人民政府办公厅关于印发广东省全面深化县...</a></li>
-					<li><span class="date">(05-06)</span><a href="https://www.meizhou.gov.cn/zwgk/fggw/sfbgswj/t20160506_100229.htm" target="_blank" title="梅州市人民政府办公室关于加强传染病防治人员安全防护的实施意见">梅州市人民政府办公室关于加强传染病防治人员安全防护的实施...</a></li>
+					<#list zcnews as zcn>
+					<li><span class="date">(${zcn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zcn.id}" target="_blank" title="${zcn.title}">${zcn.title}</a></li>
+				
+					</#list>	
 				</ul>
 			</div>
 		</div>
@@ -103,15 +99,12 @@
 		<div class="ftl mt20" style="width:490px; position:relative;">
 			
 			<div class="title6"><h3 class="ftl">疾控管理</h3></div>
-			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/spypaq1/index.htm">更多+</a></p>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=240">更多+</a></p>
 			<div class=" tong mt10" style="height:150px;">
 				<ul>
-					
-					<li><span class="date">(11-01)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/spypaq1/t20161101_129530.htm" target="_blank" title="梅州市举办艾滋病检测技术培训班暨召开筛查实验室质控考评会议">梅州市举办艾滋病检测技术培训班暨召开筛查实验室质控考评会...</a></li>
-					<li><span class="date">(10-17)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/spypaq1/t20161017_112054.htm" target="_blank" title="省督导组到我市开展艾滋病防治综合督导">省督导组到我市开展艾滋病防治综合督导</a></li>
-					<li><span class="date">(10-09)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/spypaq1/t20161009_112055.htm" target="_blank" title="我市收听收看省2016年学校传染病防控工作电视电话会议">我市收听收看省2016年学校传染病防控工作电视电话会议</a></li>
-					<li><span class="date">(10-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/spypaq1/t20161008_112056.htm" target="_blank" title="我市派员参加2016年广东省艾滋病、丙肝综合防治干预培训班">我市派员参加2016年广东省艾滋病、丙肝综合防治干预培训...</a></li>
-					<li><span class="date">(09-30)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/spypaq1/t20160930_101735.htm" target="_blank" title="梅州市举办传染病疫情直报虚拟专网接入工作培训班">梅州市举办传染病疫情直报虚拟专网接入工作培训班</a></li>
+					<#list jknews as jkn>
+					<li><span class="date">(${jkn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${jkn.id}" target="_blank" title="${jkn.title}">${jkn.title}</a></li>
+					</#list>
 				</ul>
 			</div>
 		</div>
@@ -119,15 +112,12 @@
 		<div class="ftl mr20 mt10" style="width:490px; position:relative;">
 			
 			<div class="title6"><h3 class="ftl">中医管理</h3></div>
-			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/wsjd/index.htm">更多+</a></p>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=241">更多+</a></p>
 			<div class=" tong mt10" style="height:150px;">
 				<ul>
-					
-					<li><span class="date">(11-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/wsjd/t20161108_130673.htm" target="_blank" title="我市举办中医护理专业人员继续教育培训班">我市举办中医护理专业人员继续教育培训班</a></li>
-					<li><span class="date">(10-28)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/wsjd/t20161028_130372.htm" target="_blank" title="市人大代表视察我市中医药事业发展">市人大代表视察我市中医药事业发展</a></li>
-					<li><span class="date">(10-27)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/wsjd/t20161027_113912.htm" target="_blank" title="关于推荐“南粤最美中医”评选活动候选人信息的公示">关于推荐“南粤最美中医”评选活动候选人信息的公示</a></li>
-					<li><span class="date">(10-14)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/wsjd/t20161014_112057.htm" target="_blank" title="市卫计局督导调研基层中医诊疗服务区 （中医馆）项目建设">市卫计局督导调研基层中医诊疗服务区 （中医馆）项目建设</a></li>
-					<li><span class="date">(10-11)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/wsjd/t20161011_112058.htm" target="_blank" title="市卫计局举行梅州“最美中医”授荣仪式">市卫计局举行梅州“最美中医”授荣仪式</a></li>
+					<#list zynews as zy>
+					<li><span class="date">(${zy.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zy.id}" target="_blank" title="${zy.title}">${zy.title}</a></li>
+					</#list>
 				</ul>
 			</div>
 		</div>
@@ -135,15 +125,12 @@
 		<div class="ftl mt10" style="width:490px; position:relative;">
 			
 			<div class="title6"><h3 class="ftl">健康教育</h3></div>
-			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/ylbx2/index.htm">更多+</a></p>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=242">更多+</a></p>
 			<div class=" tong mt10" style="height:150px;">
 				<ul>
-					
-					<li><span class="date">(11-09)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/ylbx2/t20161109_130667.htm" target="_blank" title="我市启动创建省级健康促进医院工作">我市启动创建省级健康促进医院工作</a></li>
-					<li><span class="date">(09-28)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/ylbx2/t20160928_101864.htm" target="_blank" title="关于梅州市居民健康素养 知识竞赛结果的通报">关于梅州市居民健康素养 知识竞赛结果的通报</a></li>
-					<li><span class="date">(09-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/ylbx2/t20160908_101865.htm" target="_blank" title="梅州市举办健康中国行梅州站健康巡讲活动">梅州市举办健康中国行梅州站健康巡讲活动</a></li>
-					<li><span class="date">(08-24)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/ylbx2/t20160824_101866.htm" target="_blank" title="我市举办健康素养知识演讲竞赛">我市举办健康素养知识演讲竞赛</a></li>
-					<li><span class="date">(08-22)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/ylzt/ylbx2/t20160822_101867.htm" target="_blank" title="梅州市健康教育所长会议暨举办培训班">梅州市健康教育所长会议暨举办培训班</a></li>
+					<#list hlnews as hln>
+					<li><span class="date">(${hln.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${hln.id}" target="_blank" title="${hln.title}">${hln.title}</a></li>
+					</#list>
 				</ul>
 			</div>
 		</div>

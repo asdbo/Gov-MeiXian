@@ -86,6 +86,8 @@
 									</select>
 									<select class="form-control control3" style="display: none;">
 									</select>
+									<select class="form-control control4" style="display: none;">
+									</select>
 								</div>
 							</div>
 								<div class="form-group">
@@ -172,8 +174,10 @@
 					}
 			});
 			$(".control").change(function(){
-				$(".control1").hide();
-				$(".control2").hide();
+				$(".control1").removeAttr("name").empty().hide();
+				$(".control2").removeAttr("name").empty().hide();
+				$(".control3").removeAttr("name").empty().hide();
+				$(".control4").removeAttr("name").empty().hide();
 				var url="/Admin/News/gethtml";
 				var arg={"pid":$(this).val()};
 				$.post(url,arg,function(data){
@@ -187,7 +191,9 @@
 				});
 			});
 			$(".control1").change(function(){
-				$(".control2").hide();
+				$(".control2").removeAttr("name").empty().hide();
+				$(".control3").removeAttr("name").empty().hide();
+				$(".control4").removeAttr("name").empty().hide();
 				var url="/Admin/News/gethtml";
 				var arg={"pid":$(this).val()};
 				$.post(url,arg,function(data){
@@ -201,6 +207,8 @@
 				});
 			});
 			$(".control2").change(function(){
+				$(".control3").removeAttr("name").empty().hide();
+				$(".control4").removeAttr("name").empty().hide();
 				var url="/Admin/News/gethtml";
 				var arg={"pid":$(this).val()};
 				$.post(url,arg,function(data){
@@ -214,7 +222,22 @@
 				});
 			});
 			$(".control3").change(function(){
-				$(".control3").attr("name","cid");
+				$(".control4").removeAttr("name").empty().hide();
+				var url="/Admin/News/gethtml";
+				var arg={"pid":$(this).val()};
+				$.post(url,arg,function(data){
+					if(data!=""){
+						$(".control4").append(data);
+						$(".control4").show();
+						
+					}else{
+						$(".control3").attr("name","cid");
+					}
+				});
+				
+			});
+			$(".control4").change(function(){
+				$(".control4").attr("name","cid");
 			});
 			
 			

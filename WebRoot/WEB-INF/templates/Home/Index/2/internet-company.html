@@ -3,30 +3,26 @@
 <link rel="stylesheet" type="text/css" href="${public}/css2/min.css">
 <div class="index_content">
 	<div class="wid">
-	<img src="${public}/images2/banner_qykb.jpg" width="1022" height="100">
+	<img src="${public}/images/banner_qykb.jpg" width="1022" height="100">
 
-	<div class="list-topBox mb20"><span class="fl"><a href="https://www.meizhou.gov.cn/">网站首页</a> 
+	<div class="list-topBox mb20"><span class="fl"><a href="/Home/Index">网站首页</a> 
 
-		&gt;&gt;<a href="http://www.meizhou.gov.cn/approve/class">办事服务</a> 
-		&gt;&gt;<a href="https://www.meizhou.gov.cn/bsfw/ggfw/index.htm">公共服务</a> 
-		&gt;&gt;<a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/index.htm">企业服务</a> 
-		&gt;&gt;<a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/index.htm">企业开办专题</a> 
+		&gt;&gt;<a href="/Home/Index/internet">办事服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=214">公共服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=243">企业服务</a> 
+		&gt;&gt;<a href="/Home/ChannelContent?cid=244">企业开办专题</a> 
 	</span></div>
 
 	<div class="ftl border_min pr10 pl10" style="width:475px; height: 265px; position:relative;">
 
 		<div class="title10 border_b01 pl10 pr10"><h3 class="ftl">服务新闻 </h3></div>
 
-		<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxfw2/index.htm">更多+</a></p>
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=245">更多+</a></p>
 		<div class="content_min">
 			<ul>
-
-				<li><span class="date">(11-17)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxfw2/t20161117_130953.htm" target="_blank" title="　梅州市国地税首次联合与企业签署《税收遵从合作协议》　助推大企业个性化税收服务升级　">梅州市国地税首次联合与企业签署《税收遵从合作协议》...</a></li>
-				<li><span class="date">(11-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxfw2/t20161108_130408.htm" target="_blank" title="　中国税务报：广东地税微信办税获奖　">中国税务报：广东地税微信办税获奖</a></li>
-				<li><span class="date">(11-06)</span><a href="https://www.meizhou.gov.cn/zwgk1/gzdt/gqxdt/t20161106_130166.htm" target="_blank" title="梅江区打造平台助力青年圆梦　成立青年互联网创业协会　">梅江区打造平台助力青年圆梦　成立青年互联网创业协会</a></li>
-				<li><span class="date">(11-04)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxfw2/t20161104_130133.htm" target="_blank" title="　梅州地税推行办税事项全市通办　">梅州地税推行办税事项全市通办</a></li>
-				<li><span class="date">(11-02)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxfw2/t20161102_129896.htm" target="_blank" title="我市推进个体工商户登记制度改革　首张“两证整合”执照颁发　">我市推进个体工商户登记制度改革　首张“两证整合”执照...</a></li>
-				<li><span class="date">(11-02)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxfw2/t20161102_129897.htm" target="_blank" title="我市地税部门非审批办税事项昨起实现全市通办　89项非审批事项可就近办理　">我市地税部门非审批办税事项昨起实现全市通办　89项非...</a></li>
+				<#list fwhnews as fwn>
+				<li><span class="date">(${fwn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${fwn.id}" target="_blank" title="${fwn.title}">${fwn.title}</a></li>
+				</#list>
 			</ul>
 		</div>
 	</div>
@@ -35,16 +31,12 @@
 
 		<div class="title10 border_b01 pl10 pr10"><h3 class="ftl">服务公告 </h3></div>
 
-		<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxgg3/index.htm">更多+</a></p>
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=246">更多+</a></p>
 		<div class="content_min">
 			<ul>
-
-				<li><span class="date">(11-01)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxgg3/t20161101_130135.htm" target="_blank">梅州市地方税务局关于推行办税事项全市通办的通告</a></li>
-				<li><span class="date">(11-01)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxgg3/t20161101_130407.htm" target="_blank">关于在全省实施个体工商户“两证整合”登记制度改革的通...</a></li>
-				<li><span class="date">(10-28)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxgg3/t20161028_130134.htm" target="_blank">欠税公告（2016年第4号）</a></li>
-				<li><span class="date">(10-19)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxgg3/t20161019_112187.htm" target="_blank">新版驾驶满分和审验教育规范10月1日起试行!</a></li>
-				<li><span class="date">(10-12)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxgg3/t20161012_111661.htm" target="_blank">关于调整2016社会保险年度企业职工基本养老保险缴费...</a></li>
-				<li><span class="date">(09-29)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zxgg3/t20160929_101711.htm" target="_blank">关于全面停征市、县级堤围防护费的温馨提示</a></li>
+				<#list ggnews as gg>
+				<li><span class="date">(${gg.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${gg.id}" target="_blank">${gg.title}</a></li>
+				</#list>
 			</ul>
 		</div>
 	</div>
@@ -64,7 +56,7 @@
 		<div class="kjcy p30 bd">
 			<div class="lineheight32">
 
-				<a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/xfzjbl/nzqy/t20161011_111363.htm" target="_blank">
+				<a href="/Home/NewContent?newid=17" target="_blank">
 					1.申请人到工商局进行名称预核准&nbsp;——
 					2.工商局确定前置部门后提交联审窗&nbsp;——
 					3.联审窗口告知申请人所需材料&nbsp;——
@@ -80,7 +72,7 @@
 
 			<div class="lineheight32 " style="display: none;">
 
-				<a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/xfzjbl/wzqy/t20161107_130229.htm">
+				<a href="/Home/NewContent?newid=17">
 					申 请（携带相关纸质材料，到窗口进行申请）→受 理（窗口人员对材料进行受理）→办结通知（审批完成后窗口通知申办人办理结果）<br>
 					1、 申报企业在规定的时间内登录"全国外商投资企业年度投资经营信息网上联合报告及共享系统"（http://www.lhnb.gov.cn/），填报及提交上一年《外商投资企业年度经营状况联合申报书》，无需报送纸质材料及盖章。年度投资经营信息报告，相关信息在商务、财政、税务、统计部门间实现共享
 				</a>
@@ -92,13 +84,13 @@
 		<div class="title10 border_b01  pl10 pr10"><h3 class="ftl">便民查询 </h3></div>
 		<div class="kjcy_btn">
 			<ul>
-				<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsbs.meizhou.gov.cn/portal/onlineservice/online-service!moreDataInput.action?areacode=441400" target="_blank"><div class="back_color17 ml10 border3"><img src="${public}/images2/icon82.png"></div>
+				<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsbs.meizhou.gov.cn/portal/onlineservice/online-service!moreDataInput.action?areacode=441400" target="_blank"><div class="back_color17 ml10 border3"><img src="${public}/images/icon82.png"></div>
 					<p class="lineheight24">企业业务<br>办理状态查询</p>
 				</a></li>
-				<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsnj.gdgs.gov.cn/aicnet/refer/index.jsp" target="_blank"><div class="back_color17 ml10 border3"><img src="${public}/images2/icon83.png"></div>
+				<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://wsnj.gdgs.gov.cn/aicnet/refer/index.jsp" target="_blank"><div class="back_color17 ml10 border3"><img src="${public}/images/icon83.png"></div>
 					<p class="lineheight24">网上登记<br>注册大厅</p>
 				</a></li>
-				<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://ss.meizhou.gov.cn/commercialSubject/toIndex" target="_blank"><div class="back_color17 ml10 border3"><img src="${public}/images2/icon84.png"></div>
+				<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://ss.meizhou.gov.cn/commercialSubject/toIndex" target="_blank"><div class="back_color17 ml10 border3"><img src="${public}/images/icon84.png"></div>
 					<p class="lineheight24">企业公示<br>信息填录登录</p>
 				</a></li>
 				<div class="clear"></div>
@@ -110,15 +102,12 @@
 
 		<div class="title10 border_b01 pl10 pr10"><h3 class="ftl">政策法规 </h3></div>
 
-		<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zcfg4/index.htm">更多+</a></p>
+		<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=17">更多+</a></p>
 		<div class="content_min">
 			<ul>
-
-				<li><span class="date">(10-20)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zcfg4/t20161020_112259.htm" target="_blank">广东省公安厅关于妥善处理重复（虚假）户口的意见</a></li>
-				<li><span class="date">(10-20)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zcfg4/t20161020_112258.htm" target="_blank">居住证暂行条例</a></li>
-				<li><span class="date">(10-10)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zcfg4/t20161010_111955.htm" target="_blank">《梅州市地方税务局关于公布全文失效废止和部分条款废止...</a></li>
-				<li><span class="date">(10-09)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zcfg4/t20161009_111873.htm" target="_blank">梅州市地方税务局关于公布全文失效废止和部分条款废止的...</a></li>
-				<li><span class="date">(09-05)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/qyfw/qykbzt/zcfg4/t20160905_101721.htm" target="_blank">《梅州市土地增值税清算房屋建安工程造价标准的公告》解...</a></li>
+				<#list zcnews as zcn>
+				<li><span class="date">(${zcn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zcn.id}" target="_blank">${zcn.title}</a></li>
+				</#list>
 			</ul>
 		</div>
 	</div>

@@ -5,27 +5,36 @@
 		<a class="prev" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
 		<a class="next" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
 		<ul class="pic pics1" style="position: relative; width: 380px; height: 250px;">
-
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/749a4caac44895974a034b173bac445d.jpg"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/a800c66988b5108bfb84f1528b28ad8a.jpg"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/5105f2096d87464d19887f8cf5ddc497.jpg"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/749a4caac44895974a034b173bac445d (1).jpg"></a></li>
+			<#list crm as c>
+				<#if c_index=0>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+				<#else>
+				<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+				</#if>
+			</#list>
 		</ul>
 		<div class="txt-bg"></div>
 		<div class="txt">
 			<ul>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="赢在客都·梅州市首届创新创业大赛正式启动，请带上洪荒之力来参加！">赢在客都·梅州市首届创新...</a></li>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="梅江区“企业服务月”首场活动拉开了帷幕">梅江区“企业服务月”首场...</a></li>
-				<li style="bottom: 0px;"><a href="/Home/NewContent?newid=17" target="_blank" title="大埔县民营经济发展服务局正式挂牌成立">大埔县民营经济发展服务局...</a></li>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="兴宁市召开《省级小微企业创业创新基地城市示范工作方案》征求意见座谈会">兴宁市召开《省级小微企业...</a></li>
+			<#list crm as c>
+				<#if c_index=0>
+				<li style="bottom: 0px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				<#else>
+				<li style="bottom: -36px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				</#if>
+				
+			</#list>
 			</ul>
 		</div>
 
 		<ul class="num">
-			<li class=""><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
+		<#list crm as c>
+				<#if c_index=0>
 			<li class="on"><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
+			<#else>
+			<li ><a></a><span></span></li>
+			</#if>
+			</#list>
 		</ul>
 	</div>
 

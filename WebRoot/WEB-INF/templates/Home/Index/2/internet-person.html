@@ -2,143 +2,124 @@
 <link rel="stylesheet" type="text/css" href="${public}/css2/common.css">
 <div class="index_content">
 	<div class="wid pt">
-	<div class="list-topBox" style="border-bottom:none;">
-		<span class="fl">位置：
-			<a href="">办事服务</a> &gt;&gt;
-			<a href="">企业事项</a>
-		</span>
-	</div>
+	<img src="${public}/images/banner_edu.jpg" width="1022" height="100">
 
-	<div class="left_list mt ftl border">
-		<div class="title"><img class="ftl mt pl" src="${public}/images2/icon15.png" style="margin-left: 55px;
-    margin-top: 5px;">企业事项</div>
-		<div class="clear"></div>
-		<ul>
-			<li><a href="">设立变更</a></li>
-			<li><a href="">年检年审</a></li>
-			<li class="on"><a href="">财务税务</a></li>
-			<li><a href="">准营准办</a></li>
-			<li><a href="">立项审批</a></li>
-			<li><a href="">资质认证</a></li>
-			<li><a href="">金融投资</a></li>
-			<li><a href="">对外交流</a></li>
-			<li><a href="">司法公证</a></li>
-			<li><a href="">建设管理</a></li>
-			<li><a href="">劳动保障</a></li>
-			<li><a href="">人力资源</a></li>
-			<li><a href="">质量检查</a></li>
-			<li><a href="">安全防护</a></li>
-			<li><a href="">环保绿化</a></li>
-			<li><a href="">土地房产</a></li>
-			<li><a href="">文物保护</a></li>
-			<li><a href="">新闻广电</a></li>
-			<li><a href="">交通运输</a></li>
-			<li><a href="">农林牧渔</a></li>
-			<li><a href="">水利水务</a></li>
-			<li><a href="">医疗卫生</a></li>
-			<li><a href="">知识产权</a></li>
-			<li><a href="">破产注销</a></li>
-			<li><a href="">其他</a></li>
+	<div class="mt20">
+		<div class="ftl" style="width:625px; position:relative;background: #fff;padding-bottom: 61px;">
+			<div class="title6"><h3 class="ftl">教育新闻 </h3></div>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=217">更多+</a></p>
 			<div class="clear"></div>
-		</ul>
-	</div>
+			<div class="news_img ftl focusBox mt20">
+				<a class="prev" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+				<a class="next" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
+				<ul class="pic" style="position: relative; width: 270px; height: 195px;">
+					<#list crm as c>
+				<#if c_index=0>
+				<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+				<#else>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
 
-	<script>
-		function goToSerach(form) {
-			$("#myform").submit();
-		}
-	</script>
+				</#if>
+			</#list>
+				</ul>
+				<div class="txt-bg"></div>
+				<div class="txt">
+					<ul>
+						<#list crm as c>
+				<#if c_index=0>
+				<li style="bottom: 0px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				<#else>
+				<li style="bottom: -36px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				</#if>
+				
+			</#list>
+					</ul>
+				</div>
 
-	<div class="right_list mt ftr">
-		<form method="post" action="https://www.meizhou.gov.cn/search/index" id="myform">
-			<div class="bsfw_search ftl">
-				<div class="querybox">
-					<input name="keyword" placeholder="输入您要查询的服务" id="searchInput" class="input_key" onfocus="glb_searchTextOnfocus(this);" onblur="glb_searchTextOnBlur(this);">
-					<input name="classify" value="bsfw" type="hidden">
-					<a href="javascript:;" class="img_but" onclick="return goToSerach(this.form);"></a>
+				<ul class="num">
+				<#list crm as c>
+					<#if c_index=0>
+					<li class="on"><a></a><span></span></li>
+					<#else>
+					<li ><a></a><span></span></li>
+					</#if>
+					</#list>
+				</ul>
+			</div>
+
+			<script type="text/javascript">
+				jQuery(".focusBox").hover(function () {
+					jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 1)
+				}, function () {
+					jQuery(this).find(".prev,.next").fadeOut()
+				});
+
+				jQuery(".news_img").slide({
+					titCell: ".num li",
+					mainCell: ".pic",
+					effect: "fold",
+					autoPlay: true,
+					trigger: "click",
+						//下面startFun代码用于控制文字上下切换
+						startFun: function (i) {
+							jQuery(".news_img .txt li").eq(i).animate({ "bottom": 0 }).siblings().animate({ "bottom": -36 });
+						}
+					});
+				</script>	
+				<div class="ftl tong mt10 ml10 tong5" style="width:360px; height:210px;">
+					<ul class="c-tong5">
+						<#list jynews as jyn>	
+						<li><span class="date">[${jyn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${jyn.id}" target="_blank" title="${jyn.title}">${jyn.title}</a></li>
+						</#list>
+					</ul>
 				</div>
 			</div>
-			<p class="hot ftl ml">热词：
 
-				<a class="hot" href="#" onclick="javascript:openSearch('https://www.meizhou.gov.cn/', '环保', 'bsfw')">环保</a>
-				<a class="hot" href="#" onclick="javascript:openSearch('https://www.meizhou.gov.cn/', '计划生育', 'bsfw')">计划生育</a>
-			</p>
-		</form>
-		<div class="clear"></div>
-		<div class="mt border">
-			<div class="listbox">
-				<ul>
-					<li>
-						<p><a href="" target="_blank" title="企业所得税年度申报查账征收" class="linkkey">企业所得税年度申报查账征收</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
-					<li>
-						<p><a href="" target="_blank" title="企业所得税年度申报核定征收" class="linkkey">企业所得税年度申报核定征收</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
-					<li>
-						<p><a href="" target="_blank" title="城镇土地使用税申报" class="linkkey">城镇土地使用税申报</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
-					<li>
-						<p><a href="" target="_blank" title="企业所得税月（季）预缴查账征收" class="linkkey">企业所得税月（季）预缴查账征收</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
-					<li>
-						<p><a href="" target="_blank" title="通用申报" class="linkkey">通用申报</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
-					<li>
-						<p><a href="" target="_blank" title="企业所得税月（季）预缴核定征收" class="linkkey">企业所得税月（季）预缴核定征收</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
-					<li>
-						<p><a href="" target="_blank" title="土地增值税申报" class="linkkey">土地增值税申报</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
-					<li>
-						<p><a href="" target="_blank" title="单位社会保险费日常申报" class="linkkey">单位社会保险费日常申报</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
-					<li>
-						<p><a href="" target="_blank" title="契税申报" class="linkkey">契税申报</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
-					<li>
-						<p><a href="" target="_blank" title="定期定额户自行申报" class="linkkey">定期定额户自行申报</a></p>
-						<ul></ul>
-						<a href="" target="_self">梅州市地方税务局</a>
-					</li>
+			<div class="ftl ml15" style="width: 360px;background: #fff;">
+				<div class="title6"><h3 class="ftl">便捷服务 </h3></div>
+				<div class="clear"></div>
+				<ul class="p10 jy_bianjie">
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://gd.cltt.org/Web/SignUpOnLine/OnlineSign.aspx" target="_blank">普通话水平测试报名 </a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://yun.mzedu.gov.cn/" target="_blank">教育资源公告服务平台</a></li>
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/zk/0706index.html" target="_blank">中考平台</a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://article.isay365.com/psc/chafen/1222F62009.html" target="_blank">普通话水平测试成绩查询 </a></li>
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/cjfw/jcjyk.html" target="_blank">我要转学</a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/cjfw/rk.html" target="_blank">中小学教师资格认定</a></li>
+					<li class="mr10"><a href="https://www.meizhou.gov.cn/jump.html?url=http://www.mzedu.gov.cn/cjfw/gzzk.html" target="_blank">民办高中学校设立</a></li>
+					<li><a href="https://www.meizhou.gov.cn/jump.html?url=http://61.143.203.147/" target="_blank">成绩查询</a></li>
+					<li><a href="" target="_blank">学校查找</a></li>
+					<div class="clear"></div>
 				</ul>
 			</div>
-
-			<!--页码 翻页-->
-			<div class="tac">
-				<ul class="pagination pagination-sm">
-					<li class=""><a href="">首页</a></li>
-					<li class="ng-scope active"><a class="ng-binding" href="">1</a></li>
-
-					<li class="ng-scope"><a class="ng-binding" href="">2</a></li>
-
-					<li class="ng-scope"><a class="ng-binding" href="">3</a></li>
-
-					<li><a href="">»</a></li>
-					<li class=""><a href="">末页</a></li>
-				</ul>
-			</div>
-			<!--页码 翻页-->
-
 		</div>
-	</div>
+		<div class="clear"></div>
+		
+		<div class="ftl ml20 mt20" style="width:480px; position:relative;">
+
+			<div class="title_2"><span>招生政策</span></div>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=218">更多+</a></p>
+			<div class=" tong tongs" style="height:160px;background: #fff;">
+				<ul>
+					<#list zsnews as zsn>
+					<li><span class="date">[${zsn.TIME}]</span><a class="newtitle" href="/Home/NewContent?newid=${zsn.id}" target="_blank" title="${zsn.title}">${zsn.title}</a></li>
+					</#list>
+				</ul>
+			</div>
+		</div><div class="ftl ml20 mt20" style="width:480px; position:relative;">
+
+			<div class="title_2"><span>教育公告</span></div>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=219">更多+</a></p>
+			<div class=" tong tongs" style="height:160px;background: #fff;">
+				<ul>
+					<#list ggnews as ggn>
+					<li><span class="date">[${ggn.TIME}]</span><a  class="newtitle" href="/Home/NewContent?newid=${ggn.id}" target="_blank" title="${ggn.title}">${ggn.title}</a></li>
+					</#list>
+				</ul>
+			</div>
+		</div>
+
+		<div>
+		</div>
 </div>
 </div>
 

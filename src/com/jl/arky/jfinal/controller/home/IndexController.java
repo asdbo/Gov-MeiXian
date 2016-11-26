@@ -2,7 +2,7 @@ package com.jl.arky.jfinal.controller.home;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.io.Reader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,7 +19,11 @@ import org.apache.lucene.document.TextField;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
 import org.apache.lucene.queryparser.classic.QueryParser;
+import org.apache.lucene.search.BooleanClause;
+import org.apache.lucene.search.BooleanClause.Occur;
 import org.apache.lucene.search.IndexSearcher;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
@@ -31,6 +35,7 @@ import org.apache.lucene.search.highlight.QueryScorer;
 import org.apache.lucene.search.highlight.SimpleHTMLFormatter;
 import org.apache.lucene.search.highlight.SimpleSpanFragmenter;
 import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
 import org.wltea.analyzer.lucene.IKAnalyzer;
@@ -59,6 +64,10 @@ public class IndexController extends Controller {
 	}
 	
 	public void anthor(){
+		
+		//首页轮播
+		List<Model> crm = CarouselModel.dao.paginate(1, 5, "select *", "from carousel  where carouselType=? order by sortid, id desc",0).getList();
+		setAttr("crm", crm);
 		int pid=2;//新闻中心
 		List<ChannelModel> newcms = this.getCMS(pid,5);
 		setAttr("newcms", newcms);//栏目
@@ -136,23 +145,71 @@ public class IndexController extends Controller {
 		setAttr("gkcmss", gkcmss);
 		setAttr("gknewss", gknewss);
 		
+		//.....................................
+		List<ChannelModel> hycms=new ArrayList<ChannelModel>();
+		List<List<NewsModel>> hynewss=new ArrayList<List<NewsModel>>();
+		//新闻发布会
+		id=40;
+		ChannelModel cd = ChannelModel.dao.findById(id);
+		List<NewsModel> newss = NewsModel.dao.paginate(1, 7, "select *", " from news where cid=? order by sort,id desc",id).getList();
+		this.getTime(newss);
+		hycms.add(cd);
+		hynewss.add(newss);
+		//政策解读
+		id=42;
+		ChannelModel cd2 = ChannelModel.dao.findById(id);
+		int cid=272;//广东省政策
+		List<NewsModel> newss2 = NewsModel.dao.paginate(1, 7, "select *", " from news where cid=? order by sort,id desc",cid).getList();
+		this.getTime(newss2);
+		hycms.add(cd2);		
+		hynewss.add(newss2);
+		//热点问题回应
+		id=41;
+		ChannelModel cd1 = ChannelModel.dao.findById(id);
+		List<NewsModel> rdnews = NewsModel.dao.paginate(1, 7,"select *", " from news where cid=? order by sort,id desc",id).getList();
+		this.getTime(rdnews);
+		hycms.add(cd1);
+		hynewss.add(rdnews);
+		//突发事件
+		id=43;
+		cid=274;//省内突发事件
+		ChannelModel cd3 = ChannelModel.dao.findById(id);
+		List<NewsModel> newss3 = NewsModel.dao.paginate(1, 7, "select *", " from news where cid=? order by sort,id desc",cid).getList();
+		this.getTime(newss3);
+		hycms.add(cd3);
+		hynewss.add(newss3);
+		setAttr("hycms", hycms);
+		setAttr("hynewss", hynewss);
+		
 		render("2/index.html");
 	}
 	public void test2(){
 		render("2/internet-company.html");
 	}
+	private String getcookie(){
+		String cookie = getCookie("page");
+		if(cookie!=null){
+			if(Integer.parseInt(cookie)%2!=0){
+				return "2/";
+			}
+		}
+		return "";
+	}
 	//显示梅县主页
 	public void index(){
+		if(!getcookie().equals("")){
+			this.anthor();
+			return;
+		}
+		//首页轮播
+		List<Model> crm = CarouselModel.dao.paginate(1, 4, "select *", "from carousel  where carouselType=? order by sortid, id desc",0).getList();
+		setAttr("crm", crm);
 		int pid=2;//新闻中心
 		List<ChannelModel> newcms = this.getCMS(pid,5);
 		setAttr("newcms", newcms);//栏目
 		//获取相应的新闻
 		List<List<NewsModel>> news = this.getNEWS(newcms, 5);
 		setAttr("news", news);//新闻
-		
-		//轮播
-		List<Model> cs = CarouselModel.dao.paginate(1, 4, "select *", "from carousel").getList();
-		setAttr("cs", cs);
 		
 		//政府信息公开
 		int id=4;
@@ -221,10 +278,14 @@ public class IndexController extends Controller {
 		setAttr("wlcms", wlcms);
 		setAttr("wlnew", wlnew);
 		
-		render("intro.html");
+		render(this.getcookie()+"intro.html");
 	}
 	//政务公开
 	public void open(){
+		//轮播
+		List<Model> crm = CarouselModel.dao.paginate(1, 5, "select *", "from carousel  where carouselType=? order by sortid, id desc",1).getList();
+		setAttr("crm", crm);
+		
 		//政务要闻
 		int id=28;
 		List<NewsModel> zwnews = NewsModel.dao.paginate(1, 8,"select *", " from news where cid=?",id).getList();
@@ -290,7 +351,7 @@ public class IndexController extends Controller {
 		this.getTime(jhnews);
 		setAttr("jhnews", jhnews);
 		setAttr("jhid", id);
-		render("open.html");
+		render(this.getcookie()+"open.html");
 	}
 	private void getTime2(List<NewsModel> news) {
 		for (NewsModel nm : news) {
@@ -302,25 +363,62 @@ public class IndexController extends Controller {
 	}
 
 	public void service(){
-		render("service.html");
+		//书记信箱
+		int id=278;
+		List<Model> sj = LetterModel.dao.paginate(1, 5,"select *"," from letter where state=?&&cid=? order by id desc",1,id).getList();
+		//市长信箱
+		id=279;
+		List<Model> sz = LetterModel.dao.paginate(1, 5,"select *"," from letter where state=?&&cid=? order by id desc",1,id).getList();
+		//梅县民声
+		id=280;
+		List<Model> ms = LetterModel.dao.paginate(1, 7,"select *"," from letter where state=?&&cid=? order by id desc",1,id).getList();
+		Model all = LetterModel.dao.findFirst("select count(*) num from letter where cid=? ",id);
+		long allCount= all.getLong("num");
+		Model hfall = LetterModel.dao.findFirst("select count(*) num from letter where cid=?&&state=? ",id,1);
+		long hfallCount= hfall.getLong("num");
+		SimpleDateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd");
+		String nowDate = dateFormat.format(new Date());
+		Model todayEmail = LetterModel.dao.findFirst("select count(*) num from letter where cid=?&&receive_time=? ",id,nowDate);
+		long todayEmailNum= todayEmail.getLong("num");
+		Model todayhandler = LetterModel.dao.findFirst("select count(*) num from letter where cid=?&&reply_time=? ",id,nowDate);
+		long todayhandlerNum= todayhandler.getLong("num");
+		setAttr("allCount", allCount);
+		setAttr("hfallCount", hfallCount);
+		setAttr("todayEmailNum", todayEmailNum);
+		setAttr("todayhandlerNum", todayhandlerNum);
+		setAttr("sj", sj);
+		setAttr("sz", sz);
+		setAttr("ms", ms);
+		//-----------------------
+		//民意征集
+		id=281;
+		List<NewsModel> mys = NewsModel.dao.paginate(1, 5, "select * ", "from news where cid=? order by sort,id desc",id).getList();
+		this.getTime(mys);
+		setAttr("mys", mys);
+		//结果反馈
+		id=282;
+		List<NewsModel> jgs = NewsModel.dao.paginate(1, 5, "select * ", "from news where cid=? order by sort,id desc",id).getList();
+		this.getTime(jgs);
+		setAttr("jgs", jgs);
+		//在线调查
+		id=283;
+		List<NewsModel> dcs = NewsModel.dao.paginate(1, 5, "select * ", "from news where cid=? order by sort,id desc",id).getList();
+		this.getTime(dcs);
+		setAttr("dcs", dcs);
+		
+		render(this.getcookie()+"service.html");
 	}
 	public void internet(){
 		List<ChannelModel> cms = this.getCMS(159, 59);
 		setAttr("cms", cms);
-		render("internet.html");
+		render(this.getcookie()+"internet.html");
 	}
 	//回应关切
 	public void reply(){
 		//新闻发布会
 		int id=40;
-		List<NewsModel> news = NewsModel.dao.paginate(1, 1,"select *", " from news where cid=?",id).getList();
-		if(news.isEmpty()){
-			setAttr("news1", null);
-		}else{
-			setAttr("news1", news.get(0));
-		}
-		
-		
+		NewsModel news1 = NewsModel.dao.findFirst("select * from news where cid=? order by sort,id desc",id);
+		setAttr("news1", news1);
 		//热点问题回应
 		id=41;
 		List<NewsModel> rdnews = NewsModel.dao.paginate(1, 7,"select *", " from news where cid=?",id).getList();
@@ -338,7 +436,7 @@ public class IndexController extends Controller {
 		List<List<NewsModel>> tfnewss = this.getNEWS(tfcms, 7);
 		setAttr("tfnewss", tfnewss);
 		setAttr("tfcms", tfcms);
-		render("reply.html");
+		render(this.getcookie()+"reply.html");
 	}
 	
 	
@@ -368,7 +466,7 @@ public class IndexController extends Controller {
 		setAttr("cms1", cms1);
 		setAttr("cms", cms);
 		setAttr("leader", leader);
-		render("index-leader.html");
+		render(this.getcookie()+"index-leader.html");
 	}
 	public void leaderDetail(){
 		String id = getPara("id");
@@ -378,7 +476,7 @@ public class IndexController extends Controller {
 		setAttr("lnew", lnew);
 		setAttr("cnews", cnews);
 		setAttr("cm", cm);
-		render("index-leader-detail.html");
+		render(this.getcookie()+"index-leader-detail.html");
 	}
 	
 	
@@ -399,7 +497,10 @@ public class IndexController extends Controller {
 		render("index-leader.html");
 	}
 	public void email(){
-		render("email.html");
+		String eid = getPara("eid");
+		LetterModel email = (LetterModel) LetterModel.dao.findById(eid);
+		setAttr("email", email);
+		render(this.getcookie()+"email.html");
 	}
 	
 	//个人事项,//法人事项
@@ -438,7 +539,7 @@ public class IndexController extends Controller {
 		}
 		setAttr("nowPage", nowpage);
 		setAttr("pageCount", pageCount);
-		render("internet-person1.html");
+		render(this.getcookie()+"internet-person1.html");
 	}
 	
 	//服务事项
@@ -467,7 +568,7 @@ public class IndexController extends Controller {
 		}
 		setAttr("nowPage", nowpage);
 		setAttr("pageCount", pageCount);
-		render("internet-unit.html");
+		render(this.getcookie()+"internet-unit.html");
 	}
 	
 	//企业开办
@@ -488,7 +589,7 @@ public class IndexController extends Controller {
 		this.getTime(zcnews);
 		setAttr("zcnews", zcnews);
 		//
-		render("internet-company.html");
+		render(this.getcookie()+"internet-company.html");
 	}
 	//科技开办
 	public void qyfw_technology(){
@@ -507,10 +608,14 @@ public class IndexController extends Controller {
 		List<NewsModel> yhnews = NewsModel.dao.paginate(1,5, "select * ","from news where cid=? order by sort,id desc",id).getList();
 		this.getTime(yhnews);
 		setAttr("yhnews", yhnews);
-		render("internet-technology.html");
+		render(this.getcookie()+"internet-technology.html");
 	}
 	//投资
 	public void invest(){
+		//轮播
+		List<Model> crm = CarouselModel.dao.paginate(1, 4, "select *", "from carousel  where carouselType=? order by sortid, id desc",6).getList();
+		setAttr("crm", crm);
+		
 		//招商新闻
 		int id=257;
 		List<NewsModel> zsnews = NewsModel.dao.paginate(1,6, "select * ","from news where cid=? order by sort,id desc",id).getList();
@@ -542,10 +647,14 @@ public class IndexController extends Controller {
 		List<NewsModel> qynews = NewsModel.dao.paginate(1,8, "select * ","from news where cid=? order by sort,id desc",id).getList();
 		this.getTime(qynews);
 		setAttr("qynews", qynews);
-		render("internet-invest.html");
+		render(this.getcookie()+"internet-invest.html");
 	}
 	//就业
 	public void employ(){
+		//轮播
+		List<Model> crm = CarouselModel.dao.paginate(1, 4, "select *", "from carousel  where carouselType=? order by sortid, id desc",5).getList();
+		setAttr("crm", crm);
+		
 		//招聘会新闻
 		int id=232;
 		List<NewsModel> zphnews = NewsModel.dao.paginate(1,7, "select * ","from news where cid=? order by sort,id desc",id).getList();
@@ -571,11 +680,14 @@ public class IndexController extends Controller {
 		List<NewsModel> gwynews = NewsModel.dao.paginate(1,6, "select * ","from news where cid=? order by sort,id desc",id).getList();
 		this.getTime(gwynews);
 		setAttr("gwynews", gwynews);
-		render("internet-employ.html");
+		render(this.getcookie()+"internet-employ.html");
 	}
 	
 	//教育
 	public void  edu(){
+		//轮播
+			List<Model> crm = CarouselModel.dao.paginate(1, 4, "select *", "from carousel  where carouselType=? order by sortid, id desc",2).getList();
+			setAttr("crm", crm);
 		//教育新闻
 		int id=217;
 		List<NewsModel> jynews = NewsModel.dao.paginate(1,9, "select * ","from news where cid=? order by sort,id desc",id).getList();
@@ -592,10 +704,15 @@ public class IndexController extends Controller {
 		this.getTime(ggnews);
 		setAttr("ggnews", ggnews);
 		
-		render("internet-person.html");
+		render(this.getcookie()+"internet-person.html");
 	}
 	//社保
 	public void sec(){
+		//轮播
+		List<Model> crm = CarouselModel.dao.paginate(1, 4, "select *", "from carousel  where carouselType=? order by sortid, id desc",4).getList();
+		setAttr("crm", crm);
+				
+		
 		//社保资讯
 		int id=221;
 		List<NewsModel> sbnews = NewsModel.dao.paginate(1,6, "select * ","from news where cid=? order by sort,id desc",id).getList();
@@ -616,7 +733,7 @@ public class IndexController extends Controller {
 		List<NewsModel> zsnews = NewsModel.dao.paginate(1,6, "select * ","from news where cid=? order by sort,id desc",id).getList();
 		this.getTime(zsnews);
 		setAttr("zsnews", zsnews);
-		render("internet-security.html");
+		render(this.getcookie()+"internet-security.html");
 	}
 	//个人服务的证件办理
 	public void paper(){
@@ -646,10 +763,15 @@ public class IndexController extends Controller {
 		this.getTime(wtnews);
 		setAttr("wtnews", wtnews);
 		//
-		render("internet-paper.html");
+		render(this.getcookie()+"internet-paper.html");
 	}
 	//医疗服务
 	public void health(){
+		
+		//轮播
+		List<Model> crm = CarouselModel.dao.paginate(1, 4, "select *", "from carousel  where carouselType=? order by sortid, id desc",3).getList();
+		setAttr("crm", crm);
+		
 		//医疗新闻
 		int id=238;
 		List<NewsModel> ylnews = NewsModel.dao.paginate(1,7, "select * ","from news where cid=? order by sort,id desc",id).getList();
@@ -675,7 +797,7 @@ public class IndexController extends Controller {
 		List<NewsModel> hlnews = NewsModel.dao.paginate(1,5, "select * ","from news where cid=? order by sort,id desc",id).getList();
 		this.getTime(hlnews);
 		setAttr("hlnews", hlnews);
-		render("internet-health.html");
+		render(this.getcookie()+"internet-health.html");
 	}
 	
 	
@@ -693,7 +815,14 @@ public class IndexController extends Controller {
 		render("myzj_index.html");
 	}
 	public void shift(){
-		render("index2.html");
+		String cookie = getCookie("page");
+		int i=1;
+		if(cookie!=null){
+			i=Integer.parseInt(cookie)+1;
+		}
+		setCookie("page", i+"", 1800);
+		
+		redirect("/Home/Index");
 	}
 	//梅江主页
 //	public void index() {
@@ -796,42 +925,47 @@ public class IndexController extends Controller {
 	}
 	
 	//全文检索
-	public void search(){
+	public void search() throws IOException{
+		
+//		//创建索引库
+//				String sql="select * from news";
+//				List<NewsModel> news = NewsModel.dao.find(sql);//新闻数据
+//				Analyzer analyzer = new IKAnalyzer(false);//词法分析器。
+//				Directory directory =FSDirectory.open(new File("e:/lucene"));//内存存储(可以存到磁盘)
+//				IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_40,analyzer);
+//				IndexWriter iwriter =null;
+//				try {
+//					iwriter = new IndexWriter(directory, config);
+//					for(NewsModel nm:news){
+//						Document doc = new Document();
+//						doc.add(new Field("id", nm.get("id").toString(),TextField.TYPE_STORED));
+//						doc.add(new Field("title", nm.get("title").toString(),TextField.TYPE_STORED));
+//						doc.add(new Field("time", nm.get("TIME").toString(),TextField.TYPE_STORED));
+//						doc.add(new Field("summary", nm.get("summary").toString(),TextField.TYPE_STORED));
+//						doc.add(new Field("ppid", this.getFirstChannel(nm.getInt("cid")),TextField.TYPE_NOT_STORED));
+//						iwriter.addDocument(doc);
+//					}
+//					iwriter.commit();
+//				} catch (IOException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				} finally {
+//					if (iwriter != null) {
+//						try {
+//							iwriter.close();
+//						} catch (IOException e) {
+//							// TODO Auto-generated catch block
+//							e.printStackTrace();
+//						}
+//					}
+//				}
+				
+		
 		String src=getPara("Keywords");
-		//创建索引库
-		String sql="select * from news";
-		List<NewsModel> news = NewsModel.dao.find(sql);//新闻数据
-		Analyzer analyzer = new IKAnalyzer(true);//词法分析器。
-		Directory directory = new RAMDirectory();//内存存储(可以存到磁盘)
-		IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_40,analyzer);
-		IndexWriter iwriter =null;
-		try {
-			iwriter = new IndexWriter(directory, config);
-			for(NewsModel nm:news){
-				Document doc = new Document();
-				doc.add(new Field("id", nm.get("id").toString(),TextField.TYPE_STORED));
-				doc.add(new Field("title", nm.get("title").toString(),TextField.TYPE_STORED));
-				doc.add(new Field("time", nm.get("TIME").toString(),TextField.TYPE_STORED));
-				doc.add(new Field("summary", nm.get("summary").toString(),TextField.TYPE_STORED));
-				iwriter.addDocument(doc);
-			}
-			iwriter.commit();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			if (iwriter != null) {
-				try {
-					iwriter.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+		String channel = getPara("channel");//栏目
+		if(channel==null){
+			channel="0";
 		}
-		
-		
-		
 		
 		//搜索
 		
@@ -842,12 +976,32 @@ public class IndexController extends Controller {
 		if(para!=null){
 			page=Integer.parseInt(para);
 		}
+		Analyzer analyzer = new IKAnalyzer(false);//词法分析器。
 		 DirectoryReader ireader=null;
-		  try {
+		  Directory directory=FSDirectory.open(new File("e:/lucene"));
+		try {
 			ireader = DirectoryReader.open(directory);//打开存储位置
 			 IndexSearcher isearcher = new IndexSearcher(ireader);//创建搜索器
-			 QueryParser parser = new QueryParser(Version.LUCENE_40, "title", analyzer);
-			 Query query = parser.parse(src);
+			 
+			
+//			 QueryParser parser=new QueryParser(Version.LUCENE_40, "title", analyzer);
+//			 Query query = parser.parse(src);
+			 Query query =null;
+			 if(channel.equals("0")){
+				 setAttr("channel", channel);
+				 String srcs[]={src};
+				 String field[]={"title"};
+				 query =MultiFieldQueryParser.parse(Version.LUCENE_40,srcs, field, analyzer);
+				 
+			 }else{
+				 setAttr("channel", channel);
+				 String srcs[]={src,channel};
+				 String field[]={"title","ppid"};
+				 Occur[] occs={Occur.MUST,Occur.MUST};
+				 query =MultiFieldQueryParser.parse(Version.LUCENE_40, srcs,field,occs, analyzer);
+			 }
+			
+		
 			  QueryScorer queryScorer = new QueryScorer(query);
 			  //设置高亮标签
 		       Formatter formatter = new SimpleHTMLFormatter("<span style='color:red;'>", "</span>");
@@ -858,9 +1012,10 @@ public class IndexController extends Controller {
 		        ScoreDoc lastScoreDoc = getlastSearch(page,pageSize,query,isearcher);
 		        TopDocs topDocs = isearcher.searchAfter(lastScoreDoc,query,pageSize);
 		        ScoreDoc[] hits = topDocs.scoreDocs;
+		       
 		        //总条数
 		        	int count = topDocs.totalHits;
-			 ArrayList<Integer> ids=new ArrayList<Integer>();
+			 ArrayList<String> ids=new ArrayList<String>();
 			 ArrayList<String> strs=new ArrayList<String>();
 			 ArrayList<String> summarys=new ArrayList<String>();
 			 ArrayList<String> date=new ArrayList<String>();
@@ -869,7 +1024,7 @@ public class IndexController extends Controller {
 			      Document hitDoc = isearcher.doc(hits[i].doc);
 			      String str = hl.getBestFragment(analyzer, "title",hitDoc.get("title"));
 			      String summary = hl.getBestFragment(analyzer, "summary",hitDoc.get("summary"));
-			      ids.add(Integer.parseInt(hitDoc.get("id")));
+			     ids.add(hitDoc.get("id"));
 			      date.add(TimeUtil.timeStampToDate(Long.parseLong(hitDoc.get("time"))));
 			      strs.add(str);
 			      if(summary==null){
@@ -883,7 +1038,7 @@ public class IndexController extends Controller {
 			 		pageCount=1;
 			 	}
 			 	Date dateAfter=new Date(System.currentTimeMillis());
-			 	setAttr("useTime", (dateAfter.getTime()-dateBefore.getTime())/1000);
+			 	setAttr("useTime", dateAfter.getTime()-dateBefore.getTime());
 			 	setAttr("pageSize", pageSize);
 			 	setAttr("date", date);
 			 	setAttr("summarys", summarys);
@@ -913,9 +1068,24 @@ public class IndexController extends Controller {
 			}
 		}
 		  render("search.html");
+//		renderNull();
 		
 
 	}
+	//获取一级栏目
+	private String getFirstChannel(int cid) {
+		ChannelModel cm= ChannelModel.dao.findFirst("select pid  from channel where id =?",cid);
+		if(cm!=null){
+			int pid=cid;
+			while((cid=cm.getInt("pid"))!=0){
+				pid=cid;
+				cm=ChannelModel.dao.findFirst("select pid  from channel where id =?",cid);
+			}
+			return pid+"";
+		}
+		return "";
+	}
+
 	private ScoreDoc getlastSearch(int page, int pageSize, Query query, IndexSearcher isearcher) throws IOException {
 		if(page==1)return null;//如果是第一页返回空
 		int num = pageSize*(page-1);//获取上一页的数量
@@ -958,18 +1128,51 @@ public class IndexController extends Controller {
 		}
 		
 	}
+	public void getLetter(){
+		String cid = getPara("cid");
+		if(cid==null){
+			cid="280";
+		}
+		ChannelModel cm = ChannelModel.dao.findById(cid);
+		setAttr("cm", cm);
+		int page=1;
+		String para = getPara("page");
+		if(para!=null){
+			page=Integer.parseInt(para);
+		}
+		int pageSzie=9;
+		List<Model> letters = LetterModel.dao.paginate(1, pageSzie,"select * ","from letter where state=?&&cid=? order by id desc ",1,Integer.parseInt(cid)).getList();
+		setAttr("nowPage", page);
+		Model findFirst = LetterModel.dao.findFirst("select count(*) num  from letter where state=?&&cid=? ",1,Integer.parseInt(cid));
+		long count=findFirst.getLong("num");//总数
+		long pageCount= count%pageSzie==0?count/pageSzie:(int)(count/pageSzie+1);//总页数
+		if(pageCount==0){
+			pageCount=1;
+		}
+		setAttr("pageCount", pageCount);
+		setAttr("letters", letters);
+		render("news1.html");
+}
+	
 	public void complaints() {
 		List<Model> letterTypes = Letter_Type_Model.dao.getLetterTypes();
 		List<Model> letterDepts = Letter_Dept_Model.dao.getLetterDept();
-		setAttr("letterTypes", letterTypes);
 		setAttr("letterDepts", letterDepts);
-		render("complaints.html");
+		List<ChannelModel> clm = ChannelModel.dao.find("select * from channel where pid=?",275);
+		List<ChannelModel> cms=new ArrayList<ChannelModel>();
+		for(ChannelModel cm:clm){
+			if(cm.getInt("type")==1){
+				cms.add(cm);
+			}
+		}
+		setAttr("clm", cms);
+		render(this.getcookie()+"form.html");
 	}
 
 	public void saveLetter() {
 		String dateString = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-		getModel(LetterModel.class).set("state", "已接收").set("receive_time", dateString).save();
-		redirect("/Home/Index/complaints");
+		getModel(LetterModel.class).set("state", 0).set("receive_time", dateString).save();
+		redirect("/Home/Index/service");
 	}
 
 	public void mailAdd() {

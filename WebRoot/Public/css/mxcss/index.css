@@ -52,6 +52,9 @@ ul{
     height: 100%;
     line-height: 40px;
 }
+.header-left ul li:nth-child(1){
+	width:8%;
+}
 .header-left ul li a{
 	width: 100%;
     text-align: center;
@@ -1369,9 +1372,9 @@ div.subnav .mod .dotlist li{
     margin-bottom: 3%;}
 div.subnav .mod .dotlist li a{ color:#fff; font-weight:bold;}
 div.main-content{    width: 76%;
-    float: left;
+   margin:0 auto;
     background: #fff;
-    margin-left: 1%;}
+    }
 div.main-content .path{    padding: 7px;
     border-bottom: #1361ad 1px solid;
     margin-bottom: 5px;

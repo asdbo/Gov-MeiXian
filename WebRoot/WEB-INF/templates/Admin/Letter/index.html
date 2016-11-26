@@ -43,14 +43,24 @@
 								<tr>
 								<th data-field="state" data-checkbox="true">栏目 ID</th>
 									<th data-sortable="true" data-align="center">写信人</th>
+										<#if session.get("AdminModel").hasPermission("/Admin/Letter/showDetail") = true >
 									<th data-sortable="true" data-align="center">主题</th>
+								<#else>
+								</#if>
 									<th data-sortable="true" data-align="center">内容</th>
 									<th data-sortable="true" data-align="center">负责部门</th>
 									<th data-sortable="true" data-align="center">来信时间</th>
 									<th data-sortable="true" data-align="center">类别</th>
 									<th data-sortable="true" data-align="center">状态</th>
+										<#if session.get("AdminModel").hasPermission("/Admin/Letter/reply") = true >
+									
 									<th data-sortable="true" data-align="center">回复</th>
+								<#else>
+								</#if>
+						         <#if session.get("AdminModel").hasPermission("/Admin/Letter/delete") = true >
 						          <th data-sortable="true" data-align="center">删除</th>
+						          <#else>
+								</#if>
 								</tr>
 							</thead>
 							<#list letterModel as c>
@@ -60,7 +70,10 @@
 								<td style="text-align: center;" data-field="id"></td>
 								<td style="text-align: center;">${(c.people_name)!}
 								</td>
-								<td style="text-align: center;"><a href="/Admin/Letter/showDetail/${c.id}">${(c.theme)!}</a></td>
+								<#if session.get("AdminModel").hasPermission("/Admin/Letter/showDetail") = true >
+								<td style="text-align: center;"><a href="/Admin/Letter/showDetail/${c.id}"><font color="red">[详情]</font>${(c.theme)!}</a></td>
+								<#else>
+								</#if>
 								<td style="text-align: center;">${(c.content)!}
 								</td>
 								<td style="text-align: center;">${(c.letter_dept)!}
@@ -70,7 +83,7 @@
 								<td style="text-align: center;">${(c.lettle_type)!}
 								</td>
 								<td style="text-align: center;">
-								<#if c.state == "已接收">
+								<#if c.state =0>
 								<font color="red">未回复</font>
 								<#else>
 								<font color="green">已回复</font>
@@ -79,14 +92,22 @@
 
 								
 								</td>
+							<#if session.get("AdminModel").hasPermission("/Admin/Letter/reply") = true >
 								<td style="text-align: center;">
 								
 								<a href="/Admin/Letter/reply?id=${c.id}"><button type="button" class="btn btn-primary">回复</button></a>
 								
 									</td>
-								<td style="text-align: center;">
-									<button class="btn btn-danger delete" data-toggle="modal" data-target="#deleteModal" id="${c.id}" onClick="deletedata(${c.id})">删除	</button></td>
+								<#else>
+								</#if>
+								<#if session.get("AdminModel").hasPermission("/Admin/Letter/delete") = true >
 								
+							
+								<td><button class="btn btn-danger delete"
+										  data-target="#deleteModal" data-toggle="modal" onClick="deleteData(${c.id})"
+										  >删除</button></td>
+								<#else>
+								</#if>
 
 							</tr>
 	

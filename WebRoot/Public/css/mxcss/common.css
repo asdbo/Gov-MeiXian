@@ -342,17 +342,17 @@ position: relative; width:38%; height:250px; overflow: hidden; text-align: left;
     color: #fff;
 }
 .news .hd ul li,.news2 .hd ul li{        float: left;
-    padding: 0 10px;
+    padding: 0 9px;
     cursor: pointer;
     font-size: 16px;
-    background: url(../../images/4.png) no-repeat;
+    
     margin: 0px 4px;
     margin-top: 8px;    
-    background-size: 100% 100%;
+   
 }
 
 .news .hd ul li a{
-    font-size:16px;
+    font-size:16px;color:#333; font-weight:bold;
 }
 .news .gong ul li,.news2 .gong ul li{
     background: none;margin-top: 0;
@@ -364,8 +364,8 @@ position: relative; width:38%; height:250px; overflow: hidden; text-align: left;
 #zscd{
     margin-top: 25px;
 }
-.news .hd ul li.on,.news2 .hd ul li.on { background: none; height:40px; border-bottom: 2px solid #72b0df; line-height: 40px; }
-.news .hd ul li.on a,.news2 .hd ul li.on a { color:#1361ad; font-weight:bold; }
+.news .hd ul li.on,.news2 .hd ul li.on { background: none; height:40px;line-height: 40px;background: url(../../images/4.png) no-repeat; background-size: 100% 100%;  }
+.news .hd ul li.on a,.news2 .hd ul li.on a {color:#fff}
 .news .bd ul{ padding:0 12px; zoom:1; background: #fff; }
 .news .bd ul .hot {line-height:24px; border-bottom:1px dashed #cdcdcd;    margin: 8px 0; padding-bottom: 6px; }
 .news .bd ul .hot h3 { color:#72b0df; line-height:38px; font-size:1.17em}
@@ -474,10 +474,10 @@ p.more4{ background:#FFF; top:5px; right:10px; position:absolute; padding:0 10px
     overflow: hidden;
     margin-left: 10px;
 }
-.xxgk2 ul li{ width:95px; height:30px; margin:0 10px 10px 0; line-height:30px; background: #f3f3f3; border:1px solid #ececec; float:left; text-align:center; }
+.xxgk2 ul li{ width:95px; height:30px;border-radius:5px; margin:0 10px 10px 0; line-height:30px; background: #f3f3f3; border:1px solid #ececec; float:left; text-align:center; }
 .xxgk2 ul li:hover{ border:1px solid #f1d7d7}
-.xxgk2 ul li a,.xxgk3 ul li a{ display:block;color: #333;}
-.xxgk2 ul li a:hover{ background:#72b0df;}
+.xxgk2 ul li a,.xxgk3 ul li a{ display:block;color: #333;border-radius:5px;}
+.xxgk2 ul li a:hover{ background:#72b0df;color:#fff}
 .xxgk2 ul li a.blue{
     color: #fff;
     background-color: #4190ff;
@@ -2147,4 +2147,4 @@ i.i_3{ width: 164px;}
         white-space: nowrap;
 }
 .pr30 { padding-right:20px }
-.other_chat ul li{ float: left; width:174px; height:90px; line-height:88px; text-align:center; margin-right:19px;}
+.other_chat ul li{ float: left; width:174px; height:90px; line-height:88px; text-align:center; margin:0 30px;}

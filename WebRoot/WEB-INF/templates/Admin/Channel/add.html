@@ -73,14 +73,17 @@
 								<div class="col-sm-6">
 									<select class="form-control" name="channelModel.type">
 										<option value="0">新闻</option>
+										<option value="1">信件</option>
 									</select>
 								</div>
 							</div>
-
+<#if session.get("AdminModel").hasPermission("/Admin/Channel/save") = true >
 							<div class="form-group">
 								<input type="submit" class="btn btn-primary  col-sm-offset-2"
 									value="保存">
 							</div>
+							<#else>
+					</#if>
 
 						</form>
 					</div>

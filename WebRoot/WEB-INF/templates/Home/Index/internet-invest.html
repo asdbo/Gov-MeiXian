@@ -14,27 +14,36 @@
 		<a class="prev" href="javascript:void(0)"></a>
 		<a class="next" href="javascript:void(0)"></a>
 		<ul class="pic" style="position: relative; width: 504px; height: 345px;">
-
-			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/img201610091156330.jpg"></a></li>
-			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display: list-item;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/de0fec0e5740e86e5785da25eee6a24f.jpg"></a></li>
-			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/d0a831a9ea40a00da170734cf16942be.jpg"></a></li>
-			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display: none;"><a href="/Home/NewContent?newid=17" target="_blank"><img src="${public}/images/d0a831a9ea40a00da170734cf16942be (1).jpg"></a></li>
+		<#list crm as c>
+			<#if c_index=0>
+			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display: list-item;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+			<#else>
+			
+			<li style="position: absolute; width: 504px; left: 0px; top: 0px; display:none;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+			</#if>
+			</#list>
 		</ul>
 		<div class="txt-bg"></div>
 		<div class="txt">
 			<ul>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="穗梅对口帮扶 推进产业共建 ">穗梅对口帮扶 推进产业共建 </a></li>
-				<li style="bottom: 0px;"><a href="/Home/NewContent?newid=17" target="_blank" title="嘉应新区9个项目落地生根">嘉应新区9个项目落地生根</a></li>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="梅州重实体兴实业创新发展">梅州重实体兴实业创新发展</a></li>
-				<li style="bottom: -36px;"><a href="/Home/NewContent?newid=17" target="_blank" title="梅蓄电站项目完成投资逾6亿">梅蓄电站项目完成投资逾6亿</a></li>
+			<#list crm as c>
+			<#if c_index=0>
+				<li style="bottom: 0px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				<#else>
+				<li style="bottom: -36px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				</#if>
+				</#list>
 			</ul>
 		</div>
 
 		<ul class="num">
-			<li class=""><a></a><span></span></li>
+		<#list crm as c>
+			<#if c_index=0>
 			<li class="on"><a></a><span></span></li>
+			<#else>
 			<li class=""><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
+			</#if>
+		</#list>			
 		</ul>
 	</div>
 

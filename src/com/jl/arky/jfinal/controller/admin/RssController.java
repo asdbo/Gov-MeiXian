@@ -9,8 +9,10 @@ package com.jl.arky.jfinal.controller.admin;
 import java.util.Date;
 import java.util.List;
 
+import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
+import com.jl.arky.jfinal.interceptor.CheckPrivilegeInterceptor;
 import com.jl.arky.jfinal.model.ChannelModel;
 import com.jl.arky.jfinal.model.RssChannelModel;
 import com.jl.arky.jfinal.model.RssModel;
@@ -19,7 +21,7 @@ import com.jl.arky.jfinal.model.RssModel;
 /*
  *Rss控制类 
  */
-
+@Before(CheckPrivilegeInterceptor.class)
 public class RssController extends Controller{
 	/*
 	 * 默认RssController路由

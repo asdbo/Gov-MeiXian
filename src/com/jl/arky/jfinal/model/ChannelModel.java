@@ -12,7 +12,6 @@ public class ChannelModel extends Model<ChannelModel>{
 	public Page<ChannelModel> paginate(int pageNumber, int pageSize) {
 		return paginate(pageNumber, pageSize, "select *", "from channel order by id desc");
 	}
-	
 	private List<ChannelModel> scs =new ArrayList<ChannelModel>();
 	private List<NewsModel> news=new ArrayList<NewsModel>();
 	public void setScs(List<ChannelModel> scs) {
@@ -28,4 +27,6 @@ public class ChannelModel extends Model<ChannelModel>{
 	public List<NewsModel> getNews() {
 		return news;
 	}
+
+	
 }

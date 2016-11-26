@@ -89,101 +89,30 @@
 				<ul class="nav" id="main-menu">
 					<li><a class="active-menu" href=""><i
 							class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href=""><i class="glyphicon glyphicon-list-alt"></i>
-							新闻管理<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="/Admin/News/toAdd" target="iframe">新闻添加</a></li>
-							<li><a href="/Admin/News/list" target="iframe">新闻列表</a></li>
-						</ul></li>
-					<li><a href=""><i
-							class="glyphicon glyphicon-align-justify"></i> 栏目管理<span
-							class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="/Admin/Channel/list" target="iframe">栏目显示</a></li>
-							<li><a href="/Admin/Channel/toAdd" target="iframe">栏目添加</a></li>
-						</ul></li>
-					<li>
-					<li><a href=""><i
-							class="glyphicon glyphicon-align-justify"></i> 信件管理<span
-							class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="/Admin/Letter" target="iframe">信件管理</a></li>
-							<li><a href="/Admin/Letter/showComplain" target="iframe">投诉信件管理</a>
-							</li>
-							<li><a href="/Admin/Letter/showSuggest" target="iframe">建议信件管理</a>
-							</li>
-							<li><a href="/Admin/Letter/showConsult" target="iframe">咨询信件管理</a>
-							</li>
-							<li><a href="/Admin/Letter/showAdmire" target="iframe">表扬信件管理</a>
-							</li>
-							<li><a href="/Admin/Letter/showQuZhang" target="iframe">区长信件管理</a>
-							</li>
-							<li><a href="/Admin/Letter/showShuJi" target="iframe">书记信件管理</a></li>
-
-						</ul></li>
-					<li><a href=""><i class="glyphicon glyphicon-picture"></i>轮播管理<span
-							class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="/Admin/Carousel/list" target="iframe">轮播显示</a></li>
-							<li><a href="/Admin/Carousel/add" target="iframe">轮播添加</a></li>
-						</ul></li>
-
-					<li><a href="" target="iframe"><i
-							class="glyphicon glyphicon-user"></i> 用户管理<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-
-							<li><a href="/Admin/Admin/" target="iframe">管理用户</a></li>
-							<li><a href="/Admin/Admin/addViewChange" target="iframe">添加用户</a>
-							</li>
-							<li><a href="/Admin/Admin/queryAdminLogInfo" target="iframe">用户日志</a>
-							</li>
-
-						</ul></li>
-					<li><a href="" target="iframe"><i
-							class="glyphicon glyphicon-align-justify"></i> 数据库管理<span
-							class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="/Admin/Database/add" target="iframe">备份数据库</a></li>
-							<li><a href="/Admin/Database/list" target="iframe">备份数据库文件列表</a></li>
-
-						</ul></li>
-						
-						   
-							<li><a href="" target="iframe"><i
-							class="glyphicon glyphicon-align-justify"></i> 邮件管理<span
-							class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="/Admin/Mail" target="iframe">邮件发送</a></li>
-						</ul>
-						</li>
-						
-
-
-						<li><a href=""><i
-							class="glyphicon glyphicon-align-justify"></i> Rss订阅管理<span
-							class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="/Admin/Rss/addViewChange" target="iframe">Rss订阅添加</a></li>
-							<li><a href="/Admin/Rss" target="iframe">Rss订阅查询</a></li>
-						   <li class=""><a href="/Admin/Rss/toaAddRssChannel" target="iframe">Rss订阅频道添加</a></li>
-						</ul></li>
-						<li><a href=""><i
-							class="glyphicon glyphicon-align-justify"></i> 导航管理<span
-							class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="/Admin/Navigation/list" target="iframe">导航显示</a></li>
-							<li><a href="/Admin/Navigation/toAdd" target="iframe">导航添加</a></li>
-                           
-						</ul></li>
-						
-						<li><a href=""><i
-							class="glyphicon glyphicon-align-justify"></i> 办事进度管理<span
-							class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li><a href="/Admin/Business/showList" target="iframe">办事进度显示</a></li>
-							<li><a href="/Admin/Business/toAdd" target="iframe">办事添加</a></li>
-                           
-						</ul></li>
+							
+							
+					 <#list session.get("topList") as list >
+             	<#if session.get("AdminModel").hasPermission(list.url) = true >
+            <li>
+             <a href=""><i class="glyphicon ${list.icon!}"></i>
+							${list.name!}<span class="fa arrow"></span></a> 
+		       <ul class="nav nav-second-level"> 
+		        <#list list.getChildren() as item >
+		         	<#if session.get("AdminModel").hasPermission(item.url) = true >
+				  <li>
+		         <a href="${item.url}" target="iframe">${item.name!}</a> 
+		          </li>
+				   <#else>
+									      
+				</#if>
+		        
+		        </#list>
+		       </ul>
+            </li>
+             <#else>
+             
+             </#if>
+            </#list>
 						
 						
 					<li><a href="http://tongji.baidu.com/web/22367857/overview/sole?siteId=9940832"><i class="glyphicon glyphicon-asterisk"></i> 百度统计</a>

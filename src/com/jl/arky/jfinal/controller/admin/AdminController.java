@@ -5,18 +5,23 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Model;
+import com.jl.arky.jfinal.interceptor.CheckPrivilegeInterceptor;
 import com.jl.arky.jfinal.model.AdminLogModel;
 import com.jl.arky.jfinal.model.AdminModel;
+import com.jl.arky.jfinal.model.PrivilegeModel;
+import com.jl.arky.jfinal.model.RoleModel;
 import com.jl.arky.jfinal.utils.CaptchaRender;
 import com.jl.arky.jfinal.utils.IpKit;
 import com.jl.arky.jfinal.utils.MD5utils;
 import com.jl.arky.jfinal.utils.RegexUtils;
 
 //@Before(LoginInterceptor.class)
+@Before(CheckPrivilegeInterceptor.class)
 public class AdminController extends Controller {
 
 	public void index() {
@@ -263,7 +268,9 @@ public class AdminController extends Controller {
 				 * 将管理员登陆的信息，添加入admin_log表
 				 */
 				saveAdminLog(AdminModels,logintime,"登录","登录成功");
-				
+				//将toplist置于session
+                List<Model> topList = PrivilegeModel.dao.find("select * from privilege where parentid = ?",1);
+				setSessionAttr("topList",topList);
 				redirect("/Admin/Index");
 
 			} else {
@@ -306,7 +313,8 @@ public class AdminController extends Controller {
 	 * 处理添加页面跳转
 	 */
 	public void addViewChange() {
-
+		List<Model> roleList=RoleModel.dao.find("select * from role");
+        setAttr("roleList",roleList);
 		render("add.html");
 	}
 

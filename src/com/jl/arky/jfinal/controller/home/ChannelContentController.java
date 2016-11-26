@@ -10,6 +10,7 @@ import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Model;
 import com.jl.arky.jfinal.model.CarouselModel;
 import com.jl.arky.jfinal.model.ChannelModel;
+import com.jl.arky.jfinal.model.LetterModel;
 import com.jl.arky.jfinal.model.Letter_Dept_Model;
 import com.jl.arky.jfinal.model.Letter_Type_Model;
 import com.jl.arky.jfinal.model.NewsModel;
@@ -124,16 +125,15 @@ public class ChannelContentController extends Controller{
 		setAttr("pageCount", pageCount);
 		setAttr("news", list2);
 	}
+	
 	private void selected(int id){
 		switch(id){
 		case 1:setAttr("selected", ".index");break;
-		case 2:setAttr("selected", ".river");break;
-		case 3:setAttr("selected", ".trends");break;
-		case 7:setAttr("selected", ".open");break;
-		case 8:setAttr("selected", ".sevices");break;
-		case 9:setAttr("selected", ".work");break;
-		case 10:setAttr("selected", ".complaints");break;
-		case 11:setAttr("selected", ".echo");break;
+		case 3:setAttr("selected", ".intro");break;
+		case 4:setAttr("selected", ".open");break;
+		case 112:setAttr("selected", ".internet");break;
+		case 275:setAttr("selected", ".service");break;
+		case 7:setAttr("selected", ".reply");break;
 		default :setAttr("selected", ".no");break;
 		}
 		

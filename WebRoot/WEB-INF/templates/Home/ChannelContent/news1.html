@@ -60,23 +60,13 @@
     				</li>
     				</#list>
     				<#else>
-    				<li>
-	    				<a href="/Home/NewContent?newid=2">
-	    				<span class="dimension-content newtitle">全市前三季度投近20亿建园区基础设施</span><span class="dimension-time">11-15</span>
-	    				</a>
-    				</li>
-    				<li>
-	    				<a href="/Home/NewContent?newid=2">
-	    				<span class="dimension-content newtitle">全市前三季度投近20亿建园区基础设施</span><span class="dimension-time">11-15</span>
-	    				</a>
-    				</li>
     				</#if>
     			</ul>
     		</div>
     		
     		
     		<div class="tac" style="margin-top: 10px;margin-left: 20px">
-<ul class="pagination pagination-sm">
+			<ul class="pagination pagination-sm">
 		    <li class=""><a href="${url}">首页</a></li>
 		    			<#if (pageCount <5)>
 		    					<#list 1..pageCount as a>
@@ -144,7 +134,8 @@ $(".mx-more a").click(function(){
     return false;
 });
 
-    $('.nav li').removeClass('on');
-    $('.news1').addClass('on');
+$('.nav li').removeClass('on');
+var select="${selected}";
+$(select).addClass('on');
 </script>
 <#include '/WEB-INF/templates/mxcommon/footer.html'>

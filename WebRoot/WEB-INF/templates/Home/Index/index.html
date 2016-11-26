@@ -8,25 +8,22 @@
 	            <a class="prev" href="javascript:void(0)"></a>
 	            <a class="next" href="javascript:void(0)"></a>
                 <ul class="pic">
-                <#list cs as c>
-		            <li><a href="/Home/Index/detail" target="_blank"><img src="${c.link}"/></a></li>
-			   		 <li><a href="/Home/Index/detail" target="_blank"><img src="${c.link}"/></a></li>
+                <#list crm as c>
+		            <li><a href="${c.tolink}" target="_blank"><img src="${c.link}"/></a></li>
 			   	</#list>
 			    </ul>
             <div class="txt-bg"></div>
             <div class="txt">
                 <ul>
-                	<#list cs as c>
-		            <li><a href="/Home/Index/detail"  class="newtitle" target="_blank">${c.title}</a></li>
-                	 <li><a href="/Home/Index/detail"  class="newtitle" target="_blank">${c.title}</a></li>
+                	<#list crm as c>
+		            <li><a href="${c.tolink}"  class="newtitle" target="_blank">${c.title}</a></li>
                 	</#list>
                 </ul>
             </div>
             <ul class="num">
+          	  <#list crm as c>
                 <li><a></a><span></span></li>
-                <li><a></a><span></span></li>
-                <li><a></a><span></span></li>
-                <li><a></a><span></span></li>
+                </#list>
             </ul>
    		  </div>
    		  </div>
@@ -51,7 +48,7 @@
                 		<#if n_index=0>
                     <div class="hot">
                         <h3 class="tac"><a class="newtitle" href="/Home/NewContent?newid=${n.id}" target="_blank">${n.title}</a></h3>
-                        <p class="ti20 font-hui3" ><a class="newsummary" href="/Home/NewContent?newid=${n.id}" target="_blank" >${n.summary}</a><span class="detail"><a href="/Home/NewContent?newid=${n.id}" target="_blank">[详细]</a></span>
+                        <p class="ti20 font-hui3" ><a style="white-space: normal;letter-spacing: .5px;" class="newsummary" href="/Home/NewContent?newid=${n.id}" target="_blank" >${n.summary}</a><span class="detail"><a href="/Home/NewContent?newid=${n.id}" target="_blank">[详细]</a></span>
                         </p>
                     </div>
                   <#else>
@@ -301,5 +298,8 @@
        </div>
        </div>
        <!-- qualify -->
-
+ <script type="text/javascript">
+  	 $('.nav li').removeClass('on');
+    $('.index').addClass('on');
+  </script>
 <#include '/WEB-INF/templates/mxcommon/footer.html'>

@@ -143,7 +143,7 @@ public class LetterController extends Controller {
 	// 后台保存管理员的回复
 	public void saveReply() {
 		String dateString = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-		Db.update("update letter set reply_time=?,state=?,reply_content=? where id=?", dateString, "已回复",
+		Db.update("update letter set reply_time=?,state=?,reply_content=? where id=?", dateString, 1,
 				getPara("content"), getPara("id"));
 		redirect("/Admin/Letter");
 	}
@@ -160,7 +160,7 @@ public class LetterController extends Controller {
 	// 前台保存用户填写的数据
 	public void save() {
 		String dateString = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
-		getModel(LetterModel.class).set("state", "已接收").set("receive_time", dateString).save();
+		getModel(LetterModel.class).set("state", 0).set("receive_time", dateString).save();
 		redirect("/Admin/Letter");
 	}
 

@@ -1,0 +1,141 @@
+<#include '/WEB-INF/templates/mxcommon2/header.html'>
+<!-- news-center -->
+<link rel="stylesheet" type="text/css" href="${public}/css2/common.css">
+<div class="news-center" style="       height: auto;
+    overflow: hidden;
+    margin-bottom: 15px;">
+  <!-- navigation -->
+	<div class="navigation">
+	<#assign who="">
+	<#assign url="">
+		<div class="navigation-content"><a href="/Home/Index">网站首页</a>
+		<#list pchannels as pc>
+		<#if pc_index=pchannels.size()-1>
+    					<#assign who=pc.title>
+    					<#assign url="/Home/ChannelContent?cid="+pc.id>
+    				</#if>
+		>><span><a href="/Home/ChannelContent?cid=${pc.id}">${pc.title}</a></span>
+		</#list>
+		</div>
+	</div>	
+  <!-- navigation -->
+    <div class="center-contents">
+    	<div class="contents-menu" style="overflow: hidden;">
+    		<ul>
+    			<li class="new-active"><a href="/Home/ChannelContent?cid=${channel.id}">${channel.title}</a></li>
+    			<#list schannels as c>
+    			<li>
+					<div class="ctitle">
+						<span><a href="/Home/ChannelContent?cid=${c.id}">&nbsp;&nbsp;${c.title}</a></span> 
+					
+						<div class="mx-more">
+							<#if !c.scs.isEmpty()>
+						<a href="javascript:void" >+</a>
+						<#else>
+						<a href="javascript:void" >&nbsp;</a>
+						</#if>
+						</div>
+					</div>
+					<#if !c.scs.isEmpty()>
+					<ul class="mx-ul" style="display: none;">
+						<#list c.scs as sc>
+						<li><a href="/Home/ChannelContent?cid=${sc.id}">${sc.title}</a></li>
+						</#list>
+					</ul>
+					</#if>
+				</li>
+    			</#list>
+    		</ul>
+    	</div>
+    	<div class="contents-list" style="overflow: hidden;">
+    		<div class="list-title">${who}
+</div>
+    		<div class="list-dimension">
+    			<ul>
+    			<#if !news.isEmpty()>
+    				<#list news as n>
+    				<li>
+	    				<a href="/Home/NewContent?newid=${n.id}">
+	    				<span class="dimension-content newtitle" >${n.title}</span><span class="dimension-time">${n.TIME}</span>
+	    				</a>
+    				</li>
+    				</#list>
+    				<#else>
+    				</#if>
+    			</ul>
+    		</div>
+    		
+    		
+    		<div class="tac" style="margin-top: 10px;margin-left: 20px">
+			<ul class="pagination pagination-sm">
+		    <li class=""><a href="${url}">首页</a></li>
+		    			<#if (pageCount <5)>
+		    					<#list 1..pageCount as a>
+		    					<#if a=nowPage>
+								<li class="ng-scope active"><a class="ng-binding" href="javascript::">${a}</a></li>
+								<#else>
+								<li class="ng-scope"><a class="ng-binding" href="${url}&page=${a}">${a}</a></li>
+								</#if>
+								</#list>
+							<#else>
+								<#assign dd=(nowPage/6)?floor>
+								<#assign start=1>
+								<#assign end=2>
+								<!-- 判断开始页数 -->
+								<#if ((dd*5+1)>pageCount)>
+										<#assign start=(pageCount-5)>
+									<#else>
+									<#assign start=(dd*5+1)>
+								</#if>
+								<!-- 判断末页数 -->
+								<#if (pageCount>(start+4))>
+									<#assign end=(start+4)>
+									<#else>
+									<#assign end=pageCount>
+								</#if>
+								<!-- 上5页 -->
+								<#if (start>1)>
+									<li><a href="${url}&page=${start-1}">«</a></li>
+								</#if>
+								<#list start..end as a>
+								<#if a=nowPage>
+								<li class="ng-scope active"><a class="ng-binding" href="javascript::">${a}</a></li>
+								<#else>
+								<li class="ng-scope"><a class="ng-binding" href="${url}&page=${a}">${a}</a></li>
+								</#if>
+								</#list>
+								<!-- 下5页 -->
+								<#if (end <pageCount)>
+								<li><a href="${url}&page=${end+1}">»</a></li>
+								</#if>
+		    				</#if>
+		    		
+						
+			    <li class=""><a href="${url}&page=${pageCount}">末页</a></li>
+		</ul>
+</div>
+    		
+    		
+    		
+    		
+    		
+    	</div>
+    </div>
+</div>
+<script type="text/javascript">
+$(".mx-more a").click(function(){
+    var val= $(this).html();
+    if(val=="-"){
+        $(this).html("+");
+        $(this).parent().parent().next(".mx-ul").hide("slow");
+    }else if(val=="+"){
+        $(this).html("-");
+        $(this).parent().parent().next(".mx-ul").show("slow");
+    }
+    return false;
+});
+var select="${selected}";
+    $('.nav li').removeClass('on');
+    $(select).addClass('on');
+</script>
+<#include '/WEB-INF/templates/mxcommon2/footer.html'>

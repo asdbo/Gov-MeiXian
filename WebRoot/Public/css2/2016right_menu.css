@@ -15,7 +15,7 @@
 .right_menu .wx{background-position:center -118px}
 .right_menu .wb{background-position:center -190px}
 .right_menu .sjb{background-position:center -258px;}
-.right_menu .wzjy{background-position:center -425px;}
+.right_menu .wzjy{background-position:center -425px;display:none;}
 .right_menu .fxd{background-position:center -388px}
 .right_menu .gotop{background-position:center -435px; display:none;}
 li.gotop:hover{background-color:#062d4f;}

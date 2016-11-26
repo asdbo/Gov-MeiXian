@@ -121,11 +121,14 @@
 							&nbsp;<input type="radio" name="scoreradio" value="-2">很差(-2)
 						</td>
 					</tr> -->
+					<#if session.get("AdminModel").hasPermission("/Admin/Letter/saveReply") = true >
 					<tr>
 						<td colspan="4" style="text-align: center"><input
 							type="submit" value="提交" class="btn btn-primary">&nbsp;&nbsp;<input
 							type="reset" value="重填" class="btn btn-primary"></td>
 					</tr>
+					<#else>
+					</#if>
 				
 				</tbody>
 			</table>

@@ -33,23 +33,23 @@ input[type="text"] {
 }
 
 #searBtn {
-	width: 25%;
-	max-width: 100px;
-	font-size: 18px;
-	font-family: '微软雅黑';
-	display: inline-block;
-	text-align: center;
-	font-weight: bold;
-	background: #f09718;
-	border: none;
-	outline: 0;
-	height: 48px;
-	cursor: pointer;
-	color: #fff;
-	position: absolute;
-	right: -110px;
-	right: -160px \9;
-	top: 0px;
+    width: 12%;
+    max-width: 100px;
+    font-size: 18px;
+    font-family: '微软雅黑';
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    background: #f09718;
+    border: none;
+    outline: 0;
+    height: 39px;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    right: -85px;
+    top: 0px;
+    border-radius: 2px;
 }
 
 input[type="submit"]:hover {
@@ -68,18 +68,51 @@ input[type="submit"]:hover {
 				<div class="mtb20">
 					<form class="js_searchForm" action="/Home/Index/search" method="post">
 						<div class="form-input">
-							<input type="text" name="Keyword" id="keyword"> <input
-								type="submit" id="searBtn" value="搜索">
+							<input type="text" name="Keywords" id="keyword"> 
+							<select name="channel">
+								<option value="0">全部</option>
+								<#if channel??&&channel="3">
+								  <option value="3" selected="selected">魅力梅县</option>
+								  <#else>
+								   <option value="3" >魅力梅县</option>
+							  </#if>
+							  <#if channel??&&channel="4">
+								   <option value="4" selected="selected">政务公开</option>
+								  <#else>
+								  <option value="4">政务公开</option>
+							  </#if>
+							  <#if channel??&&channel="275">
+								  <option value="275" selected="selected">互动交流</option>
+								  <#else>
+								   <option value="275">互动交流</option>
+							  </#if>
+							  <#if channel??&&channel="112">
+								  <option value="112" selected="selected">办事服务</option>
+								  <#else>
+								    <option value="112">办事服务</option>
+							  </#if>
+							   <#if channel??&&channel="7">
+								   <option value="7" selected="selected">回应关切</option>
+								  <#else>
+								     <option value="7">回应关切</option>
+							  </#if>
+							</select>
+							<input type="submit" id="searBtn" value="搜索">
 						</div>
 					</form>
 				</div>
 			</div>
 		</div>
+		<#assign url="/Home/Index/search?Keywords="+src>
+		<#if channel??>
+			url=url+"&channel="+channel;
+		</#if>
 		<div class="clear"></div>
 		<!--页面顶部结束-->
 
 		<!--页面内容开始-->
 		<div class="search_main">
+
 
 			<!--search-center 开始-->
 			<div class="search-ss">
@@ -88,41 +121,72 @@ input[type="submit"]:hover {
 				<!--返回结果长度大于0-->
 				<h2 class="wordb">
 					<div class="searchP ftl">
-						<small><i class="linecons-search"></i>为您找到相关结果约个</small>
+						<small><i class="linecons-search"></i>为您找到相关结果约${count}个 &nbsp;搜索时间约${useTime}毫秒</small>
 						<h5 class="wordlen font-size14 mtb20">
-							以下为您显示“ <strong></strong> <strong class="font-red1 font-size16">搜索</strong>”的搜索结果。
+							以下为您显示“ <strong></strong> <strong class="font-red1 font-size16">搜索${src!}</strong>”的搜索结果。
 						</h5>
 					</div>
 					<div class="clear"></div>
 				</h2>
 				<div class="clear"></div>
 				<dl class="mtb20" style="border-bottom: 1px dashed #bcbcbc;">
-					<a>圣诞节粉色的加法角色破发送完皮肤及评委及奇偶位</a>
+					<#list ids as id>
+						<a href="/Home/NewContent?newid=${id}">${strs.get(id_index)}</a><br><br>
+							<p style="font-size: small;">${summarys.get(id_index)}  ...</p>
+							<p ><a style="font-size: small;color: blue;"  href="/Home/NewContent?newid=${id}">/Home/NewContent?newid=${id}</a>(${date.get(id_index)})</p>
+							<hr><br>
+					</#list>
 				</dl>
 				<div class="clear"></div>
 				<!--翻页 开始-->
 				<div>
 					<div class="tac">
 						<ul class="pagination pagination-sm">
-							<li class=""><a
-								href="/search/index?keyword=搜索梅县市人民政府信息和服务&datetime=&classify=&order=&page=1">首页</a></li>
-							<li class=""><a
-								href="/search/index?keyword=搜索梅县市人民政府信息和服务&datetime=&classify=&order=&page=1">«</a></li>
-							<li class="ng-scope"><a class="ng-binding"
-								href="/search/index?keyword=搜索梅县市人民政府信息和服务&datetime=&classify=&order=&page=1">1</a></li>
-							<li class="ng-scope active"><a class="ng-binding"
-								href="/search/index?keyword=搜索梅县市人民政府信息和服务&datetime=&classify=&order=&page=2">2</a></li>
-							<li class="ng-scope"><a class="ng-binding"
-								href="/search/index?keyword=搜索梅县市人民政府信息和服务&datetime=&classify=&order=&page=3">3</a></li>
-							<li class="ng-scope"><a class="ng-binding"
-								href="/search/index?keyword=搜索梅县市人民政府信息和服务&datetime=&classify=&order=&page=4">4</a></li>
-							<li class="ng-scope"><a class="ng-binding"
-								href="/search/index?keyword=搜索梅县市人民政府信息和服务&datetime=&classify=&order=&page=5">5</a></li>
-							<li><a
-								href="/search/index?keyword=搜索梅县市人民政府信息和服务&datetime=&classify=&order=&page=3">»</a></li>
-							<li class=""><a
-								href="/search/index?keyword=搜索梅县市人民政府信息和服务&datetime=&classify=&order=&page=959">末页</a></li>
-						</ul>
+		    <li class=""><a href="${url}">首页</a></li>
+		    			<#if (pageCount <5)>
+		    					<#list 1..pageCount as a>
+		    					<#if a=nowPage>
+								<li class="ng-scope active"><a class="ng-binding" href="javascript::">${a}</a></li>
+								<#else>
+								<li class="ng-scope"><a class="ng-binding" href="${url}&page=${a}">${a}</a></li>
+								</#if>
+								</#list>
+							<#else>
+								<#assign dd=(nowPage/6)?floor>
+								<#assign start=1>
+								<#assign end=2>
+								<!-- 判断开始页数 -->
+								<#if ((dd*5+1)>pageCount)>
+										<#assign start=(pageCount-5)>
+									<#else>
+									<#assign start=(dd*5+1)>
+								</#if>
+								<!-- 判断末页数 -->
+								<#if (pageCount>(start+4))>
+									<#assign end=(start+4)>
+									<#else>
+									<#assign end=pageCount>
+								</#if>
+								<!-- 上5页 -->
+								<#if (start>1)>
+									<li><a href="${url}&page=${start-1}">«</a></li>
+								</#if>
+								<#list start..end as a>
+								<#if a=nowPage>
+								<li class="ng-scope active"><a class="ng-binding" href="javascript::">${a}</a></li>
+								<#else>
+								<li class="ng-scope"><a class="ng-binding" href="${url}&page=${a}">${a}</a></li>
+								</#if>
+								</#list>
+								<!-- 下5页 -->
+								<#if (end <pageCount)>
+								<li><a href="${url}&page=${end+1}">»</a></li>
+								</#if>
+		    				</#if>
+		    		
+						
+			    <li class=""><a href="${url}&page=${pageCount}">末页</a></li>
+		</ul>
 					</div>
 				</div>
 				<!--翻页 结束-->

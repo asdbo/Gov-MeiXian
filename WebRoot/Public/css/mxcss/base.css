@@ -1271,6 +1271,19 @@ form .form-input {
   width: 62%;
   font-size: 16px;
   padding: 10px 0 13px;
+  padding-top:0;
+}
+form .form-input input{
+	    padding: 7px 15px 5px 15px;
+}
+form .form-input select{
+	    border: none;
+    border-left: 1px solid #ccc;
+    float: right;
+    height:38px;
+}
+form .form-input select option{
+	margin-bottom:3px;
 }
 
 .js_searchForm {

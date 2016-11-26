@@ -7,6 +7,7 @@ import com.jfinal.config.JFinalConfig;
 import com.jfinal.config.Plugins;
 import com.jfinal.config.Routes;
 import com.jfinal.ext.handler.ContextPathHandler;
+import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
@@ -20,6 +21,7 @@ import com.jl.arky.jfinal.controller.admin.LetterController;
 import com.jl.arky.jfinal.controller.admin.MailController;
 import com.jl.arky.jfinal.controller.admin.NavigationController;
 import com.jl.arky.jfinal.controller.admin.NewsController;
+import com.jl.arky.jfinal.controller.admin.RoleController;
 import com.jl.arky.jfinal.controller.admin.RssController;
 import com.jl.arky.jfinal.controller.admin.UeditorController;
 import com.jl.arky.jfinal.controller.home.ChannelContentController;
@@ -38,8 +40,12 @@ import com.jl.arky.jfinal.model.Letter_Type_Model;
 import com.jl.arky.jfinal.model.MailModel;
 import com.jl.arky.jfinal.model.NavigationModel;
 import com.jl.arky.jfinal.model.NewsModel;
+import com.jl.arky.jfinal.model.PrivilegeModel;
+import com.jl.arky.jfinal.model.R_P_Model;
+import com.jl.arky.jfinal.model.RoleModel;
 import com.jl.arky.jfinal.model.RssChannelModel;
 import com.jl.arky.jfinal.model.RssModel;
+import com.jl.arky.jfinal.model.U_R_Model;
 import com.jl.arky.jfinal.utils.CacheUtil;
 
 import freemarker.core._CoreAPI;
@@ -48,7 +54,7 @@ public class MainConfig extends JFinalConfig {
 	public static final String DATABASE_USERNAME = "root";// 用户名
 	public static final String DATABASE_PASSWORD = "";// 密码
 	public static final String DATABASE_NAME = "mxdata";// 数据库名
-	public static final String DATABASE_HOST = "localhost";// 主机地址
+	public static final String DATABASE_HOST = "127.0.0.1";// 主机地址
 	public static final String DATABASE_PORT = "3306";// 端口
 	public static final String MYSQL_HOME = "";
 
@@ -82,7 +88,7 @@ public class MainConfig extends JFinalConfig {
 
 		me.add("/Admin/Rss", RssController.class);
 		me.add("/Admin/Navigation", NavigationController.class);
-		
+		me.add("Admin/Role",RoleController.class);
 	}
 
 	@Override
@@ -110,6 +116,10 @@ public class MainConfig extends JFinalConfig {
 		arp.addMapping("rss_channel", RssChannelModel.class);
 		arp.addMapping("navigation", NavigationModel.class);
 		arp.addMapping("schedule", BusinessModel.class);
+		arp.addMapping("privilege", PrivilegeModel.class);
+		arp.addMapping("role", RoleModel.class);
+		arp.addMapping("role_privilege", R_P_Model.class);
+		arp.addMapping("admin_role", U_R_Model.class);
 	}
 
 	@Override
@@ -117,6 +127,7 @@ public class MainConfig extends JFinalConfig {
 		// TODO Auto-generated method stub
 		me.add(new I18nInterceptor());
 		me.add(new LoginInterceptor());
+		me.add(new SessionInViewInterceptor(true));
 	}
 
 	@Override

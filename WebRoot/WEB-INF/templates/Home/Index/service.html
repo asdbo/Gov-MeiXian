@@ -14,13 +14,8 @@
 		</div>
 		<div class="xixiang_btn ftr">
 			<a
-				href="https://www.meizhou.gov.cn/jump.html?url=http://mzms.meizhou.gov.cn/msCommunicateWebAction.do?action=getCommunicateWebList&type=1"
+				href="/Home/Index/getLetter?cid=278"
 				target="_blank">更多回复</a>
-		</div>
-		<div class="xixiang_btn ftr mr10">
-			<a
-				href="https://www.meizhou.gov.cn/jump.html?url=http://xf.meizhou.gov.cn/msCommunicateWebAction.do?action=openLetterPage&type=1"
-				target="_blank">我要写信</a>
 		</div>
 		<div class="clear"></div>
 		<div class="tong back_color1 mt10" style="padding: 10px">
@@ -32,33 +27,13 @@
 					<table width="100%" border="0" cellspacing="1" cellpadding="0"
 						class="lm-center">
 						<tbody>
+							<#list sj as s>
 							<tr>
-								<td height="25"><a title="建议编修地名志" style="cursor: pointer;"
-									href="/Home/Index/email"> 建议编修地名志</a></td>
-								<td>建议</td>
+								<td height="25" style="width: 400px"><a class="newtitle" title="${s.theme}" style="cursor: pointer;"
+									href="/Home/Index/email?eid=${s.id}"> ${s.theme}</a></td>
+								<td  >${s.lettle_type}</td>
 							</tr>
-							<tr>
-								<td height="25"><a title="垃圾车抛洒污水问题"
-									style="cursor: pointer;"
-									href="/Home/Index/email"> 垃圾车抛洒污水问题</a></td>
-								<td>求决</td>
-							</tr>
-							<tr>
-								<td height="25"><a title="水田灌溉问题" style="cursor: pointer;"
-									href="/Home/Index/email"> 水田灌溉问题</a></td>
-								<td>求决</td>
-							</tr>
-							<tr>
-								<td height="25"><a title="咨询农用电问题" style="cursor: pointer;"
-									href="/Home/Index/email"> 咨询农用电问题</a></td>
-								<td>咨询</td>
-							</tr>
-							<tr>
-								<td height="25"><a title="平远县公办幼儿园入学年龄问题"
-									style="cursor: pointer;"
-									href="/Home/Index/email"> 平远县公办幼儿园入学年龄问题</a></td>
-								<td>求决</td>
-							</tr>
+							</#list>
 						</tbody>
 					</table>
 				</div>
@@ -75,13 +50,8 @@
 		</div>
 		<div class="xixiang_btn ftr">
 			<a
-				href="https://www.meizhou.gov.cn/jump.html?url=http://xf.meizhou.gov.cn/msCommunicateWebAction.do?action=getCommunicateWebList&type=2"
+				href="/Home/Index/getLetter?cid=279"
 				target="_blank">更多回复</a>
-		</div>
-		<div class="xixiang_btn ftr mr10">
-			<a
-				href="https://www.meizhou.gov.cn/jump.html?url=http://xf.meizhou.gov.cn/msCommunicateWebAction.do?action=openLetterPage&type=2"
-				target="_blank">我要写信</a>
 		</div>
 		<div class="clear"></div>
 		<div class="tong back_color1 p20 mt10" style="padding: 10px">
@@ -93,36 +63,14 @@
 					<table width="100%" border="0" cellspacing="1" cellpadding="0"
 						class="lm-center">
 						<tbody>
+							<#list sz as s>
 							<tr>
-								<td height="25"><a title="手机信号断断续续问题"
+								<td height="25" style="width: 400px"><a class="newtitle" title="${s.theme}"
 									style="cursor: pointer;"
-									href="/Home/Index/email"> 手机信号断断续续问题</a></td>
-								<td>求决</td>
+									href="/Home/Index/email?eid=${s.id}">${s.theme}</a></td>
+								<td>${s.lettle_type}</td>
 							</tr>
-							<tr>
-								<td height="25"><a title="城区学校学位紧张问题"
-									style="cursor: pointer;"
-									href="/Home/Index/email"> 城区学校学位紧张问题</a></td>
-								<td>建议</td>
-							</tr>
-							<tr>
-								<td height="25"><a title="建设丽都大桥浪费资源"
-									style="cursor: pointer;"
-									href="/Home/Index/email"> 建设丽都大桥浪费资源</a></td>
-								<td>建议</td>
-							</tr>
-							<tr>
-								<td height="25"><a title="路树繁茂影响周边住户"
-									style="cursor: pointer;"
-									href="/Home/Index/email"> 路树繁茂影响周边住户</a></td>
-								<td>求决</td>
-							</tr>
-							<tr>
-								<td height="25"><a title="考驾照网上预约问题"
-									style="cursor: pointer;"
-									href="/Home/Index/email"> 考驾照网上预约问题</a></td>
-								<td>求决</td>
-							</tr>
+							</#list>
 						</tbody>
 					</table>
 				</div>
@@ -135,26 +83,22 @@
 	<div class="other_chat mt20 border1 mt20 mb20" style="height: 130px;">
 		<ul>
 			<li class="back_color3"><a
-				href="https://www.meizhou.gov.cn/jump.html?url=http://mzms.meizhou.gov.cn/msCommunicateWebAction.do?action=openMain&amp;type=4"
+				href="http://mzms.meizhou.gov.cn/msCommunicateWebAction.do?action=openMain&type=4"
 				target="_blank"><img class="ftl mt20 ml20"
 					src="${public}/images/icon28.png">我要咨询</a></li>
 			<li class="back_color4"><a
-				href="https://www.meizhou.gov.cn/jump.html?url=http:/mzms.meizhou.gov.cn/msCommunicateWebAction.do?action=openMain&amp;type=4"
+				href="/Home/Index/complaints"
 				target="_blank"><img class="ftl mt20 ml20"
-					src="${public}/images/icon29.png">我要投诉</a></li>
+					src="${public}/images/icon29.png">我要写信</a></li>
 			<li class="back_color7"><a
 				href="http://mzms.meizhou.gov.cn/msCommunicateWebAction.do?action=getCommunicateWebList&amp;type=4"
 				target="_blank"><img class="ftl mt20 ml20"
 					src="${public}/images/icon32.png">受理查询</a></li>
 
 			<li class="back_color6"><a
-				href="https://www.meizhou.gov.cn/jump.html?url=http://12345.meizhou.gov.cn/index.action"
+				href="http://12345.meizhou.gov.cn/index.action"
 				target="_blank"><img class="ftl mt20 ml20"
 					src="${public}/images/icon31.png">12345平台</a></li>
-			<li class="back_color5"><a
-				href="https://www.meizhou.gov.cn/answer" target="_blank"><img
-					class="ftl mt20 ml20"
-					src="${public}/images/icon30.png">智能助手</a></li>
 		</ul>
 	</div>
 	<div class="clear"></div>
@@ -164,15 +108,15 @@
 		<div class="lineheight32"
 			style="height: 36px; border-bottom: 1px solid #d5d5d5">
 			<div class="title1 ftl">
-				<h3 class="ftl">梅州民声</h3>
+				<h3 class="ftl">梅县民声</h3>
 			</div>
 			<div class="ftr">
-				累计：主题&nbsp;&nbsp; <span class="font-red4" id="xjzl">127230</span>&nbsp;&nbsp;
-				| &nbsp;&nbsp; 回复：<span class="font-red4" id="hfzl">126787</span>
-				&nbsp;&nbsp;今日 收件:&nbsp;&nbsp; <span class="font-red4" id="jrlx">4</span>
-				&nbsp;&nbsp; | &nbsp;&nbsp; 回复：<span class="font-red4" id="jrhf">22</span>&nbsp;&nbsp;
+				累计：主题&nbsp;&nbsp; <span class="font-red4" id="xjzl">${allCount}</span>&nbsp;&nbsp;
+				| &nbsp;&nbsp; 回复：<span class="font-red4" id="hfzl">${hfallCount}</span>
+				&nbsp;&nbsp;今日 收件:&nbsp;&nbsp; <span class="font-red4" id="jrlx">${todayEmailNum}</span>
+				&nbsp;&nbsp; | &nbsp;&nbsp; 回复：<span class="font-red4" id="jrhf">${todayhandlerNum}</span>&nbsp;&nbsp;
 				| <a target="_blank"
-					href="http://www.meizhou.gov.cn/jump.html?url=http://mzms.meizhou.gov.cn/">更多回复</a>
+					href="/Home/Index/getLetter?cid=280">更多回复</a>
 			</div>
 		</div>
 		<div class="clear"></div>
@@ -190,74 +134,18 @@
 					</tr>
 				</thead>
 				<tbody>
+					<#list ms as m>
 					<tr>
-						<td height="25"><a title="桂花苑汽车美容店占道.."
+						<td height="25"><a class="newtitle" title="${m.theme}"
 							style="cursor: pointer;"
-							href="/Home/Index/email"> 桂花苑汽车美容店占道..</a></td>
-						<td>申诉</td>
-						<td>老李</td>
-						<td>16/11/09</td>
-						<td>梅县区人民政府</td>
-						<td>16/11/17</td>
+							href="/Home/Index/email?eid=${m.id}">${m.theme}</a></td>
+						<td>${m.lettle_type}</td>
+						<td>${m.people_name}</td>
+						<td>${m.receive_time}</td>
+						<td>${m.letter_dept}</td>
+						<td>${m.reply_time}</td>
 					</tr>
-					<tr>
-						<td height="25"><a title="外省女方户口迁入畲江.."
-							style="cursor: pointer;"
-							href="/Home/Index/email"> 外省女方户口迁入畲江..</a></td>
-						<td>咨询</td>
-						<td>杨志辉</td>
-						<td>16/11/09</td>
-						<td>梅县区人民政府</td>
-						<td>16/11/17</td>
-					</tr>
-					<tr>
-						<td height="25"><a title="	强占村民集体山林地.."
-							style="cursor: pointer;"
-							href="/Home/Index/email"> 强占村民集体山林地..</a></td>
-						<td>求决</td>
-						<td>阿温</td>
-						<td>16/11/08</td>
-						<td>梅县区人民政府</td>
-						<td>16/11/17</td>
-					</tr>
-					<tr>
-						<td height="25"><a title="白渡镇汶水村原小学被.."
-							style="cursor: pointer;"
-							href="/Home/Index/email"> 白渡镇汶水村原小学被..</a></td>
-						<td>建议</td>
-						<td>古生</td>
-						<td>16/11/08</td>
-						<td>梅县区人民政府</td>
-						<td>16/11/17</td>
-					</tr>
-					<tr>
-						<td height="25"><a title=" 呈请政府还我黄土路"
-							style="cursor: pointer;"
-							href="/Home/Index/email"> 呈请政府还我黄土路</a></td>
-						<td>求决</td>
-						<td>黄土路出入近千村民</td>
-						<td>16/11/06</td>
-						<td>蕉岭县人民政府</td>
-						<td>16/11/17</td>
-					</tr>
-					<tr>
-						<td height="25"><a title="呈请政府还我黄土路" style="cursor: pointer;"
-							href="/Home/Index/email"> 呈请政府还我黄土路</a></td>
-						<td>申诉</td>
-						<td>黄土路出入近千村民</td>
-						<td>16/11/06</td>
-						<td>蕉岭县人民政府</td>
-						<td>16/11/17</td>
-					</tr>
-					<tr>
-						<td height="25"><a title="呈请政府还我黄土路" style="cursor: pointer;"
-							href="/Home/Index/email"> 呈请政府还我黄土路</a></td>
-						<td>申诉</td>
-						<td>黄土路出入近千村民</td>
-						<td>16/11/05</td>
-						<td>梅州市直.蕉岭县人民政府</td>
-						<td>16/11/17</td>
-					</tr>
+					</#list>
 				</tbody>
 			</table>
 		</div>
@@ -292,56 +180,32 @@
 	<div class="news ftl w504" id="myzj">
 		<div class="hd">
 			<ul style="left: 0px;">
-				<li class="on"><a href="/Home/ChannelContent?cid=17"
+				<li class="on"><a href="/Home/ChannelContent?cid=281"
 					target="_blank">民意征集</a></li>
-				<li><a href="/Home/ChannelContent?cid=17"
+				<li><a href="/Home/ChannelContent?cid=282"
 					target="_blank">结果反馈</a></li>
 			</ul>
 		</div>
 		<div class="bd mt10">
 			<ul style="height: 160px;">
 				<p class="more1">
-					<a target="_blank" href="/Home/ChannelContent?cid=17">更多+</a>
+					<a target="_blank" href="/Home/ChannelContent?cid=281">更多+</a>
 				</p>
-
-				<li><span class="state">已截止</span><a
-					href="/Home/NewContent?newid=17"
-					target="_blank" title="关于统一进驻新政务中心征求意见的公告">关于统一进驻新政务中心征求意见的公告</a></li>
-				<li><span class="state">已截止</span><a
-					href="/Home/NewContent?newid=17"
-					target="_blank" title="关于公开征求《丰顺县公益性公墓管理办法（征求意见稿）》意见的公告">关于公开征求《丰顺县公益性公墓管理办法（征求意见稿）...</a></li>
-				<li><span class="state">已截止</span><a
-					href="/Home/NewContent?newid=17"
-					target="_blank" title="梅州市旅游宣传口号征集启事">梅州市旅游宣传口号征集启事</a></li>
-				<li><span class="state">已截止</span><a
-					href="/Home/NewContent?newid=17"
-					target="_blank" title="公开征求《梅州市在用柴油黄标车排放治理改造工作方案（征求意见稿）》意见">公开征求《梅州市在用柴油黄标车排放治理改造工作方案（...</a></li>
-				<li><span class="state">已截止</span><a
-					href="/Home/NewContent?newid=17"
-					target="_blank" title="关于征集公众对梅江区83条城市道路命名建议的公告">关于征集公众对梅江区83条城市道路命名建议的公告</a></li>
+			<#list mys  as my>
+				<li><span class="state">(${my.TIME})</span><a class="newtitle"
+					href="/Home/NewContent?newid=${my.id}"
+					target="_blank" title="${my.title}">${my.title}</a></li>
+				</#list>
 			</ul>
 			<ul style="height: 161px; display: none;">
 				<p class="more1">
-					<a target="_blank" href="/Home/ChannelContent?cid=17">更多+</a>
+					<a target="_blank" href="/Home/ChannelContent?cid=282">更多+</a>
 				</p>
-
-				<li><span class="date">（2016-10-11）</span><a
-					href="/Home/NewContent?newid=17"
-					target="_blank" title="关于印发丰顺县公益性公墓管理办法的通知">关于印发丰顺县公益性公墓管理办法的通知</a></li>
-
-				<li><span class="date">（2016-08-10）</span><a
-					href="/Home/NewContent?newid=17"
-					target="_blank"
-					title="梅州市环境保护局 梅州市财政局关于印发《梅州市高污染燃料锅炉整治项目补贴调整实施方案》的通知">梅州市环境保护局
-						梅州市财政局关于印发《梅州市高污...</a></li>
-
-				<li><span class="date">（2016-07-06）</span><a
-					href="/Home/NewContent?newid=17"
-					target="_blank" title="梅州市环境保护局关于发布梅州市建设项目环境影响评价文件审批负面清单的通知">梅州市环境保护局关于发布梅州市建设项目环境影响评价...</a></li>
-
-				<li><span class="date">（2016-03-18）</span><a
-					href="/Home/NewContent?newid=17"
-					target="_blank" title="首届客家童谣节完成作品征集">首届客家童谣节完成作品征集</a></li>
+				<#list jgs as jg>
+				<li><span class="date">(${jg.TIME})</span><a class="newtitle"
+					href="/Home/NewContent?newid=${jg.id}"
+					target="_blank" title="${jg.title}">${jg.title}</a></li>
+				</#list>
 
 			</ul>
 		</div>
@@ -349,23 +213,12 @@
 	<script type="text/javascript">
 		jQuery(".news").slide();
 	</script>
-	<!--<div class="w504 ml10 ftl" style=" position:relative;">
-        <div class="title1" style="height:40px; line-height:40px;"><h3 class="ftl">网上调查 </h3></div>
-        <p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/list/296">更多+</a></p>
-        <div class="clear"></div>
-        <div class=" tong mt10" style="height:180px;">
-            <ul>
-		
-					                      
-            </ul>
-        </div>
-    </div>-->
 
 	<div class="news ftl w504 ml10" id="myzj" style="position: relative;">
 		<div class="hd">
 			<ul style="left: 0px;">
 				<li class="on"><a
-					href="/Home/ChannelContent?cid=17" target="_blank">在线调查</a></li>
+					href="/Home/ChannelContent?cid=283" target="_blank">在线调查</a></li>
 
 			</ul>
 		</div>
@@ -373,24 +226,13 @@
 
 			<ul style="height: 161px;">
 				<p class="more1">
-					<a target="_blank" href="https://www.meizhou.gov.cn/vote/list/296">更多+</a>
+					<a target="_blank" href="/Home/ChannelContent?cid=283">更多+</a>
 				</p>
-
-				<li><span class="state_on">进行中</span><a
-					href="/Home/NewContent?newid=17" target="_blank"
-					title="盐业改革社会调查问卷">盐业改革社会调查问卷</a></li>
-				<li><span class="state_on">进行中</span><a
-					href="/Home/NewContent?newid=17" target="_blank"
-					title="你认为梅州城区交通秩序整治，可从哪方面着手">你认为梅州城区交通秩序整治，可从哪方面着手</a></li>
-				<li><span class="state_on">进行中</span><a
-					href="/Home/NewContent?newid=17" target="_blank"
-					title="梅州市网上办事大厅服务调查问卷">梅州市网上办事大厅服务调查问卷</a></li>
-				<li><span class="state">已截止</span><a
-					href="/Home/NewContent?newid=17" target="_blank"
-					title="关于统一进驻新政务中心征求意见的公告">关于统一进驻新政务中心征求意见的公告</a></li>
-				<li><span class="state">已截止</span><a
-					href="/Home/NewContent?newid=17" target="_blank"
-					title="解决城市交通堵塞问题，您赞成哪种方法">解决城市交通堵塞问题，您赞成哪种方法</a></li>
+				<#list dcs as dc>
+				<li><span class="state_on">(${dc.TIME})</span><a class="newtitle"
+					href="/Home/NewContent?newid=${dc.id}" target="_blank"
+					title="${dc.title}">${dc.title}</a></li>
+					</#list>
 
 			</ul>
 		</div>

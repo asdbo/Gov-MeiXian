@@ -95,7 +95,7 @@ public class DatabaseController extends Controller {
 	public void add() {
 		List<DatabaseModel> list = databaseList();
 		if (list != null) {
-			setAttr("date", databaseList().get(list.size() - 1).getDate());// 最后备份信息
+			setAttr("date", databaseList().get(0).getDate());// 最后备份信息
 
 		} else {
 			setAttr("date", "");

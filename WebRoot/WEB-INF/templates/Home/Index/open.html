@@ -9,8 +9,8 @@
         <div class="news_img2 ftl">
             <div class="hd ">
                 <ul>
-                    <li class="">1</li>
-                    <li class="on">2</li>
+                    <li class="on">1</li>
+                    <li class="">2</li>
                     <li>3</li>
                     <li>4</li>
                     <li>5</li>
@@ -18,12 +18,12 @@
             </div>
             <div class="bd">
                 <ul>
-                <#list 1..5 as n>
-                    <li><a href="/Home/NewContent?newid=9"><img src="${public}/images/01.png"></a>
+                <#list crm as n>
+                    <li><a href="${n.tolink}"><img src="${n.link}"></a>
                     <div class="txt-bg">
                     </div>
                     <div class="tac txt">
-                    <a href="/Home/NewContent?newid=9" target="_blank" class="newtitle">省市召开冬春农田水利基本建设电视电话会议 全面加快农田水利工程建设</a>
+                    <a href="${n.tolink}" target="_blank" class="newtitle">${n.title}</a>
                     </div>
                     </li>
                     </#list>
@@ -280,7 +280,7 @@
                             </#if>
                             	<#list fgs as fg>
                             <p>
-                                <a href="/Home/NewContent?newid=${fg.id}" class="newtitle">${fg.title}</a>
+                                <a class="newtitle" href="/Home/NewContent?newid=${fg.id}" class="newtitle">${fg.title}</a>
                             </p>
                             	</#list>
                             </li>
@@ -311,7 +311,7 @@
                             	</#if>
                             	<#list zfs as zf>
                             <p>
-                                <a href="/Home/NewContent?newid=${zf.id}">${zf.title}</a>
+                                <a class="newtitle" href="/Home/NewContent?newid=${zf.id}">${zf.title}</a>
                             </p>
                             	</#list>
                           
@@ -354,7 +354,7 @@
                             </#if>
                             <#list rsns as rsn>
                             <p>
-                                <a href="/Home/NewContent?newid=${rsn.id}">${rsn.title}</a>
+                                <a class="newtitle" href="/Home/NewContent?newid=${rsn.id}">${rsn.title}</a>
                             </p>
                             </#list>
                             </li>
@@ -385,7 +385,7 @@
                             </#if>
                             <#list tjns as tjn>
                             <p>
-                                <a href="/Home/NewContent?newid=${tjn.id}"><span class="date">(${tjn.TIME})</span>${tjn.title}</a>
+                                <a class="newtitle" href="/Home/NewContent?newid=${tjn.id}">${tjn.title}</a><span class="date">(${tjn.TIME})</span>
                             </p>
                             </#list>
                             </li>
@@ -411,7 +411,7 @@
             <div class=" tong mt10" style="height:180px;">
                 <ul>
                 <#list zjnews as zjn>
-        <li><span class="date">(${zjn.TIME})</span><a href="/Home/NewContent?newid=${zjn.id}">${zjn.title}</a></li>
+        <li><span class="date">(${zjn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zjn.id}">${zjn.title}</a></li>
               </#list>
                 </ul>
             </div>
@@ -430,7 +430,7 @@
             <div class=" tong mt10" style="height:180px;">
                 <ul>
                 <#list jhnews as jhn>
-    <li><span class="date">(${jhn.TIME})</span><a href="/Home/NewContent?newid=${jhn.id}">${jhn.title}</a></li>
+    <li><span class="date">(${jhn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${jhn.id}">${jhn.title}</a></li>
     		</#list>
                 </ul>
             </div>

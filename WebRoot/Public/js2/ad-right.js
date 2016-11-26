@@ -83,6 +83,8 @@ $(".wzjy").click(function(){
    });
 
         $(".news").slide(); $(".news2").slide();
+        $(".news_vertical1").slide({ titCell:"ol li",mainCell:"div",delayTime:0,triggerTime:0 });
+        $(".news_vertical2").slide({ titCell:"ol li",mainCell:"div",delayTime:0,triggerTime:0 });
         
 $(".tufa").slide({ trigger: "click" });
 $(".news_img").slide({

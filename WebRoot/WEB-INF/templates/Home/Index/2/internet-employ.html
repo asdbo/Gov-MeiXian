@@ -3,58 +3,73 @@
 <link rel="stylesheet" type="text/css" href="${public}/css2/min.css">
 <div class="index_content">
 	<div class="wid">
-	<img src="${public}/images2/banner_job.jpg" width="1022" height="100">      
+	<img src="${public}/images/banner_job.jpg" width="1022" height="100">      
 	<div class="news_img3 news_img ftl focusBox mt20 mr20">
 		<a class="prev" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
 		<a class="next" href="javascript:void(0)" style="opacity: 1; display: none;"></a>
 		<ul class="pic pics1" style="position: relative; width: 380px; height: 250px;">
-
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20160815_129312.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/6273/view/1"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20160704_110783.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/4029/view/1"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20160608_110788.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/4032/view/1"></a></li>
-			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20160608_110787.htm" target="_blank"><img src="https://www.meizhou.gov.cn/upload/download/4033/view/1"></a></li>
+			<#list crm as c>
+				<#if c_index=0>
+			<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: list-item;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+				<#else>
+				<li style="position: absolute; width: 380px; left: 0px; top: 0px; display: none;"><a href="${c.tolink}" target="_blank"><img src="${c.link}"></a></li>
+				</#if>
+			</#list>
 		</ul>
 		<div class="txt-bg"></div>
 		<div class="txt">
 			<ul>
-				<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20160815_129312.htm" target="_blank" title="赢在客都·梅州市首届创新创业大赛正式启动，请带上洪荒之力来参加！">赢在客都·梅州市首届创新...</a></li>
-				<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20160704_110783.htm" target="_blank" title="梅江区“企业服务月”首场活动拉开了帷幕">梅江区“企业服务月”首场...</a></li>
-				<li style="bottom: 0px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20160608_110788.htm" target="_blank" title="大埔县民营经济发展服务局正式挂牌成立">大埔县民营经济发展服务局...</a></li>
-				<li style="bottom: -36px;"><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20160608_110787.htm" target="_blank" title="兴宁市召开《省级小微企业创业创新基地城市示范工作方案》征求意见座谈会">兴宁市召开《省级小微企业...</a></li>
+			<#list crm as c>
+				<#if c_index=0>
+				<li style="bottom: 0px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				<#else>
+				<li style="bottom: -36px;"><a class="newtitle" href="${c.tolink}" target="_blank" title="${c.title}">${c.title}</a></li>
+				</#if>
+				
+			</#list>
 			</ul>
 		</div>
 
 		<ul class="num">
-			<li class=""><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
+		<#list crm as c>
+				<#if c_index=0>
 			<li class="on"><a></a><span></span></li>
-			<li class=""><a></a><span></span></li>
+			<#else>
+			<li ><a></a><span></span></li>
+			</#if>
+			</#list>
 		</ul>
 	</div>
 
 	<script type="text/javascript">
-		$(".focusBox").hover(function () {
-			$(this).find(".prev,.next").stop(true, true).fadeTo("show", 1)
+		jQuery(".focusBox").hover(function () {
+			jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 1)
 		}, function () {
-			$(this).find(".prev,.next").fadeOut()
+			jQuery(this).find(".prev,.next").fadeOut()
 		});
+
+		jQuery(".news_img").slide({
+			titCell: ".num li",
+			mainCell: ".pic",
+			effect: "fold",
+			autoPlay: true,
+			trigger: "click",
+				//下面startFun代码用于控制文字上下切换
+				startFun: function (i) {
+					jQuery(".news_img .txt li").eq(i).animate({ "bottom": 0 }).siblings().animate({ "bottom": -36 });
+				}
+			});
 		</script>
 		<div class="ftl mt20" style="width:600px; position:relative;">
 			
 			<div class="title1"><h3 class="ftl">招聘会新闻</h3></div>
-			<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/ldqy/index.htm">更多+</a></p>
+			<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=232">更多+</a></p>
 			<div class="clear"></div>
 			<div class="t-tong1 tong mt10" style="height:180px;">
 				<ul>
-					
-					<li><span class="date">(11-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/ldqy/t20161108_130481.htm" target="_blank" title="　2016年上半年梅州市市直事业单位公开招聘拟聘用人员公示（第九批）　">2016年上半年梅州市市直事业单位公开招聘拟聘用人员公示（第九批）</a></li>
-					<li><span class="date">(10-27)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/ldqy/t20161027_114284.htm" target="_blank" title="　广东省2016年粤东西北地区乡镇事业单位专项公开招聘梅州市拟聘用人员公示（第七批共3名）　">广东省2016年粤东西北地区乡镇事业单位专项公开招聘梅州市拟聘用人员公示...</a></li>
-					<li><span class="date">(10-21)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/ldqy/t20161021_114219.htm" target="_blank" title="　广东省2016年集中时间组织事业单位公开招聘（梅州考区）面试资格审核公告　">广东省2016年集中时间组织事业单位公开招聘（梅州考区）面试资格审核公告...</a></li>
-					<li><span class="date">(10-18)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/ldqy/t20161018_114283.htm" target="_blank" title="　2016年上半年梅州市市直事业单位公开招聘拟聘用人员公示（第八批）　">2016年上半年梅州市市直事业单位公开招聘拟聘用人员公示（第八批）</a></li>
-					<li><span class="date">(10-13)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/ldqy/t20161013_114282.htm" target="_blank" title="　2016年上半年梅州市市直事业单位公开招聘拟聘用人员公示（第七批）　">2016年上半年梅州市市直事业单位公开招聘拟聘用人员公示（第七批）</a></li>
-					<li><span class="date">(10-09)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/ldqy/t20161009_110747.htm" target="_blank" title="　2016年秋冬季综合人才招聘会　">2016年秋冬季综合人才招聘会</a></li>
-					<li><span class="date">(09-29)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/ldqy/t20160929_114281.htm" target="_blank" title="　2016年上半年梅州市市直事业单位公开招聘拟聘用人员公示（第六批）　">2016年上半年梅州市市直事业单位公开招聘拟聘用人员公示（第六批）</a></li>
-
+					<#list zphnews as zph>
+					<li><span class="date">(${zph.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zph.id}" target="_blank" title="　${zph.title}　">${zph.title}</a></li>
+					</#list>		
 				</ul>
 			</div>
 		</div>
@@ -64,32 +79,24 @@
 			<div class="shebao_other ftl" style="width:495px; position:relative;">
 				
 				<div class="title1"><h3 class="ftl">自主创业 </h3></div>
-				<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/index.htm">更多+</a></p>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=233">更多+</a></p>
 				<div class=" tong mt10" style="height:180px;">
 					<ul>
-
-						<li><span class="date">(11-16)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20161116_130864.htm" target="_blank" title="义乌小商品城明年7月开业 招商率已超70%">义乌小商品城明年7月开业 招商率已超70%</a></li>
-						<li><span class="date">(11-15)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20161115_130732.htm" target="_blank" title="梅州市首届创新创业大赛初赛结束 84个项目晋级">梅州市首届创新创业大赛初赛结束 84个项目晋级</a></li>
-						<li><span class="date">(11-14)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20161114_130731.htm" target="_blank" title="梅州市首届创新创业大赛复赛入围名单公告">梅州市首届创新创业大赛复赛入围名单公告</a></li>
-						<li><span class="date">(11-07)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20161107_130220.htm" target="_blank" title="90后大学生创业各出“奇招”——创业，撑起梦想的天空">90后大学生创业各出“奇招”——创业，撑起梦想的天空</a></li>
-						<li><span class="date">(11-06)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20161106_130223.htm" target="_blank" title="梅江区成立青年互联网创业协会助力青年圆梦">梅江区成立青年互联网创业协会助力青年圆梦</a></li>
-						<li><span class="date">(10-30)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zzcy/t20161030_130483.htm" target="_blank" title="我市近20家小微企业获资助">我市近20家小微企业获资助</a></li>
+						<#list zznews as zzn>
+						<li><span class="date">(${zzn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zzn.id}" target="_blank" title="${zzn.title}">${zzn.title}</a></li>
+						</#list>
 					</ul>
 				</div>
 			</div>
 			<div class="shebao_other ftl ml10" style="width:495px; position:relative;margin-left: 5px;">
 				
 				<div class="title1"><h3 class="ftl">就业新闻 </h3></div>
-				<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/bmfw1/index.htm">更多+</a></p>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=234">更多+</a></p>
 				<div class=" tong mt10" style="height:180px;">
 					<ul>
-
-						<li><span class="date">(10-31)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/bmfw1/t20161031_126791.htm" target="_blank" title="2015年我市超额完成年度就业任务">2015年我市超额完成年度就业任务</a></li>
-						<li><span class="date">(09-29)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/bmfw1/t20160929_114285.htm" target="_blank" title="关于组织参加2016珠三角自主创业项目推介会（广东众创杯创业创新大赛项目展示会）的通知">关于组织参加2016珠三角自主创业项目推介会（广东众创杯创业...</a></li>
-						<li><span class="date">(09-07)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/bmfw1/t20160907_129305.htm" target="_blank" title="2016年嘉应学院公开招聘人员公告">2016年嘉应学院公开招聘人员公告</a></li>
-						<li><span class="date">(07-26)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/bmfw1/t20160726_129308.htm" target="_blank" title="2016年上半年梅州市市直事业单位公开招聘递补面试人员公告">2016年上半年梅州市市直事业单位公开招聘递补面试人员公告</a></li>
-						<li><span class="date">(07-15)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/bmfw1/t20160715_129309.htm" target="_blank" title="2016年梅州市蕉华管理区医院面向随军家属定向招聘事业单位工作人员拟聘用人员公示">2016年梅州市蕉华管理区医院面向随军家属定向招聘事业单位工...</a></li>
-						<li><span class="date">(07-01)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/bmfw1/t20160701_129307.htm" target="_blank" title="梅州市2016年面向大学生村官招聘基层 事业单位工作人员拟聘用人员公示公告">梅州市2016年面向大学生村官招聘基层 事业单位工作人员拟聘...</a></li>
+						<#list jynews as jyn>
+						<li><span class="date">(${jyn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${jyn.id}" target="_blank" title="${jyn.title}">${jyn.title}</a></li>
+						</#list>
 					</ul>
 				</div>
 			</div>
@@ -98,32 +105,24 @@
 			<div class="shebao_other ftl mt10" style="width:495px; position:relative;">
 				
 				<div class="title1"><h3 class="ftl">政策法规 </h3></div>
-				<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zxgg2/index.htm">更多+</a></p>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=235">更多+</a></p>
 				<div class=" tong mt10" style="height:180px;">
 					<ul>
-
-						<li><span class="date">(08-16)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zxgg2/t20160816_95588.htm" target="_blank" title="转发省人力资源和社会保障厅办公室关于征集2016年度广东省创业项目的通知">转发省人力资源和社会保障厅办公室关于征集2016年度广东省创...</a></li>
-						<li><span class="date">(08-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zxgg2/t20160808_95591.htm" target="_blank" title="梅州市人力资源和社会保障局行政许可事项目录">梅州市人力资源和社会保障局行政许可事项目录</a></li>
-						<li><span class="date">(08-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zxgg2/t20160808_95590.htm" target="_blank" title="梅州市人力资源和社会保障局公共服务事项目录">梅州市人力资源和社会保障局公共服务事项目录</a></li>
-						<li><span class="date">(08-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zxgg2/t20160808_95589.htm" target="_blank" title="梅州市社会保险基金管理局公共服务事项目录">梅州市社会保险基金管理局公共服务事项目录</a></li>
-						<li><span class="date">(07-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zxgg2/t20160708_95593.htm" target="_blank" title="关于印发《梅州市人力资源和社会保障部门依法分类处理群众诉求清单》的通知">关于印发《梅州市人力资源和社会保障部门依法分类处理群众诉求清...</a></li>
-						<li><span class="date">(07-08)</span><a href="https://www.meizhou.gov.cn/bsfw/ggfw/grfw/jyzt1/zxgg2/t20160708_95592.htm" target="_blank" title="梅州市人力资源和社会保障局权责清单">梅州市人力资源和社会保障局权责清单</a></li>
+						<#list zcnews as zcn>
+						<li><span class="date">(${zcn.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${zcn.id}" target="_blank" title="${zcn.title}">${zcn.title}</a></li>
+						</#list>
 					</ul>
 				</div>
 			</div>
 			<div class="shebao_other ftl ml10 mt10" style="width:495px; position:relative;margin-left: 5px;">
 				
 				<div class="title1"><h3 class="ftl">公务员招考 </h3></div>
-				<p class="more1"><a target="_blank" href="https://www.meizhou.gov.cn/zwgk1/rsxx/gwyzk/index.htm">更多+</a></p>
+				<p class="more1"><a target="_blank" href="/Home/ChannelContent?cid=236">更多+</a></p>
 				<div class=" tong mt10" style="height:180px;">
 					<ul>
-
-						<li><span class="date">(10-21)</span><a href="https://www.meizhou.gov.cn/zwgk1/gzdt/bmdt/t20161021_112560.htm" target="_blank" title="梅州市蕉华管理区2016年公开遴选公务员面试公告">梅州市蕉华管理区2016年公开遴选公务员面试公告</a></li>
-						<li><span class="date">(10-18)</span><a href="https://www.meizhou.gov.cn/zwgk1/rsxx/gwyzk/t20161018_114214.htm" target="_blank" title="关于领取 “录用公务员通知书”的通知（第四批，森林公安职位）">关于领取 “录用公务员通知书”的通知（第四批，森林公安职位）</a></li>
-						<li><span class="date">(10-09)</span><a href="https://www.meizhou.gov.cn/zwgk1/rsxx/gwyzk/t20161009_112022.htm" target="_blank" title="2016年梅州市市直机关公开遴选公务员笔试成绩查询">2016年梅州市市直机关公开遴选公务员笔试成绩查询</a></li>
-						<li><span class="date">(10-09)</span><a href="https://www.meizhou.gov.cn/zwgk1/rsxx/gwyzk/t20161009_112023.htm" target="_blank" title="梅州市2016年拟录用公务员公示（第四批，森林公安职位）">梅州市2016年拟录用公务员公示（第四批，森林公安职位）</a></li>
-						<li><span class="date">(10-09)</span><a href="https://www.meizhou.gov.cn/zwgk1/rsxx/gwyzk/t20161009_112024.htm" target="_blank" title="关于领取 “录用公务员通知书”的通知（第三批，公安机关职位）">关于领取 “录用公务员通知书”的通知（第三批，公安机关职位）</a></li>
-						<li><span class="date">(09-30)</span><a href="https://www.meizhou.gov.cn/zwgk1/rsxx/gwyzk/t20160930_102361.htm" target="_blank" title="梅州市2016年拟录用公务员公示（第三批，公安职位）">梅州市2016年拟录用公务员公示（第三批，公安职位）</a></li>
+						<#list gwynews as gwy>
+						<li><span class="date">(${gwy.TIME})</span><a class="newtitle" href="/Home/NewContent?newid=${gwy.id}" target="_blank" title="${gwy.title}">${gwy.title}</a></li>
+						</#list>
 					</ul>
 				</div>
 			</div>

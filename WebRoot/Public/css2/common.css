@@ -2100,5 +2100,15 @@ i.i_3{ width: 164px;}
     text-align: center;
         white-space: nowrap;
 }
+.path{
+	    padding: 7px;
+    background:#357aba;
+    margin-bottom: 5px;
+    background-color: #4381bc;
+    color: #fff;
+}
+.path a{
+	color:#fff;
+}
 .pr30 { padding-right:20px }
-.other_chat ul li{ float: left; width:174px; height:90px; line-height:88px; text-align:center; margin-right:19px;}
+.other_chat ul li{ float: left; width:174px; height:90px; line-height:88px; text-align:center; margin:0 30px;}

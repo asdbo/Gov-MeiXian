@@ -3,77 +3,85 @@
 <div class="news-center">
   <!-- navigation -->
 	<div class="navigation">
-		<div class="navigation-content">网站首页>><span>新闻中心</span></div>
+		<div class="navigation-content">
+		<a href="/Home/Index">
+		网站首页</a>  >>  <a href="/Home/Index/service"><span>互动交流</span></a></div>
 	</div>	
   <!-- navigation -->
     <div class="center-contents">
     	<div class="contents-menu">
     		<ul>
-    			<li class="new-active"><a href="detail.php">新闻中心</a></li>
-    			<li><a href="detail.php">梅县要闻</a></li>
-    			<li><a href="detail.php">部门动态</a></li>
-    			<li><a href="detail.php">乡镇动态</a></li>
-    			<li><a href="detail.php">新闻视频</a></li>
-    			<li><a href="detail.php">政声传递</a></li>
+    			<li class="new-active"><a href="/Home/Index/service">互动交流</a></li>
+    			<li><a href="/Home/Index/getLetter?cid=278">书记信箱</a></li>
+    			<li><a href="/Home/Index/getLetter?cid=279">市长信箱</a></li>
+    			<li><a href="/Home/Index/getLetter?cid=280">梅县民声</a></li>
     		</ul>
     	</div>
     	<div class="contents-list">
-    		<div class="list-title">新闻中心</div>
+    		<div class="list-title">${cm.title}</div>
+    		<#assign url="/Home/Index/getLetter?cid="+cm.id>
     		<div class="list-dimension">
     			<ul>
+    				<#list letters as letter>
     				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
+	    				<a href="/Home/Index/email?eid=${letter.id}">
+	    				<span class="dimension-content">${letter.theme}</span><span class="dimension-time">${letter.reply_time}</span>
 	    				</a>
     				</li>
-    				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
-	    				</a>
-    				</li>
-    				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
-	    				</a>
-    				</li>
-    				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
-	    				</a>
-    				</li>
-    				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
-	    				</a>
-    				</li>
-    				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
-	    				</a>
-    				</li>
-    				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
-	    				</a>
-    				</li>
-    				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
-	    				</a>
-    				</li>
-    				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
-	    				</a>
-    				</li>
-    				<li>
-	    				<a href="detail.php">
-	    				<span class="dimension-content">关于在梅州城区开展交通秩序专项整治谭军铁方李煦参加全市三防</span><span class="dimension-time">10-23</span>
-	    				</a>
-    				</li>
+    				</#list>
     			</ul>
     		</div>
+    		
+    		<div class="tac" style="margin-top: 10px;margin-left: 20px">
+<ul class="pagination pagination-sm">
+		    <li class=""><a href="${url}">首页</a></li>
+		    			<#if (pageCount <5)>
+		    					<#list 1..pageCount as a>
+		    					<#if a=nowPage>
+								<li class="ng-scope active"><a class="ng-binding" href="javascript::">${a}</a></li>
+								<#else>
+								<li class="ng-scope"><a class="ng-binding" href="${url}&page=${a}">${a}</a></li>
+								</#if>
+								</#list>
+							<#else>
+								<#assign dd=(nowPage/6)?floor>
+								<#assign start=1>
+								<#assign end=2>
+								<!-- 判断开始页数 -->
+								<#if ((dd*5+1)>pageCount)>
+										<#assign start=(pageCount-5)>
+									<#else>
+									<#assign start=(dd*5+1)>
+								</#if>
+								<!-- 判断末页数 -->
+								<#if (pageCount>(start+4))>
+									<#assign end=(start+4)>
+									<#else>
+									<#assign end=pageCount>
+								</#if>
+								<!-- 上5页 -->
+								<#if (start>1)>
+									<li><a href="${url}&page=${start-1}">«</a></li>
+								</#if>
+								<#list start..end as a>
+								<#if a=nowPage>
+								<li class="ng-scope active"><a class="ng-binding" href="javascript::">${a}</a></li>
+								<#else>
+								<li class="ng-scope"><a class="ng-binding" href="${url}&page=${a}">${a}</a></li>
+								</#if>
+								</#list>
+								<!-- 下5页 -->
+								<#if (end <pageCount)>
+								<li><a href="${url}&page=${end+1}">»</a></li>
+								</#if>
+		    				</#if>
+		    		
+						
+			    <li class=""><a href="${url}&page=${pageCount}">末页</a></li>
+		</ul>
+</div>
     	</div>
+    		
     </div>
 </div>
 <script type="text/javascript">

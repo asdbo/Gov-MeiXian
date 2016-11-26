@@ -23,8 +23,14 @@
 	<div class=" col-sm-12 col-lg-12  main">
 		<div class="row">
 			<ol class="breadcrumb">
-				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-				<li class="active">备份数据库文件列表</li>
+				<#if session.get("AdminModel").hasPermission("/Admin/Database/add") = true >
+					<li><a href="/Admin/Database/add">备份数据库</a></li>
+					<#else> 
+					</#if> 
+					<#if session.get("AdminModel").hasPermission("/Admin/Database/list") = true >
+					<li class="active"><a href="/Admin/Database/list">备份数据库文件列表</a></li>
+					<#else> 
+					</#if> 
 			</ol>
 		</div>
 		<!--/.row-->
@@ -57,12 +63,19 @@
 									<td style="text-align: center;">${c.name}</td>
 									<td style="text-align: center;">${c.length}</td>
 									<td style="text-align: center;">${c.date}</td>
+								<#if session.get("AdminModel").hasPermission("/Admin/Database/restore") = true >
 									<td style="text-align: center;"><a
-										href="/Admin/Database/restore?name=${c.name}" class="btn btn-primary">还原</a></td>
+										href="/Admin/Database/restore?name=${c.name}"
+										class="btn btn-primary">还原</a></td>
+									<#else> 
+									</#if> 
+									<#if session.get("AdminModel").hasPermission("/Admin/Database/delete") = true >
 									<td style="text-align: center;">
 										<button class="btn btn-danger delete" data-toggle="modal"
-											data-target="#deleteModal" id="${c.name}" onClick="deletedata(${c.name})">删除</button>
+											data-target="#deleteModal" id="${c.name}">删除</button>
 									</td>
+									<#else> 
+									</#if> 
 								</tr>
 								</#list>
 							</tbody>

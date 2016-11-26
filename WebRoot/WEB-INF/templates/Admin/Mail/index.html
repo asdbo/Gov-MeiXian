@@ -67,10 +67,12 @@
 					              	</script>
 								</div>
 							</div>
+							<#if session.get("AdminModel").hasPermission("/Admin/Mail/send") = true >
 							<div class="form-group">
 							&nbsp;&nbsp;&nbsp;
 								<input type="submit" class="btn btn-primary  col-sm-offset-2" value="确认">
 							</div>
+							<#else> </#if> 	
 						</form>
 					</div>
 				</div>

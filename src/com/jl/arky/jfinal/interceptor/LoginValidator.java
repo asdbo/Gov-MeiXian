@@ -24,7 +24,6 @@ public class LoginValidator extends BaseValidator {
 	protected void handleError(Controller c) {
 //		if()
 		c.renderFreeMarker("login.html");
-		
 	}
 
 }

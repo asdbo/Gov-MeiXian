@@ -3,6 +3,20 @@ package com.jl.arky.jfinal.controller.admin;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.apache.lucene.analysis.Analyzer;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.Field;
+import org.apache.lucene.document.TextField;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.Term;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.RAMDirectory;
+import org.apache.lucene.util.Version;
+import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
@@ -56,6 +70,7 @@ public class NewsController extends Controller {
 		NewsModel model = this.getModel();
 		if(model!=null){
 			model.save();
+			this.addLunece(model);
 		}
 		String cid = model.get("cid");
 		System.out.println(cid);
@@ -87,6 +102,18 @@ public class NewsController extends Controller {
 		redirect("/Admin/News/list");
 		
 	}
+	//摘要
+	public String summaryStr(String src){
+		if(src.equals("")){
+			src=verification(getPara("content"));
+			  String regEx_html="<[^>]+>"; //定义HTML标签的正则表达式 
+			  Pattern p_html=Pattern.compile(regEx_html,Pattern.CASE_INSENSITIVE); 
+		       Matcher m_html=p_html.matcher(src); 
+		       src=m_html.replaceAll("").trim(); //过滤html标签 
+		     return src.length()>150?src.substring(0, 150):src;   
+		}
+		return src;
+	}
 	//验证输入的数据是否为空
 	public String verification(String src){
 		if(src==null){
@@ -111,7 +138,7 @@ public class NewsController extends Controller {
 		long time=System.currentTimeMillis()/1000;//时间戳(秒)
 			NewsModel model = new NewsModel().set("attach",attchName ).set("video", videoName).set("TIME", time).set("aid",user.get("id")).set("looks", 0)
 					.set("cid",verification(getPara("cid")) ).set("title", verification(getPara("title")))
-					.set("writer", verification(getPara("writer"))).set("summary", verification(getPara("summary")))
+					.set("writer", verification(getPara("writer"))).set("summary", summaryStr(verification(getPara("summary"))))
 					.set("sort", getPara("sort")==null?0:getPara("sort"))	.set("origin", verification(getPara("origin")))
 					.set("newpic", newpic)
 					.set("content", verification(getPara("content")));
@@ -174,7 +201,7 @@ public class NewsController extends Controller {
 				this.deleteLoadfile(attachName);
 				this.deleteLoadfile(newpic);
 			}
-			
+			this.deleteLucene(id);
 		}
 		redirect("/Admin/News/list");
 	}
@@ -204,6 +231,7 @@ public class NewsController extends Controller {
 			
 			//更新
 			model1.set("id", id).update();
+			this.updateLucene(model1, id);
 		}
 		
 				
@@ -222,5 +250,92 @@ public class NewsController extends Controller {
 		render("index.html");
 	}
 	
+
+	//添加一条索引
+	public void addLunece(NewsModel nm){
+		Analyzer analyzer = new IKAnalyzer(false);//词法分析器。
+		Directory directory = new RAMDirectory();//内存存储(可以存到磁盘)
+		IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_40,analyzer);
+		IndexWriter iwriter =null;
+		try {
+			iwriter = new IndexWriter(directory, config);
+			Document doc = new Document();//要添加的数据
+			doc.add(new Field("id", nm.get("id").toString(),TextField.TYPE_STORED));
+			doc.add(new Field("title", nm.get("title").toString(),TextField.TYPE_STORED));
+			doc.add(new Field("time", nm.get("TIME").toString(),TextField.TYPE_STORED));
+			doc.add(new Field("summary", nm.get("summary").toString(),TextField.TYPE_STORED));
+			iwriter.addDocument(doc);
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try {
+				iwriter.commit();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			try {
+				iwriter.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	//删除一条索引
+	public void deleteLucene(String id){
+		Analyzer analyzer = new IKAnalyzer(false);//词法分析器。
+		Directory directory = new RAMDirectory();//内存存储(可以存到磁盘)
+		IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_40,analyzer);
+		IndexWriter iwriter =null;
+		try {
+		iwriter = new IndexWriter(directory, config);
+		//通过删除filename 为str的数据
+		iwriter.deleteDocuments(new Term("id",id));  
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try {
+				iwriter.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+
+	//更新一条索引
+	//（Lucene没有真正的更新操作，通过某个fieldname，
+	//可以更新这个域对应的索引，但是实质上，它是先删除索引，再重新建立的。）
+	public void updateLucene(NewsModel nm,String id){
+		Analyzer analyzer = new IKAnalyzer(false);//词法分析器。
+		Directory directory = new RAMDirectory();//内存存储(可以存到磁盘)
+		IndexWriterConfig config = new IndexWriterConfig(Version.LUCENE_40,analyzer);
+		IndexWriter iwriter =null;
+		try {
+		iwriter = new IndexWriter(directory, config);
+		Document doc = new Document();//要更新的数据
+			doc.add(new Field("id", nm.get("id").toString(),TextField.TYPE_STORED));
+			doc.add(new Field("title", nm.get("title").toString(),TextField.TYPE_STORED));
+			doc.add(new Field("time", nm.get("TIME").toString(),TextField.TYPE_STORED));
+			doc.add(new Field("summary", nm.get("summary").toString(),TextField.TYPE_STORED));
+		iwriter.updateDocument(new Term("id",id),doc);	
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			try {
+				iwriter.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}	
+	
+
 	
 }

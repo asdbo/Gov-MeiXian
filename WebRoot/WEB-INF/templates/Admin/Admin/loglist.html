@@ -25,9 +25,18 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<ul class="nav nav-tabs">
-					<li class=""><a href="/Admin/list">管理用户</a></li>
-					<li class=""><a href="/Admin/addViewChange">添加用户</a></li>
-                    <li class="active"><a href="/Admin/queryAdminLogInfo">用户日志</a></li>
+					<#if session.get("AdminModel").hasPermission("/Admin/Admin/list") = true >
+					<li class=""><a href="/Admin/Admin/list">管理用户</a></li>
+					<#else>
+					</#if>
+				<#if session.get("AdminModel").hasPermission("/Admin/Admin/addViewChange") = true >	
+					<li class=""><a href="/Admin/Admin/addViewChange">添加用户</a></li>
+					<#else>
+					</#if>
+				<#if session.get("AdminModel").hasPermission("/Admin/Admin/queryAdminLogInfo") = true >	
+					<li class="active"><a href="/Admin/Admin/queryAdminLogInfo">用户日志</a></li>
+			    <#else>
+					</#if>
 				</ul>
 				<div class="panel panel-default">
 
@@ -61,8 +70,11 @@
 									<td>${record.logintime?number_to_datetime}</td>
 									<td>${record.ip}</td>
 									<td>
+									<#if session.get("AdminModel").hasPermission("/Admin/Admin/deleteLogInfoById") = true >	
 										<button class="btn btn-info delete" data-toggle="modal"
 											data-target="#myModal" id=${record.id} ${disabled!}>删除</button>
+											  <#else>
+					                </#if>
 									</td>
 
 
