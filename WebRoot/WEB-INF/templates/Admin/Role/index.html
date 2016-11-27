@@ -53,7 +53,7 @@
 									<td><#if
 										session.get("AdminModel").hasPermission("/Admin/Role/toUpdate")
 										= true > <a href="/Admin/Role/toUpdate?id=${list.id}"> <input
-											value="修改" type="submit" class="btn btn-primary">
+											value="角色权限" type="submit" class="btn btn-primary">
 									</a> <#else> </#if> <#if
 										session.get("AdminModel").hasPermission("/Admin/Role/deleteRoleById")
 										= true >
@@ -62,6 +62,10 @@
 											data-target="#myModal" id=${list.id}>删除</button> <#else>
 
 										</#if>
+										
+										<a href="/Admin/Role/toUpdateRoleInfo?id=${list.id}"> <input
+											value="修改用户信息" type="submit" class="btn btn-primary">
+									</a> 
 									</td>
 
 

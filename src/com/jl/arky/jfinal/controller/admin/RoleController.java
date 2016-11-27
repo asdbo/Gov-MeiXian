@@ -7,6 +7,7 @@ import org.junit.Test;
 import com.jfinal.aop.Before;
 import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
+import com.jfinal.json.FastJson;
 import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Model;
 import com.jl.arky.jfinal.interceptor.CheckPrivilegeInterceptor;
@@ -14,7 +15,7 @@ import com.jl.arky.jfinal.model.AdminModel;
 import com.jl.arky.jfinal.model.R_P_Model;
 import com.jl.arky.jfinal.model.RoleModel;
 import com.jl.arky.jfinal.model.U_R_Model;
-@Before(CheckPrivilegeInterceptor.class)
+//@Before(CheckPrivilegeInterceptor.class)
 public class RoleController extends Controller{
 	
      public void list(){
@@ -117,12 +118,12 @@ public class RoleController extends Controller{
  	 */
  	@Clear
 	public void getPrivilege(){
- 		int a[];
+ 		Integer  a[];
 		
  		RoleModel upModel=(RoleModel) RoleModel.dao.findFirst("select * from role where id = ?",getParaToInt("id"));
   		setAttr("upModel",upModel);
  		List<Model> privilegeList= upModel.getAllPrivilege();
- 		a=new int[privilegeList.size()];
+ 		a=new Integer [privilegeList.size()];
   		
   		
   		for(int i=0;i<privilegeList.size();i++){
@@ -134,5 +135,38 @@ public class RoleController extends Controller{
   		renderJson(a);
  	
  	}
-     
+ 	/*
+ 	 * 前往更新角色的信息的链接
+ 	 */
+ 	public void toUpdateRoleInfo(){
+ 		 //获取要修改的角色id，要所要修改的privilege数组
+   	 int roleid=getParaToInt("id");
+   	 
+   	RoleModel roleModel=(RoleModel) RoleModel.dao.findById(roleid);
+	setAttr("roleModel", roleModel);
+	
+	render("update.html");
+ 	}
+ 	/*
+ 	 * 更新角色的信息
+ 	 */
+ 	public void updateRoleInfo(){
+ 		 RoleModel roleModel=getModel(RoleModel.class);
+    	
+         roleModel.update();
+    	 redirect("/Admin/Role/list");
+ 	}
+ 	
+ 	/*
+ 	 * 修改角色拥有的栏目权限
+ 	 */
+ 	public void updateChannelPrivilege(){
+ 		
+ 	}
+ 	/*
+ 	 * 修改角色拥有的栏目权限链接
+ 	 */
+    public void toUpdateChannelPrivilege(){
+ 		
+ 	}
 }

@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.jfinal.aop.Before;
+import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
 import com.jl.arky.jfinal.interceptor.CheckPrivilegeInterceptor;
@@ -27,7 +28,7 @@ public class RssController extends Controller{
 	 * 默认RssController路由
 	 * 
 	 */
-   public void index(){
+   public void list(){
 	   /*
 	    * 查看Rss记录
 	    */
@@ -49,18 +50,11 @@ public class RssController extends Controller{
 	  
 	   rssModel.save();
 	   
-	  redirect("/Admin/Rss");
+	  redirect("/Admin/Rss/list");
 	   
 	   
    }
-   /*
-    * 从数据库删除一条item
-    */
-   public void deleteitem(){
-//	   int id=getParaToInt("id");
-//	   RssModel rssModel=getModel(RssModel.class);
-//	   rssModel.deleteById(id);
-   }
+  
    /*
     * 添加item页面的转换
     */
@@ -76,15 +70,11 @@ public class RssController extends Controller{
 	   setAttr("channelList",channelList);
 	   render("edit.html");
    }
-   /*
-    * 删除item页面的转换
-    */
-   public void  deleteViewChange(){
-	   
-   }
+
    /*
     * 根据主题id返回频道
     */
+   @Clear
    public void showRss(){
 	    int tid=getParaToInt("tid");
 	    RssModel rssModel=new RssModel();
@@ -97,6 +87,7 @@ public class RssController extends Controller{
    /*
     * 控制Rss链接的跳转
     */
+   @Clear
    public void toRss(){
 //	   List<RssChannelModel> rsslist=RssChannelModel.dao.find("select * from rss_channel");
 	   int pageNumber=0;
