@@ -11,6 +11,7 @@ import com.jfinal.ext.interceptor.SessionInViewInterceptor;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.plugin.ehcache.EhCachePlugin;
+import com.jl.arky.jfinal.app.model._MappingKit;
 import com.jl.arky.jfinal.controller.admin.AdminController;
 import com.jl.arky.jfinal.controller.admin.BusinessController;
 import com.jl.arky.jfinal.controller.admin.CarouselController;
@@ -52,7 +53,7 @@ import freemarker.core._CoreAPI;
 
 public class MainConfig extends JFinalConfig {
 	public static final String DATABASE_USERNAME = "root";// 用户名
-	public static final String DATABASE_PASSWORD = "1234";// 密码
+	public static final String DATABASE_PASSWORD = "root";// 密码
 	public static final String DATABASE_NAME = "mxdata";// 数据库名
 	public static final String DATABASE_HOST = "localhost";// 主机地址
 	public static final String DATABASE_PORT = "3306";// 端口
@@ -89,6 +90,11 @@ public class MainConfig extends JFinalConfig {
 		me.add("/Admin/Rss", RssController.class);
 		me.add("/Admin/Navigation", NavigationController.class);
 		me.add("Admin/Role",RoleController.class);
+		
+		//app路由
+		me.add("/v1/carousel", com.jl.arky.jfinal.controller.app.CarouselController.class);
+		me.add("/v1/news", com.jl.arky.jfinal.controller.app.NewsController.class);
+		me.add("/v1/channel", com.jl.arky.jfinal.controller.app.ChannelController.class);
 	}
 
 	@Override
@@ -120,6 +126,8 @@ public class MainConfig extends JFinalConfig {
 		arp.addMapping("role", RoleModel.class);
 		arp.addMapping("role_privilege", R_P_Model.class);
 		arp.addMapping("admin_role", U_R_Model.class);
+		
+		_MappingKit.mapping(arp);
 	}
 
 	@Override
