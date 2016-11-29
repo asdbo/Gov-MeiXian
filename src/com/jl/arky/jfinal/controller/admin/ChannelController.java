@@ -42,8 +42,16 @@ public class ChannelController extends Controller{
 	}
 
 	public void delete() {
-		ChannelModel.dao.deleteById(getParaToInt());
-		redirect("/Admin/Channel/list");
+		String id=getPara("id");
+		
+		System.out.println(id+"---------------------"+getParaToInt());
+		if(id!=null){
+			String[] ids = id.split(",");
+			for(int i=0;i<ids.length;i++){
+				ChannelModel.dao.deleteById(ids[i]);
+			}		
+		}	
+		redirect("/Admin/Channel/list");	
 	}
 	
 	public void update() {
@@ -51,6 +59,5 @@ public class ChannelController extends Controller{
 		redirect("/Admin/Channel/list");
 	}
 	
-
 
 }

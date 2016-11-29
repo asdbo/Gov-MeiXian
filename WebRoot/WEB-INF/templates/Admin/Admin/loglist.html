@@ -7,6 +7,9 @@
 <link href="${public}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${public}/css/bootstrap-table.css" rel="stylesheet">
 <link href="${public}/css/index.css" rel="stylesheet">
+	<script src="${public}/js/jquery-2.2.2.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script src="${public}/js/bootstrap-table.js"></script>
 
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
@@ -25,31 +28,29 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<ul class="nav nav-tabs">
-						<#if session.get("AdminModel").hasPermission("/Admin/Admin/list") = true >
-					<li class=""><a href="/Admin/Admin/list">管理用户</a></li>
-					<#else>
-					</#if>
-				<#if session.get("AdminModel").hasPermission("/Admin/Admin/addViewChange") = true >	
-					<li class=""><a href="/Admin/Admin/addViewChange">添加用户</a></li>
-					<#else>
-					</#if>
-				<#if session.get("AdminModel").hasPermission("/Admin/Admin/queryAdminLogInfo") = true >	
-					<li class="active"><a href="/Admin/Admin/queryAdminLogInfo">用户日志</a></li>
-			    <#else>
-					</#if>
-					</ul>
+					<!-- 		<li><a href="/Letter/add">添加信件</a></li> -->
+					<li class="active"><a href="/Admin/Letter">管理信件</a></li>
+				</ul>
 				<div class="panel panel-default">
 
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"
-							data-show-refresh="true" data-show-toggle="true"
-							data-show-columns="true" data-search="true"
-							data-select-item-name="toolbar1" data-pagination="true"
+						<div class="bs-bars pull-left">
+							<div id="toolbar">
+								<button onClick="deletedatas()" id="remove"
+									data-target="#deleteModal" data-toggle="modal"
+									class="btn btn-danger" disabled>
+									<i class="glyphicon glyphicon-remove"></i> 批量删除
+								</button>
+							</div>
+						</div>
+						<table id="tab" data-toggle="table" data-show-refresh="true"
+							data-show-toggle="true" data-show-columns="true"
+							data-search="true" data-pagination="true" data-id-field="id"
 							data-sort-name="name" data-sort-order="desc">
 							<thead>
-								<tr>
-								
-									<th data-sortable="true" data-align="center">用户ID</th>
+									<tr>
+									<th data-sortable="true" data-checkbox="true" ></th>
+									<th data-field="id" data-align="center">ID</th>
 									<th data-sortable="true" data-align="center">用户名</th>
 									<th data-sortable="true" data-align="center">操作类型</th>
 									<th data-sortable="true" data-align="center">操作结果</th>
@@ -61,20 +62,21 @@
 							<tbody>
 								<#list adminLogModels as record >
 
-								<tr class="">
-								
-									<td>${record.adminid}</td>
+								<tr data-index="${record.id}">
+								<td></td>
+
+									<td>${record.id}</td>
 									<td>${record.username}</td>
 									<td>${record.operationtype}</td>
 									<td>${record.operationresult}</td>
 									<td>${record.logintime?number_to_datetime}</td>
 									<td>${record.ip}</td>
-									<td>
-									<#if session.get("AdminModel").hasPermission("/Admin/Admin/deleteLogInfoById") = true >	
-										<button class="btn btn-info delete" data-toggle="modal"
-											data-target="#myModal" id=${record.id} ${disabled!}>删除</button>
-									  <#else>
-					                </#if>
+									<td><#if
+										session.get("AdminModel").hasPermission("/Admin/Admin/deleteLogInfoById")
+										= true >
+										<button class="btn btn-danger delete"
+										  data-target="#deleteModal" data-toggle="modal" onClick="deleteData(${record.id})">删除</button>
+										<#else> </#if>
 									</td>
 
 
@@ -88,67 +90,74 @@
 				</div>
 			</div>
 		</div>
-		<!--/.row-->
+		<!--/.row   "/Admin/Admin/deleteLogInfoById?id="
+											+ $id;-->
 
 
 
 	</div>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">你确认删除该管理员吗？</h4>
-				</div>
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">提醒</h4>
+		      </div>
+		      <div class="modal-body">
+		          删除不可恢复，是否确认删除？
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary del" id="del">删除</button>
+		      </div>
+		    </div>
+		  </div>
+	</div>
 
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-					</button>
-					<button type="button" class="btn btn-primary del">删除</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal -->
+	<script>
+	!function ($) {
+		$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
+			$(this).find('em:first').toggleClass("glyphicon-minus");	  
+		}); 
+		$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+	}(window.jQuery);
 
-		<script src="${public}/js/jquery-1.11.1.min.js"></script>
-		<script src="${public}/js/bootstrap.min.js"></script>
-		<script src="${public}/js/bootstrap-table.js"></script>
-		<script>
-			!function($) {
-				$(document).on(
-						"click",
-						"ul.nav li.parent > a > span.icon",
-						function() {
-							$(this).find('em:first').toggleClass(
-									"glyphicon-minus");
-						});
-				$(".sidebar span.icon").find('em:first').addClass(
-						"glyphicon-plus");
-			}(window.jQuery);
+	$(window).on('resize', function () {
+	  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+	});
+	$(window).on('resize', function () {
+	  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+	});
+	
+	$('#del').click(function(){
+		$id = $(this).data("id");
+		window.location.href="/Admin/Admin/deleteLogInfoById?id="
+			+ $id;
+	});
+	var $table = $('#tab'), $remove=$("#remove"), selections = [];
+	$table.on('check.bs.table uncheck.bs.table '
+			+ 'check-all.bs.table uncheck-all.bs.table', function() {
+		$remove.prop('disabled', !$table
+				.bootstrapTable('getSelections').length);
 
-			$(window).on('resize', function() {
-				if ($(window).width() > 768)
-					$('#sidebar-collapse').collapse('show')
-			})
-			$(window).on('resize', function() {
-				if ($(window).width() <= 767)
-					$('#sidebar-collapse').collapse('hide')
-			})
-			$(function() {
-				$('.delete').click(function() {
+		selections = getIdSelections();
+	});
+	function getIdSelections() {
+		return  $.map($table.bootstrapTable('getSelections'), function(row) {
+			return row.id;
+		});
+	}
+	function deletedatas(){
+		var id=getIdSelections();
+		deleteData(id);
+	}
+	function deleteData(id){
+		$('#del').attr("data-id", id);
+	}
+</script>
+<script type="text/javascript">
 
-					$id = $(this).attr("id");
-					$('.del').attr("data-id", $id);
-				})
-				$('.del').click(function() {
-					$id = $(this).data("id");
-					window.location.href = "/Admin/Admin/deleteLogInfoById?id=" + $id;
-				})
-			})
-		</script>
+</script>
 </body>
 
 </html>

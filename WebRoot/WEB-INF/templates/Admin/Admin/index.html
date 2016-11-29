@@ -7,18 +7,23 @@
 <link href="${public}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${public}/css/bootstrap-table.css" rel="stylesheet">
 <link href="${public}/css/index.css" rel="stylesheet">
-
+	<script src="${public}/js/jquery-2.2.2.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script src="${public}/js/bootstrap-table.js"></script>
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
 <![endif]-->
+
 </head>
+
 <body>
+
 	<div class=" col-sm-12 col-lg-12  main">
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-				<li class="active">用户管理</li>
+				<li class="active">信件管理</li>
 			</ol>
 		</div>
 		<!--/.row-->
@@ -39,16 +44,23 @@
 					<#else> </#if>
 				</ul>
 				<div class="panel panel-default">
-
+					
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"
+					<div class="bs-bars pull-left"><div id="toolbar">
+        <button onClick="deletedatas()" id="remove" data-target="#deleteModal" data-toggle="modal" class="btn btn-danger" disabled>
+            <i class="glyphicon glyphicon-remove"></i> 批量删除
+        </button>
+    </div></div>
+							<table id="tab" data-toggle="table" 
 							data-show-refresh="true" data-show-toggle="true"
 							data-show-columns="true" data-search="true"
-							data-select-item-name="toolbar1" data-pagination="true"
+							 data-pagination="true"
+							data-id-field="id"
 							data-sort-name="name" data-sort-order="desc">
 							<thead>
 								<tr>
-
+									<th data-sortable="true" data-checkbox="true" ></th>
+									<th data-field="id" data-align="center">用户ID</th>
 									<th data-sortable="true" data-align="center">用户名</th>
 									<th data-sortable="true" data-align="center">呢称</th>
 									<th data-sortable="true" data-align="center">注册时间</th>
@@ -57,12 +69,12 @@
 									<th data-sortable="true" data-align="center">删除</th>
 								</tr>
 							</thead>
-							<tbody>
+								<tbody>
 								<#list userPage as dizhi >
-
-								<tr class="">
-
-									<td>${dizhi.username}</td>
+							<tr data-index="${dizhi.id}">
+								<td></td>
+								<td>${dizhi.id}</td>
+										<td>${dizhi.username}</td>
 									<td>${dizhi.name}</td>
 									<td>${dizhi.regtime?number_to_datetime}</td>
 									<td>${dizhi.type}</td>
@@ -94,6 +106,7 @@
 								</#list>
 							</tbody>
 						</table>
+
 					</div>
 				</div>
 			</div>
@@ -103,65 +116,69 @@
 
 
 	</div>
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">你确认删除该管理员吗？</h4>
-				</div>
+	<!--/.main-->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">提醒</h4>
+		      </div>
+		      <div class="modal-body">
+		         你确认删除该管理员吗？
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary del" id="del">删除</button>
+		      </div>
+		    </div>
+		  </div>
+	</div>
 
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-					</button>
-					<button type="button" class="btn btn-primary del">删除</button>
-				</div>
-			</div>
-			<!-- /.modal-content -->
-		</div>
-		<!-- /.modal -->
+	<script>
+	!function ($) {
+		$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
+			$(this).find('em:first').toggleClass("glyphicon-minus");	  
+		}); 
+		$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+	}(window.jQuery);
 
-		<script src="${public}/js/jquery-1.11.1.min.js"></script>
-		<script src="${public}/js/bootstrap.min.js"></script>
-		<script src="${public}/js/bootstrap-table.js"></script>
-		<script>
-			!function($) {
-				$(document).on(
-						"click",
-						"ul.nav li.parent > a > span.icon",
-						function() {
-							$(this).find('em:first').toggleClass(
-									"glyphicon-minus");
-						});
-				$(".sidebar span.icon").find('em:first').addClass(
-						"glyphicon-plus");
-			}(window.jQuery);
+	$(window).on('resize', function () {
+	  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+	});
+	$(window).on('resize', function () {
+	  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+	});
+	
+	$('#del').click(function(){
+		$id = $(this).data("id");
+		window.location.href="/Admin/Admin/deleteAdminById?id="
+			+ $id;
+	});
+	var $table = $('#tab'), $remove=$("#remove"), selections = [];
+	$table.on('check.bs.table uncheck.bs.table '
+			+ 'check-all.bs.table uncheck-all.bs.table', function() {
+		$remove.prop('disabled', !$table
+				.bootstrapTable('getSelections').length);
 
-			$(window).on('resize', function() {
-				if ($(window).width() > 768)
-					$('#sidebar-collapse').collapse('show')
-			})
-			$(window).on('resize', function() {
-				if ($(window).width() <= 767)
-					$('#sidebar-collapse').collapse('hide')
-			})
-			$(function() {
-				$('.delete').click(function() {
+		selections = getIdSelections();
+	});
+	function getIdSelections() {
+		return  $.map($table.bootstrapTable('getSelections'), function(row) {
+			return row.id;
+		});
+	}
+	function deletedatas(){
+		var id=getIdSelections();
+		deleteData(id);
+	}
+	function deleteData(id){
+		$('#del').attr("data-id", id);
+	}
+</script>
+<script type="text/javascript">
 
-					$id = $(this).attr("id");
-					$('.del').attr("data-id", $id);
-				})
-				$('.del')
-						.click(
-								function() {
-									$id = $(this).data("id");
-									window.location.href = "/Admin/Admin/deleteAdminById?id="
-											+ $id;
-								})
-			})
-		</script>
+</script>
 </body>
 
 </html>
