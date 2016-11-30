@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/bootstrap-table.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+	<div class=" col-sm-12 col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">用户管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+						<#if session.get("AdminModel").hasPermission("/Admin/Admin/list") = true >
+					<li class=""><a href="/Admin/Admin/list">管理用户</a></li>
+					<#else>
+					</#if>
+				<#if session.get("AdminModel").hasPermission("/Admin/Admin/addViewChange") = true >	
+					<li class=""><a href="/Admin/Admin/addViewChange">添加用户</a></li>
+					<#else>
+					</#if>
+				<#if session.get("AdminModel").hasPermission("/Admin/Admin/queryAdminLogInfo") = true >	
+					<li class="active"><a href="/Admin/Admin/queryAdminLogInfo">用户日志</a></li>
+			    <#else>
+					</#if>
+					</ul>
+				<div class="panel panel-default">
+
+					<div class="panel-body">
+						<table data-toggle="table" data-url="tables/data1.json"
+							data-show-refresh="true" data-show-toggle="true"
+							data-show-columns="true" data-search="true"
+							data-select-item-name="toolbar1" data-pagination="true"
+							data-sort-name="name" data-sort-order="desc">
+							<thead>
+								<tr>
+								
+									<th data-sortable="true" data-align="center">用户ID</th>
+									<th data-sortable="true" data-align="center">用户名</th>
+									<th data-sortable="true" data-align="center">操作类型</th>
+									<th data-sortable="true" data-align="center">操作结果</th>
+									<th data-sortable="true" data-align="center">登录时间</th>
+									<th data-sortable="true" data-align="center">登录IP</th>
+									<th data-sortable="true" data-align="center">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+								<#list adminLogModels as record >
+
+								<tr class="">
+								
+									<td>${record.adminid}</td>
+									<td>${record.username}</td>
+									<td>${record.operationtype}</td>
+									<td>${record.operationresult}</td>
+									<td>${record.logintime?number_to_datetime}</td>
+									<td>${record.ip}</td>
+									<td>
+									<#if session.get("AdminModel").hasPermission("/Admin/Admin/deleteLogInfoById") = true >	
+										<button class="btn btn-info delete" data-toggle="modal"
+											data-target="#myModal" id=${record.id} ${disabled!}>删除</button>
+									  <#else>
+					                </#if>
+									</td>
+
+
+
+								</tr>
+
+								</#list>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">你确认删除该管理员吗？</h4>
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+					</button>
+					<button type="button" class="btn btn-primary del">删除</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+
+		<script src="${public}/js/jquery-1.11.1.min.js"></script>
+		<script src="${public}/js/bootstrap.min.js"></script>
+		<script src="${public}/js/bootstrap-table.js"></script>
+		<script>
+			!function($) {
+				$(document).on(
+						"click",
+						"ul.nav li.parent > a > span.icon",
+						function() {
+							$(this).find('em:first').toggleClass(
+									"glyphicon-minus");
+						});
+				$(".sidebar span.icon").find('em:first').addClass(
+						"glyphicon-plus");
+			}(window.jQuery);
+
+			$(window).on('resize', function() {
+				if ($(window).width() > 768)
+					$('#sidebar-collapse').collapse('show')
+			})
+			$(window).on('resize', function() {
+				if ($(window).width() <= 767)
+					$('#sidebar-collapse').collapse('hide')
+			})
+			$(function() {
+				$('.delete').click(function() {
+
+					$id = $(this).attr("id");
+					$('.del').attr("data-id", $id);
+				})
+				$('.del').click(function() {
+					$id = $(this).data("id");
+					window.location.href = "/Admin/Admin/deleteLogInfoById?id=" + $id;
+				})
+			})
+			
+		</script>
+</body>
+
+</html>

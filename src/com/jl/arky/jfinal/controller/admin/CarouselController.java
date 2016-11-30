@@ -9,8 +9,8 @@ import javax.imageio.ImageIO;
 import com.jfinal.core.Controller;
 import com.jfinal.upload.UploadFile;
 import com.jl.arky.jfinal.model.CarouselModel;
+import com.jl.arky.jfinal.utils.IDUtil;
 
-//@Before(LoginInterceptor.class)
 public class CarouselController extends Controller {
 	/*
 	 * 根据sortid升序,查询数据库的信息，将其返回页面
@@ -34,7 +34,7 @@ public class CarouselController extends Controller {
 		UploadFile uploadFile = getFile("filename", "/images");
 		String fileName = this.uploadFile(uploadFile);
 		if ("".equals(fileName)) {
-			setAttr("msg", "没有添加图片!");// 回写无法保存信息
+			setAttr("msg", "没有添加图片!");// 回显无法保存信息
 			render("add.html");
 			return;
 		}
@@ -90,16 +90,19 @@ public class CarouselController extends Controller {
 	 * 删除
 	 */
 	public void delete() {
-		CarouselModel carouselModel = (CarouselModel) CarouselModel.dao.findById(getParaToInt("id"));
-		String filename = carouselModel.get("link");// 得到图片链接
-		String path = getRequest().getServletContext().getRealPath("/");// 得到根目录
-		File file = new File(path + filename);
-		Boolean flag = CarouselModel.dao.deleteById(getParaToInt("id"));// 删除数据库信息
-		if (flag) {
-			file.delete();// 删除图片
-			redirect("/Admin/Carousel/list");
-		} else
-			renderText("删除错误!");
+		String id = getPara("id");
+		if (id != null) {
+			String[] ids = id.split(",");
+			for (int i = 0; i < ids.length; i++) {
+				CarouselModel carouselModel = (CarouselModel) CarouselModel.dao.findById(ids[i]);
+				String filename = carouselModel.get("link");// 得到图片链接
+				String path = getRequest().getServletContext().getRealPath("/");// 得到根目录
+				File file = new File(path + filename);
+				CarouselModel.dao.deleteById(ids[i]);// 删除数据库信息
+				file.delete();// 删除图片
+			}
+		}
+		redirect("/Admin/Carousel/list");
 	}
 
 	/*
@@ -113,7 +116,7 @@ public class CarouselController extends Controller {
 			return "";
 		} else {
 			String suffix = uploadFile.getFileName().substring(uploadFile.getFileName().lastIndexOf("."));// 得到上传图片的后缀名
-			String fileName = System.currentTimeMillis() + suffix;// 拼接图片名
+			String fileName = IDUtil.getImageName() + suffix;// 拼接图片名
 			String path = getRequest().getServletContext().getRealPath("/");// 得到根目录
 			uploadFile.getFile().renameTo(new File(path + "/Public/upload/images/" + fileName));// 重命名图片
 			return "/Public/upload/images/" + fileName;

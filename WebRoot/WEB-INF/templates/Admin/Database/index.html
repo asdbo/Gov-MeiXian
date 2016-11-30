@@ -23,14 +23,13 @@
 	<div class=" col-sm-12 col-lg-12  main">
 		<div class="row">
 			<ol class="breadcrumb">
-				<#if session.get("AdminModel").hasPermission("/Admin/Database/add") = true >
-					<li><a href="/Admin/Database/add">备份数据库</a></li>
-					<#else> 
-					</#if> 
-					<#if session.get("AdminModel").hasPermission("/Admin/Database/list") = true >
-					<li class="active"><a href="/Admin/Database/list">备份数据库文件列表</a></li>
-					<#else> 
-					</#if> 
+				<#if session.get("AdminModel").hasPermission("/Admin/Database/add")
+				= true >
+				<li><a href="/Admin/Database/add">备份数据库</a></li> <#else> </#if> <#if
+				session.get("AdminModel").hasPermission("/Admin/Database/list") =
+				true >
+				<li class="active"><a href="/Admin/Database/list">备份数据库文件列表</a></li>
+				<#else> </#if>
 			</ol>
 		</div>
 		<!--/.row-->
@@ -41,41 +40,55 @@
 					<li class="active"><a href="/Admin/Database/list">备份数据库文件列表</a></li>
 				</ul>
 				<div class="panel panel-default">
-
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"
-							data-show-refresh="true" data-show-toggle="true"
-							data-show-columns="true" data-search="true"
-							data-select-item-name="toolbar1" data-pagination="true"
-							data-sort-name="name" data-sort-order="desc">
+						<div class="bs-bars pull-left">
+							<div id="toolbar">
+								<button onClick="deletedatas()" id="remove"
+									data-target="#deleteModal" data-toggle="modal"
+									class="btn btn-danger" disabled>
+									<i class="glyphicon glyphicon-remove"></i> 批量删除
+								</button>
+							</div>
+						</div>
+						<div></div>
+						<table id="tab" data-toggle="table" data-show-refresh="true"
+							data-show-toggle="true" data-show-columns="true"
+							data-search="true" data-select-item-name="toolbar1"
+							data-pagination="true" data-sort-name="name"
+							data-sort-order="desc">
 							<thead>
 								<tr>
-									<th data-sortable="true" data-align="center">文件名称</th>
+									<th data-field="state" data-checkbox="true"></th>
+									<th data-field="id" data-sortable="true" data-align="center">文件名称</th>
 									<th data-sortable="true" data-align="center">文件大小</th>
-									<th data-sortable="true" data-align="center">备份时间</th>
-									<th data-sortable="true" data-align="center">还原</th>
-									<th data-sortable="true" data-align="center">删除</th>
+									<th data-sortable="true" data-align="center">备份时间</th> <#if
+									session.get("AdminModel").hasPermission("/Admin/Database/restore")
+									= true >
+									<th data-sortable="true" data-align="center">还原</th> </#if>
+									<#if
+									session.get("AdminModel").hasPermission("/Admin/Database/delete")
+									= true >
+									<th data-sortable="true" data-align="center">删除</th> </#if>
 								</tr>
 							</thead>
 							<tbody>
 								<#list databaseList as c>
 								<tr>
-									<td style="text-align: center;">${c.name}</td>
+									<td></td>
+									<td class="name" style="text-align: center;">${c.name}</td>
 									<td style="text-align: center;">${c.length}</td>
-									<td style="text-align: center;">${c.date}</td>
-								<#if session.get("AdminModel").hasPermission("/Admin/Database/restore") = true >
+									<td style="text-align: center;">${c.date}</td> <#if
+									session.get("AdminModel").hasPermission("/Admin/Database/restore")
+									= true >
 									<td style="text-align: center;"><a
 										href="/Admin/Database/restore?name=${c.name}"
-										class="btn btn-primary">还原</a></td>
-									<#else> 
-									</#if> 
-									<#if session.get("AdminModel").hasPermission("/Admin/Database/delete") = true >
+										class="btn btn-primary">还原</a></td> <#else> </#if> <#if
+									session.get("AdminModel").hasPermission("/Admin/Database/delete")
+									= true >
 									<td style="text-align: center;">
 										<button class="btn btn-danger delete" data-toggle="modal"
-											data-target="#deleteModal" id="${c.name}">删除</button>
-									</td>
-									<#else> 
-									</#if> 
+											data-target="#deleteModal" onClick="deletedata(this)">删除</button>
+									</td> <#else> </#if>
 								</tr>
 								</#list>
 							</tbody>
@@ -127,21 +140,36 @@
 		$(window).on('resize', function() {
 			if ($(window).width() > 768)
 				$('#sidebar-collapse').collapse('show')
-		})
+		});
 		$(window).on('resize', function() {
 			if ($(window).width() <= 767)
 				$('#sidebar-collapse').collapse('hide')
-		})
-	
-			function deletedata(id) {
-				//alert($id);
-				$('.del').attr("data-id", id);
-			}
-			$('.del').click(function() {
-				$id = $(this).data("id");
-				window.location.href = "/Admin/Database/delete?name=" + $id;
-			})
-		
+		});
+		var $table = $('#tab'), $remove = $("#remove"), selections = [];
+		$table.on('check.bs.table uncheck.bs.table '
+				+ 'check-all.bs.table uncheck-all.bs.table', function() {
+			$remove.prop('disabled',
+					!$table.bootstrapTable('getSelections').length);
+			selections = getIdSelections();
+		});
+		function getIdSelections() {
+			return $.map($table.bootstrapTable('getSelections'), function(row) {
+				return row.id;
+			});
+		}
+		function deletedatas() {
+			var id = getIdSelections();
+			$('.del').attr("data-id", id);
+		}
+		function deletedata(obj) {
+			var name = $(obj).parent().parent().find('.name').text();
+			$('.del').attr("data-id", name);
+		}
+		$('.del').click(function() {
+			$id = $(this).data("id");
+			//alert($id);
+			window.location.href = "/Admin/Database/delete?name=" + $id;
+		}); 
 	</script>
 </body>
 

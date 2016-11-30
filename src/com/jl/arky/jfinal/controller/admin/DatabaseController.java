@@ -2,6 +2,7 @@ package com.jl.arky.jfinal.controller.admin;
 
 import java.io.BufferedReader;
 
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -14,13 +15,13 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
 
 import com.jfinal.core.Controller;
 import com.jl.arky.jfinal.config.MainConfig;
 import com.jl.arky.jfinal.model.DatabaseModel;
-//@Before(LoginInterceptor.class)
+import com.jl.arky.jfinal.utils.IDUtil;
+
 public class DatabaseController extends Controller {
 	/*
 	 * 
@@ -30,7 +31,6 @@ public class DatabaseController extends Controller {
 		File file = new File(this.judeFileExists());
 		File[] files = file.listFiles();
 		if (files == null) // 是否有文件
-
 		{
 			return null;
 		}
@@ -123,14 +123,15 @@ public class DatabaseController extends Controller {
 	 */
 	public void delete() {
 		String name = getPara("name");
-		File file = new File(this.path(name));// 得到文件路径
-
-		Boolean flag = file.delete();
-		if (flag) {
-			redirect("/Admin/Database/list");
-		} else {
-			renderText("删除备份文件失败!");
+		System.out.println(name);
+		if (name != null) {
+			String[] names = name.split(",");
+			for (int i = 0; i < names.length; i++) {
+				File file = new File(this.path(names[i]));// 得到文件路径
+				file.delete();
+			}
 		}
+		redirect("/Admin/Database/list");
 	}
 
 	/*
@@ -158,9 +159,7 @@ public class DatabaseController extends Controller {
 				sb.append(inStr + "\r\n");
 			}
 			outStr = sb.toString();
-			Date nowTime = new Date(System.currentTimeMillis());// 当前时间
-			SimpleDateFormat sdFormatter = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-			FileOutputStream fout = new FileOutputStream(this.judeFileExists() + sdFormatter.format(nowTime) + ".sql");// 备份生成的sql目标文件保存在WEB-INF/back/下
+			FileOutputStream fout = new FileOutputStream(this.judeFileExists() + IDUtil.getImageName() + ".sql");// 备份生成的sql目标文件保存在WEB-INF/back/下
 			OutputStreamWriter writer = new OutputStreamWriter(fout, "utf8");
 			writer.write(outStr);
 			// 注：这里如果用缓冲方式写入文件的话，会导致中文乱码，用flush()方法则可以避免

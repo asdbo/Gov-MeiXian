@@ -31,75 +31,77 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<ul class="nav nav-tabs">
-					<#if session.get("AdminModel").hasPermission("/Admin/Carousel/add") = true >
-					<li><a href="/Admin/Carousel/add">轮播添加</a></li>
-					<#else> 
-					</#if> 
-					<#if session.get("AdminModel").hasPermission("/Admin/Carousel/list") = true >
+					<#if session.get("AdminModel").hasPermission("/Admin/Carousel/add")
+					= true >
+					<li><a href="/Admin/Carousel/add">轮播添加</a></li> <#else> </#if> <#if
+					session.get("AdminModel").hasPermission("/Admin/Carousel/list") =
+					true >
 					<li class="active"><a href="/Admin/Carousel/list">轮播显示</a></li>
-					<#else> 
-					</#if> 
+					<#else> </#if>
 				</ul>
 				<div class="panel panel-default">
 
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"
-							data-show-refresh="true" data-show-toggle="true"
-							data-show-columns="true" data-search="true"
-							data-select-item-name="toolbar1" data-pagination="true"
-							data-sort-name="name" data-sort-order="desc">
+						<div class="bs-bars pull-left">
+							<div id="toolbar">
+								<button onClick="deletedatas()" id="remove"
+									data-target="#deleteModal" data-toggle="modal"
+									class="btn btn-danger" disabled>
+									<i class="glyphicon glyphicon-remove"></i> 批量删除
+								</button>
+							</div>
+						</div>
+						<div></div>
+						<table id="tab" data-toggle="table" data-show-refresh="true"
+							data-show-toggle="true" data-show-columns="true"
+							data-search="true" data-select-item-name="toolbar1"
+							data-pagination="true" data-sort-name="name"
+							data-sort-order="desc">
 							<thead>
 								<tr>
-									<th data-field="state" data-checkbox="true">carousel ID</th>
-									<th data-sortable="true" data-align="center">图片链接</th>
+									<th data-field="state" data-checkbox="true"></th>
+									<th data-field="id" data-sortable="true" data-align="center">轮播
+										ID</th>
+									<th data-sortable="true" data-align="center">图片</th>
 									<th data-sortable="true" data-align="center">排序值</th>
 									<th data-sortable="true" data-align="center">位置</th>
-									<th data-sortable="true" data-align="center">图片标题</th>
-									<#if session.get("AdminModel").hasPermission("/Admin/Carousel/edit") = true >
-									<th data-sortable="true" data-align="center">修改</th>
-									<#else> </#if>
-									<#if session.get("AdminModel").hasPermission("/Admin/Carousel/delete") = true >
-									<th data-sortable="true" data-align="center">删除</th>
-									 <#else> </#if>
+									<th data-sortable="true" data-align="center">图片标题</th> <#if
+									session.get("AdminModel").hasPermission("/Admin/Carousel/edit")
+									= true >
+									<th data-sortable="true" data-align="center">修改</th> <#else>
+									</#if> <#if
+									session.get("AdminModel").hasPermission("/Admin/Carousel/delete")
+									= true >
+									<th data-sortable="true" data-align="center">删除</th> <#else>
+									</#if>
 								</tr>
 							</thead>
 							<tbody>
 								<#list carouselPage as c>
 								<tr>
+									<td></td>
 									<td style="text-align: center;">${c.id}</td>
 									<td style="text-align: center;"><img src="${c.link}"
 										width="10%" /></td>
 									<td style="text-align: center;">${c.sortid}</td>
-									<td style="text-align: center;">
-									<#if c.carouselType =0>
-										首页
-										<#elseif c.carouselType=1>
-										政务公开
-										<#elseif c.carouselType=2>
-										教育服务
-										<#elseif c.carouselType=3>
-										医疗服务
-										<#elseif c.carouselType=4>
-										社保服务
-										<#elseif c.carouselType=5>
-										就业服务
-										<#else>
-										招商引资
-									</#if>
-									</td>
-									<td style="text-align: center;">${c.title}</td>
-									<#if session.get("AdminModel").hasPermission("/Admin/Carousel/edit") = true >
+									<td style="text-align: center;"><#if c.carouselType =0> 首页
+										<#elseif c.carouselType=1> 政务公开 <#elseif c.carouselType=2>
+										教育服务 <#elseif c.carouselType=3> 医疗服务 <#elseif
+										c.carouselType=4> 社保服务 <#elseif c.carouselType=5> 就业服务 <#else>
+										招商引资 </#if></td>
+									<td style="text-align: center;">${c.title}</td> <#if
+									session.get("AdminModel").hasPermission("/Admin/Carousel/edit")
+									= true >
 									<td style="text-align: center;"><a
 										href="/Admin/Carousel/edit?id=${c.id}" class="btn btn-primary">修改</a></td>
-									<#else> 
-									</#if> 
-									
-									<#if session.get("AdminModel").hasPermission("/Admin/Carousel/delete") = true >
+									<#else> </#if> <#if
+									session.get("AdminModel").hasPermission("/Admin/Carousel/delete")
+									= true >
 									<td style="text-align: center;">
-										<button class="btn btn-danger delete" data-toggle="modal" onClick="deletedata(${c.id})"
-											data-target="#deleteModal" id="${c.id}">删除</button>
-									</td>
-									<#else> </#if>
+										<button class="btn btn-danger delete" data-toggle="modal"
+											onClick="deletedata(${c.id})" data-target="#deleteModal"
+											id="${c.id}">删除</button>
+									</td> <#else> </#if>
 								</tr>
 								</#list>
 							</tbody>
@@ -156,8 +158,25 @@
 			if ($(window).width() <= 767)
 				$('#sidebar-collapse').collapse('hide')
 		})
+		var $table = $('#tab'), $remove=$("#remove"), selections = [];
+		$table.on('check.bs.table uncheck.bs.table '
+				+ 'check-all.bs.table uncheck-all.bs.table', function() {
+			$remove.prop('disabled', !$table
+					.bootstrapTable('getSelections').length);
+			selections = getIdSelections();
+		});
+		function getIdSelections() {
+			return  $.map($table.bootstrapTable('getSelections'), function(row) {
+				return row.id;
+			});
+		}  
+		function deletedatas(){
+			var id=getIdSelections();
+			//alert(id);  
+			deletedata(id);
+		}
 		function deletedata(id) {
-				//alert($id);
+				//alert(id);  
 				$('.del').attr("data-id", id);
 			}
 			$('.del').click(function() {

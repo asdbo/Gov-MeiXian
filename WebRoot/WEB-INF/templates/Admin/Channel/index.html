@@ -7,7 +7,9 @@
 <link href="${public}/css/bootstrap.min.css" rel="stylesheet">
 <link href="${public}/css/bootstrap-table.css" rel="stylesheet">
 <link href="${public}/css/index.css" rel="stylesheet">
-
+	<script src="${public}/js/jquery-2.2.2.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script src="${public}/js/bootstrap-table.js"></script>
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
@@ -16,11 +18,8 @@
 </head>
 
 <body>
-	${(success)!}
+
 	<div class=" col-sm-12 col-lg-12  main">
-	
-
-
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
@@ -29,6 +28,7 @@
 		</div>
 		<!--/.row-->
 		<div class="row">
+			
 			<div class="col-lg-12">
 				<ul class="nav nav-tabs">
 					<li class="active"><a href="/Admin/Channel/list">栏目显示</a></li>
@@ -39,18 +39,24 @@
 				
 				</ul>
 				<div class="panel panel-default">
-
+					
 					<div class="panel-body">
-						<table data-toggle="table" data-url="tables/data1.json"
+					<div class="bs-bars pull-left"><div id="toolbar">
+        <button onClick="deletedatas()" id="remove" data-target="#deleteModal" data-toggle="modal" class="btn btn-danger" disabled>
+            <i class="glyphicon glyphicon-remove"></i> 批量删除
+        </button>
+    </div></div>
+						<table id="tab" data-toggle="table" 
 							data-show-refresh="true" data-show-toggle="true"
 							data-show-columns="true" data-search="true"
-							data-select-item-name="toolbar1" data-pagination="true"
+							 data-pagination="true"
+							data-id-field="id"
 							data-sort-name="name" data-sort-order="desc">
 							<thead>
 								<tr>
-									<th data-field="state" data-checkbox="true"></th>
-									<th data-sortable="true" data-align="center">栏目 ID</th>
-									<th data-sortable="true" data-align="center">栏目标题</th>
+									<th data-sortable="true" data-checkbox="true" ></th>
+									<th data-field="id" data-align="center">栏目 ID</th>
+										<th data-sortable="true" data-align="center">栏目标题</th>
 									<th data-sortable="true" data-align="center">上级栏目</th>
 									<th data-sortable="true" data-align="center">类型</th>
 									<#if session.get("AdminModel").hasPermission("/Admin/Channel/toedit") = true >
@@ -63,15 +69,13 @@
 									</#if>
 								</tr>
 							</thead>
-							<#list channelModel as c>
-
-							
-							<tr>
-								<td></td>
-								<td style="text-align: center;" data-field="id">${c.id}</td>
-								<td style="text-align: center;
-								">${(c.title)!}</td>
-								<td style="text-align: center;"> 
+								<tbody>
+								<#list channelModel as c>
+							<tr data-index="${c.id}">
+									<td></td>
+								<td>${c.id}</td>
+								<td>${(c.title)!}</td>
+								<td> 
 										 <#list channelModel1 as d>
 											
 											 <#if c.pid == d.id>
@@ -82,7 +86,7 @@
 										 </#if>
 										 </#list>
 								</td>
-								<td style="text-align: center;"><#if c.type == 0>
+								<td><#if c.type == 0>
 									新闻
 									<#elseif c.type=1>
 									信件
@@ -91,24 +95,27 @@
 								<#if session.get("AdminModel").hasPermission("/Admin/Channel/toedit") = true >
 								<td style="text-align: center;"><a
 									href="/Admin/Channel/toedit?id=${c.id}"><button type="button" class="btn btn-primary">修改</button></a></td>
-								<td>
+								
 								<#else>
 									</#if>
-								<#if session.get("AdminModel").hasPermission("/Admin/Channel/delete") = true >
-								<!-- <a
-									href="/Channel/delete/${c.id}"> --><button class="btn btn-danger delete" onClick="deletedata(${c.id})" data-toggle="modal" data-target="#deleteModal" id="${c.id}">删除	</button><!-- </a> -->
+									
+									
+									<#if session.get("AdminModel").hasPermission("/Admin/Channel/delete") = true >
+							<td>
+								<button class="btn btn-danger delete"
+										  data-target="#deleteModal" data-toggle="modal" onClick="deleteData(${c.id})">删除</button>	
 								</td>
-								<#else>
+									<#else>
 									</#if>
+									
+
 							</tr>
 	
 							</#list>
 
 						</table>
-		
+
 					</div>
-					
-					
 				</div>
 			</div>
 		</div>
@@ -118,61 +125,67 @@
 
 	</div>
 	<!--/.main-->
-	<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel"> 
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title" id="myModalLabel"><font color="red">提醒</font></h4>
-				</div>
-				<div class="modal-body"><font color="blue" size="5px">删除不可恢复，是否确认删除？</font></div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-					<button type="button" class="btn btn-primary del">删除</button>
-				</div>
-				
-			</div>
-		</div>
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">提醒</h4>
+		      </div>
+		      <div class="modal-body">
+		          删除不可恢复，是否确认删除？
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary del" id="del">删除</button>
+		      </div>
+		    </div>
+		  </div>
 	</div>
-</body>
-<script src="${public}/js/jquery-1.11.1.min.js"></script>
-	<script src="${public}/js/bootstrap.min.js"></script>
-	<script src="${public}/js/bootstrap-table.js"></script>
+
 	<script>
-		!function($) {
-			$(document)
-					.on(
-							"click",
-							"ul.nav li.parent > a > span.icon",
-							function() {
-								$(this).find('em:first').toggleClass(
-										"glyphicon-minus");
-							});
-			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
-		}(window.jQuery);
+	!function ($) {
+		$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
+			$(this).find('em:first').toggleClass("glyphicon-minus");	  
+		}); 
+		$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+	}(window.jQuery);
 
-		$(window).on('resize', function() {
-			if ($(window).width() > 768)
-				$('#sidebar-collapse').collapse('show')
-		});
-		$(window).on('resize', function() {
-			if ($(window).width() <= 767)
-				$('#sidebar-collapse').collapse('hide')
-		});
+	$(window).on('resize', function () {
+	  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+	});
+	$(window).on('resize', function () {
+	  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+	});
 	
-			function deletedata(id) {
-				//alert($id);
-				$('.del').attr("data-id", id);
-			}
-			$('.del').click(function() {
-				$id = $(this).data("id");
-				//alert($id);
-				window.location.href = "/Admin/Channel/delete/" + $id;
-			})
+	$('#del').click(function(){
+		$id = $(this).data("id");
+		window.location.href="/Admin/Channel/delete/?id=" + $id;
+	});
+	var $table = $('#tab'), $remove=$("#remove"), selections = [];
+	$table.on('check.bs.table uncheck.bs.table '
+			+ 'check-all.bs.table uncheck-all.bs.table', function() {
+		$remove.prop('disabled', !$table
+				.bootstrapTable('getSelections').length);
 
-	</script>
+		selections = getIdSelections();
+	});
+	function getIdSelections() {
+		return  $.map($table.bootstrapTable('getSelections'), function(row) {
+			return row.id;
+		});
+	}
+	function deletedatas(){
+		var id=getIdSelections();
+		deleteData(id);
+	}
+	function deleteData(id){
+		$('#del').attr("data-id", id);
+	}
+</script>
+<script type="text/javascript">
+
+</script>
+</body>
+
 </html>
