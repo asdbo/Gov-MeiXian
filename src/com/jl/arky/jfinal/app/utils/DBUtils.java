@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jfinal.core.Controller;
-import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Model;
-import com.jfinal.plugin.activerecord.Record;
 
 public class DBUtils {
 

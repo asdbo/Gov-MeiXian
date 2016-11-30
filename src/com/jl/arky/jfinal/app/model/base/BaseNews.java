@@ -121,12 +121,4 @@ public abstract class BaseNews<M extends BaseNews<M>> extends Model<M> implement
 		return get("newpic");
 	}
 
-	public void setState(java.lang.Integer state) {
-		set("state", state);
-	}
-
-	public java.lang.Integer getState() {
-		return get("state");
-	}
-
 }

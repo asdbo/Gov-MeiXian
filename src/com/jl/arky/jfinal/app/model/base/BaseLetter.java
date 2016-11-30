@@ -57,19 +57,19 @@ public abstract class BaseLetter<M extends BaseLetter<M>> extends Model<M> imple
 		return get("postalcode");
 	}
 
-	public void setLettleType(java.lang.String lettleType) {
-		set("lettle_type", lettleType);
+	public void setLetterType(java.lang.Integer letterType) {
+		set("letter_type", letterType);
 	}
 
-	public java.lang.String getLettleType() {
-		return get("lettle_type");
+	public java.lang.Integer getLetterType() {
+		return get("letter_type");
 	}
 
-	public void setLetterDept(java.lang.String letterDept) {
+	public void setLetterDept(java.lang.Integer letterDept) {
 		set("letter_dept", letterDept);
 	}
 
-	public java.lang.String getLetterDept() {
+	public java.lang.Integer getLetterDept() {
 		return get("letter_dept");
 	}
 
@@ -127,14 +127,6 @@ public abstract class BaseLetter<M extends BaseLetter<M>> extends Model<M> imple
 
 	public java.lang.Integer getScore() {
 		return get("score");
-	}
-
-	public void setCid(java.lang.Integer cid) {
-		set("cid", cid);
-	}
-
-	public java.lang.Integer getCid() {
-		return get("cid");
 	}
 
 }

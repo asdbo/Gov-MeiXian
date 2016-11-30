@@ -25,8 +25,6 @@ public class _MappingKit {
 		arp.addMapping("letter", "id", Letter.class);
 		arp.addMapping("letter_dept", "id", LetterDept.class);
 		arp.addMapping("letter_type", "id", LetterType.class);
-		arp.addMapping("mx_category", "catid", MxCategory.class);
-		arp.addMapping("mx_zwgk_news", "id", MxZwgkNews.class);
 		arp.addMapping("navigation", "id", Navigation.class);
 		arp.addMapping("news", "id", News.class);
 		arp.addMapping("privilege", "id", Privilege.class);
