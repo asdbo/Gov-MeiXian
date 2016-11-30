@@ -64,7 +64,7 @@ public class ChannelContentController extends Controller{
 		Collections.reverse(pcms);//倒序
 		setAttr("pchannels", pcms);
 	
-		render("news1.html");
+		render(this.getcookie()+"news1.html");
 	}
 	//获取父栏目
 	private void pchannel(int id,int cid,ArrayList<ChannelModel> cms){
@@ -138,5 +138,14 @@ public class ChannelContentController extends Controller{
 		}
 		
 		
+	}
+	private String getcookie(){
+		String cookie = getCookie("page");
+		if(cookie!=null){
+			if(Integer.parseInt(cookie)%2!=0){
+				return "2/";
+			}
+		}
+		return "";
 	}
 }

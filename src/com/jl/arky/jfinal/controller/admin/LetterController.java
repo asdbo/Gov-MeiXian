@@ -18,7 +18,7 @@ import com.jl.arky.jfinal.model.Letter_Type_Model;
 public class LetterController extends Controller {
 	public void index() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"select id,people_name,theme,content,letter_dept,receive_time,lettle_type,state from letter order by receive_time desc");
+				"select id,people_name,theme,content,letter_dept,receive_time,letter_type,state from letter order by receive_time desc");
 		setAttr("letterModel", letterModel);
 		render("index.html");
 	}
@@ -33,7 +33,7 @@ public class LetterController extends Controller {
 	// 后台根据投诉查询
 	public void showComplain() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"SELECT id,people_name,theme,content,letter_dept,receive_time,lettle_type,state FROM letter where lettle_type = '投诉'  ORDER BY receive_time DESC");
+				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = '投诉'  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		render("index.html");
 	}
@@ -41,7 +41,7 @@ public class LetterController extends Controller {
 	// 后台根据咨询查询
 	public void showConsult() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"SELECT id,people_name,theme,content,letter_dept,receive_time,lettle_type,state FROM letter where lettle_type = '咨询'  ORDER BY receive_time DESC");
+				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = '咨询'  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		render("index.html");
 	}
@@ -49,7 +49,7 @@ public class LetterController extends Controller {
 	// 后台根据表扬查询
 	public void showAdmire() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"SELECT id,people_name,theme,content,letter_dept,receive_time,lettle_type,state FROM letter where lettle_type = '表扬'  ORDER BY receive_time DESC");
+				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = '表扬'  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		render("index.html");
 	}
@@ -57,7 +57,7 @@ public class LetterController extends Controller {
 	// 后台根据建议查询
 	public void showSuggest() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"SELECT id,people_name,theme,content,letter_dept,receive_time,lettle_type,state FROM letter where lettle_type = '建议'  ORDER BY receive_time DESC");
+				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = '建议'  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		render("index.html");
 	}
@@ -65,7 +65,7 @@ public class LetterController extends Controller {
 	// 后台根据区长
 	public void showQuZhang() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"SELECT id,people_name,theme,content,letter_dept,receive_time,lettle_type,state FROM letter where lettle_type = '区长信箱'  ORDER BY receive_time DESC");
+				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = '区长信箱'  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		render("index.html");
 	}
@@ -73,7 +73,7 @@ public class LetterController extends Controller {
 	// 后台根据书记
 	public void showShuJi() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"SELECT id,people_name,theme,content,letter_dept,receive_time,lettle_type,state FROM letter where lettle_type = '书记信箱'  ORDER BY receive_time DESC");
+				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = '书记信箱'  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		render("index.html");
 	}
@@ -81,7 +81,7 @@ public class LetterController extends Controller {
 	// 前台查询信件所有信息
 	public void showTable() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"select id,lettle_type,theme,people_name,receive_time,reply_time,letter_dept from letter where reply_time<>'null' order by reply_time desc");
+				"select id,letter_type,theme,people_name,receive_time,reply_time,letter_dept from letter where reply_time<>'null' order by reply_time desc");
 		setAttr("letterModel", letterModel);
 		render("index.html");
 	}
@@ -89,7 +89,7 @@ public class LetterController extends Controller {
 	// 前台查询抱怨信件
 	public void complain() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"select id,lettle_type,theme,people_name,receive_time,reply_time,letter_dept from letter where lettle_type = '投诉' AND reply_time<>'null' order by reply_time desc");
+				"select id,letter_type,theme,people_name,receive_time,reply_time,letter_dept from letter where letter_type = '投诉' AND reply_time<>'null' order by reply_time desc");
 		setAttr("letterModel", letterModel);
 		// render("index.html");
 	}
@@ -97,7 +97,7 @@ public class LetterController extends Controller {
 	// 前台查询咨询信件
 	public void consult() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"select id,lettle_type,theme,people_name,receive_time,reply_time,letter_dept from letter where lettle_type = '咨询' AND reply_time<>'null' order by reply_time desc");
+				"select id,letter_type,theme,people_name,receive_time,reply_time,letter_dept from letter where letter_type = '咨询' AND reply_time<>'null' order by reply_time desc");
 		setAttr("letterModel", letterModel);
 		// render("index.html");
 	}
@@ -105,7 +105,7 @@ public class LetterController extends Controller {
 	// 前台查询表扬信件
 	public void admire() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"select id,lettle_type,theme,people_name,receive_time,reply_time,letter_dept from letter where lettle_type = '表扬' AND reply_time<>'null' order by reply_time desc");
+				"select id,letter_type,theme,people_name,receive_time,reply_time,letter_dept from letter where letter_type = '表扬' AND reply_time<>'null' order by reply_time desc");
 		setAttr("letterModel", letterModel);
 		// render("index.html");
 	}
@@ -113,7 +113,7 @@ public class LetterController extends Controller {
 	// 前台查询建议信件
 	public void suggest() {
 		List<Model> letterModel = LetterModel.dao.find(
-				"select id,lettle_type,theme,people_name,receive_time,reply_time,letter_dept from letter where lettle_type = '建议' AND reply_time<>'null' order by reply_time desc");
+				"select id,letter_type,theme,people_name,receive_time,reply_time,letter_dept from letter where letter_type = '建议' AND reply_time<>'null' order by reply_time desc");
 		setAttr("letterModel", letterModel);
 		// render("index.html");
 	}

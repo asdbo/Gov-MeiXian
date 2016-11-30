@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>梅县市人民政府网</title>
+<meta name="description" content="梅县市人民政府网" />
+<meta name="keywords" content="梅县市人民政府网" />
+<link href="${public}/css/mxcss/min.css" type="text/css"
+	rel="stylesheet">
+	<link href="${public}/css/mxcss/base.css" type="text/css"
+		rel="stylesheet">
+		<script type="text/javascript" src="${public}/js/jquery.min.js"></script>
+		<script type="text/javascript" src="${public}/js/jquery.SuperSlide.js"></script>
+		<style>
+body {
+	background: none;
+	min-width: 1230px;
+}
+
+.searche_logo a, .searche_logo a:hover {
+	color: #fff;
+}
+
+input[type="text"] {
+	width: 80%;
+	display: inline-block;
+	border: none;
+	outline: 0;
+	float: left;
+	height: 25px;
+	font-size: 15px;
+	padding: 2px 15px 5px 15px;
+}
+
+#searBtn {
+    width: 12%;
+    max-width: 100px;
+    font-size: 18px;
+    font-family: '微软雅黑';
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    background: #f09718;
+    border: none;
+    outline: 0;
+    height: 39px;
+    cursor: pointer;
+    color: #fff;
+    position: absolute;
+    right: -85px;
+    top: 0px;
+    border-radius: 2px;
+}
+
+input[type="submit"]:hover {
+	opacity: 0.8;
+}
+</style>
+</head>
+<body>
+	<div style="background: #ebebeb;">
+		<div class="search_top">
+			<div class="wid">
+
+				<h2 class="ftl mt5 mr20 searche_logo">
+					<a href="/Home/Index" target="_blank">梅县市人民政府</a>
+				</h2>
+				<div class="mtb20">
+					<form class="js_searchForm" action="/Home/Index/search" method="post">
+						<div class="form-input">
+							<input type="text" name="Keywords" id="keyword"> 
+							<select name="channel">
+								<option value="0">全部</option>
+								   <option value="3" >魅力梅县</option>
+								   <option value="275">互动交流</option>
+								    <option value="112">办事服务</option>
+								     <option value="7">回应关切</option>
+							</select>
+							<input type="submit" id="searBtn" value="搜索">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<!--页面顶部结束-->
+
+		<!--页面内容开始-->
+		<div class="search_main">
+
+
+			<!--search-center 开始-->
+			<div class="search-ss">
+			<div class="search-center " style="height: 300px">
+				<!--第一次加载-->
+				<!--返回结果长度大于0-->
+				<h2 class="wordb">
+					<div class="clear"></div>
+				</h2>
+				<div class="clear"></div>
+				<dl class="mtb20" style="border-bottom: 1px dashed #bcbcbc;">
+				</dl>
+				<div class="clear"></div>
+				<!--翻页 开始-->
+				<div>
+				</div>
+				<!--翻页 结束-->
+			</div>
+			<!--search-center 结束-->
+</div>
+			<!--search-right 开始-->
+			<!--search-right 结束-->
+		</div>
+		<div class="clear"></div>
+		<!--页面内容结束-->
+
+		<!--foot 开始-->
+		<div class="blank10"></div>
+		<div class="lineheight45 tac" style="color: #fff; background: #313131">
+			<p>主办：梅县市人民政府办公室 承办：梅县市经济和信息化局 制作维护：梅县市信息中心</p>
+		</div>
+	</div>
+	<!--回到顶部-->
+	<div id="top"></div>
+	<!--回到顶部-->
+	<!--页面底部结束-->
+</body>
+</html>

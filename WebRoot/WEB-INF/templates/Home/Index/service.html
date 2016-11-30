@@ -31,7 +31,7 @@
 							<tr>
 								<td height="25" style="width: 400px"><a class="newtitle" title="${s.theme}" style="cursor: pointer;"
 									href="/Home/Index/email?eid=${s.id}"> ${s.theme}</a></td>
-								<td  >${s.lettle_type}</td>
+								<td  >${s.type}</td>
 							</tr>
 							</#list>
 						</tbody>
@@ -68,7 +68,7 @@
 								<td height="25" style="width: 400px"><a class="newtitle" title="${s.theme}"
 									style="cursor: pointer;"
 									href="/Home/Index/email?eid=${s.id}">${s.theme}</a></td>
-								<td>${s.lettle_type}</td>
+								<td>${s.type}</td>
 							</tr>
 							</#list>
 						</tbody>
@@ -139,10 +139,10 @@
 						<td height="25"><a class="newtitle" title="${m.theme}"
 							style="cursor: pointer;"
 							href="/Home/Index/email?eid=${m.id}">${m.theme}</a></td>
-						<td>${m.lettle_type}</td>
+						<td>${m.type}</td>
 						<td>${m.people_name}</td>
 						<td>${m.receive_time}</td>
-						<td>${m.letter_dept}</td>
+						<td>${m.dept}</td>
 						<td>${m.reply_time}</td>
 					</tr>
 					</#list>

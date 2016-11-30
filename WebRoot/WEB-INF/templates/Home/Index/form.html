@@ -97,12 +97,10 @@ function _checkform(form)
 				<tr class="WebContainer600_fomeitem">
 					<td>信件类型:</td>
 					<td>
-					<select name="letterModel.lettle_type" id="targetNodeID" onchange="javascript:if(this.value!='') document.getElementById('type').value=this.options[this.selectedIndex].text;">
-					<option value="咨询">--咨询--</option>
-					<option value="建议">--建议--</option>
-					<option value="求决">--求决--</option>
-					<option value="申诉">--申诉--</option>
-					<option value="其他">--其他--</option>
+					<select name="letterModel.letter_type" id="targetNodeID" onchange="javascript:if(this.value!='') document.getElementById('type').value=this.options[this.selectedIndex].text;">
+					<#list letterTypes as type>
+						<option value="${type.id}">${type.types}</option>
+					</#list>
 					</select><span style="color:#7eb5fd"> *</span>
 					<input type="hidden" name="data_Type" id="type" value="">
 					</td>
@@ -112,7 +110,7 @@ function _checkform(form)
 					<td><select name="letterModel.letter_dept" id="department" onchange="javascript:document.getElementById('data_Department').value=this.options[this.selectedIndex].text;">
 			          <option selected="selected" value="">--请选择收信部门--</option>
 						<#list letterDepts as dept>
-							<option value="${dept.depts}">${dept.depts}</option>
+							<option value="${dept.id}">${dept.depts}</option>
 						</#list>
 	    				</select><span style="color:#7eb5fd"> *</span></td>
 	    				<input type="hidden" name="data_Department" id="data_Department" value="">

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript" charset="utf-8" src="${public}/tools/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="${public}/tools/ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="${public}/tools/ueditor/lang/zh-cn/zh-cn.js"></script>
+
+</head>
+<body>
+	<div class="col-sm-12  col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">新闻审核</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<form class="form-horizontal" 
+							method="post" >
+							<input type="hidden" value="${newsModel.id}" name="id" />
+
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">新闻标题</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="title"
+										placeholder="请输入名称" value="${newsModel.title}" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">作者</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="writer" value="${newsModel.writer}">
+								</div>
+								</div>
+									<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">摘要</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="summary" value="${newsModel.summary}">
+								</div>
+							</div>
+								<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">来源</label>
+								<div class="col-sm-6">
+									<input type="text" class="form-control" name="origin" value="${newsModel.origin}">
+								</div>
+								</div>
+								
+								<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">新闻封面图片</label>
+								<div class="col-sm-6">
+									<img alt="" src="${newsModel.newpic}" width="500px" height="300px">
+								</div>
+								</div>
+								<#if newsModel.video!="">
+								<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">新闻视频</label>
+								<div class="col-sm-6">
+										<video controls="controls">
+											<source src="${(newsModel.video)!}">
+										</video>
+								</div>
+								</div>
+								</#if>
+							<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">文章内容</label>
+								<div class="col-sm-10">
+									<script id="editor" name="content" type="text/plain"
+										style="width: 100%; height: 600px;" >
+					              	</script>
+								</div>
+							</div>
+							<div class="form-group">
+								<input type="submit" formaction="/Admin/News/checkOK" class="btn btn-primary  col-sm-offset-2"
+									value="审核通过">&nbsp;&nbsp;
+									<input type="submit" formaction="/Admin/News/checkNO" class="btn btn-primary "
+									value="审核不通过">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<!--/.main-->
+
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+		var ue = UE.getEditor('editor');
+		ue.ready(function () {
+	    	// editor准备好之后才可以使用
+	    	ue.setContent('${newsModel.content}');
+		});
+	</script>
+</body>
+
+</html>
