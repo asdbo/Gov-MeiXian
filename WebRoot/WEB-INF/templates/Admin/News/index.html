@@ -60,6 +60,8 @@
 									<th data-sortable="true" data-align="center">封面图片</th>
 									<th data-sortable="true" data-align="center">发布日期</th>
 									<th data-sortable="true" data-align="center">浏览次数</th>
+									<th data-sortable="true" data-align="center">审核状态</th>
+									<th data-sortable="true" data-align="center">审核</th>
 									<#if session.get("AdminModel").hasPermission("/Admin/News/toUpdate") = true >
 									<th data-sortable="true" data-align="center">修改</th>
 										<#else>
@@ -83,6 +85,17 @@
 								<td><img width="60px" height="40px"  src="${new.newpic}"></td>
 								<td>${new.TIME}</td>
 								<td>${new.looks}</td>
+								<td>
+									<#if new.state =0>
+									审核中
+									<#elseif new.state=1>	
+									已审核
+									<#else>
+									审核不通过
+									</#if>
+								</td>
+								<td style="text-align: center;"><a
+									href="/Admin/News/check?id=${new.id}"><button type="button" class="btn btn-primary">审核</button></a></td>
 								<#if session.get("AdminModel").hasPermission("/Admin/News/toUpdate") = true >
 								
 								<td style="text-align: center;"><a

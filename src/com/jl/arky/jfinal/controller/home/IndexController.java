@@ -345,7 +345,7 @@ public class IndexController extends Controller {
 		this.getTime(zjnews);
 		setAttr("zjid", id);
 		setAttr("zjnews", zjnews);
-		//计划规划
+		//发展规划
 		id=19;
 		 List<NewsModel> jhnews = NewsModel.dao.paginate(1, 6,"select *", " from news where cid=?",id).getList();
 		this.getTime(jhnews);
@@ -365,13 +365,13 @@ public class IndexController extends Controller {
 	public void service(){
 		//书记信箱
 		int id=278;
-		List<Model> sj = LetterModel.dao.paginate(1, 5,"select *"," from letter where state=?&&cid=? order by id desc",1,id).getList();
+		List<Model> sj = LetterModel.dao.paginate(1, 5,"select letter.*,t.types type"," from letter,letter_type t where letter.state=?&&letter.cid=?&&t.id=letter.letter_type order by id desc",1,id).getList();
 		//市长信箱
 		id=279;
-		List<Model> sz = LetterModel.dao.paginate(1, 5,"select *"," from letter where state=?&&cid=? order by id desc",1,id).getList();
+		List<Model> sz = LetterModel.dao.paginate(1, 5,"select letter.*,t.types type"," from letter,letter_type t where letter.state=?&&letter.cid=?&&t.id=letter.letter_type order by id desc",1,id).getList();
 		//梅县民声
 		id=280;
-		List<Model> ms = LetterModel.dao.paginate(1, 7,"select *"," from letter where state=?&&cid=? order by id desc",1,id).getList();
+		List<Model> ms = LetterModel.dao.paginate(1, 7,"select letter.*,t.types type,d.depts dept"," from letter,letter_type t,letter_dept d where letter.state=?&&letter.cid=?&&t.id=letter.letter_type&&d.id=letter.letter_dept order by id desc",1,id).getList();
 		Model all = LetterModel.dao.findFirst("select count(*) num from letter where cid=? ",id);
 		long allCount= all.getLong("num");
 		Model hfall = LetterModel.dao.findFirst("select count(*) num from letter where cid=?&&state=? ",id,1);
@@ -1072,6 +1072,9 @@ public class IndexController extends Controller {
 		
 
 	}
+	public void tosearch(){
+		render("search2.html");
+	}
 	//获取一级栏目
 	private String getFirstChannel(int cid) {
 		ChannelModel cm= ChannelModel.dao.findFirst("select pid  from channel where id =?",cid);
@@ -1158,6 +1161,7 @@ public class IndexController extends Controller {
 		List<Model> letterTypes = Letter_Type_Model.dao.getLetterTypes();
 		List<Model> letterDepts = Letter_Dept_Model.dao.getLetterDept();
 		setAttr("letterDepts", letterDepts);
+		setAttr("letterTypes", letterTypes);
 		List<ChannelModel> clm = ChannelModel.dao.find("select * from channel where pid=?",275);
 		List<ChannelModel> cms=new ArrayList<ChannelModel>();
 		for(ChannelModel cm:clm){
@@ -1165,6 +1169,7 @@ public class IndexController extends Controller {
 				cms.add(cm);
 			}
 		}
+		
 		setAttr("clm", cms);
 		render(this.getcookie()+"form.html");
 	}

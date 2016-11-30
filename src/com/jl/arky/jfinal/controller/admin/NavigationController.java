@@ -2,6 +2,7 @@ package com.jl.arky.jfinal.controller.admin;
 
 import java.util.List;
 
+
 import com.jfinal.core.Controller;
 import com.jl.arky.jfinal.model.NavigationModel;
 
@@ -39,7 +40,13 @@ public class NavigationController extends Controller {
 	}
 
 	public void delete() {
-		NavigationModel.dao.deleteById(getParaToInt("id"));
+		String id = getPara("id");
+		if (id != null) {
+			String[] ids = id.split(",");
+			for (int i = 0; i < ids.length; i++) {
+				NavigationModel.dao.deleteById(ids[i]);
+			}
+		}
 		redirect("/Admin/Navigation/list");
 	}
 

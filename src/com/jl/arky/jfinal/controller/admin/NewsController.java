@@ -38,6 +38,28 @@ public class NewsController extends Controller {
 		setAttr("channels", channels);
 		render("add.html");
 	}
+	//审核中
+	public void check(){
+		String id = getPara("id");
+		NewsModel newModel = NewsModel.dao.findById(id);
+		setAttr("newsModel", newModel);
+		render("checkNew.html");
+	}
+	//审核通过
+	public void checkOK(){
+		String id = getPara("id");
+		NewsModel newModel = NewsModel.dao.findById(id);
+		newModel.set("state", 1).update();
+		this.list();
+	}
+	//审核不通过
+		public void checkNO(){
+			String id = getPara("id");
+			NewsModel newModel = NewsModel.dao.findById(id);
+			newModel.set("state", -1).update();
+			this.list();
+		}
+		
 	@Clear
 	public void gethtml() throws IOException{
 		String pid = getPara("pid");
@@ -135,13 +157,16 @@ public class NewsController extends Controller {
 		filePath="/images/";
 		UploadFile file3 = getFile("newpic",filePath);
 		String newpic=this.upload(file3,filePath,"pic");
+		if("".equals(newpic)){
+			newpic="/Public/upload/images/wu.jpg";
+		}
 		long time=System.currentTimeMillis()/1000;//时间戳(秒)
 			NewsModel model = new NewsModel().set("attach",attchName ).set("video", videoName).set("TIME", time).set("aid",user.get("id")).set("looks", 0)
 					.set("cid",verification(getPara("cid")) ).set("title", verification(getPara("title")))
 					.set("writer", verification(getPara("writer"))).set("summary", summaryStr(verification(getPara("summary"))))
 					.set("sort", getPara("sort")==null?0:getPara("sort"))	.set("origin", verification(getPara("origin")))
 					.set("newpic", newpic)
-					.set("content", verification(getPara("content")));
+					.set("content", verification(getPara("content"))).set("state", 0);
 			return model;
 ////		}
 //		return null;
@@ -240,7 +265,7 @@ public class NewsController extends Controller {
 	}
 	//获取数据
 	public void list(){
-		String sql="select news.id ,news.title, news.time,news.looks,news.newpic,channel.type,channel.title ct from news join channel on news.cid=channel.id";
+		String sql="select news.id ,news.title, news.time,news.looks,news.state,news.newpic,channel.type,channel.title ct from news join channel on news.cid=channel.id";
 		List<NewsModel> news=NewsModel.dao.find(sql);
 		for(NewsModel nm:news){
 			String date = TimeUtil.timeStampToDate((long)nm.get("time"));

@@ -117,7 +117,6 @@
 						
 					<li><a href="http://tongji.baidu.com/web/22367857/overview/sole?siteId=9940832"><i class="glyphicon glyphicon-asterisk"></i> 百度统计</a>
 					</li>
-					&nbsp;<span style="color: white;">  页面切换：</span> <span id="what" style="color: white;" title="mx">梅县</span> <button type="button" class="btn btn-primary">切换</button>
 				</ul>
 			</div>
 		</nav>
@@ -141,31 +140,5 @@
 	<script src="${public}/js/morris.js"></script>
 	<!-- Custom Js -->
 	<script src="${public}/js/custom-scripts.js"></script>
-	<script type="text/javascript">
-	
-	$.post("/Admin/Index/whatFile",function(data){
-		if(data=="梅县"){
-			$("#what").attr("title","mx").html(data);
-		}else{
-			$("#what").attr("title","mj").html(data);
-		}
-		
-	});
-	
-		
-		$(".btn").click(function(){
-			var $span=$(this).prev();
-			var val=$span.attr("title");
-			if(val=="mx"){
-				$span.html("梅江");
-				$span.attr("title","mj");
-			}else if(val=="mj"){
-				$span.html("梅县");
-				$span.attr("title","mx");
-			}
-			$.post("/Admin/Index/changeFile",{"who":val},function(){
-			});
-		});
-	</script>
 </body>
 </html>

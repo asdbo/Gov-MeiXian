@@ -13,7 +13,7 @@ public static final Letter_Type_Model dao = new Letter_Type_Model();
 	}
 	
 	public List<Model> getLetterTypes(){
-		String sql = "select types from letter_type";
+		String sql = "select * from letter_type";
 		return Letter_Type_Model.dao.find(sql);
 	}
 }

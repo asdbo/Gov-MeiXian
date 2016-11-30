@@ -68,7 +68,11 @@
 					
 					<tr>
 						<th>来信类型</th>
-						<td>${(letterModel.lettle_type)!}</td>
+						<td><#list letterTypes as t>
+											 <#if t.id = letterModel.letter_type>
+											${(t.types)!}<#break>
+											 </#if>
+									</#list></td>
 						<th>来信时间</th>
 						<td>${(letterModel.receive_time)!}</td>
 						
@@ -83,7 +87,11 @@
 					</tr>
 					<tr>
 						<th>处理部门</th>
-						<td>${(letterModel.letter_dept)!}</td>
+						<td> <#list letterDepts as ld>
+											 <#if ld.id = letterModel.letter_dept>
+											${(ld.depts)!}<#break>
+											 </#if>
+									</#list></td>
 						<th>处理时间</th>
 						<td>${(letterModel.reply_time)!}</td>
 					</tr>

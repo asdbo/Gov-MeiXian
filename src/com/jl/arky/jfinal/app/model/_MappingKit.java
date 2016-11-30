@@ -16,7 +16,7 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 public class _MappingKit {
 
 	public static void mapping(ActiveRecordPlugin arp) {
-		arp.addMapping("admin", "id", Admin.class);
+/*		arp.addMapping("admin", "id", Admin.class);
 		arp.addMapping("admin_log", "id", AdminLog.class);
 		arp.addMapping("admin_role", "id", AdminRole.class);
 		arp.addMapping("carousel", "id", Carousel.class);
@@ -32,7 +32,7 @@ public class _MappingKit {
 		arp.addMapping("role_privilege", "id", RolePrivilege.class);
 		arp.addMapping("rss_channel", "id", RssChannel.class);
 		arp.addMapping("rss_items", "id", RssItems.class);
-		arp.addMapping("schedule", "id", Schedule.class);
+		arp.addMapping("schedule", "id", Schedule.class);*/
 	}
 }
 

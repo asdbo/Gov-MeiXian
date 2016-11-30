@@ -208,15 +208,24 @@ public class AdminController extends Controller {
 	 */
 	public void deleteAdminById() {
 		// 获取要删除的管理员信息
-				int id = getParaToInt("id");
-				AdminModel AdminModel = new AdminModel();
-				// 根据id删除管理员
-				AdminModel.deleteById(id);
+		
+				String id=getPara("id");
+				if(id!=null){
+					String[] ids = id.split(",");
+					for(int i=0;i<ids.length;i++){
+						AdminModel AdminModel = new AdminModel();
+						// 根据id删除管理员
+						AdminModel.deleteById(id);
+						
+						 Db.update("delete from admin_role where adminid = ?", ids[i]);
+
+					}
+					
+				}
 				
-				 Db.update("delete from admin_role where adminid = ?", id);
-				
-				// 删除成功，返回列表页面
 				redirect("/Admin/Admin/list");
+				
+				
 
 	}
 
@@ -486,10 +495,13 @@ public class AdminController extends Controller {
 	 */
 	public void deleteLogInfoById(){
 		// 获取要删除的管理员信息
-
-
-		int id = getParaToInt("id");
-		AdminLogModel.dao.deleteById(id);
+		String id=getPara("id");
+		if(id!=null){
+			String[] ids = id.split(",");
+			for(int i=0;i<ids.length;i++){
+				AdminLogModel.dao.deleteById(ids[i]);
+			}
+		}
 		redirect("/Admin/Admin/queryAdminLogInfo");
 	}
 	

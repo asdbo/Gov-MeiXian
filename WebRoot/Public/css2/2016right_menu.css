@@ -40,11 +40,15 @@ li.gotop:hover{background-color:#062d4f;}
 .right_menu .wx_con span{font-size:18px; font-weight:bold; line-height:1.8; display:block; text-align:center;}
 .right_menu .wx_con p{font-size:14px; font-weight:bold; display:block; padding:0; margin:0; text-align:center; line-height:1.6;}
 
-.right_menu .wb_con{ position:absolute; left:-200px; top:50px; padding:10px;
-    width: 180px;
+.right_menu .wb_con{ position: absolute;
+    left: -110px;
+    top: 50px;
+    padding: 10px;
+    width: 90px;
     height: 130px;
     text-align: center;
-    background:rgba(0,0,0,0.78); border-radius:5px;}
+    background: rgba(0,0,0,0.78);
+    border-radius: 5px;}
 .right_menu .smyx_con{
 	    position: absolute;
     left: -150px;

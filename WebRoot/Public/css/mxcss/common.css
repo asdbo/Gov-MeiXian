@@ -342,7 +342,7 @@ position: relative; width:38%; height:250px; overflow: hidden; text-align: left;
     color: #fff;
 }
 .news .hd ul li,.news2 .hd ul li{        float: left;
-    padding: 0 9px;
+    padding: 0 8px;
     cursor: pointer;
     font-size: 16px;
     

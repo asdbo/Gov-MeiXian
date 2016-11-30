@@ -12,7 +12,7 @@ public static final Letter_Dept_Model dao = new Letter_Dept_Model();
 		return paginate(pageNumber, pageSize, "select *", "from Letter_Dept_Model order by id desc");
 	}
 	public List<Model> getLetterDept(){
-		String sql = "select depts from letter_dept";
+		String sql = "select * from letter_dept";
 		return Letter_Dept_Model.dao.find(sql);
 	}
 	

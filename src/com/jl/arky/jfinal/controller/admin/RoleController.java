@@ -85,17 +85,18 @@ public class RoleController extends Controller{
      /*
       * 删除角色
       */
-     public void deleteRoleById(){
-    	 //获取要删除的角色id
- 		int roleid = getParaToInt("id");
- 	 
- 		 //删除中间表中原来的记录
-    	 Db.update("delete from role_privilege where roleid = ?", roleid);
- 	 //删除角色
- 		RoleModel.dao.deleteById(roleid);
- 		
- 		//删除admin_role表中间的数据
- 		Db.update("delete from admin_role where roleid = ?", roleid);
+     public void deleteRoleById(){	
+ 		String id=getPara("id");
+ 		System.out.println(id+"-------------====");
+		if(id!=null){
+			String[] ids = id.split(",");
+			for(int i=0;i<ids.length;i++){
+				Db.update("delete from role_privilege where roleid = ?", ids[i]);
+				RoleModel.dao.deleteById(ids[i]);
+				Db.update("delete from admin_role where roleid = ?", ids[i]);
+			}
+			
+		}
  		
  		redirect("/Admin/Role/list");
      }

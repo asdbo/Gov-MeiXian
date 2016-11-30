@@ -26,7 +26,7 @@ public class NewContentController extends Controller{
 		this.pchannel(pid, cms);
 		Collections.reverse(cms);
 		setAttr("cms", cms);
-		render("detail.html");
+		render(this.getcookie()+"detail.html");
 	}
 	private void pchannel(int cid,ArrayList<ChannelModel> cms){
 		if(cid!=0){
@@ -53,5 +53,14 @@ public class NewContentController extends Controller{
 		}
 		
 		
+	}
+	private String getcookie(){
+		String cookie = getCookie("page");
+		if(cookie!=null){
+			if(Integer.parseInt(cookie)%2!=0){
+				return "2/";
+			}
+		}
+		return "";
 	}
 }

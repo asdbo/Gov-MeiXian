@@ -6,16 +6,7 @@
 	<script src="${public}/js/jquery-1.11.1.min.js"></script>
 	<script src="${public}/js/bootstrap.min.js"></script>
    
-     <script type="text/javascript">
-    	function setLetterType(val){
-    		var ele = $("#letter_type");
-    		ele.val() = val;
-    	}
-    	function setLetterDept(val){
-    		var ele = $("#letter_dept");
-    		ele.val() = val;
-    	}
-    </script>
+   
 </head>
 <body>
 
@@ -57,26 +48,25 @@
 				<tr>
 				<td>信件类型：</td>
  				<td>
-		            <select name="letterTypes" onchange="setLetterType(this.options[this.selectedIndex].text);">
+		            <select name="letterModel.letter_type" >
 		            	<option >--请选择信件类型--</option>
 		            	<#list letterTypes as o>
-							<option value="${o.types}" >${o.types}</option>
+							<option value="${o.id}" >${o.types}</option>
 						</#list>   		
 	            	</select>
-	            	<input type="hidden" id="letter_type" name="letterModel.lettle_type" />
 				</td>
 				</tr>
 				
 				
 				<td>收件部门：</td>
  				<td>
-		            <select name="letterDepts" onchange="setLetterDept(this.options[this.selectedIndex].text);">
+		            <select name="letterModel.letter_dept" >
 		            	<option>--请选择收信部门--</option>
 		            	<#list letterDepts as o>
-							<option value="${o.depts}" >${o.depts}</option>
+							<option value="${o.id}" >${o.depts}</option>
 						</#list>   		
 	            	</select>
-	            	<input type="hidden" id="letter_dept" name="letterModel.letter_dept"/>
+	          
 				</td>
 				</tr>
 				
