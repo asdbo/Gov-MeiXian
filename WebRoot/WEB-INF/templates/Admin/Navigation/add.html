@@ -21,17 +21,12 @@
 
 </head>
 <body>
-	<div class="col-sm-12  col-lg-12  main">
+		<div class=" col-sm-12 col-lg-12  main">
+
 		<div class="row">
 			<ol class="breadcrumb">
-				<#if session.get("AdminModel").hasPermission("/Admin/Navigation/list") = true >
-					<li><a href="/Admin/Navigation/list">导航显示</a></li>
-					<#else> 
-					</#if> 
-					<#if session.get("AdminModel").hasPermission("/Admin/Navigation/toAdd") = true >
-					<li class="active"><a href="/Admin/Navigation/toAdd">导航添加</a></li>
-					<#else> 
-					</#if> 
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">导航管理</li>
 			</ol>
 		</div>
 		<!--/.row-->

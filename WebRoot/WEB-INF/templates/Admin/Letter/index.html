@@ -84,23 +84,10 @@
 								</#if>
 								<td style="text-align: center;">${(c.content)!}
 								</td>
-								<td style="text-align: center;">
-									 <#list letterDepts as ld>
-											 <#if ld.id = c.letter_dept>
-											${(ld.depts)!}<#break>
-											 </#if>
-									</#list>
-								
-								</td>
+								<td style="text-align: center;">${(c.letter_dept)!}
 								<td style="text-align: center;">${(c.receive_time)!}
 								</td>
-								<td style="text-align: center;">
- 									 <#list letterTypes as t>
-											 <#if t.id = c.letter_type>
-											${(t.types)!}<#break>
-											 </#if>
-									</#list>
-								</td>
+								<td style="text-align: center;">${(c.letter_type)!}
 								<td style="text-align: center;">
 								<#if c.state = 0>
 								<font color="red">未回复</font>
