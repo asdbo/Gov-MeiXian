@@ -1,8 +1,16 @@
 <#include '/WEB-INF/templates/mxcommon/header.html'>
+
+
+
+
+
+
+
 <!-- news-center -->
 <div class="news-center" style="       height: auto;
     overflow: hidden;
     margin-bottom: 15px;">
+    
   <!-- navigation -->
 	<div class="navigation">
 	<#assign who="">
@@ -18,7 +26,34 @@
 		</div>
 	</div>	
   <!-- navigation -->
+  
+  
+  
+  
+  
+  
     <div class="center-contents">
+    
+    
+       <div class="wid">
+   <#if show_type == "1"> 
+               <div class="list-Box">
+	<#list picnews as c>
+						    <div class="introduce3_img2 ftl ml20 mt10">
+			    <div class="pic"><a href="/Home/NewContent?newid=${c.id}" target="_blank"><img src="${c.newpic}" width="250" height="330"></a></div>
+			    <div class="txt-bg"></div>
+			    <div class="txt tac"><a href="/Home/NewContent?newid=${c.id}" target="_blank">${c.title}</a></div>
+		    </div>
+	</#list>			
+    
+    
+ 
+    <#else>
+ 
+    
+    
+    
+    
     	<div class="contents-menu" style="overflow: hidden;">
     		<ul>
     			<li class="new-active"><a href="/Home/ChannelContent?cid=${channel.id}">${channel.title}</a></li>
@@ -65,7 +100,19 @@
     		</div>
     		
     		
-    		<div class="tac" style="margin-top: 10px;margin-left: 20px">
+	
+    		
+    	
+    		
+    		
+    		
+    	</div>
+    	</#if>	
+    	
+    	
+    </div>
+</div>
+<div class="tac" style="margin-top: 10px;margin-left: 20px">
 			<ul class="pagination pagination-sm">
 		    <li class=""><a href="${url}">首页</a></li>
 		    			<#if (pageCount <5)>
@@ -112,14 +159,6 @@
 						
 			    <li class=""><a href="${url}&page=${pageCount}">末页</a></li>
 		</ul>
-</div>
-    		
-    		
-    		
-    		
-    		
-    	</div>
-    </div>
 </div>
 <script type="text/javascript">
 $(".mx-more a").click(function(){

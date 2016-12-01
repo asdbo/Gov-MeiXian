@@ -32,7 +32,44 @@ public class ChannelContentController extends Controller{
 			redirect("http://zwgk.gdmx.gov.cn/index/index?areacode=441421");
 			return;
 		}
+		
+		String para = getPara("page");
+		if(para==null){
+			para="1";
+		}
+		
+		
 		ChannelModel model = ChannelModel.dao.findById(cid);//获取该栏目
+		
+		String show_type =((Integer)model.get("show_type")).toString();
+		setAttr("show_type", show_type);
+		if(show_type.equals("1")){  //如果channelContent的类型是图片显示界面为图片
+			
+			
+			System.out.println(show_type+"=========================");
+			
+			setAttr("show_type", show_type);
+			
+			 List<NewsModel> picnews = NewsModel.dao.paginate(Integer.parseInt(para),16,"select *", " from news where cid=?",cid).getList();	
+			
+			 setAttr("picnews", picnews);
+			 for (NewsModel newsModel : picnews) {
+				System.out.println(newsModel.get("id"));
+			 }
+			
+
+			
+		
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		
 		
 		//获取子栏目新闻标题
 		List<ChannelModel> ids = ChannelModel.dao.find("select id,title from channel where pid=?",cid);
@@ -44,7 +81,7 @@ public class ChannelContentController extends Controller{
 			this.schannel(scms);
 			setAttr("schannels",scms );
 			setAttr("channel", pcm);
-			this.getNewTitle(Integer.parseInt(cid));
+			this.getNewTitle(show_type,Integer.parseInt(cid));
 		}else{
 			int []id=new int[ids.size()];
 			ArrayList<ChannelModel> scms=new ArrayList<ChannelModel>();//子栏目
@@ -54,7 +91,7 @@ public class ChannelContentController extends Controller{
 			}
 			this.schannel(scms);
 			setAttr("schannels",scms );
-			this.getNewTitle(id);
+			this.getNewTitle(show_type,id);
 			setAttr("channel", model);//该栏目
 		}
 		//获取该栏目及父栏目
@@ -64,7 +101,7 @@ public class ChannelContentController extends Controller{
 		Collections.reverse(pcms);//倒序
 		setAttr("pchannels", pcms);
 	
-		render(this.getcookie()+"news1.html");
+		render("news1.html");
 	}
 	//获取父栏目
 	private void pchannel(int id,int cid,ArrayList<ChannelModel> cms){
@@ -87,7 +124,7 @@ public class ChannelContentController extends Controller{
 			}
 		}
 	}
-	private void getNewTitle(int ...id){
+	private void getNewTitle(String show_type,int ...id){
 		String sql1="from news where cid=? order by sort";
 		String sql2="select count(*) num from news where cid=?";
 		int page=1;
@@ -95,7 +132,15 @@ public class ChannelContentController extends Controller{
 		if(para!=null){
 			page=Integer.parseInt(para);
 		}
-		int pageSzie=9;
+		int pageSzie;
+		if(show_type.equals("1")){
+			pageSzie =16;
+		}else{
+			pageSzie =9;
+		}
+		
+		
+		
 		ArrayList<Integer> ids=new ArrayList<Integer>();
 		ids.add(id[0]);
 		if(id.length>1){
@@ -138,14 +183,5 @@ public class ChannelContentController extends Controller{
 		}
 		
 		
-	}
-	private String getcookie(){
-		String cookie = getCookie("page");
-		if(cookie!=null){
-			if(Integer.parseInt(cookie)%2!=0){
-				return "2/";
-			}
-		}
-		return "";
 	}
 }
