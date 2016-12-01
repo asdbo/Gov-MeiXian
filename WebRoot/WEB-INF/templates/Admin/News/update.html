@@ -139,8 +139,7 @@
 	</div>
 	<!--/.main-->
 
-	<script src="${public}/js/jquery-1.11.1.min.js"></script>
-	<script src="${public}/js/bootstrap.min.js"></script>
+	
 		<script type="text/javascript">
 		var ue = UE.getEditor('editor');
 		ue.ready(function () {
@@ -148,6 +147,8 @@
 	    	ue.setContent('${newsModel.content}');
 		});
 	</script>
+	<script src="${public}/js/jquery-1.11.1.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			$("#fileVideo").change(function(){
@@ -177,8 +178,74 @@
 						$(this).val("");
 					}
 			});
-			
+			$(".control").change(function(){
+				$(".control1").removeAttr("name").empty().hide();
+				$(".control2").removeAttr("name").empty().hide();
+				$(".control3").removeAttr("name").empty().hide();
+				$(".control4").removeAttr("name").empty().hide();
+				var url="/Admin/News/gethtml";
+				var arg={"pid":$(this).val()};
+				$.post(url,arg,function(data){
+					if(data!=""){
+						$(".control1").append(data);
+						$(".control1").show();
+						
+					}else{
+						$(".control").attr("name","cid");
+					}
+				});
+			});
+			$(".control1").change(function(){
+				$(".control2").removeAttr("name").empty().hide();
+				$(".control3").removeAttr("name").empty().hide();
+				$(".control4").removeAttr("name").empty().hide();
+				var url="/Admin/News/gethtml";
+				var arg={"pid":$(this).val()};
+				$.post(url,arg,function(data){
+					if(data!=""){
+						$(".control2").append(data);
+						$(".control2").show();
+						
+					}else{
+						$(".control1").attr("name","cid");
+					}
+				});
+			});
+			$(".control2").change(function(){
+				$(".control3").removeAttr("name").empty().hide();
+				$(".control4").removeAttr("name").empty().hide();
+				var url="/Admin/News/gethtml";
+				var arg={"pid":$(this).val()};
+				$.post(url,arg,function(data){
+					if(data!=""){
+						$(".control3").append(data);
+						$(".control3").show();
+						
+					}else{
+						$(".control2").attr("name","cid");
+					}
+				});
+			});
+			$(".control3").change(function(){
+				$(".control4").removeAttr("name").empty().hide();
+				var url="/Admin/News/gethtml";
+				var arg={"pid":$(this).val()};
+				$.post(url,arg,function(data){
+					if(data!=""){
+						$(".control4").append(data);
+						$(".control4").show();
+						
+					}else{
+						$(".control3").attr("name","cid");
+					}
+				});
+				
+			});
+			$(".control4").change(function(){
+				$(".control4").attr("name","cid");
+			});
 		})
+		
 	</script>
 </body>
 

@@ -92,7 +92,7 @@
 								</td>
 								<td style="text-align: center;"><a
 									href="/Admin/News/check?id=${new.id}"><button type="button" class="btn btn-primary">审核</button></a></td>
-						 	<#if session.get("AdminModel").hasChannelPrivilege(new.cid,"update") = true >
+						 	<#if session.get("AdminModel").hasChannelPrivilege(new.cid,"r_update") = true >
 								
 								<td style="text-align: center;"><a
 									href="/Admin/News/toUpdate?id=${new.id}"><button type="button" class="btn btn-primary">修改</button></a></td>
@@ -100,7 +100,7 @@
 									<#else>
 									
 									</#if> 	
-									<#if session.get("AdminModel").hasPermission("/Admin/News/deleteNew") = true >
+										<#if session.get("AdminModel").hasChannelPrivilege(new.cid,"r_delete") = true >
 								<td><button class="btn btn-primary delete"
 										  data-target="#deleteModal" data-toggle="modal" onClick="deleteData(${new.id})"
 										  >删除</button></td>

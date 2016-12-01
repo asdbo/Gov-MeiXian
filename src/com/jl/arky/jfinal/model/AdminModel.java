@@ -94,7 +94,7 @@ public class AdminModel extends Model<Model>{
 				System.out.println(record.get("cid"));
 				System.out.println("拥有权限");
 				System.out.println("<++++++++++++++++++++++++++++++++++++>");
-			    return !record.getBoolean(right);
+			    return record.getBoolean(right);
 			}
 			
 		}

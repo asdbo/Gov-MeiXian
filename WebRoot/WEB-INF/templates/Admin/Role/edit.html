@@ -53,10 +53,10 @@ input.button, input.btn {
 				  <td>${list.title}</td>
 				   <input name="channelNum" type="hidden" value="${list.id}">
 				    <input name="channelRightModel${list.id}.cid" type="hidden" value="${list.id}">
-				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.look'   value='1' ></td>
-				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.add'   value='1' ></td>
-				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.update'   value='1' ></td>
-				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.delete'    value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.r_look'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.r_add'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.r_update'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.r_delete'    value='1' ></td>
 			  </tr>	
 			   <#list list.getChildren() as items >
 			    <tr>
@@ -64,10 +64,10 @@ input.button, input.btn {
 				  <td> -> ${items.title}</td>
 				   <input name="channelNum" type="hidden" value="${items.id}">
 				    <input name="channelRightModel${items.id}.cid" type="hidden" value="${items.id}">
-				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.look'   value='1' ></td>
-				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.add'   value='1' ></td>
-				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.update'   value='1' ></td>
-				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.delete'    value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.r_look'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.r_add'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.r_update'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.r_delete'    value='1' ></td>
 			  </tr>	
 			   <#list items.getChildren()as item >
 			    <tr>
@@ -75,10 +75,10 @@ input.button, input.btn {
 				  <td> --> ${item.title}</td>
 				   <input name="channelNum" type="hidden" value="${item.id}">
 				      <input name="channelRightModel${item.id}.cid" type="hidden" value="${item.id}">
-				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.look'   value='1' ></td>
-				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.add'   value='1' ></td>
-				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.update'   value='1' ></td>
-				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.delete'    value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.r_look'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.r_add'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.r_update'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.r_delete'    value='1' ></td>
 			  </tr>
 			  </#list>
 			  </#list>

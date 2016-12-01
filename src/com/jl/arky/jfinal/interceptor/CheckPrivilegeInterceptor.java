@@ -21,9 +21,8 @@ public class CheckPrivilegeInterceptor implements Interceptor {
         System.out.println(url);
       
         
-        if(session == null){  
-        	 System.out.println("go out 1");  
-            ai.getController().redirect("/Index");  
+        if(session == null){   
+            ai.getController().redirect("/Admin/Index/toLogin");  
         }  
         else{  
         	AdminModel currentuser = (AdminModel) session.getAttribute("AdminModel");  
@@ -43,8 +42,7 @@ public class CheckPrivilegeInterceptor implements Interceptor {
             }  
             else {  
             	//该用户没有登录，跑去登录
-            	 System.out.println("go out 2");  
-                ai.getController().redirect("/Index");  
+            	ai.getController().redirect("/Admin/Index/toLogin"); 
             }  
         }  
     } 

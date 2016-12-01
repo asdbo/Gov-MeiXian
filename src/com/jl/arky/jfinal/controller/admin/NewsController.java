@@ -68,7 +68,7 @@ public class NewsController extends Controller {
 		String pid = getPara("pid");
 		AdminModel admin = getSessionAttr("AdminModel");
 		int rid = admin.getInt("roleid");
-		List<Record> list = Db.find("select distinct  cid from channel_right where rid=?",rid);
+		List<Record> list = Db.find("select distinct  cid from channel_right where r_add=1 and rid=?",rid);
 		String src="<option value=-1>请选择...</option>";
 		if(!pid.equals("-1")){
 			String ids="";
@@ -93,7 +93,7 @@ public class NewsController extends Controller {
 	}
 	public void toUpdate(){
 		NewsModel newsModel = NewsModel.dao.findById(getPara("id"));
-		String sql="select * from channel";
+		String sql="select * from channel where pid=0";
 		List<ChannelModel> channels = ChannelModel.dao.find(sql);
 		setAttr("channels", channels);
 		setAttr("newsModel", newsModel);
@@ -102,13 +102,22 @@ public class NewsController extends Controller {
 	//添加一条新闻
 	public void addNew() throws Exception{
 		
+		
+		
 		NewsModel model = this.getModel();
+		AdminModel admin = (AdminModel) this.getSession().getAttribute("AdminModel");
+		
+		if(admin.hasChannelPrivilege(Integer.parseInt(model.getStr("cid")), "r_add")){
+			renderText("你对于这个栏目没有添加的权限");
+		}else{
+			renderText("你有这个栏目的添加权限");
+		}
 		if(model!=null){
 			model.save();
 			this.addLunece(model);
 		}
 		String cid = model.get("cid");
-		System.out.println(cid);
+		System.out.println("此处为文章的栏目id"+cid);
 		String newTitle = model.get("title");
 		System.out.println(newTitle);
 		//线程池5个
@@ -279,7 +288,7 @@ public class NewsController extends Controller {
 	//获取数据
 	public void list(){
 		
-		String sql="select distinct cid from channel_right where rid=?";
+		String sql="select distinct cid from channel_right where rid=? and r_look=1";
 		AdminModel admin = (AdminModel) this.getSession().getAttribute("AdminModel");
 		
 		System.out.println(admin);
