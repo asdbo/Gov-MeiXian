@@ -279,7 +279,7 @@ public class NewsController extends Controller {
 	//获取数据
 	public void list(){
 		
-		String sql="select cid from channel_right where rid=?";
+		String sql="select distinct cid from channel_right where rid=?";
 		AdminModel admin = (AdminModel) this.getSession().getAttribute("AdminModel");
 		
 		System.out.println(admin);
@@ -287,14 +287,13 @@ public class NewsController extends Controller {
 		System.out.println(find.size());
 		List<NewsModel> news=new ArrayList<>();
 		for (Record record : find) {
-			sql="select news.id ,news.title,news.cid, news.time,news.looks,news.state,news.newpic,channel.type,channel.title ct from news join channel on news.cid="+record.getInt("cid");
-			
-			List<NewsModel> ns=NewsModel.dao.find("select * from news where cid = ?",record.getInt("cid"));
+			sql="select news.id ,news.title,news.cid, news.time,news.looks,news.state,news.newpic,channel.type type,channel.title ct from news join channel on news.cid=channel.id and news.cid=?";
+			List<NewsModel> ns=NewsModel.dao.find(sql,record.getInt("cid"));
 			news.addAll(ns);
 		}
 		
 		for(NewsModel nm:news){
-			String date = TimeUtil.timeStampToDate((long)nm.get("time"));
+			String date = TimeUtil.timeStampToDate((long)nm.getLong("time"));
 			nm.set("TIME", date);
 		}
 		System.out.println("欧阳泽鹏"+news.size());

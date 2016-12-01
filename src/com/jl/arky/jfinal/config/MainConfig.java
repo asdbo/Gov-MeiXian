@@ -55,7 +55,7 @@ import freemarker.core._CoreAPI;
 public class MainConfig extends JFinalConfig {
 	public static final String DATABASE_USERNAME = "root";// 用户名
 
-	public static final String DATABASE_PASSWORD = "1234";// 密码
+	public static final String DATABASE_PASSWORD = "";// 密码
 
 	public static final String DATABASE_NAME = "mxdata";// 数据库名
 	public static final String DATABASE_HOST = "localhost";// 主机地址
