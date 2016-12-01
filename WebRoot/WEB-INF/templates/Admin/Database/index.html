@@ -20,18 +20,19 @@
 
 <body>
 
+	
 	<div class=" col-sm-12 col-lg-12  main">
 		<div class="row">
 			<ol class="breadcrumb">
+			
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
 				<#if session.get("AdminModel").hasPermission("/Admin/Database/add")
 				= true >
-				<li><a href="/Admin/Database/add">备份数据库</a></li> <#else> </#if> <#if
-				session.get("AdminModel").hasPermission("/Admin/Database/list") =
-				true >
-				<li class="active"><a href="/Admin/Database/list">备份数据库文件列表</a></li>
-				<#else> </#if>
+				<li class="active">数据库管理</li> <#else> </#if>
+				
 			</ol>
 		</div>
+		
 		<!--/.row-->
 		<div class="row">
 			<div class="col-lg-12">
