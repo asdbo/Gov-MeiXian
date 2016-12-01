@@ -29,7 +29,47 @@
               <!-- <div class="tab-img"><img src="${public}/images2/14.png"></div> -->
               <div class="tabSwitch_list" style="display: block; left: 0px;">
                
-                <div class="tit_h2">
+              <div class="tit_h2">
+                  <h2>
+                  <#list newcms2 as nc2>
+                  <#if nc2_index=0>
+                   <a href="/Home/ChannelContent?cid=${nc2.id}" class="active" tag="temp01" >${nc2.title}</a>
+                  <#else>
+                 <a href="/Home/ChannelContent?cid=${nc2.id}" >${nc2.title}</a>
+                  </#if>
+				</#list>
+</h2>
+                </div>
+                <div class="tabs_boxlist" style="height: 250px;">
+                 <#list news2 as ns>
+                 <#if ns_index=0>
+                  <div class="tab_box" style="display: block;" >
+                    
+                   <#else>
+                    <div class="tab_box " style="display: none;">
+                   </#if>
+                  <ul class="news_list">
+                       
+					<#list ns as n>
+                        <li>
+                          <a class="newtitle" href="/Home/NewContent?newid=${n.id}"> ${n.title} </a>
+                          <span>
+                          ${n.TIME}
+                          </span></li>
+						</#list>
+							
+                    </ul>
+                  </div>
+                  </#list>
+                  
+                  
+                </div>
+              </div>
+            </div>
+            <div class="conRight00">
+            
+              <div class="tabSwitch_list ywxw">
+               <div class="tit_h2">
                   <h2>
                   <#list newcms as cn>
                   <#if cn_index=0>
@@ -41,7 +81,7 @@
 				</#list>
 </h2>
                 </div>
-                <div class="tabs_boxlist" style="height: 161px;">
+                <div class="tabs_boxlist" style="height: 250px;">
                  <#list news as ns>
                  <#if ns_index=0>
                   <div class="tab_box " style="display: block; ">
@@ -66,7 +106,6 @@
                 </div>
               </div>
             </div>
-            <div class="conRight00">
               <div class="indexlmlj clearfix">
                 <div class="lmljLF">
                   <div class="lmljLeft">
@@ -107,44 +146,6 @@
               
               </div>
               <!-- <div class="tab-img"><img src="${public}/images2/15.png" height="100px"></div> -->
-              <div class="tabSwitch_list ywxw">
-                <div class="tit_h2">
-                  <h2>
-                  <#list newcms2 as nc2>
-                  <#if nc2_index=0>
-                   <a href="/Home/ChannelContent?cid=${nc2.id}" class="active" tag="temp01" >${nc2.title}</a>
-                  <#else>
-                 <a href="/Home/ChannelContent?cid=${nc2.id}" >${nc2.title}</a>
-                  </#if>
-				</#list>
-</h2>
-                </div>
-                <div class="tabs_boxlist" style="height: 161px;">
-                 <#list news2 as ns>
-                 <#if ns_index=0>
-                  <div class="tab_box" style="display: block;" >
-                    
-                   <#else>
-                    <div class="tab_box " style="display: none;">
-                   </#if>
-                  <ul class="news_list">
-                       
-					<#list ns as n>
-                        <li>
-                          <a class="newtitle" href="/Home/NewContent?newid=${n.id}"> ${n.title} </a>
-                          <span>
-                          ${n.TIME}
-                          </span></li>
-						</#list>
-							
-                    </ul>
-                  </div>
-                  </#list>
-                  
-                  
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="contentwrap section01" style="display: none; left: 0px;">
@@ -661,4 +662,55 @@
         </div>
       </div>
     </div>
+    <div class="index_zt">
+	<div class="links_scroll">
+		<div class="inlinks">
+			<a class="prev">&lt;</a>
+			<div class="bd">
+				<div class="tempWrap"
+					style="overflow: hidden; position: relative; width: 1124px">
+					<ul
+						style="width: 3091px; position: relative; overflow: hidden; padding: 0px; margin: 0px; left: -1405px;">
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/29.png"></a></li>
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/30.png"></a></li>
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/31.png"></a></li>
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/14.png"></a></li>
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/15.png"></a></li>
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/29.png"></a></li>
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/30.png"></a></li>
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/31.png"></a></li>
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/14.png"></a></li>
+						<li style="float: left; width: 263px;"><a href=""><img
+								src="${public}/images2/15.png"></a></li>
+					</ul>
+				</div>
+			</div>
+			<a class="next">&gt;</a>
+		</div>
+	</div>
+</div>
+<div class="index_link">
+	<div class="index_linkcon clearfix">
+		<span>网站导航</span>
+		<div class="dhlj">
+			<ul>
+				<li>省内地方政府</li>
+				<li>区县政府网站</li>
+				<li>机关单位</li>
+				<li>各镇（办事处、高管会）</li>
+				<li>其他网站</li>
+			</ul>
+		</div>
+
+	</div>
+</div>
 <#include '/WEB-INF/templates/mxcommon2/footer.html'>

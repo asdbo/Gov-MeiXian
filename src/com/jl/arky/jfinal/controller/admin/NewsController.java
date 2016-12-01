@@ -20,6 +20,8 @@ import org.wltea.analyzer.lucene.IKAnalyzer;
 
 import com.jfinal.aop.Clear;
 import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.Db;
+import com.jfinal.plugin.activerecord.Record;
 import com.jfinal.upload.UploadFile;
 import com.jl.arky.jfinal.model.AdminModel;
 import com.jl.arky.jfinal.model.ChannelModel;
@@ -63,9 +65,19 @@ public class NewsController extends Controller {
 	@Clear
 	public void gethtml() throws IOException{
 		String pid = getPara("pid");
+		AdminModel admin = getSessionAttr("AdminModel");
+		int rid = admin.getInt("roleid");
+		List<Record> list = Db.find("select distinct  cid from channel_right where rid=?",rid);
 		String src="<option value=-1>请选择...</option>";
 		if(!pid.equals("-1")){
-			String sql="select * from channel where pid=?";
+			String ids="";
+			for (Record record : list) {
+				ids+=record.getInt("cid")+",";
+			}
+			if(!ids.equals("")){
+				ids=ids.substring(0, ids.lastIndexOf(","));
+			}
+			String sql="select * from channel where pid=?and id in ("+ids+")";
 			List<ChannelModel> channels = ChannelModel.dao.find(sql,pid);
 			if(!channels.isEmpty()){
 			for(ChannelModel cm:channels){
@@ -289,6 +301,7 @@ public class NewsController extends Controller {
 			doc.add(new Field("title", nm.get("title").toString(),TextField.TYPE_STORED));
 			doc.add(new Field("time", nm.get("TIME").toString(),TextField.TYPE_STORED));
 			doc.add(new Field("summary", nm.get("summary").toString(),TextField.TYPE_STORED));
+			doc.add(new Field("ppid", this.getFirstChannel(nm.getInt("cid")),TextField.TYPE_NOT_STORED));
 			iwriter.addDocument(doc);
 		}catch(Exception e){
 			e.printStackTrace();
@@ -347,6 +360,7 @@ public class NewsController extends Controller {
 			doc.add(new Field("title", nm.get("title").toString(),TextField.TYPE_STORED));
 			doc.add(new Field("time", nm.get("TIME").toString(),TextField.TYPE_STORED));
 			doc.add(new Field("summary", nm.get("summary").toString(),TextField.TYPE_STORED));
+			doc.add(new Field("ppid", this.getFirstChannel(nm.getInt("cid")),TextField.TYPE_NOT_STORED));
 		iwriter.updateDocument(new Term("id",id),doc);	
 		}catch(Exception e){
 			e.printStackTrace();
@@ -361,6 +375,18 @@ public class NewsController extends Controller {
 		
 	}	
 	
+	private String getFirstChannel(int cid) {
+		ChannelModel cm= ChannelModel.dao.findFirst("select pid  from channel where id =?",cid);
+		if(cm!=null){
+			int pid=cid;
+			while((cid=cm.getInt("pid"))!=0){
+				pid=cid;
+				cm=ChannelModel.dao.findFirst("select pid  from channel where id =?",cid);
+			}
+			return pid+"";
+		}
+		return "";
+	}
 
 	
 }

@@ -199,8 +199,8 @@ a.customized_btn{display: block; width: 20px; height: 20px; margin: 15px auto 0;
 
 
 /*section00  sy==============================*/
-.conLeft00{width:49%; height:526px; float:left;}
-.conRight00{width:49%; height:526px; float:right;}
+.conLeft00{width:49%; height:600px; float:left;}
+.conRight00{width:49%; height:600px; float:right;}
 
 .tabs_boxlist{ position:relative; overflow:hidden;}
 
@@ -231,7 +231,7 @@ a.customized_btn{display: block; width: 20px; height: 20px; margin: 15px auto 0;
 
 
 /*xwtz*/
-.tabSwitch_list{width:100%; height:210px; margin-top:18px; overflow:hidden; position:relative; clear:both;}
+.tabSwitch_list{width:100%; height:300px; margin-top:6px; overflow:hidden; position:relative; clear:both;}
 .tit_h2{background:#ebebeb; height:40px; line-height:40px; overflow:hidden;}
 .tit_h2 h2{padding:0; margin:0; font-size:1.14em; float:left; white-space:nowrap;}
 .tit_h2 h2 a{display:block; float:left; text-align:center; color:#666; text-decoration:none; padding:0 20px;}

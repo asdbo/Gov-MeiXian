@@ -72,7 +72,7 @@ public class IndexController extends Controller {
 		List<ChannelModel> newcms = this.getCMS(pid,5);
 		setAttr("newcms", newcms);//栏目
 		//获取相应的新闻
-		List<List<NewsModel>> news = this.getNEWS(newcms, 5);
+		List<List<NewsModel>> news = this.getNEWS(newcms, 9);
 		setAttr("news", news);//新闻
 		List<List<NewsModel>> news2 = new ArrayList<List<NewsModel>>();
 		List<ChannelModel> newcms2 = new ArrayList<ChannelModel>();

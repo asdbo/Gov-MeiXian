@@ -87,29 +87,6 @@ public class IndexController extends Controller{
 		}
 		renderText("render OK");
 	}
-	public void changeFile(){
-		String who = getPara("who");
-		String rootpath = getRequest().getServletContext().getRealPath("/WEB-INF/templates");
-		File file = new File(rootpath+"/"+who);
-		if(file.exists()){
-			if(who.equals("mj")){
-				new File(rootpath+"/Home").renameTo(new File(rootpath+"/mx"));
-			}else if(who.equals("mx")){
-				new File(rootpath+"/Home").renameTo(new File(rootpath+"/mj"));
-			}
-			file.renameTo(new File(rootpath+"/Home"));
-		}
-		renderNull();
-	}
-	public void whatFile(){
-		String rootpath = getRequest().getServletContext().getRealPath("/WEB-INF/templates");
-		File file = new File(rootpath+"/mx");
-		if(file.exists()){
-			renderText("梅县");
-		}else{
-			renderText("梅江");
-		}
-	}
 	public void testI18N(){
 //		HttpServletRequest request = getRequest();
 //		String path = request.getSession().getServletContext().getRealPath("/");

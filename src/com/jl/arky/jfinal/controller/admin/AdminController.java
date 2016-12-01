@@ -366,6 +366,7 @@ public class AdminController extends Controller {
 				//将toplist置于session
                 List<Model> topList = PrivilegeModel.dao.find("select * from privilege where parentid = ?",1);
 				setSessionAttr("topList",topList);
+				System.out.println("登录成功》》》》》");
 				redirect("/Admin/Index");
 
 			} else {

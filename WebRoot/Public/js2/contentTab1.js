@@ -5,12 +5,7 @@ function bigMoveBox(obj){
     if($(obj).hasClass('active'))return;
     var iBodyWidth = 1300;
     var oCurrent=null;
-    var oObjTag=$(obj).attr('tag');    
-    $('.nav_listbox .nav_ul a').each(function(){
-        if($(this).hasClass('active')){
-            oCurrent=$(this).attr('tag');
-        }
-    })
+    var oObjTag=$(obj).attr('tag');  
     $(obj).parent().parent().find('a').removeClass('active')
     $(obj).addClass('active');
     $('.ind_content_wrap .contentwrap').css({'display':'none','left':iBodyWidth});
@@ -169,11 +164,7 @@ function imgMove(obj){
 }
 
 $(document).ready(function(){
-   $('.nav_ul li').each(function(){
-        $(this).find('a').mouseenter(function(){
-			bigMoveBox(this);
-        });
-	});
+  
 	$('.tit_h2 h2 a').each(function(){
         $(this).mouseenter(function(){
 			tabMove(this,$(this).index());

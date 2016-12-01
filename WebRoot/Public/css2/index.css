@@ -1093,6 +1093,11 @@ padding: 3px;
     width: 94%;
     color: #fff;
     font-size: 15px;
+    background-size:100% 100%;
+}
+.news-center .center-contents .contents-menu ul li a{
+	display:block;
+	line-height:38px;
 }
 .news-center .center-contents .contents-menu ul li.new-active a{
     color: #fff;
@@ -1112,7 +1117,7 @@ padding: 3px;
 }
 .news-center .center-contents .contents-list .list-dimension{
         margin-top: 2%;
-    height: 225px;
+    height: 250px;
 }
 .news-center .center-contents .contents-list .list-dimension ul{
     height: 100%;
