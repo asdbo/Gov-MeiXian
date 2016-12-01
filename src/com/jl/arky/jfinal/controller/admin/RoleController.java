@@ -12,16 +12,23 @@ import com.jfinal.plugin.activerecord.Db;
 import com.jfinal.plugin.activerecord.Model;
 import com.jl.arky.jfinal.interceptor.CheckPrivilegeInterceptor;
 import com.jl.arky.jfinal.model.AdminModel;
+import com.jl.arky.jfinal.model.ChannelModel;
+import com.jl.arky.jfinal.model.ChannelRightModel;
 import com.jl.arky.jfinal.model.R_P_Model;
 import com.jl.arky.jfinal.model.RoleModel;
 import com.jl.arky.jfinal.model.U_R_Model;
-//@Before(CheckPrivilegeInterceptor.class)
+@Before(CheckPrivilegeInterceptor.class)
 public class RoleController extends Controller{
 	
      public void list(){
     	 //此处获取角色列表 
  		List<Model> roleList= RoleModel.dao.find("select * from role");
  		setAttr("roleList", roleList);
+ 		
+ 		List<ChannelModel> channelList=(List<ChannelModel>) ChannelModel.dao.find("select * from channel where pid = ?",0 );
+     	setAttr("topChannelList",channelList);
+ 		
+ 		
     	 //返回结果给列表
  		render("index.html");
     	 
@@ -162,12 +169,65 @@ public class RoleController extends Controller{
  	 * 修改角色拥有的栏目权限
  	 */
  	public void updateChannelPrivilege(){
+ 		ChannelRightModel channelRightModel;
+ 		
+ 		Integer[] channelNum=this.getParaValuesToInt("channelNum");
+ 		
+       //获取修改角色的id和栏目id
+ 		int roleid=getParaToInt("roleid");
+ 		int cid=getParaToInt("cid");
+ 		
+ 		
+
+// 		//以及要修改的所有权限（修改栏目的特定权限）
+// 		
+// 		
+// 		//
+// 		
+ 		//删除该角色以前的所有权限
+ 		Db.update("delete from channel_right where pid = ? and rid = ?",cid,roleid);
+ 		
+ 		
+ 		
+
+ 		for (int i=1; i<channelNum.length; i++) {
+ 			
+ 		 channelRightModel=	getModel(ChannelRightModel.class, "channelRightModel" + channelNum[i]);
+ 		channelRightModel.set("rid", roleid);
+ 		channelRightModel.set("pid", cid);
+ 		channelRightModel.save();
+ 		 System.out.println( getModel(ChannelRightModel.class, "channelRightModel" + i));
+ 			}
+// 		for (int i=1; i<4; i++) {
+// 			
+// 			 System.out.println( getModel(AdminModel.class, "adminModel" + i));
+// 			 if(getModel(AdminModel.class, "adminModel" + i).get("roleid")==null){
+// 				 System.out.println("hahahh");
+// 			}
+// 		}
+ 		renderText("修改成功");
  		
  	}
  	/*
  	 * 修改角色拥有的栏目权限链接
  	 */
     public void toUpdateChannelPrivilege(){
- 		
+ 		//获取要修改角色的id和栏目id
+    	int roleid=getParaToInt("roleid");
+    	int cid=getParaToInt("cid");
+    	setAttr("roleid",roleid);
+    	setAttr("cid",cid);
+    	
+    	
+    	
+    	//通过cid获取到子栏目然后setAttr（到页面）
+    	List<ChannelModel> channelList=(List<ChannelModel>) ChannelModel.dao.find("select * from channel where pid = ?",cid );
+     	setAttr("channelList",channelList);
+    	
+    	//回显当前角色拥有的栏目权限
+    	
+    	
+    	render("edit.html");
+    	
  	}
 }

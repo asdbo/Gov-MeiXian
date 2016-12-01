@@ -11,6 +11,8 @@ public class AdminModel extends Model<Model>{
 	//当前拥有的权限列表
 	List<String> urlList = new ArrayList<String>();
 	
+	//当前拥有的栏目权限列表
+		List<Record> channelList= new ArrayList<Record>();
 	
 	public static final AdminModel dao = new AdminModel();
 	public void add(){
@@ -64,6 +66,45 @@ public class AdminModel extends Model<Model>{
 		
 	
 	}
+	
+	
+	/*
+	 * 判断用户是否有channel权限
+	 */
+	public boolean hasChannelPrivilege(int cid,String right){
+		Record record;
+		if(channelList.size()<1){
+			int roleid=this.getInt("roleid");
+			channelList=Db.find("select * from channel_right where rid = ?",roleid);
+			System.out.println("这是栏目的个数"+channelList.size());
+		}else{
+			
+		}
+		
+		
+		for(int i=0;i<channelList.size();i++){
+			 record=channelList.get(i);
+//			 System.out.println(i);
+//			 System.out.println(record.getInt("id"));
+			 
+			 
+			if(record.get("cid").equals(cid)){
+				System.out.println("<++++++++++++++++++++++++++++++++++++>");
+				System.out.println(cid);
+				System.out.println(record.get("cid"));
+				System.out.println("拥有权限");
+				System.out.println("<++++++++++++++++++++++++++++++++++++>");
+			    return !record.getBoolean(right);
+			}
+			
+		}
+		
+		return false;
+		
+		
+		
+	}
+	
 	/*
 	 * 获取当前用户的所有权限
 	 */
@@ -73,4 +114,16 @@ public class AdminModel extends Model<Model>{
 		return permissionList;
 		
 	}
+	/*
+	 * 获取当前用户的所有的栏目权限
+	 */
+	public List<Model> getAllChannelPrivilege(){
+		
+		return null;
+	}
+	
+	
 }
+
+	
+

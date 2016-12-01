@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/bootstrap-table.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+	<script src="${public}/js/jquery-2.2.2.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script src="${public}/js/bootstrap-table.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+<style>
+
+  .table-list thead th {
+    height: 30px;
+    background: #eef3f7;
+    border-bottom: 1px solid #d5dfe8;
+    font-weight: normal;
+}
+.table-list tbody td, .table-list .btn {
+    border-bottom: #eee 1px solid;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+input.button, input.btn {
+    padding: 0.25em;
+    width: auto;
+    _width: 0;
+}
+</style>
+</head>
+
+<body style="background:#fff;">
+<form action="/Admin/Role/updateChannelPrivilege" method="post">
+<input name="roleid" value="${roleid}" type="hidden" >
+<input name="cid" value="${cid}" type="hidden" >
+<div class="table-list" id="load_priv">
+<table width="100%" class="table-list">
+			  <thead>
+				<tr>
+				  <th width="30">全选</th><th align="left">栏目名称</th><th width="30">查看</th><th width="30">添加</th><th width="30">修改</th><th width="30">删除</th>
+			  </tr>
+			    </thead>
+				 <tbody>
+				 <#list channelList as list >
+				<tr>
+					<td align='center'><input type='checkbox'  value='1' onclick='select_all(1138, this)' ></td>
+				  <td>${list.title}</td>
+				   <input name="channelNum" type="hidden" value="${list.id}">
+				    <input name="channelRightModel${list.id}.cid" type="hidden" value="${list.id}">
+				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.look'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.add'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.update'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${list.id}.delete'    value='1' ></td>
+			  </tr>	
+			   <#list list.getChildren() as items >
+			    <tr>
+					<td align='center'><input type='checkbox'  value='1' onclick='select_all(1138, this)' ></td>
+				  <td> -> ${items.title}</td>
+				   <input name="channelNum" type="hidden" value="${items.id}">
+				    <input name="channelRightModel${items.id}.cid" type="hidden" value="${items.id}">
+				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.look'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.add'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.update'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${items.id}.delete'    value='1' ></td>
+			  </tr>	
+			   <#list items.getChildren()as item >
+			    <tr>
+					<td align='center'><input type='checkbox'  value='1' onclick='select_all(1138, this)' ></td>
+				  <td> --> ${item.title}</td>
+				   <input name="channelNum" type="hidden" value="${item.id}">
+				      <input name="channelRightModel${item.id}.cid" type="hidden" value="${item.id}">
+				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.look'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.add'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.update'   value='1' ></td>
+				  <td align='center'><input type='checkbox' name='channelRightModel${item.id}.delete'    value='1' ></td>
+			  </tr>
+			  </#list>
+			  </#list>
+			  	</#list>
+			   </tbody>
+			  
+			</table>
+<div class="btn">
+<input type="submit" value="提交" class="button">
+</div>
+</div>
+</form>
+
+
+
+</body>
+
+</html>

@@ -14,7 +14,57 @@
 <script src="js/html5shiv.js"></script>
 <script src="js/respond.min.js"></script>
 <![endif]-->
-
+<style type="text/css">
+ .modal-body{
+   padding:15px 5px;
+ }
+ .modal-body .row{
+     margin: 0 auto;
+    font-size: 13px;
+    }
+ .modal-body .row .col-md-3{
+           border: 1px solid #c7d8ea;
+    padding:0;
+ }
+ .modal-body .row .col-md-3 h6{
+    margin:0;
+        border-bottom: 1px solid #c7d8ea;
+    color: #3a6ea5;
+    background: url(http://www.gdmx.gov.cn/statics/images/admin_img/x_bg.png) repeat-x left -42px;
+    height: 26px;
+    line-height: 28px;
+     padding: 0 8px;
+ }
+ .modal-body .row .col-md-3 ul{
+          padding-left: 0;
+    overflow: hidden;
+    padding: 0 5px;
+    margin: 5px 0;
+ }
+ .modal-body .row .col-md-3 ul li{
+ list-style: none;
+ overflow: hidden;
+ height:25px;
+ }
+ .modal-body .row .col-md-3 ul li span{
+    float: right;
+ }
+ .modal-body .row .col-md-3 ul li em{
+     white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    float: left;
+    width: 61%;
+    display: block;
+    color:#333;
+    font-style:normal;
+ }
+  .modal-body .row .col-md-8{
+   padding:1px;border: 1px solid #c7d8ea;
+   margin-left:5px;
+   width:74%;
+ }
+</style>
 </head>
 
 <body>
@@ -76,10 +126,20 @@
 										  >删除</button> <#else>
 
 										</#if>
-										
+										<#if
+										session.get("AdminModel").hasPermission("/Admin/Role/toUpdateChannelPrivilege")
+										= true >
+										 <button  class="btn btn-primary" data-toggle="modal" data-target="#editModal" onClick="sub(${list.id})">栏目权限</button>
+										<#else>
+										</#if>
+										<#if
+										session.get("AdminModel").hasPermission("/Admin/Role/toUpdateRoleInfo")
+										= true >
 										<a href="/Admin/Role/toUpdateRoleInfo?id=${list.id}"> <input
 											value="修改用户信息" type="submit" class="btn btn-primary">
 									</a> 
+									<#else>
+										</#if>
 									</td>
 
 							</tr>
@@ -98,7 +158,7 @@
 
 	</div>
 	<!--/.main-->
-		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal fade" id="deleteModal" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -111,6 +171,36 @@
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 		        <button type="button" class="btn btn-primary del" id="del">删除</button>
+		      </div>
+		    </div>
+		  </div>
+	</div>
+	
+	   <div class="modal fade" id="editModal" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">栏目权限</h4>
+		      </div>
+		      <div class="modal-body">
+		          <div class="row">
+		            <div class="col-md-3">
+		              <div class="col-2 col-left mr6" style="width:100%">
+					      <h6><img src="http://www.gdmx.gov.cn/statics/images/icon/sitemap-application-blue.png" width="16" height="16"> 站点选择</h6>
+					          <ul class="content role-memu" id="site_list">
+					                 <#list topChannelList as list >
+					           <li><a class="set set${list_index}" href="/Admin/Role/toUpdateChannelPrivilege?cid=${list.id}&roleid=6" target="role"><span><img src="http://www.gdmx.gov.cn/statics/images/icon/gear_disable.png" width="16" height="16">设置</span><em>${list.title}</em></a></li>
+					          
+					                 </#list>
+					                     
+					                 </ul>
+					    </div>
+		            </div>
+		            <div class="col-md-8">
+		              <iframe name="role" id="role" src="/Admin/Role/toUpdateChannelPrivilege?cid=2&roleid=6" frameborder="false" scrolling="auto" style="overflow-x:hidden;border:none" width="100%" height="483" allowtransparency="true"></iframe>
+		            </div>
+		          </div>
 		      </div>
 		    </div>
 		  </div>
@@ -154,6 +244,16 @@
 	}
 	function deleteData(id){
 		$('#del').attr("data-id", id);
+	}
+	function sub(a){ 
+		var set=$('.set');
+		for(var i=0;i<set.length;i++){
+			var str=$('.set'+i).attr('href');
+			var string=str.substring(str.length-1);
+			var aa=string.replace(string,a);
+			var string1=str.substring(0,str.length-1);
+			$('.set'+i).attr('href',string1+aa)
+		}
 	}
 </script>
 <script type="text/javascript">
