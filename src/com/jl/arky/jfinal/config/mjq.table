@@ -164,3 +164,29 @@ CREATE TABLE `rss_channel` (
  PRIMARY KEY (`id`)
 )  CHARSET=utf8;
 
+
+12.1 增加的友情链接
+/*创建表 `flink` */
+CREATE TABLE `flink` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `link` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+
+/*表 `flink` 的数据*/
+insert  into `flink`(`id`,`title`,`link`) values (3,'fdsaaa','sfdafsda'),(4,'sdafaafdsa','sadf sdfasd');
+
+
+/*增加权限 */
+insert  into `privilege`(`id`,`url`,`name`,`parentId`,`type`,`icon`) values (93,'/Admin/Flink','友情链接管理',1,0,'glyphicon-list-alt'),(94,'/Admin/Flink/list','友情链接显示',93,0,NULL),(95,'/Admin/Flink/toAdd','友情链接添加',93,0,NULL),(96,'/Admin/Flink/toedit','友情链接修改',93,1,NULL),(97,'/Admin/Flink/delete','友情链接删除',93,1,NULL),(98,'/Admin/Flink/update','友情链接更新',93,1,NULL),(99,'/Admin/Flink/save','友情链接保存',93,1,NULL);
+
+
+
+
+
+
+
+
+

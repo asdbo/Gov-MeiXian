@@ -17,6 +17,7 @@ import com.jl.arky.jfinal.controller.admin.BusinessController;
 import com.jl.arky.jfinal.controller.admin.CarouselController;
 import com.jl.arky.jfinal.controller.admin.ChannelController;
 import com.jl.arky.jfinal.controller.admin.DatabaseController;
+import com.jl.arky.jfinal.controller.admin.FlinkController;
 import com.jl.arky.jfinal.controller.admin.IndexController;
 import com.jl.arky.jfinal.controller.admin.LetterController;
 import com.jl.arky.jfinal.controller.admin.MailController;
@@ -36,6 +37,7 @@ import com.jl.arky.jfinal.model.BusinessModel;
 import com.jl.arky.jfinal.model.CarouselModel;
 import com.jl.arky.jfinal.model.ChannelModel;
 import com.jl.arky.jfinal.model.ChannelRightModel;
+import com.jl.arky.jfinal.model.FlinkModel;
 import com.jl.arky.jfinal.model.LetterModel;
 import com.jl.arky.jfinal.model.Letter_Dept_Model;
 import com.jl.arky.jfinal.model.Letter_Type_Model;
@@ -53,9 +55,9 @@ import com.jl.arky.jfinal.utils.CacheUtil;
 import freemarker.core._CoreAPI;
 
 public class MainConfig extends JFinalConfig {
-	public static final String DATABASE_USERNAME = "root";// 用户名
+	public static final String DATABASE_USERNAME = "arky";// 用户名
 
-	public static final String DATABASE_PASSWORD = "1234";// 密码
+	public static final String DATABASE_PASSWORD = "arky123";// 密码
 
 	public static final String DATABASE_NAME = "mxdata";// 数据库名
 	public static final String DATABASE_HOST = "localhost";// 主机地址
@@ -93,7 +95,7 @@ public class MainConfig extends JFinalConfig {
 		me.add("/Admin/Rss", RssController.class);
 		me.add("/Admin/Navigation", NavigationController.class);
 		me.add("Admin/Role",RoleController.class);
-		
+		me.add("/Admin/Flink",FlinkController.class);
 		//app路由
 		me.add("/v1/carousel", com.jl.arky.jfinal.controller.app.CarouselController.class);
 		me.add("/v1/news", com.jl.arky.jfinal.controller.app.NewsController.class);
@@ -119,6 +121,7 @@ public class MainConfig extends JFinalConfig {
 		arp.addMapping("channel", ChannelModel.class);
 		arp.addMapping("admin", AdminModel.class);
 		arp.addMapping("admin_log", AdminLogModel.class);
+		arp.addMapping("flink", FlinkModel.class);
 
 		arp.addMapping("email", MailModel.class);
 		arp.addMapping("rss_items", RssModel.class);

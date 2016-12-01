@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>后台管理</title>
+<link href="${public}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${public}/css/bootstrap-table.css" rel="stylesheet">
+<link href="${public}/css/index.css" rel="stylesheet">
+	<script src="${public}/js/jquery-2.2.2.min.js"></script>
+	<script src="${public}/js/bootstrap.min.js"></script>
+	<script src="${public}/js/bootstrap-table.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+	<div class=" col-sm-12 col-lg-12  main">
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">友情链接管理</li>
+			</ol>
+		</div>
+		<!--/.row-->
+		<div class="row">
+			
+			<div class="col-lg-12">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="/Admin/Flink/list">友情链接管理</a></li>
+						<#if session.get("AdminModel").hasPermission("/Admin/Flink/toAdd") = true >
+					<li ><a href="/Admin/Flink/toAdd">添加友情链接</a></li>
+					<#else>
+					</#if>
+				
+				</ul>
+				<div class="panel panel-default">
+					
+					<div class="panel-body">
+					<div class="bs-bars pull-left"><div id="toolbar">
+        <button onClick="deletedatas()" id="remove" data-target="#deleteModal" data-toggle="modal" class="btn btn-danger" disabled>
+            <i class="glyphicon glyphicon-remove"></i> 批量删除
+        </button>
+    </div></div>
+						<table id="tab" data-toggle="table" 
+							data-show-refresh="true" data-show-toggle="true"
+							data-show-columns="true" data-search="true"
+							 data-pagination="true"
+							data-id-field="id"
+							data-sort-name="name" data-sort-order="desc">
+							<thead>
+								<tr>
+									<th data-sortable="true" data-checkbox="true" ></th>
+									<th data-field="id" data-align="center">链接 ID</th>
+									<th data-sortable="true" data-align="center">链接标题</th>
+									<th data-sortable="true" data-align="center">链接地址</th>
+								
+									<#if session.get("AdminModel").hasPermission("/Admin/Flink/toedit") = true >
+									<th data-sortable="true" data-align="center">修改</th>
+										<#else>
+									</#if>
+								<#if session.get("AdminModel").hasPermission("/Admin/Flink/delete") = true >
+									<th data-sortable="true" data-align="center">删除</th>
+									<#else>
+									</#if>
+								</tr>
+							</thead>
+								<tbody>
+								<#list flinkModel as c>
+							<tr data-index="${c.id}">
+									<td></td>
+								<td>${c.id}</td>
+								<td>${(c.title)!}</td>
+								<td>${(c.link)!}</td>
+							
+								<#if session.get("AdminModel").hasPermission("/Admin/Flink/toedit") = true >
+								<td style="text-align: center;"><a
+									href="/Admin/Flink/toedit?id=${c.id}"><button type="button" class="btn btn-primary">修改</button></a></td>
+								
+								<#else>
+									</#if>
+									
+									
+									<#if session.get("AdminModel").hasPermission("/Admin/Flink/delete") = true >
+							<td>
+								<button class="btn btn-danger delete"
+										  data-target="#deleteModal" data-toggle="modal" onClick="deleteData(${c.id})">删除</button>	
+								</td>
+									<#else>
+									</#if>
+									
+
+							</tr>
+	
+							</#list>
+
+						</table>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/.row-->
+
+
+
+	</div>
+	<!--/.main-->
+		<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">提醒</h4>
+		      </div>
+		      <div class="modal-body">
+		          删除不可恢复，是否确认删除？
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+		        <button type="button" class="btn btn-primary del" id="del">删除</button>
+		      </div>
+		    </div>
+		  </div>
+	</div>
+
+	<script>
+	!function ($) {
+		$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
+			$(this).find('em:first').toggleClass("glyphicon-minus");	  
+		}); 
+		$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+	}(window.jQuery);
+
+	$(window).on('resize', function () {
+	  if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+	});
+	$(window).on('resize', function () {
+	  if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+	});
+	
+	$('#del').click(function(){
+		$id = $(this).data("id");
+		window.location.href="/Admin/Flink/delete/?id=" + $id;
+	});
+	var $table = $('#tab'), $remove=$("#remove"), selections = [];
+	$table.on('check.bs.table uncheck.bs.table '
+			+ 'check-all.bs.table uncheck-all.bs.table', function() {
+		$remove.prop('disabled', !$table
+				.bootstrapTable('getSelections').length);
+
+		selections = getIdSelections();
+	});
+	function getIdSelections() {
+		return  $.map($table.bootstrapTable('getSelections'), function(row) {
+			return row.id;
+		});
+	}
+	function deletedatas(){
+		var id=getIdSelections();
+		deleteData(id);
+	}
+	function deleteData(id){
+		$('#del').attr("data-id", id);
+	}
+</script>
+<script type="text/javascript">
+
+</script>
+</body>
+
+</html>
