@@ -18,12 +18,13 @@ public class CarouselController extends Controller {
 	public void index(){
 		String method = getRequest().getMethod();
 		if("get".equalsIgnoreCase(method)){
-			List<Carousel> list=Carousel.dao.find("select * from carousel");
+			List<Carousel> list=Carousel.dao.find("select * from carousel where carouselType =  0");
 			List<Map> lists=new ArrayList<Map>();
 			for(Carousel carousel:list){
 				Map<String,String> map=new HashMap<String, String>();
 				map.put("link", carousel.getLink());
 				map.put("title", carousel.getTitle());
+				map.put("tolink", carousel.getTolink());
 				lists.add(map);
 			}
 			renderJson(lists);

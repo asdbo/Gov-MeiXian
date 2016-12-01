@@ -283,10 +283,10 @@ public class NewsController extends Controller {
 			news.addAll(ns);
 		}
 		
-//		for(NewsModel nm:news){
-//			String date = TimeUtil.timeStampToDate((long)nm.get("time"));
-//			nm.set("TIME", date);
-//		}
+		for(NewsModel nm:news){
+			String date = TimeUtil.timeStampToDate((long)nm.get("time"));
+			nm.set("TIME", date);
+		}
 		System.out.println("欧阳泽鹏"+news.size());
 		setAttr("news", news);
 		render("index.html");
