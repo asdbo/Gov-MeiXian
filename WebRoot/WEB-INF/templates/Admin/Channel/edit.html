@@ -28,12 +28,18 @@ $(function(){
 });
 	 $("#leixing").each(function(){
          $(this).find("option").each(function(){
-                 if($(this).val() == ${(channelModel.pid)!}){
+                 if($(this).val() == ${(channelModel.type)!}){
                      $(this).attr("selected","selected");
                  }
          });
 });
-	
+	 $("#show_type").each(function(){
+         $(this).find("option").each(function(){
+                 if($(this).val() == ${(channelModel.show_type)!}){
+                     $(this).attr("selected","selected");
+                 }
+         });
+});
 
  } 	);
 </script>
@@ -78,9 +84,6 @@ $(function(){
 										 <#list channelModel1 as o>
 										<option value="${o.id}">${o.title}</option> 
 										</#list>
-
-									
-
 									</select>
 
 								</div>
@@ -93,9 +96,21 @@ $(function(){
 										name="channelModel.type">
 										<option value="0">新闻</option>
 										<option value="1">信件</option>
+										<option value="2">知识库</option>
 									</select>
 								</div>
 							</div>
+								<div class="form-group">
+								<label for="exampleInputText1" class="col-sm-2 control-label">类型</label>
+								<div class="col-sm-6">
+									<select class="form-control" id="show_type"
+										name="channelModel.show_type">
+										<option value="0">文字</option>
+										<option value="1">图片</option>
+									</select>
+								</div>
+							</div>
+							
 <#if session.get("AdminModel").hasPermission("/Admin/Channel/update") = true >
 							<div class="form-group">
 								<input type="submit" class="btn btn-primary  col-sm-offset-2"
