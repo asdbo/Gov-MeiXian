@@ -20,10 +20,6 @@ public class LetterController extends Controller {
 		List<Model> letterModel = LetterModel.dao.find(
 				"select id,people_name,theme,content,letter_dept,receive_time,letter_type,state from letter order by receive_time desc");
 
-		List<Model> letterTypes = Letter_Type_Model.dao.getLetterTypes();
-		List<Model> letterDepts = Letter_Dept_Model.dao.getLetterDept();
-		setAttr("letterTypes", letterTypes);
-		setAttr("letterDepts", letterDepts);
 
 		setAttr("letterModel", letterModel);
 		
@@ -43,10 +39,6 @@ public class LetterController extends Controller {
 				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = 2  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		
-		List<Model> letterTypes = Letter_Type_Model.dao.getLetterTypes();
-		List<Model> letterDepts = Letter_Dept_Model.dao.getLetterDept();
-		setAttr("letterTypes", letterTypes);
-		setAttr("letterDepts", letterDepts);
 		render("index.html");
 	}
 
@@ -56,10 +48,6 @@ public class LetterController extends Controller {
 				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = 1  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		
-		List<Model> letterTypes = Letter_Type_Model.dao.getLetterTypes();
-		List<Model> letterDepts = Letter_Dept_Model.dao.getLetterDept();
-		setAttr("letterTypes", letterTypes);
-		setAttr("letterDepts", letterDepts);
 		render("index.html");
 	}
 
@@ -69,10 +57,6 @@ public class LetterController extends Controller {
 				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = 4  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		
-		List<Model> letterTypes = Letter_Type_Model.dao.getLetterTypes();
-		List<Model> letterDepts = Letter_Dept_Model.dao.getLetterDept();
-		setAttr("letterTypes", letterTypes);
-		setAttr("letterDepts", letterDepts);
 		render("index.html");
 	}
 
@@ -82,10 +66,6 @@ public class LetterController extends Controller {
 				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = 3  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		
-		List<Model> letterTypes = Letter_Type_Model.dao.getLetterTypes();
-		List<Model> letterDepts = Letter_Dept_Model.dao.getLetterDept();
-		setAttr("letterTypes", letterTypes);
-		setAttr("letterDepts", letterDepts);
 		render("index.html");
 	}
 
@@ -95,10 +75,6 @@ public class LetterController extends Controller {
 				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = 5  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		
-		List<Model> letterTypes = Letter_Type_Model.dao.getLetterTypes();
-		List<Model> letterDepts = Letter_Dept_Model.dao.getLetterDept();
-		setAttr("letterTypes", letterTypes);
-		setAttr("letterDepts", letterDepts);
 		render("index.html");
 	}
 
@@ -108,10 +84,6 @@ public class LetterController extends Controller {
 				"SELECT id,people_name,theme,content,letter_dept,receive_time,letter_type,state FROM letter where letter_type = 6  ORDER BY receive_time DESC");
 		setAttr("letterModel", letterModel);
 		
-		List<Model> letterTypes = Letter_Type_Model.dao.getLetterTypes();
-		List<Model> letterDepts = Letter_Dept_Model.dao.getLetterDept();
-		setAttr("letterTypes", letterTypes);
-		setAttr("letterDepts", letterDepts);
 		render("index.html");
 	}
 
